@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EBEBEB"
+    android:padding="10dp"
+    tools:context="com.abdelsattar.alahramapp.RequestFormActivity">
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFF"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:padding="10dp"
+                android:layout_height="match_parent">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/layoutClientName"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etClientName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lblclientnam"
+                        android:imeActionLabel="@string/lblclientnam"
+                        android:imeOptions="actionUnspecified"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/layoutClientKSAPhone"
+                    android:layout_below="@+id/layoutClientName"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etClientphoneKSA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lblclientPhoneKSA"
+                        android:imeActionLabel="@string/lblclientPhoneKSA"
+                        android:imeOptions="actionUnspecified"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/layoutClientEGPhone"
+                    android:layout_below="@+id/layoutClientKSAPhone"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etClientphoneEG"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lblclientPhoneEG"
+                        android:imeActionLabel="@string/lblclientPhoneEG"
+                        android:imeOptions="actionUnspecified"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/layClientNationID"
+                    android:layout_below="@+id/layoutClientEGPhone"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etClientNationID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lblNationalId"
+                        android:imeActionLabel="@string/lblNationalId"
+                        android:imeOptions="actionUnspecified"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_below="@+id/layClientNationID"
+                    android:id="@+id/layoutRecieverName"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etRecieverName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lbl_recievername"
+                        android:imeActionLabel="@string/lbl_recievername"
+                        android:imeOptions="actionUnspecified"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/layoutRecieverKSAPhone"
+                    android:layout_below="@+id/layoutRecieverName"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etRecieverphoneKSA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lblRecieverKSAphone"
+                        android:imeActionLabel="@string/lblRecieverKSAphone"
+                        android:imeOptions="actionUnspecified"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/layoutRecieverEGPhone"
+                    android:layout_below="@+id/layoutRecieverKSAPhone"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etRecieverphoneEG"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lblReiverPhoneKSA"
+                        android:imeActionLabel="@string/lblclientPhoneEG"
+                        android:imeOptions="actionUnspecified"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/layRecieverNationID"
+                    android:layout_below="@+id/layoutRecieverEGPhone"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etRecieverNationID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lblRecieverNationalId"
+                        android:imeActionLabel="@string/lblRecieverNationalId"
+                        android:imeOptions="actionUnspecified"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <Spinner
+                    android:id="@+id/spinner_client_nationality"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layRecieverNationID"
+                   />
+
+                <TextView
+                    android:id="@+id/tvClientAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/spinner_client_nationality"
+                    style="@style/Base.TextAppearance.AppCompat.Large"
+                    android:text="@string/lblClientAddressTitle"
+                    />
+
+                <Spinner
+                    android:id="@+id/spinner_client_address_country"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvClientAddress"
+                    />
+
+                <Spinner
+                    android:id="@+id/spinner_client_address_city"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/spinner_client_address_country"
+                    />
+
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/layclientAddressDetails"
+                    android:layout_below="@+id/spinner_client_address_city"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etClientAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lbl_clientAddress_details"
+                        android:gravity="top"
+                        android:imeActionLabel="@string/lbl_clientAddress_details"
+                        android:imeOptions="actionUnspecified"
+                        android:inputType="text"
+                        android:maxLines="2"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+                <TextView
+                    android:id="@+id/tvRecieverAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/layclientAddressDetails"
+                    style="@style/Base.TextAppearance.AppCompat.Large"
+                    android:text="@string/lblRecieverAddress"
+                    />
+
+                <Spinner
+                    android:id="@+id/spinner_Reciever_address_country"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvRecieverAddress"
+                    />
+
+                <Spinner
+                    android:id="@+id/spinner_Reciever_address_city"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/spinner_Reciever_address_country"
+                    />
+
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/layRecieverAddressDetails"
+                    android:layout_below="@+id/spinner_Reciever_address_city"
+                    android:layout_height="wrap_content">
+
+
+
+                    <EditText
+                        android:id="@+id/etRecieverAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lbl_recieverdetailedAddress"
+                        android:gravity="top"
+                        android:imeActionLabel="@string/lbl_recieverdetailedAddress"
+                        android:imeOptions="actionUnspecified"
+                        android:inputType="text"
+                        android:maxLines="2"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+                <Button
+                    android:id="@+id/nextbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/layRecieverAddressDetails"
+                    android:layout_weight="1"
+                    android:background="#113353"
+                    android:textColor="#FFF"
+                    android:text="التالي" />
+            </RelativeLayout>
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

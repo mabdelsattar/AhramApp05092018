@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:scrollbars="vertical"
+    android:layout_height="fill_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="1000dp">
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="12dp"
+        android:text="الاهرام"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="25sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/textView26"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView23"
+        android:layout_alignBottom="@+id/textView23"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
+        android:text="رقم الفاتوره"
+        android:textColor="#ea1b1b"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView23"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:text="للشحن وتوصيل البضاءع  لمصر"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView26"
+        android:layout_alignStart="@+id/textView26"
+        android:layout_below="@+id/textView26"
+        android:text="مؤسسه نبيهه ابراهيم صالح مرعى"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_below="@+id/imageView"
+        android:text="Al-Aharm" />
+
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView28"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="for shipment to egypt"
+        android:textSize="10sp" />
+
+    <LinearLayout
+        android:id="@+id/id2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/textView29"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="4dp"
+        android:background="#3d3c3c"
+        android:orientation="vertical" />
+
+    <LinearLayout
+        android:id="@+id/id1"
+        android:layout_width="600dp"
+        android:layout_height="2dp"
+        android:layout_below="@+id/id2"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="5dp"
+        android:background="#ea1b1b"
+        android:orientation="vertical" />
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView26"
+        android:layout_alignRight="@+id/textView26"
+        android:layout_below="@+id/id1"
+        android:layout_marginTop="24dp"
+        android:text="تاريخ:"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView30"
+        android:layout_toLeftOf="@+id/textView30"
+        android:layout_toStartOf="@+id/textView30"
+        android:text="------------" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_date"
+        android:layout_alignBottom="@+id/tv_date"
+        android:layout_toLeftOf="@+id/tv_date"
+        android:layout_toStartOf="@+id/tv_date"
+        android:text=":عدد الطرود"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_nooftarod"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView32"
+        android:layout_toLeftOf="@+id/textView32"
+        android:layout_toStartOf="@+id/textView32"
+        android:text="--------" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_nooftarod"
+        android:layout_alignBottom="@+id/tv_nooftarod"
+        android:layout_toLeftOf="@+id/tv_nooftarod"
+        android:layout_toStartOf="@+id/tv_nooftarod"
+        android:text=" الجوال"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView36"
+        android:layout_toLeftOf="@+id/textView36"
+        android:layout_toStartOf="@+id/textView36"
+        android:text="-----------" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/id2"
+        android:layout_alignRight="@+id/id2"
+        android:layout_below="@+id/textView36"
+        android:layout_marginTop="20dp"
+        android:text="المطلوب من السيد:"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_needprices"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView38"
+        android:layout_toLeftOf="@+id/textView38"
+        android:layout_toStartOf="@+id/textView38"
+        android:text="----------" />
+
+        <TextView
+            android:id="@+id/textView41"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tv_needprices"
+            android:layout_alignBottom="@+id/tv_needprices"
+            android:layout_toLeftOf="@+id/textView28"
+            android:layout_toStartOf="@+id/textView28"
+            android:text="المستلم السيد" />
+
+    <TextView
+        android:id="@+id/tv_recivername"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView41"
+        android:layout_toLeftOf="@+id/textView41"
+        android:layout_toStartOf="@+id/textView41"
+        android:text="--------" />
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView38"
+        android:layout_alignRight="@+id/textView38"
+        android:layout_below="@+id/textView38"
+        android:layout_marginTop="17dp"
+        android:text="عنوان المستلم"
+        android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_ReciverAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView43"
+            android:layout_toLeftOf="@+id/textView23"
+            android:layout_toStartOf="@+id/textView23"
+            android:text="-------------------------------------------------------" />
+
+        <TextView
+            android:id="@+id/textView45"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textView38"
+            android:layout_alignRight="@+id/textView38"
+            android:layout_below="@+id/textView43"
+            android:layout_marginTop="11dp"
+            android:text=":تليفون المستلم"
+            android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvReciverPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView45"
+        android:layout_toLeftOf="@+id/textView45"
+        android:layout_toStartOf="@+id/textView45"
+        android:text="-------------------------------------------------------" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/table"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/textView45">
+
+
+
+    </TableLayout>
+        <TextView
+            android:id="@+id/textView47"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textView38"
+            android:layout_alignRight="@+id/textView38"
+            android:layout_below="@+id/table"
+            android:layout_marginTop="11dp"
+            android:text="hena hykon fe kalm el ta7t "
+            android:lines="2"
+            android:textSize="18sp" />
+        <LinearLayout
+            android:layout_below="@+id/textView47"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:background="#ed4646"
+            android:layout_height="2dp"
+            android:orientation="horizontal"
+            android:id="@+id/linearLayout">
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textView30"
+            android:layout_alignRight="@+id/textView30"
+            android:layout_below="@+id/linearLayout"
+            android:layout_marginTop="11dp"
+            android:text="رقم هوايه المرسل" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView4"
+            android:layout_alignBottom="@+id/textView4"
+            android:layout_toLeftOf="@+id/textView45"
+            android:layout_toStartOf="@+id/textView45"
+            android:text="---------------" />
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView6"
+            android:layout_toLeftOf="@+id/textView6"
+            android:layout_toStartOf="@+id/textView6"
+            android:text="متلم الطرود فى المكتب" />
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView33"
+            android:layout_toLeftOf="@+id/textView36"
+            android:layout_toStartOf="@+id/textView36"
+            android:text="------------" />
+
+        <TextView
+            android:id="@+id/textView37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textView4"
+            android:layout_alignRight="@+id/textView4"
+            android:layout_below="@+id/textView4"
+            android:text="التوقيع" />
+
+        <TextView
+            android:id="@+id/textView39"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView37"
+            android:layout_toLeftOf="@+id/textView30"
+            android:layout_toStartOf="@+id/textView30"
+            android:text="-----------------------" />
+
+        <TextView
+            android:id="@+id/textView48"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/imageView"
+            android:layout_alignRight="@+id/imageView"
+            android:layout_below="@+id/textView6"
+            android:text="التوقيع" />
+
+        <TextView
+            android:id="@+id/textView49"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView33"
+            android:layout_toLeftOf="@+id/textView48"
+            android:layout_toStartOf="@+id/textView48"
+            android:text="-------------------------------" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textView37"
+            android:layout_alignRight="@+id/textView37"
+            android:layout_below="@+id/textView37"
+            android:background="@drawable/rowbackground"
+            android:orientation="horizontal"
+            android:id="@+id/linearLayout2">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:lines="5"
+                android:text="@string/labldata"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_Print"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView29"
+            android:layout_alignStart="@+id/textView29"
+            android:layout_below="@+id/linearLayout2"
+            android:layout_marginTop="22dp"
+            android:text="Print" />
+    </RelativeLayout>
+</LinearLayout>
+</ScrollView>

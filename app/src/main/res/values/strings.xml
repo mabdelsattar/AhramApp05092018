@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">الأهرام للشحن لمصر</string>
+    <string name="lblvisitor">زائر</string>
+    <string name="lblEmp">موظف</string>
+    <string name="title_activity_login">تسجيل الدخول</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">اسم المستخدم</string>
+    <string name="prompt_password">كلمة المرور</string>
+    <string name="action_sign_in">تسجيل الدخول</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="lbl_title">شركة الأهرام للشحن</string>
+    <string name="msg_enter_password">الرجاء ادخال كلمة المرور</string>
+    <string name="msg_enter_username">الرجاء ادخال اسم المستخدم</string>
+    <string name="title_activity_requests">RequestsActivity</string>
+    <string name="lblclientnam">الاسم:</string>
+    <string name="lblclientPhoneKSA">جوال العميل السعودي</string>
+    <string name="lblclientPhoneEG">جوال العميل المصري</string>
+    <string name="lblNationalId">رقم الهوية للعميل</string>
+    <string name="lbl_recievername">اسم المستلم</string>
+    <string name="lblRecieverKSAphone">جوال المستلم السعودي</string>
+    <string name="lblReiverPhoneKSA">جوال المستلم المصري</string>
+    <string name="lblRecieverNationalId">رقم هوية المستلم</string>
+    <string name="lblClientAddressTitle">عنوان العميل</string>
+    <string name="lbl_clientAddress_details">عنوان العميل التفصيلي</string>
+    <string name="lblRecieverAddress">عنوان المستلم</string>
+    <string name="lbl_recieverdetailedAddress">عنوان المستلم التفصيلي</string>
+    <string name="lbl_nameobject">شاشه LCD</string>
+    <string name="lbl_price">800ريال</string>
+    <string name="lbl_pagename">الطرود المشحونه</string>
+    <string name="lbl_recipeandprient">تم انشاء فاتورة</string>
+    <string name="lbl_recipeandprientcontinue">تحتوى على الاستكيرز الخاص بكافه الطرود</string>
+    <string name="btn_print">طباعه</string>
+    <string name="lbl_ordernumber">رقم الطلب : </string>
+    <string name="reciverdate"> تاريخ الاستلام : </string>
+    <string name="lbl_clientphone"> جوال العميل : </string>
+    <string name="labldata">جده-طريق المدينه-حى طيبه -واتس-0555463565-مكه -بطحاءقريش بالقرب من الممشى-جوال:0599999999999-مصر-جوال:0020125645555</string>
+    <string name="invalidloginMessage">اسم المستخدم او كلمة المرور خطأ يرجي اعادة المحاولة</string>
+    <string name="lbl_clientName">اسم العميل:</string>
+
+</resources>
