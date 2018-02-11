@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AlAhramApp.iml" filepath="$PROJECT_DIR$/AlAhramApp.iml" />
+      <module fileurl="file://F:\FreeLancing\AbdElsattar\AlAhram\alahramrepo\AlAhramApp.iml" filepath="F:\FreeLancing\AbdElsattar\AlAhram\alahramrepo\AlAhramApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alahramrepo.iml" filepath="$PROJECT_DIR$/alahramrepo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

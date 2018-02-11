@@ -213,6 +213,7 @@ public File pdfFile;
         table.addCell(cell);
 
     }
+
   /*  private void openPDF() throws IOException {
         File path = new File(Environment.getExternalStorageDirectory()+ "/Document/"+ "test");
         Log.i("file name",path.toString());
