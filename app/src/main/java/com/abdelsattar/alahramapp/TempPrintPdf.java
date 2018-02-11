@@ -510,6 +510,12 @@ public class TempPrintPdf extends AppCompatActivity {
         });
         bindDataToStickersView();
         bindDataToBill2();
+
+    }
+
+    private void  bindDataToBill1()
+    {
+
     }
 
     private void bindDataToBill2()
