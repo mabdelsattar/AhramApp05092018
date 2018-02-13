@@ -24,6 +24,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -39,8 +40,10 @@ import com.itextpdf.text.pdf.hyphenation.TernaryTree;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -50,9 +53,6 @@ import butterknife.ButterKnife;
  */
 
 public class TempPrintPdf extends AppCompatActivity {
-
-
-
     /** ButterKnife Code **/
     @BindView(R.id.pageView)
     RelativeLayout mPageView;
@@ -434,6 +434,9 @@ public class TempPrintPdf extends AppCompatActivity {
     View mPage4BottomLine3;
     /** ButterKnife Code **/
     Typeface tf;
+    private ArrayList<sendbundledata> data = new ArrayList<>();
+    private int totalPrice=0;
+    String currencyUnit=" ريال";
     void setFontToTextView()
     {
         tf = Typeface.createFromAsset(getResources().getAssets(), "GE_Thameen_Book.otf");
@@ -496,7 +499,14 @@ public class TempPrintPdf extends AppCompatActivity {
                 return true;
             }
         });
+        Bundle bundle = getIntent().getExtras();
+        data = (ArrayList<sendbundledata>) bundle.getSerializable("dataList");
 
+        for (int i=0;i<data.size();i++)
+        {
+            totalPrice+=data.get(i).getCounter()*Integer.valueOf(data.get(i).getOrderprice());
+            Log.d("dataItem",""+data.get(i).toString());
+        }
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#113353"));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
         getSupportActionBar().setTitle("انشاء طلب جديد");
@@ -509,21 +519,69 @@ public class TempPrintPdf extends AppCompatActivity {
             }
         });
         bindDataToStickersView();
+        bindDataToBill1();
         bindDataToBill2();
 
     }
 
     private void  bindDataToBill1()
     {
+        String billNumber=String.valueOf(getRandomBillNumber());
+        String mobileNumber="";
+        String itemNumber=String.valueOf(data.size());
+        String date=getCurrantDate();
 
+        String receiverName="";
+        String senderName="";
+        String receiverAddress="";
+        String receiverPhones="";
+        String total=String.valueOf(totalPrice);
+        String receiverInOffice="";
+        String receiverId="";
+        String signature1="";
+        String signature2="";
+
+
+        mBillNumber.setText(billNumber);
+        mMobileNumber.setText(mobileNumber);
+        mNumber.setText(itemNumber);
+        mDate.setText(date);
+        mReceiverName.setText(receiverName);
+        mSenderName.setText(senderName);
+        mReceiverAddress.setText(receiverAddress);
+        mReceiverPhones.setText(receiverPhones);
+        mTotal.setText(total +currencyUnit);
+        mReceiverInOffice.setText(receiverInOffice);
+        mReceiverId.setText(receiverId);
+        mSignature1.setText(signature1);
+        mSignature2.setText(signature2);
+
+        LayoutInflater layoutInflator = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mTableItem.removeAllViews();
+        for (int i=0;i<data.size();i++)
+        {
+            TextView bayanTextView,quantityTextView,priceTextView,totalTextView;
+            View child = layoutInflator.inflate(R.layout.table_item, null);
+            bayanTextView=child.findViewById(R.id.bayan);
+            quantityTextView=child.findViewById(R.id.quantity);
+            priceTextView=child.findViewById(R.id.price);
+            totalTextView=child.findViewById(R.id.total);
+
+            bayanTextView.setText(data.get(i).getOrdername());
+            quantityTextView.setText(String.valueOf(data.get(i).getCounter()));
+            priceTextView.setText(data.get(i).getOrderprice() +currencyUnit);
+            totalTextView.setText(String.valueOf((data.get(i).getCounter() * (Integer.valueOf(data.get(i).getOrderprice()))))+ currencyUnit );
+            child.setTag(i);
+            mTableItem.addView(child);
+        }
     }
 
     private void bindDataToBill2()
     {
-        String billData="";
-        String billNumber="";
-        String itemCount="";
-        String date="";
+        String billNumber=String.valueOf(getRandomBillNumber());
+        String itemCount=String.valueOf(data.size());
+        String date=getCurrantDate();
+
         String receiverName="";
         String city="";
         String country="";
@@ -532,7 +590,6 @@ public class TempPrintPdf extends AppCompatActivity {
         String signature="";
         String idNumber="";
 
-        mPage2Date.setText(billData);
         mPage2BillNumber.setText(billNumber);
         mPage2Count.setText(itemCount);
         mPage2Date.setText(date);
@@ -546,17 +603,7 @@ public class TempPrintPdf extends AppCompatActivity {
 
         LayoutInflater layoutInflator1 = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mPage2TableView.removeAllViews();
-        ArrayList<String> items = new ArrayList<>();
-        items.add("ثلاجات 14 قدم 1");
-        items.add("ثلاجات 14 قدم 2");
-        items.add("ثلاجات 14 قدم 3");
-        items.add("ثلاجات 14 قدم 4");
-        items.add("ثلاجات 14 قدم 5");
-        items.add("ثلاجات 14 قدم 6");
-        items.add("ثلاجات 14 قدم 7");
-        items.add("ثلاجات 14 قدم 8");
-        items.add("ثلاجات 14 قدم 9");
-        for (int i=0;i<(items.size()-1);i+=2)
+        for (int i=0;i<(data.size()-1);i+=2)
         {
             TextView page2_item2Number,page2_item2,page2_item1Number,page2_item1;
             View child = layoutInflator1.inflate(R.layout.table_item2, null);
@@ -565,16 +612,17 @@ public class TempPrintPdf extends AppCompatActivity {
             page2_item1Number=child.findViewById(R.id.page2_item1Number);
             page2_item1=child.findViewById(R.id.page2_item1);
             page2_item1Number.setText(" ( "+String.valueOf(i+1)+" ) ");
-            page2_item1.setText(items.get(i));
+            page2_item1.setText(data.get(i).getOrdername());
 
             page2_item2Number.setText(" ( "+String.valueOf(i+2)+" ) ");
 
-            page2_item2.setText(items.get(i+1));
+            page2_item2.setText(data.get(i+1).getOrdername());
 
             child.setTag(i);
             mPage2TableView.addView(child);
         }
-        if (items.size()%2!=0)
+
+        if (data.size()%2!=0)
         {
             TextView page2_item2Number,page2_item2,page2_item1Number,page2_item1;
             View child = layoutInflator1.inflate(R.layout.table_item2, null);
@@ -582,11 +630,11 @@ public class TempPrintPdf extends AppCompatActivity {
             page2_item2=child.findViewById(R.id.page2_item2);
             page2_item1Number=child.findViewById(R.id.page2_item1Number);
             page2_item1=child.findViewById(R.id.page2_item1);
-            page2_item1Number.setText(" ( "+String.valueOf((items.size())) +" ) ");
-            page2_item1.setText(items.get(items.size()-1));
+            page2_item1Number.setText(" ( "+String.valueOf((data.size())) +" ) ");
+            page2_item1.setText(data.get(data.size()-1).getOrdername());
             page2_item2.setText("");
             page2_item2Number.setText("");
-            child.setTag(items.size()-1);
+            child.setTag(data.size()-1);
             mPage2TableView.addView(child);
         }
     }
@@ -594,7 +642,7 @@ public class TempPrintPdf extends AppCompatActivity {
     private void bindDataToStickersView()
     {
         // Stickers
-        String stickersBillNumber="500000";
+        String stickersBillNumber=String.valueOf(getRandomBillNumber());
         String stickersSenderName="محمد عبد الستار";
         String stickersReceiverName="محمد عنتر";
         String stickersDirection="الاتجاه الاتجاه";
@@ -645,6 +693,20 @@ public class TempPrintPdf extends AppCompatActivity {
         mPage3SenderName3.setText(stickersSenderName);
     }
 
+
+    public int getRandomBillNumber() {
+
+        Random rand = new Random();
+        int randomNum = rand.nextInt((99999 - 10000) + 1) + 10000;
+        return randomNum;
+    }
+    public String getCurrantDate()
+    {
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        Date date = new Date();
+        String dateFormat = formatter.format(date.getTime());
+        return dateFormat;
+    }
 //    ProgressDialog progressDialog;
 //    boolean file1Finish,file2Finish;
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
