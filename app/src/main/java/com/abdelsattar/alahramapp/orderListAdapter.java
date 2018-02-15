@@ -26,8 +26,6 @@ public class orderListAdapter extends RecyclerView.Adapter<orderListAdapter.Cust
     {
         this.Itemlist=itemlist;
         this.mcontext=mcontext;
-
-
     }
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

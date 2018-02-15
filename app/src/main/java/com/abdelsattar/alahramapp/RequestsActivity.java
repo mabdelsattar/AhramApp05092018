@@ -16,6 +16,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
@@ -24,61 +25,60 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RequestsActivity extends AppCompatActivity {
-      RecyclerView requestrecycleview;
-      sendbundle adapter;
-      public static List<sendbundledata>data=new ArrayList<>();
+    RecyclerView requestrecycleview;
+    sendbundle adapter;
+    public static ArrayList<sendbundledata> data = new ArrayList<>();
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    private void forceRTLIfSupported()
-    {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1){
+    private void forceRTLIfSupported() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         }
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //forceRTLIfSupported();
         setContentView(R.layout.activity_requests);
-       // forceRTLIfSupported();
-       // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-       // setSupportActionBar(toolbar);
+        // forceRTLIfSupported();
+        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        // setSupportActionBar(toolbar);
 
-       // getSupportActionBar().setTitle("انشاء طلب جديد");
-       // ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#113353"));
-       // getSupportActionBar().setBackgroundDrawable(colorDrawable);
+        // getSupportActionBar().setTitle("انشاء طلب جديد");
+        // ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#113353"));
+        // getSupportActionBar().setBackgroundDrawable(colorDrawable);
 
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#113353"));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
         getSupportActionBar().setTitle("انشاء طلب جديد");
 
-        data.add(new sendbundledata("قدم الثلاجة مستعمل","1000ريال"));
-        data.add(new sendbundledata("غسالة اوتوماتيك 5 ك مستعملة","1000ريال"));
-        data.add(new sendbundledata("غسالة اتوتوماتيك 7 ك مستعملة","1000ريال"));
-        data.add(new sendbundledata("غسالة اوتوماتيك 10 او 14 ك مستعملة","1000ريال"));
+        data.add(new sendbundledata("قدم الثلاجة مستعمل", "1000"));
+        data.add(new sendbundledata("غسالة اوتوماتيك 5 ك مستعملة", "1000"));
+        data.add(new sendbundledata("غسالة اتوتوماتيك 7 ك مستعملة", "1000"));
+        data.add(new sendbundledata("غسالة اوتوماتيك 10 او 14 ك مستعملة", "1000"));
         Button fab = (Button) findViewById(R.id.nextbtn);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
               /*  Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();*/
-              //TODO go to page for build your request
-                Intent i= new Intent(RequestsActivity.this,TempPrintPdf.class);
-                 startActivity(i);
-                // i.putStringArrayListExtra("mylist",data)
+                //TODO go to page for build your request
 
+
+                Intent intent = new Intent(RequestsActivity.this, TempPrintPdf.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("dataList", data);
+                intent.putExtras(bundle);
+                startActivity(intent);
 
             }
         });
-
-
         adapter = new sendbundle(this, data);
-
-
-       requestrecycleview=(RecyclerView)findViewById(R.id.listview) ;
+        requestrecycleview = (RecyclerView) findViewById(R.id.listview);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         requestrecycleview.setLayoutManager(mLayoutManager);
         requestrecycleview.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(10), true));
-       requestrecycleview.setItemAnimator(new DefaultItemAnimator());
+        requestrecycleview.setItemAnimator(new DefaultItemAnimator());
         requestrecycleview.setAdapter(adapter);
     }
 

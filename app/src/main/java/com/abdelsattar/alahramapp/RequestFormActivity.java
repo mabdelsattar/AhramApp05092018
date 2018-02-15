@@ -19,7 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RequestFormActivity extends AppCompatActivity {
-EditText clientname,clientphoneksa,clientphoneegy,clientnationalid,recivername,reciverphoneksa,reciverphoneegy,recivernationalid,clientaddressdetail,reciveraddressdetail;
+
+    EditText clientname,clientphoneksa,clientphoneegy,clientnationalid,recivername,reciverphoneksa,reciverphoneegy,recivernationalid,clientaddressdetail,reciveraddressdetail;
     Preferences mpreferences;
     Spinner spinner_client_address_country,spinner_client_address_city,spinner_Reciever_address_country,spinner_Reciever_address_city  ;
 
@@ -128,7 +129,7 @@ EditText clientname,clientphoneksa,clientphoneegy,clientnationalid,recivername,r
                   mpreferences.setClientAddressDetail1(spinner_client_address_country.getSelectedItem().toString());
                   mpreferences.setClientAddressDetail2(spinner_client_address_city.getSelectedItem().toString());
                   mpreferences.setClientAddressDetail(clientaddressdetail.getText().toString());
-                 // mpreferences.setReciverName(recivername.getText().toString());
+                  mpreferences.setReciverName(recivername.getText().toString());
                   mpreferences.setClientphoneEgy(reciverphoneegy.getText().toString());
                   mpreferences.setReciverphoneEgy(reciverphoneksa.getText().toString());
                   mpreferences.setReciverNationalId(recivernationalid.getText().toString());

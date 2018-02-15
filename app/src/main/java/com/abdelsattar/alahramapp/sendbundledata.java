@@ -1,13 +1,22 @@
 package com.abdelsattar.alahramapp;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by amiraelsayed on 1/7/2018.
  */
 
-public class sendbundledata
+public class sendbundledata implements Serializable
 {
+
+//    List<sendbundle>mydata;
+    String ordername,orderprice;
+    int counter;
+
     public String getOrdername() {
         return ordername;
     }
@@ -43,16 +52,12 @@ public class sendbundledata
         this.counter = counter;
     }
 
-    public List<sendbundle> getMydata() {
-        return mydata;
+    @Override
+    public String toString() {
+        return "sendbundledata{" +
+                "ordername='" + ordername + '\'' +
+                ", orderprice='" + orderprice + '\'' +
+                ", counter=" + counter +
+                '}';
     }
-
-    public void setMydata(List<sendbundle> mydata) {
-        this.mydata = mydata;
-    }
-
-    List<sendbundle>mydata;
-    String ordername,orderprice;
-    int counter;
-
 }

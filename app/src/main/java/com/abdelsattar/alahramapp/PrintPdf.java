@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.Toast;
+
 import com.itextpdf.tool.xml.XMLWorkerHelper;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -46,6 +47,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.text.DecimalFormat;
+
 import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -58,24 +60,25 @@ import java.util.Calendar;
 import java.util.List;
 
 public class PrintPdf extends AppCompatActivity {
-public File pdfFile;
-    String targetPdf = Environment.getExternalStorageDirectory()+"/Document"+ "test";
-  // String price,no;
+    public File pdfFile;
+    String targetPdf = Environment.getExternalStorageDirectory() + "/Document" + "test";
+    // String price,no;
     Preferences mpreference;
-   TextView date,nooforders,phone1,recierphone,neededprice,recivername,address;
-   List<String>name=new ArrayList<>();
-    List<String>price=new ArrayList<>();
-    List<String>no=new ArrayList<>();
+    TextView date, nooforders, phone1, recierphone, neededprice, recivername, address;
+    List<String> name = new ArrayList<>();
+    List<String> price = new ArrayList<>();
+    List<String> no = new ArrayList<>();
     ImageView pdfView;
-    int sum=0;
-    int neededmoney=0;
-    @Override
+    int sum = 0;
+    int neededmoney = 0;
+
+    @Override/**/
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.designprint);
 
         final String pdfFilename = "Report";
-        mpreference=new Preferences(this);
+        mpreference = new Preferences(this);
         addHeaders();
         addData();
         Calendar c = Calendar.getInstance();
@@ -83,60 +86,57 @@ public File pdfFile;
 
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         String formattedDate = df.format(c.getTime());
-        pdfView = (ImageView)findViewById(R.id.imageView);
-        date=(TextView)findViewById(R.id.tv_date);
-       nooforders=(TextView)findViewById(R.id.tv_nooftarod);
-       phone1=(TextView)findViewById(R.id.tv_phone);
-       Button  save=(Button)findViewById(R.id.btn_Print);
-       recierphone=(TextView)findViewById(R.id.tvReciverPhone);
-       neededprice=(TextView)findViewById(R.id.tv_needprices);
-       recivername=(TextView)findViewById(R.id.tv_recivername);
-       address=(TextView)findViewById(R.id.tv_ReciverAddress);
-       date.setText(formattedDate);
-       save.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               startActivity(new Intent(PrintPdf.this,allrequests.class));
-           }
-       });
-        for(String element:no)
-        {
+        pdfView = (ImageView) findViewById(R.id.imageView);
+        date = (TextView) findViewById(R.id.tv_date);
+        nooforders = (TextView) findViewById(R.id.tv_nooftarod);
+        phone1 = (TextView) findViewById(R.id.tv_phone);
+        Button save = (Button) findViewById(R.id.btn_Print);
+        recierphone = (TextView) findViewById(R.id.tvReciverPhone);
+        neededprice = (TextView) findViewById(R.id.tv_needprices);
+        recivername = (TextView) findViewById(R.id.tv_recivername);
+        address = (TextView) findViewById(R.id.tv_ReciverAddress);
+        date.setText(formattedDate);
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PrintPdf.this, allrequests.class));
+            }
+        });
+        for (String element : no) {
             try {
                 int num = Integer.parseInt(element);
                 sum += num;
+            } catch (NumberFormatException nfe) {
+                System.out.println("Element " + element + " in the array is not an integer");
             }
-            catch (NumberFormatException nfe){
-                    System.out.println ("Element " + element + " in the array is not an integer");
-                }
         }
-        for(String element:price)
-        {
+        for (String element : price) {
             try {
                 int num = Integer.parseInt(element);
                 neededmoney += num;
-            }
-            catch (NumberFormatException nfe){
-                System.out.println ("Element " + element + " in the array is not an integer");
+            } catch (NumberFormatException nfe) {
+                System.out.println("Element " + element + " in the array is not an integer");
             }
         }
-      //  neededprice.setText(neededmoney);
+        //  neededprice.setText(neededmoney);
         phone1.setText(mpreference.getReciverPhoneKsa());
         recivername.setText(mpreference.getRecivername());
         address.setText(mpreference.getReciveraddress());
-       // nooforders.setText(sum);
+        // nooforders.setText(sum);
 
     }
-  private TextView getTextView(int id, String title, int color, int typeface, int bgColor) {
-      TextView tv = new TextView(this);
-      tv.setId(id);
-      tv.setText(title.toUpperCase());
-      tv.setTextColor(color);
-      tv.setPadding(10, 40, 10, 40);
-      tv.setTypeface(Typeface.DEFAULT, typeface);
-      tv.setBackgroundColor(bgColor);
-      tv.setLayoutParams(getLayoutParams());
-      return tv;
-  }
+
+    private TextView getTextView(int id, String title, int color, int typeface, int bgColor) {
+        TextView tv = new TextView(this);
+        tv.setId(id);
+        tv.setText(title.toUpperCase());
+        tv.setTextColor(color);
+        tv.setPadding(10, 40, 10, 40);
+        tv.setTypeface(Typeface.DEFAULT, typeface);
+        tv.setBackgroundColor(bgColor);
+        tv.setLayoutParams(getLayoutParams());
+        return tv;
+    }
 
     @NonNull
     private LayoutParams getLayoutParams() {
@@ -150,7 +150,7 @@ public File pdfFile;
     @NonNull
     private TableLayout.LayoutParams getTblLayoutParams() {
         return new TableLayout.LayoutParams(
-        LayoutParams.MATCH_PARENT,
+                LayoutParams.MATCH_PARENT,
                 TableLayout.LayoutParams.WRAP_CONTENT);
     }
 
@@ -158,7 +158,7 @@ public File pdfFile;
      * This function add the headers to the table
      **/
     public void addHeaders() {
-        TableLayout tl = (TableLayout)findViewById(R.id.table);
+        TableLayout tl = (TableLayout) findViewById(R.id.table);
         TableRow tr = new TableRow(this);
         tr.setLayoutParams(getLayoutParams());
         tr.addView(getTextView(0, "القيمه الاجماليه", Color.WHITE, Typeface.BOLD, Color.BLUE));
@@ -174,29 +174,29 @@ public File pdfFile;
      * This function add the data to the table
      **/
     public void addData() {
-       // int numCompanies = companies.length;
+        // int numCompanies = companies.length;
 
-        int numCompanies=RequestsActivity.data.size();
-        for(sendbundledata i:RequestsActivity.data)
-        {
+        int numCompanies = RequestsActivity.data.size();
+        for (sendbundledata i : RequestsActivity.data) {
 
             name.add(i.getOrdername());
             price.add(i.getOrderprice());
             no.add(String.valueOf(i.getCounter()));
 
         }
-        TableLayout tl = (TableLayout)findViewById(R.id.table);
+        TableLayout tl = (TableLayout) findViewById(R.id.table);
         for (int i = 0; i < numCompanies; i++) {
             TableRow tr = new TableRow(this);
             tr.setLayoutParams(getLayoutParams());
-            tr.addView(getTextView(i + 1,name.get(i), Color.BLACK, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
+            tr.addView(getTextView(i + 1, name.get(i), Color.BLACK, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
             tr.addView(getTextView(i + numCompanies, price.get(i), Color.BLACK, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
             tr.addView(getTextView(i + 1, no.get(i), Color.BLACK, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
             tr.addView(getTextView(i + numCompanies, "", Color.BLACK, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
             tl.addView(tr, getTblLayoutParams());
         }
     }
-  private void insertCell(PdfPTable table, String text, int align, int colspan, Font font){
+
+    private void insertCell(PdfPTable table, String text, int align, int colspan, Font font) {
 
         //create a new cell with the specified Text and Font
         PdfPCell cell = new PdfPCell(new Phrase(text.trim(), font));
@@ -206,13 +206,14 @@ public File pdfFile;
         cell.setColspan(colspan);
 
         //in case there is no text and you wan to create an empty row
-        if(text.trim().equalsIgnoreCase("")){
+        if (text.trim().equalsIgnoreCase("")) {
             cell.setMinimumHeight(10f);
         }
         //add the call to the table
         table.addCell(cell);
 
     }
+
   /*  private void openPDF() throws IOException {
         File path = new File(Environment.getExternalStorageDirectory()+ "/Document/"+ "test");
         Log.i("file name",path.toString());
