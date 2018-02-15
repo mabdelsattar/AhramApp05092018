@@ -6,7 +6,7 @@
     android:background="#EBEBEB"
     android:padding="50dp"
     android:layout_height="match_parent"
-    tools:context="com.abdelsattar.alahramapp.HomeActivity">
+    tools:context="com.abdelsattar.alahramapp.Ui.HomeActivity">
 
 
     <ScrollView

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#EBEBEB"
     android:padding="10dp"
-    tools:context="com.abdelsattar.alahramapp.RequestFormActivity">
+    tools:context="com.abdelsattar.alahramapp.Ui.RequestFormActivity">
 
 
 
