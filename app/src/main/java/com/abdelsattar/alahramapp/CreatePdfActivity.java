@@ -793,23 +793,26 @@ public class CreatePdfActivity extends AppCompatActivity {
         document.finishPage(page1);
 
 
-
+        int pageNumber=2;
         for (int i=0;i<data.size();i++) {
+            for (int j=0;j<data.get(i).getCounter();j++) {
 
-            mPage3ContentNumber1.setText(data.get(i).getOrdername());
-            mPage3ContentNumber2.setText(data.get(i).getOrdername());
-            mPage3ContentNumber3.setText(data.get(i).getOrdername());
-            Bitmap bitmap2;
-            PdfDocument.PageInfo pageInfo2;
-            PdfDocument.Page page2;
-            Canvas canvas2;
-            bitmap2 = getBitmapImageOfView(this.getWindow().findViewById(R.id.page3_myView));
-            pageInfo2 = new PdfDocument.PageInfo.Builder(bitmap2.getWidth(), bitmap2.getHeight(), (2+i)).create();
-            page2 = document.startPage(pageInfo2);
-            canvas2 = page2.getCanvas();
-            bitmap2 = Bitmap.createScaledBitmap(bitmap2, bitmap2.getWidth(), bitmap2.getHeight(), true);
-            canvas2.drawBitmap(bitmap2, 0, 0, null);
-            document.finishPage(page2);
+                mPage3ContentNumber1.setText(data.get(i).getOrdername());
+                mPage3ContentNumber2.setText(data.get(i).getOrdername());
+                mPage3ContentNumber3.setText(data.get(i).getOrdername());
+                Bitmap bitmap2;
+                PdfDocument.PageInfo pageInfo2;
+                PdfDocument.Page page2;
+                Canvas canvas2;
+                bitmap2 = getBitmapImageOfView(this.getWindow().findViewById(R.id.page3_myView));
+                pageInfo2 = new PdfDocument.PageInfo.Builder(bitmap2.getWidth(), bitmap2.getHeight(), pageNumber).create();
+                pageNumber++;
+                page2 = document.startPage(pageInfo2);
+                canvas2 = page2.getCanvas();
+                bitmap2 = Bitmap.createScaledBitmap(bitmap2, bitmap2.getWidth(), bitmap2.getHeight(), true);
+                canvas2.drawBitmap(bitmap2, 0, 0, null);
+                document.finishPage(page2);
+            }
         }
 
         File root = new File(Environment.getExternalStorageDirectory(), "AlAhram");
