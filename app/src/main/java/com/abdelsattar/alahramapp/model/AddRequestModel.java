@@ -16,6 +16,7 @@ public class AddRequestModel implements Serializable
 //    List<AddRequestAdpater>mydata;
     String ordername,orderprice;
     int counter;
+    int Id;
 
     public String getOrdername() {
         return ordername;
@@ -33,14 +34,14 @@ public class AddRequestModel implements Serializable
         this.orderprice = orderprice;
     }
 
-    public AddRequestModel(String ordername, String orderprice) {
+    public AddRequestModel(int id,String ordername, String orderprice) {
         this.ordername = ordername;
         this.orderprice = orderprice;
+        this.Id = id;
     }
 
     public int getCounter() {
-
-        if(counter < 0)
+        if(counter <= 0)
             counter = 0;
         return counter;
 

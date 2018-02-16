@@ -3,6 +3,7 @@ package com.abdelsattar.alahramapp.Ui;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -22,6 +23,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -33,6 +35,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.abdelsattar.alahramapp.R;
+import com.abdelsattar.alahramapp.model.AddRequestModel;
+import com.abdelsattar.alahramapp.model.Constant;
+import com.abdelsattar.alahramapp.model.RequestQueueSingleton;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +62,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * Id to identity READ_CONTACTS permission request.
      */
     private static final int REQUEST_READ_CONTACTS = 0;
+    private ProgressDialog dialog;
 
+    static final int INTERNET_REQ = 23;
+    static final String REQ_TAG = "VACTIVITY";
+    boolean cancel = false;
     /**
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
@@ -60,7 +78,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * Keep track of the login task to ensure we can cancel it if requested.
      */
     private UserLoginTask mAuthTask = null;
-
+    RequestQueue requestQueue;
     // UI references.
     private EditText mEmailView;
     private EditText mPasswordView;
@@ -109,7 +127,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 attemptLogin();
             }
         });
-
+        requestQueue = RequestQueueSingleton.getInstance(LoginActivity.this)
+                .getRequestQueue();
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
@@ -176,7 +195,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
 
-        boolean cancel = false;
+
         View focusView = null;
 
         // Check for a valid password, if the user entered one.
@@ -194,24 +213,28 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             Toast.makeText(LoginActivity.this, R.string.msg_enter_password,Toast.LENGTH_LONG).show();
         }
 
-        else if((email.toLowerCase().equals("محمد") && (password.toLowerCase().equals("123456") || password.toLowerCase().equals("١٢٣٤٥٦")) ))
+        else
         {
-            showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+
+            dialog = new ProgressDialog(LoginActivity.this);
+            dialog.setMessage("جاري التحميل...");
+            dialog.show();
+
+            getJsonResponsePost(email,password);
         }
-        else{
-            cancel = true;
-            Toast.makeText(LoginActivity.this, R.string.invalidloginMessage,Toast.LENGTH_LONG).show();
-        }
 
 
 
-        if (cancel) {
-
-        } else {
+        if (cancel)
+        {
 
         }
+        //de bet3at a
+        else
+        {
+
+        }
+
     }
 
     private boolean isEmailValid(String email) {
@@ -224,6 +247,44 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         return password.length() > 4;
     }
 
+    public void getJsonResponsePost(String email, String password){
+
+
+        String url = Constant.serversite+"/api/AlAhram/Login?username="+email+"&password="+password;
+        StringRequest jsonObjectRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if (dialog.isShowing()) {
+                            dialog.dismiss();
+                        }
+                        // .setText("String Response : "+ response.toString());
+                        Log.i("respones","succed");
+                        if(response.equals("null"))
+                        {
+                            cancel=true;
+                            Toast.makeText(LoginActivity.this, R.string.invalidloginMessage,Toast.LENGTH_LONG).show();
+                        }
+                        else
+                        {
+                            startActivity(new Intent(LoginActivity.this,ShowAllRequestsActivity.class));
+
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if (dialog.isShowing()) {
+                    dialog.dismiss();
+                }
+                // clientname.setText("Error getting response");
+                error.printStackTrace();
+            }
+        });
+        jsonObjectRequest.setTag(REQ_TAG);
+        requestQueue.add(jsonObjectRequest);
+    }
     /**
      * Shows the progress UI and hides the login form.
      */

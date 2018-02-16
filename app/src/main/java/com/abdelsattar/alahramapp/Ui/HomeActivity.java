@@ -16,11 +16,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-    /*    getSupportActionBar().setTitle(R.string.lbl_title);
-        String string = "#11113353";
-        int color = Integer.parseInt(string.replaceFirst("^#",""), 16);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.BLUE));*/
-    getSupportActionBar().hide();
+        getSupportActionBar().hide();
 
         btnEmp = (Button)findViewById(R.id.btnEmployee);
         btnEmp.setOnClickListener(new View.OnClickListener() {

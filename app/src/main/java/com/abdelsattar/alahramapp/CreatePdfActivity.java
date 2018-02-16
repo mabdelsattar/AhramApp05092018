@@ -504,7 +504,14 @@ public class CreatePdfActivity extends AppCompatActivity {
             }
         });
         Bundle bundle = getIntent().getExtras();
-        data = (ArrayList<AddRequestModel>) bundle.getSerializable("dataList");
+
+        ArrayList<AddRequestModel> allData = (ArrayList<AddRequestModel>) bundle.getSerializable("dataList");
+
+        for (int i=0 ; i< allData.size() ; i++)
+        {
+            if(allData.get(i).getCounter() > 0)
+                data.add(allData.get(i));
+        }
 
         for (int i=0;i<data.size();i++)
         {
@@ -817,7 +824,7 @@ public class CreatePdfActivity extends AppCompatActivity {
         try {
             FileOutputStream fileOutputStream=new FileOutputStream(filePath);
             document.writeTo(fileOutputStream);
-            Toast.makeText(this, "Done " , Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "تم انشاء الفواتير الرجاء فتح فولدر الاهرام " , Toast.LENGTH_LONG).show();
             fileOutputStream.close();
             document.close();
             fileOneFinish=true;
@@ -863,11 +870,15 @@ public class CreatePdfActivity extends AppCompatActivity {
         try {
             FileOutputStream fileOutputStream=new FileOutputStream(filePath);
             document.writeTo(fileOutputStream);
-            Toast.makeText(this, "Done " , Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "تم انشاء الفواتير الرجاء فتح فولدر الاهرام " , Toast.LENGTH_LONG).show();
             fileOutputStream.close();
             document.close();
             fileTwoFinish=true;
             dismissDialog();
+
+
+
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -923,7 +934,35 @@ public class CreatePdfActivity extends AppCompatActivity {
         if (fileOneFinish&& fileTwoFinish)
         {
             dialog.dismiss();
-            openFolder();
+          //  openFolder();
+            try{
+                Uri selectedUri = Uri.parse(Environment.getExternalStorageDirectory() + "/AlAhram/");
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setDataAndType(selectedUri, "resource/folder");
+
+                if (intent.resolveActivityInfo(getPackageManager(), 0) != null)
+                {
+                    startActivity(intent);
+                }
+                else
+                {
+
+
+                    // if you reach this place, it means there is no any file
+                    // explorer app installed on your device
+                    Intent chooser = Intent.createChooser(intent, "Any Title");
+                    // Verify the intent will resolve to at least one activity
+                    if (intent.resolveActivity(getPackageManager()) != null) {
+                        startActivity(chooser);
+                    }
+
+                }
+
+            }catch (Exception ex){
+
+                String message= ex.getMessage();
+                String esc= message;
+            }
         }
     }
 

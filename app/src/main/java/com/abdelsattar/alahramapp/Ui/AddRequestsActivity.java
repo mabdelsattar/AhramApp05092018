@@ -1,6 +1,7 @@
 package com.abdelsattar.alahramapp.Ui;
 
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -8,24 +9,44 @@ import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Telephony;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.abdelsattar.alahramapp.CreatePdfActivity;
 import com.abdelsattar.alahramapp.R;
 import com.abdelsattar.alahramapp.adpaters.AddRequestAdpater;
 import com.abdelsattar.alahramapp.model.AddRequestModel;
+import com.abdelsattar.alahramapp.model.Constant;
+import com.abdelsattar.alahramapp.model.RequestQueueSingleton;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 public class AddRequestsActivity extends AppCompatActivity {
     RecyclerView requestrecycleview;
     AddRequestAdpater adapter;
+    private ProgressDialog dialog;
+
+    static final String REQ_TAG = "VACTIVITY";
+    RequestQueue requestQueue;
+
+
     public static ArrayList<AddRequestModel> data = new ArrayList<>();
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void forceRTLIfSupported() {
@@ -39,6 +60,8 @@ public class AddRequestsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //forceRTLIfSupported();
         setContentView(R.layout.activity_requests);
+        requestQueue = RequestQueueSingleton.getInstance(AddRequestsActivity.this)
+                .getRequestQueue();
         // forceRTLIfSupported();
         // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         // setSupportActionBar(toolbar);
@@ -51,10 +74,10 @@ public class AddRequestsActivity extends AppCompatActivity {
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
         getSupportActionBar().setTitle("انشاء طلب جديد");
 
-        data.add(new AddRequestModel("قدم الثلاجة مستعمل", "1000"));
-        data.add(new AddRequestModel("غسالة اوتوماتيك 5 ك مستعملة", "1000"));
-        data.add(new AddRequestModel("غسالة اتوتوماتيك 7 ك مستعملة", "1000"));
-        data.add(new AddRequestModel("غسالة اوتوماتيك 10 او 14 ك مستعملة", "1000"));
+
+
+
+
         Button fab = (Button) findViewById(R.id.nextbtn);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,14 +95,71 @@ public class AddRequestsActivity extends AppCompatActivity {
 
             }
         });
-        adapter = new AddRequestAdpater(this, data);
-        requestrecycleview = (RecyclerView) findViewById(R.id.listview);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
-        requestrecycleview.setLayoutManager(mLayoutManager);
-        requestrecycleview.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(10), true));
-        requestrecycleview.setItemAnimator(new DefaultItemAnimator());
-        requestrecycleview.setAdapter(adapter);
+
+
+        dialog = new ProgressDialog(AddRequestsActivity.this);
+        dialog.setMessage("جاري التحميل...");
+        dialog.show();
+
+        String url = Constant.serversite+"/api/AlAhram/GetItems";
+        StringRequest jsonObjectRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if (dialog.isShowing()) {
+                            dialog.dismiss();
+                        }
+                        try {
+                            data = new ArrayList<>();
+                            JSONArray jsonItems = new JSONArray(response);
+                            for (int i = 0; i < jsonItems.length(); i++)
+                            {
+                                JSONObject  jsonObject =jsonItems.getJSONObject(i);
+                                int id = jsonObject.getInt("Id");
+                                String name =  jsonObject.getString("Name");
+                                int price =  jsonObject.getInt("Price");
+                                data.add(new AddRequestModel(id,name, price+""));
+
+                            }
+                            // .setText("String Response : "+ response.toString());
+                            Log.i("respones", "succed");
+
+
+
+                            adapter = new AddRequestAdpater(AddRequestsActivity.this, data);
+                            requestrecycleview = (RecyclerView) findViewById(R.id.listview);
+                            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(AddRequestsActivity.this);
+                            requestrecycleview.setLayoutManager(mLayoutManager);
+                            requestrecycleview.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(10), true));
+                            requestrecycleview.setItemAnimator(new DefaultItemAnimator());
+                            requestrecycleview.setAdapter(adapter);
+                        }catch (Exception ex){
+
+
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if (dialog.isShowing()) {
+                    dialog.dismiss();
+                }
+                // clientname.setText("Error getting response");
+                error.printStackTrace();
+            }
+        });
+        jsonObjectRequest.setTag(REQ_TAG);
+        requestQueue.add(jsonObjectRequest);
+
+
+
+
+
     }
+
+
+
 
     public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
 
