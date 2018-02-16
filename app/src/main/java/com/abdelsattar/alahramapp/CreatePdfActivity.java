@@ -2,6 +2,7 @@ package com.abdelsattar.alahramapp;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -13,6 +14,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.pdf.PdfDocument;
 import android.media.MediaScannerConnection;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -520,7 +522,7 @@ public class CreatePdfActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        bindDataToStickersView();
+        bindDataToStickersView("");
         bindDataToBill1();
         bindDataToBill2();
 
@@ -641,63 +643,70 @@ public class CreatePdfActivity extends AppCompatActivity {
         }
     }
 
-    private void bindDataToStickersView()
+    private void bindDataToStickersView(String content)
     {
+        Preferences preferences=new Preferences(this);
         // Stickers
         String stickersBillNumber=String.valueOf(getRandomBillNumber());
-        String stickersSenderName="محمد عبد الستار";
-        String stickersReceiverName="محمد عنتر";
-        String stickersDirection="الاتجاه الاتجاه";
-        String stickersContent="content content content";
-        String stickersMobileNumber="01112688365";
+        String stickersSenderName=preferences.getclientname();
+        String stickersReceiverName= preferences.getRecivername();
+        String stickersDirection=preferences.getReciverAddressDetial();
+        String stickersContent=content;
+        String stickersMobileNumber=preferences.getClientPhoneKsa();
 
-        mPage4ReceiverName1.setText(stickersReceiverName);
-        mPage4ReceiverName2.setText(stickersReceiverName);
-        mPage4ReceiverName3.setText(stickersReceiverName);
+//        mPage4ReceiverName1.setText(stickersReceiverName);
+//        mPage4ReceiverName2.setText(stickersReceiverName);
+//        mPage4ReceiverName3.setText(stickersReceiverName);
 
         mPage3ReceiverName1.setText(stickersReceiverName);
         mPage3ReceiverName2.setText(stickersReceiverName);
         mPage3ReceiverName3.setText(stickersReceiverName);
 
-        mPage4BillNumber1.setText(stickersBillNumber);
-        mPage4BillNumber2.setText(stickersBillNumber);
-        mPage4BillNumber3.setText(stickersBillNumber);
+//        mPage4BillNumber1.setText(stickersBillNumber);
+//        mPage4BillNumber2.setText(stickersBillNumber);
+//        mPage4BillNumber3.setText(stickersBillNumber);
+
         mPage3BillNumber1.setText(stickersBillNumber);
         mPage3BillNumber2.setText(stickersBillNumber);
         mPage3BillNumber3.setText(stickersBillNumber);
 
-        mPage4ContentNumber1.setText(stickersContent);
-        mPage4ContentNumber2.setText(stickersContent);
-        mPage4ContentNumber3.setText(stickersContent);
+//        mPage4ContentNumber1.setText(stickersContent);
+//        mPage4ContentNumber2.setText(stickersContent);
+//        mPage4ContentNumber3.setText(stickersContent);
+
         mPage3ContentNumber1.setText(stickersContent);
         mPage3ContentNumber2.setText(stickersContent);
         mPage3ContentNumber3.setText(stickersContent);
 
-        mPage4Direction1.setText(stickersDirection);
-        mPage4Direction2.setText(stickersDirection);
-        mPage4Direction3.setText(stickersDirection);
+//        mPage4Direction1.setText(stickersDirection);
+//        mPage4Direction2.setText(stickersDirection);
+//        mPage4Direction3.setText(stickersDirection);
+
         mPage3Direction1.setText(stickersDirection);
         mPage3Direction2.setText(stickersDirection);
         mPage3Direction3.setText(stickersDirection);
 
-        mPage4Mobile1.setText(stickersMobileNumber);
-        mPage4Mobile2.setText(stickersMobileNumber);
-        mPage4Mobile3.setText(stickersMobileNumber);
+//        mPage4Mobile1.setText(stickersMobileNumber);
+//        mPage4Mobile2.setText(stickersMobileNumber);
+//        mPage4Mobile3.setText(stickersMobileNumber);
+
         mPage3Mobile1.setText(stickersMobileNumber);
         mPage3Mobile2.setText(stickersMobileNumber);
         mPage3Mobile3.setText(stickersMobileNumber);
 
-        mPage4SenderName1.setText(stickersSenderName);
-        mPage4SenderName2.setText(stickersSenderName);
-        mPage4SenderName3.setText(stickersSenderName);
+//        mPage4SenderName1.setText(stickersSenderName);
+//        mPage4SenderName2.setText(stickersSenderName);
+//        mPage4SenderName3.setText(stickersSenderName);
+
         mPage3SenderName1.setText(stickersSenderName);
         mPage3SenderName2.setText(stickersSenderName);
         mPage3SenderName3.setText(stickersSenderName);
     }
 
-
+    int billNumber=-1;
     public int getRandomBillNumber() {
-
+        if (billNumber!=-1)
+            return billNumber;
         Random rand = new Random();
         int randomNum = rand.nextInt((99999 - 10000) + 1) + 10000;
         return randomNum;
@@ -709,28 +718,18 @@ public class CreatePdfActivity extends AppCompatActivity {
         String dateFormat = formatter.format(date.getTime());
         return dateFormat;
     }
-//    ProgressDialog progressDialog;
-//    boolean file1Finish,file2Finish;
+    ProgressDialog dialog;
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void savePdf(View view) {
-//        file1Finish=false;
-//        file2Finish=false;
-//
-//        progressDialog = new ProgressDialog(CreatePdfActivity.this);
-//        progressDialog.setMessage("جاري حفظ الفواتير...");
-//        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
-//        progressDialog.show(); // Display Progress Dialog
-//        progressDialog.setCancelable(false);
 
-
-        createPdf1();
-        createPdf2();
+        if (fn_permission()) {
+            dialog = ProgressDialog.show(CreatePdfActivity.this, "",
+                    "Loading. Please wait...", true);
+            createPdf1();
+            createPdf2();
+        }
     }
-//    void dismissDialog()
-//    {
-//        if (file1Finish&& file2Finish)
-//            progressDialog.dismiss();
-//    }
+
     public static final int REQUEST_PERMISSIONS = 1;
     boolean boolean_permission;
 
@@ -760,39 +759,16 @@ public class CreatePdfActivity extends AppCompatActivity {
         //return the bitmap
         return returnedBitmap;
     }
-   /* @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+
+    boolean fileOneFinish=false;
+    boolean fileTwoFinish=false;
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     void createPdf1(){
-        fn_permission();
         DisplayMetrics displaymetrics = new DisplayMetrics();
         this.getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
 
         PdfDocument document = new PdfDocument();
-
-
-
-        Bitmap bitmap2;
-        PdfDocument.PageInfo pageInfo2;
-        PdfDocument.Page page2;
-        Canvas canvas2;
-        bitmap2= getBitmapImageOfView(this.getWindow().findViewById(R.id.page3_myView));
-        pageInfo2 = new PdfDocument.PageInfo.Builder(bitmap2.getWidth(), bitmap2.getHeight(), 2).create();
-        page2 = document.startPage(pageInfo2);
-        canvas2 = page2.getCanvas();
-        bitmap2 = Bitmap.createScaledBitmap(bitmap2, bitmap2.getWidth(), bitmap2.getHeight(), true);
-        canvas2.drawBitmap(bitmap2, 0, 0 , null);
-        document.finishPage(page2);
-
-        Bitmap bitmap3;
-        PdfDocument.PageInfo pageInfo3;
-        PdfDocument.Page page3;
-        Canvas canvas3;
-        bitmap3 = getBitmapImageOfView(this.getWindow().findViewById(R.id.page4_myView));
-        pageInfo3 = new PdfDocument.PageInfo.Builder(bitmap3.getWidth(), bitmap3.getHeight(), 3).create();
-        page3 = document.startPage(pageInfo3);
-        canvas3 = page3.getCanvas();
-        bitmap3 = Bitmap.createScaledBitmap(bitmap3, bitmap3.getWidth(), bitmap3.getHeight(), true);
-        canvas3.drawBitmap(bitmap3, 0, 0 , null);
-        document.finishPage(page3);
 
 
         Bitmap bitmap1;
@@ -801,144 +777,62 @@ public class CreatePdfActivity extends AppCompatActivity {
         Canvas canvas1;
 
 
-        bitmap1 = getBitmapImageOfView(this.getWindow().findViewById(R.id.page2_myView));
+        bitmap1 = getBitmapImageOfView(this.getWindow().findViewById(R.id.myView));
         pageInfo1 = new PdfDocument.PageInfo.Builder(bitmap1.getWidth(), bitmap1.getHeight(), 1).create();
         page1 = document.startPage(pageInfo1);
         canvas1 = page1.getCanvas();
         bitmap1 = Bitmap.createScaledBitmap(bitmap1, bitmap1.getWidth(), bitmap1.getHeight(), true);
         canvas1.drawBitmap(bitmap1, 0, 0, null);
         document.finishPage(page1);
-        File root = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "AlAhram");
-        root.mkdirs();
 
-        File filePath = new File(root + File.separator + String.valueOf(new Date().getTime())+".pdf");
-        try {
-            document.writeTo(new FileOutputStream(filePath));
-            Toast.makeText(this, "Done " , Toast.LENGTH_LONG).show();
-//            file1Finish=true;
-//            dismissDialog();
-        } catch (IOException e) {
-            e.printStackTrace();
-            Toast.makeText(this, "Something wrong: " + e.toString(), Toast.LENGTH_LONG).show();
-//            file1Finish=true;
-//            dismissDialog();
+
+
+        for (int i=0;i<data.size();i++) {
+
+            mPage3ContentNumber1.setText(data.get(i).getOrdername());
+            mPage3ContentNumber2.setText(data.get(i).getOrdername());
+            mPage3ContentNumber3.setText(data.get(i).getOrdername());
+            Bitmap bitmap2;
+            PdfDocument.PageInfo pageInfo2;
+            PdfDocument.Page page2;
+            Canvas canvas2;
+            bitmap2 = getBitmapImageOfView(this.getWindow().findViewById(R.id.page3_myView));
+            pageInfo2 = new PdfDocument.PageInfo.Builder(bitmap2.getWidth(), bitmap2.getHeight(), (2+i)).create();
+            page2 = document.startPage(pageInfo2);
+            canvas2 = page2.getCanvas();
+            bitmap2 = Bitmap.createScaledBitmap(bitmap2, bitmap2.getWidth(), bitmap2.getHeight(), true);
+            canvas2.drawBitmap(bitmap2, 0, 0, null);
+            document.finishPage(page2);
         }
-        document.close();
-    }
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    void createPdf2(){
-        fn_permission();
-        DisplayMetrics displaymetrics = new DisplayMetrics();
-        this.getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
 
-        PdfDocument document = new PdfDocument();
-
-        Bitmap bitmap;
-        PdfDocument.PageInfo pageInfo;
-        PdfDocument.Page page;
-        Canvas canvas;
-
-        bitmap= getBitmapImageOfView(this.getWindow().findViewById(R.id.myView));
-        pageInfo = new PdfDocument.PageInfo.Builder(bitmap.getWidth(), bitmap.getHeight(), 1).create();
-        page = document.startPage(pageInfo);
-        canvas = page.getCanvas();
-        bitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
-        canvas.drawBitmap(bitmap, 0, 0 , null);
-        document.finishPage(page);
-
-        File root = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "AlAhram");
-        root.mkdirs();
-
-        File filePath = new File(root + File.separator + String.valueOf(new Date().getTime())+".pdf");
-        try {
-            document.writeTo(new FileOutputStream(filePath));
-            Toast.makeText(this, "Done " , Toast.LENGTH_LONG).show();
-//            file2Finish=true;
-//            dismissDialog();
-        } catch (IOException e) {
-            e.printStackTrace();
-            Toast.makeText(this, "Something wrong: " + e.toString(), Toast.LENGTH_LONG).show();
-//            file2Finish=true;
-//            dismissDialog();
-        }
-        document.close();
-    }*/
-
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    void createPdf1(){
-        fn_permission();
-        DisplayMetrics displaymetrics = new DisplayMetrics();
-        this.getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-
-        PdfDocument document = new PdfDocument();
-
-
-
-        Bitmap bitmap2;
-        PdfDocument.PageInfo pageInfo2;
-        PdfDocument.Page page2;
-        Canvas canvas2;
-        bitmap2= getBitmapImageOfView(this.getWindow().findViewById(R.id.page3_myView));
-        pageInfo2 = new PdfDocument.PageInfo.Builder(bitmap2.getWidth(), bitmap2.getHeight(), 2).create();
-        page2 = document.startPage(pageInfo2);
-        canvas2 = page2.getCanvas();
-        bitmap2 = Bitmap.createScaledBitmap(bitmap2, bitmap2.getWidth(), bitmap2.getHeight(), true);
-        canvas2.drawBitmap(bitmap2, 0, 0 , null);
-        document.finishPage(page2);
-
-        Bitmap bitmap3;
-        PdfDocument.PageInfo pageInfo3;
-        PdfDocument.Page page3;
-        Canvas canvas3;
-        bitmap3 = getBitmapImageOfView(this.getWindow().findViewById(R.id.page4_myView));
-        pageInfo3 = new PdfDocument.PageInfo.Builder(bitmap3.getWidth(), bitmap3.getHeight(), 3).create();
-        page3 = document.startPage(pageInfo3);
-        canvas3 = page3.getCanvas();
-        bitmap3 = Bitmap.createScaledBitmap(bitmap3, bitmap3.getWidth(), bitmap3.getHeight(), true);
-        canvas3.drawBitmap(bitmap3, 0, 0 , null);
-        document.finishPage(page3);
-
-
-        Bitmap bitmap1;
-        PdfDocument.PageInfo pageInfo1;
-        PdfDocument.Page page1;
-        Canvas canvas1;
-
-
-        bitmap1 = getBitmapImageOfView(this.getWindow().findViewById(R.id.page2_myView));
-        pageInfo1 = new PdfDocument.PageInfo.Builder(bitmap1.getWidth(), bitmap1.getHeight(), 1).create();
-        page1 = document.startPage(pageInfo1);
-        canvas1 = page1.getCanvas();
-        bitmap1 = Bitmap.createScaledBitmap(bitmap1, bitmap1.getWidth(), bitmap1.getHeight(), true);
-        canvas1.drawBitmap(bitmap1, 0, 0, null);
-        document.finishPage(page1);
         File root = new File(Environment.getExternalStorageDirectory(), "AlAhram");
         if (!root.exists()) {
             root.mkdirs();
         }
         MediaScannerConnection.scanFile(this, new String[] {root.toString()}, null, null);
 
-        File filePath = new File(root,String.valueOf(new Date().getTime())+".pdf");
+        Preferences preferences=new Preferences(this);
+        String fileName=preferences.getclientname()+"_فاتورة العميل_"+String.valueOf(getRandomBillNumber())+".pdf";
+        File filePath = new File(root,fileName);
         try {
             FileOutputStream fileOutputStream=new FileOutputStream(filePath);
             document.writeTo(fileOutputStream);
             Toast.makeText(this, "Done " , Toast.LENGTH_LONG).show();
             fileOutputStream.close();
             document.close();
-//            file1Finish=true;
-//            dismissDialog();
+            fileOneFinish=true;
+            dismissDialog();
         } catch (IOException e) {
             e.printStackTrace();
             Toast.makeText(this, "Something wrong: " + e.toString(), Toast.LENGTH_LONG).show();
-//            file1Finish=true;
-//            dismissDialog();
+            fileOneFinish=true;
+            dismissDialog();
         }
 
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     void createPdf2(){
-        fn_permission();
         DisplayMetrics displaymetrics = new DisplayMetrics();
         this.getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
 
@@ -949,7 +843,7 @@ public class CreatePdfActivity extends AppCompatActivity {
         PdfDocument.Page page;
         Canvas canvas;
 
-        bitmap= getBitmapImageOfView(this.getWindow().findViewById(R.id.myView));
+        bitmap= getBitmapImageOfView(this.getWindow().findViewById(R.id.page2_myView));
         pageInfo = new PdfDocument.PageInfo.Builder(bitmap.getWidth(), bitmap.getHeight(), 1).create();
         page = document.startPage(pageInfo);
         canvas = page.getCanvas();
@@ -963,30 +857,30 @@ public class CreatePdfActivity extends AppCompatActivity {
         }
         MediaScannerConnection.scanFile(this, new String[] {root.toString()}, null, null);
 
-        File filePath = new File(root,String.valueOf(new Date().getTime())+".pdf");
-//        filePath.mkdirs();
+        Preferences preferences=new Preferences(this);
+        String fileName=preferences.getclientname()+"_فاتورة الاستلام_"+String.valueOf(getRandomBillNumber())+".pdf";
+        File filePath = new File(root,fileName);
         try {
             FileOutputStream fileOutputStream=new FileOutputStream(filePath);
             document.writeTo(fileOutputStream);
             Toast.makeText(this, "Done " , Toast.LENGTH_LONG).show();
             fileOutputStream.close();
             document.close();
-//            file2Finish=true;
-//            dismissDialog();
+            fileTwoFinish=true;
+            dismissDialog();
+
         } catch (IOException e) {
             e.printStackTrace();
             Toast.makeText(this, "Something wrong: " + e.toString(), Toast.LENGTH_LONG).show();
-//            file2Finish=true;
-//            dismissDialog();
+            fileTwoFinish=true;
+            dismissDialog();
         }
     }
 
-
-
-
-    private void fn_permission() {
+    private boolean fn_permission() {
         if ((ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)||
-                (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
+                (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED))
+        {
 
             if ((ActivityCompat.shouldShowRequestPermissionRationale(CreatePdfActivity.this, android.Manifest.permission.READ_EXTERNAL_STORAGE))) {
             } else {
@@ -1001,20 +895,45 @@ public class CreatePdfActivity extends AppCompatActivity {
                         REQUEST_PERMISSIONS);
 
             }
-        } else {
+            boolean_permission = false;
+            return boolean_permission;
+        }
+        else {
             boolean_permission = true;
-
+            return boolean_permission;
         }
     }
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == REQUEST_PERMISSIONS) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 boolean_permission = true;
+                createPdf1();
+                createPdf2();
             } else {
                 Toast.makeText(getApplicationContext(), "Please allow the permission", Toast.LENGTH_LONG).show();
             }
         }
     }
+
+    private void dismissDialog()
+    {
+        if (fileOneFinish&& fileTwoFinish)
+        {
+            dialog.dismiss();
+            openFolder();
+        }
+    }
+
+    private void openFolder()
+    {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        Uri uri = Uri.parse(Environment.getExternalStorageDirectory().getPath()
+                + "/AlAhram/");
+        intent.setDataAndType(uri, "*/*");
+        startActivity(Intent.createChooser(intent, "Open folder"));
+    }
+
 }
