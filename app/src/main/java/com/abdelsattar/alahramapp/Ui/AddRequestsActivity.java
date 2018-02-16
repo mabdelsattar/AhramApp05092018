@@ -102,6 +102,7 @@ public class AddRequestsActivity extends AppCompatActivity {
         dialog.show();
 
         String url = Constant.serversite+"/api/AlAhram/GetItems";
+
         StringRequest jsonObjectRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override

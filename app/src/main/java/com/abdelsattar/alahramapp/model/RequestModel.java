@@ -1,5 +1,7 @@
 package com.abdelsattar.alahramapp.model;
 
+import org.json.JSONObject;
+
 /**
  * Created by amiraelsayed on 1/7/2018.
  */
@@ -12,13 +14,15 @@ public class RequestModel
         return ordernumber;
     }
 
-    public RequestModel(String ordernumber, String clientname, String clientphone, String reciverdate) {
+    public RequestModel(String ordernumber, String clientname, String clientphone, String reciverdate,JSONObject object) {
         this.ordernumber = ordernumber;
         this.clientname = clientname;
         this.clientphone = clientphone;
         this.reciverdate = reciverdate;
+        this.StrObject = object;
     }
 
+    public JSONObject StrObject;
     public void setOrdernumber(String ordernumber) {
         this.ordernumber = ordernumber;
     }
