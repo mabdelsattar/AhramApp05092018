@@ -821,11 +821,16 @@ public class CreatePdfActivity extends AppCompatActivity {
                                 try {
                                     int RequestId = response.getInt("RequestId");
 mpreference.setRequestnum(RequestId);
-                                   view.setClickable(false);
-                                    view.setEnabled(false);
+                                //   view.setClickable(false);
+                                 //   view.setEnabled(false);
+                                    view.setVisibility(View.INVISIBLE);
                                     createPdf1();
                                     createPdf2();
-                                }catch (Exception ex){}
+                                }catch (Exception ex){
+                                    Toast.makeText(CreatePdfActivity.this,"حدث خطأ تقني",Toast.LENGTH_LONG).show();
+
+
+                                }
 
 
                             }
@@ -835,6 +840,7 @@ mpreference.setRequestnum(RequestId);
                         if (dialog.isShowing()) {
                             dialog.dismiss();
                         }
+                        Toast.makeText(CreatePdfActivity.this,"حدث خطأ تقني اثناء الاتصال بالخادم",Toast.LENGTH_LONG).show();
                         // clientname.setText("Error getting response");
                         error.printStackTrace();
                     }

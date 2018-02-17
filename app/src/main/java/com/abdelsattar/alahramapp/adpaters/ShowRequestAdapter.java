@@ -134,16 +134,16 @@ public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.
     private void deleteRequest(final RequestModel requestModel)
     {
         new AlertDialog.Builder(context)
-                .setTitle("Delete Request")
-                .setMessage("Do you sure want to delete this request ?")
+                .setTitle("الغاء الطلب")
+                .setMessage("تأكيد الغاء الطلب ؟")
                 .setIcon(android.R.drawable.ic_dialog_alert)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setPositiveButton("موافق", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
                         Log.d("Delete Item",requestModel.toString());
                         getJsonResponsePost(requestModel);
                     }})
-                .setNegativeButton(android.R.string.no, null).show();
+                .setNegativeButton("تراجع", null).show();
     }
 
 
