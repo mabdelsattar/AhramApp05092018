@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -35,10 +36,21 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.abdelsattar.alahramapp.Ui.*;
 import com.abdelsattar.alahramapp.Ui.AttachActivity;
 import com.abdelsattar.alahramapp.Utilitis.Preferences;
 import com.abdelsattar.alahramapp.model.AddRequestModel;
+import com.abdelsattar.alahramapp.model.Constant;
+import com.abdelsattar.alahramapp.model.RequestQueueSingleton;
 import com.abdelsattar.alahramapp.pdfCreate.VerticalTextView;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -57,6 +69,10 @@ import butterknife.ButterKnife;
 
 public class CreatePdfActivity extends AppCompatActivity {
     Preferences mpreference;
+
+    static final String REQ_TAG = "VACTIVITY";
+    RequestQueue requestQueue;
+
     /** ButterKnife Code **/
     @BindView(R.id.pageView)
     RelativeLayout mPageView;
@@ -494,6 +510,10 @@ public class CreatePdfActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         forceRTLIfSupported();
         setContentView(R.layout.activity_print_pdf);
+
+        requestQueue = RequestQueueSingleton.getInstance(CreatePdfActivity.this)
+                .getRequestQueue();
+
         ButterKnife.bind(this);
         mpreference=new Preferences(this);
         mPageView.bringToFront();
@@ -519,6 +539,7 @@ public class CreatePdfActivity extends AppCompatActivity {
             totalPrice+=data.get(i).getCounter()*Integer.valueOf(data.get(i).getOrderprice());
             Log.d("dataItem",""+data.get(i).toString());
         }
+
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#113353"));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
         getSupportActionBar().setTitle("انشاء طلب جديد");
@@ -713,11 +734,7 @@ public class CreatePdfActivity extends AppCompatActivity {
 
     int billNumber=-1;
     public int getRandomBillNumber() {
-        if (billNumber!=-1)
-            return billNumber;
-        Random rand = new Random();
-        int randomNum = rand.nextInt((99999 - 10000) + 1) + 10000;
-        return randomNum;
+        return mpreference.getRequestNum();
     }
     public String getCurrantDate()
     {
@@ -728,13 +745,109 @@ public class CreatePdfActivity extends AppCompatActivity {
     }
     ProgressDialog dialog;
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public void savePdf(View view) {
+    public void savePdf(final View view) {
+
+
+
 
         if (fn_permission()) {
             dialog = ProgressDialog.show(CreatePdfActivity.this, "",
-                    "Loading. Please wait...", true);
-            createPdf1();
-            createPdf2();
+                    "جاري التحميل...", true);
+
+            try {
+                String url = Constant.serversite + "/api/AlAhram/AddOrUpdateRequest";
+
+                final JSONObject jsonBody = new JSONObject();
+
+                int UserId = mpreference.getUserId();
+                jsonBody.put("UserId",UserId);
+
+                JSONObject RecieverInfo = new JSONObject();
+
+                RecieverInfo.put("FullName",mpreference.getRecivername());
+                RecieverInfo.put("Phone2",mpreference.getReciverPhoneEgy());
+                RecieverInfo.put("Phone1",mpreference.getReciverPhoneKsa());
+
+                JSONObject Address1_R = new JSONObject();
+                Address1_R.put("CityId", mpreference.getRecieverCity());
+                Address1_R.put("AddressText", mpreference.getReciverAddressDetial());
+
+                RecieverInfo.put("Address1",Address1_R);
+                RecieverInfo.put("NationalID",mpreference.getReciverNationalId());
+
+                jsonBody.put("RecieverInfo",RecieverInfo);
+
+                JSONObject ClientInfo = new JSONObject();
+
+                ClientInfo.put("FullName",mpreference.getclientname());
+                ClientInfo.put("Phone2",mpreference.getClientPhoneEgy());
+                ClientInfo.put("Phone1",mpreference.getClientPhoneKsa());
+
+                JSONObject Address1_C = new JSONObject();
+                Address1_C.put("CityId", mpreference.getClientCity());
+                Address1_C.put("AddressText", mpreference.getClientAddressDetial());
+
+                ClientInfo.put("Address1",Address1_C);
+                ClientInfo.put("NationalID",mpreference.getClientNationalId());
+                ClientInfo.put("Nationality",mpreference.getClientNationality());
+
+                jsonBody.put("ClientInfo",ClientInfo);
+
+                jsonBody.put("Paid",0);
+                jsonBody.put("Remaining",0);
+                jsonBody.put("Required",totalPrice);
+
+
+                JSONObject Items = new JSONObject();
+
+                for(int i=0 ; i< data.size() ; i++)
+                {
+                    Items.put(data.get(i).getId()+"",data.get(i).getCounter());
+                }
+
+                jsonBody.put("Items",Items);
+
+
+
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonBody,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                if (dialog.isShowing()) {
+                                    dialog.dismiss();
+                                }
+                                // .setText("String Response : "+ response.toString());
+                                Log.i("respones", "succed");
+                                try {
+                                    int RequestId = response.getInt("RequestId");
+mpreference.setRequestnum(RequestId);
+                                   view.setClickable(false);
+                                    view.setEnabled(false);
+                                    createPdf1();
+                                    createPdf2();
+                                }catch (Exception ex){}
+
+
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        if (dialog.isShowing()) {
+                            dialog.dismiss();
+                        }
+                        // clientname.setText("Error getting response");
+                        error.printStackTrace();
+                    }
+                });
+                jsonObjectRequest.setTag(REQ_TAG);
+                requestQueue.add(jsonObjectRequest);
+
+
+
+            }catch (Exception ex){
+
+            }
+
         }
     }
 
@@ -829,7 +942,7 @@ public class CreatePdfActivity extends AppCompatActivity {
         try {
             FileOutputStream fileOutputStream=new FileOutputStream(filePath);
             document.writeTo(fileOutputStream);
-            Toast.makeText(this, "تم انشاء الفواتير الرجاء فتح فولدر الاهرام " , Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "تم انشاء الفواتير قم بالطباعه اولا ثم اضغط علي التالي " , Toast.LENGTH_LONG).show();
             fileOutputStream.close();
             document.close();
             fileOneFinish=true;
@@ -875,7 +988,7 @@ public class CreatePdfActivity extends AppCompatActivity {
         try {
             FileOutputStream fileOutputStream=new FileOutputStream(filePath);
             document.writeTo(fileOutputStream);
-            Toast.makeText(this, "تم انشاء الفواتير الرجاء فتح فولدر الاهرام " , Toast.LENGTH_LONG).show();
+            Toast.makeText(this,  "تم انشاء الفواتير قم بالطباعه اولا ثم اضغط علي التالي " , Toast.LENGTH_LONG).show();
             fileOutputStream.close();
             document.close();
             fileTwoFinish=true;

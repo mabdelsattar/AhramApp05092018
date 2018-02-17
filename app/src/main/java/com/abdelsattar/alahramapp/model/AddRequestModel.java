@@ -18,6 +18,14 @@ public class AddRequestModel implements Serializable
     int counter;
     int Id;
 
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
+    }
+
     public String getOrdername() {
         return ordername;
     }

@@ -360,7 +360,7 @@ public class RequestFormActivity extends AppCompatActivity {
                  mpreferences.setClientCity(clientCities.get(spinner_client_address_city.getSelectedItemPosition()));
                  mpreferences.setClientAddressDetail(clientaddressdetail.getText().toString());
                  mpreferences.setReciverName(recivername.getText().toString());
-                 mpreferences.setClientphoneEgy(reciverphoneegy.getText().toString());
+                 mpreferences.setReciverphoneKsa(reciverphoneegy.getText().toString());
                  mpreferences.setReciverphoneEgy(reciverphoneksa.getText().toString());
                  mpreferences.setReciverNationalId(recivernationalid.getText().toString());
                  mpreferences.setReciverAddressDetail1(spinner_Reciever_address_city.getSelectedItem().toString());
@@ -368,9 +368,12 @@ public class RequestFormActivity extends AppCompatActivity {
                  mpreferences.setReciverAddressDetail2(spinner_Reciever_address_country.getSelectedItem().toString());
                  mpreferences.setRecieverCountry(spinner_Reciever_address_country.getSelectedItemPosition());
                  mpreferences.setClientNationality(spinner_nationality.getSelectedItemPosition());
-                   mpreferences.setReciverAddressDetail(reciveraddressdetail.getText().toString());
+                 mpreferences.setReciverAddressDetail(reciveraddressdetail.getText().toString());
+
+
                  Intent i = new Intent(RequestFormActivity.this, AddRequestsActivity.class);
-                   startActivity(i);
+                 startActivity(i);
+
 
                 }
               }

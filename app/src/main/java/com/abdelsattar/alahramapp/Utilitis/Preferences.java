@@ -44,6 +44,9 @@ public class Preferences
     private static final String CLIENT_City = "client_city";
     private static final String RECIVER_COUNTRY = "reciever_country";
     private static final String RECIEVER_CITY = "reciever_city";
+    private static final String USERID = "userId";
+    private static final String REQUESTNUM = "REQUESTNUM";
+
     private final Context context;
 
     /**
@@ -281,5 +284,27 @@ public class Preferences
     {
         editor.putString(Preferences.RECIVERDETAILLADDRESS2, reciverAddressDetail2);
         editor.commit();
+    }
+
+    public void setUserId(int UserId)
+    {
+        editor.putInt(USERID, UserId);
+        editor.commit();
+    }
+    public int getUserId()
+    {
+        int userId=sharedPreferences.getInt(USERID,-1);
+        return  userId;
+    }
+
+    public void setRequestnum(int requestnum)
+    {
+        editor.putInt(REQUESTNUM, requestnum);
+        editor.commit();
+    }
+    public int getRequestNum()
+    {
+        int requestNum=sharedPreferences.getInt(REQUESTNUM,-1);
+        return  requestNum;
     }
 }

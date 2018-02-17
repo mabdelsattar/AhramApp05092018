@@ -78,7 +78,7 @@ public class AddRequestsActivity extends AppCompatActivity {
 
 
 
-        Button fab = (Button) findViewById(R.id.nextbtn);
+        final Button fab = (Button) findViewById(R.id.nextbtn);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,13 +86,22 @@ public class AddRequestsActivity extends AppCompatActivity {
                         .setAction("Action", null).show();*/
                 //TODO go to page for build your request
 
+                boolean isEmptry= true;
+                for (int i=0 ; i< data.size(); i++)
+                {
+                    if(data.get(i).getCounter() > 0)
+                        isEmptry = false;
+                }
 
-                Intent intent = new Intent(AddRequestsActivity.this, CreatePdfActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("dataList", data);
-                intent.putExtras(bundle);
-                startActivity(intent);
-
+                if(isEmptry == false) {
+                    Intent intent = new Intent(AddRequestsActivity.this, CreatePdfActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("dataList", data);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(AddRequestsActivity.this,"الرجاء اختيار طرد واحد علي الاقل",Toast.LENGTH_LONG).show();
+                }
             }
         });
 
