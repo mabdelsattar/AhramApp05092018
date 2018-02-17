@@ -9,9 +9,11 @@ import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -37,6 +39,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.abdelsattar.alahramapp.Utilitis.ResponseParser.getRequestData;
+
 public class ShowAllRequestsActivity extends AppCompatActivity {
     RecyclerView requestrecycleview;
     ShowRequestAdapter adapter;
@@ -55,14 +59,25 @@ public class ShowAllRequestsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // forceRTLIfSupported();
         setContentView(R.layout.activity_allrequests);
-
-       // forceRTLIfSupported();
+        forceRTLIfSupported();
 
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#113353"));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
         getSupportActionBar().setTitle("جميع الطلبات");
+
+
+        data = new ArrayList<RequestModel>();
+        adapter = new ShowRequestAdapter(data,this);
+        requestrecycleview = (RecyclerView) findViewById(R.id.allrequest);
+
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        requestrecycleview.setLayoutManager(mLayoutManager);
+        requestrecycleview.setItemAnimator(new DefaultItemAnimator());
+        requestrecycleview.setAdapter(adapter);
+        DividerItemDecoration divider = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        divider.setDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.divider_gray));
+        requestrecycleview.addItemDecoration(divider);
 
         requestQueue = RequestQueueSingleton.getInstance(ShowAllRequestsActivity.this)
                 .getRequestQueue();
@@ -70,7 +85,6 @@ public class ShowAllRequestsActivity extends AppCompatActivity {
         dialog = new ProgressDialog(ShowAllRequestsActivity.this);
         dialog.setMessage("جاري التحميل...");
         dialog.show();
-
 
         String url = Constant.serversite+"/api/AlAhram/GetAllByUserId?userid";
         StringRequest jsonObjectRequest = new StringRequest(Request.Method.GET, url,
@@ -81,35 +95,9 @@ public class ShowAllRequestsActivity extends AppCompatActivity {
                             dialog.dismiss();
                         }
                         try {
-                            data = new ArrayList<RequestModel>();
-
-                            JSONArray jsonItems = new JSONArray(response);
-                            for (int i = 0; i < jsonItems.length(); i++)
-                            {
-                                JSONObject jsonObject =jsonItems.getJSONObject(i);
-                                int RequestId = jsonObject.getInt("RequestId");
-                                String ClientName =  jsonObject.getString("ClientName");
-                                String ClientPhone =  jsonObject.getString("ClientPhone");
-                                String RequestDate =  jsonObject.getString("RequestDate");
-
-                                data.add(new RequestModel(RequestId+"", ClientName,ClientPhone,RequestDate,jsonObject));
-                            }
-                            // .setText("String Response : "+ response.toString());
-                            Log.i("respones", "succed");
-
-
-
-
-
-
-
-                            adapter = new ShowRequestAdapter(ShowAllRequestsActivity.this, data);
-                            requestrecycleview = (RecyclerView) findViewById(R.id.allrequest);
-                            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(ShowAllRequestsActivity.this);
-                            requestrecycleview.setLayoutManager(mLayoutManager);
-                            requestrecycleview.addItemDecoration(new ShowAllRequestsActivity.GridSpacingItemDecoration(2, dpToPx(10), true));
-                            requestrecycleview.setItemAnimator(new DefaultItemAnimator());
-                            requestrecycleview.setAdapter(adapter);
+                            data.clear();
+                            data.addAll(getRequestData(response));
+                            adapter.notifyDataSetChanged();
 
                         }catch (Exception ex){
 
@@ -123,78 +111,19 @@ public class ShowAllRequestsActivity extends AppCompatActivity {
                 if (dialog.isShowing()) {
                     dialog.dismiss();
                 }
-                // clientname.setText("Error getting response");
                 error.printStackTrace();
             }
         });
         jsonObjectRequest.setTag(REQ_TAG);
         requestQueue.add(jsonObjectRequest);
 
-        //showdatadummy();
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        //get the drawable
-//        Drawable myFabSrc = getResources().getDrawable(android.R.drawable.ic_input_add);
-////copy it in a new one
-//        Drawable willBeWhite = myFabSrc.getConstantState().newDrawable();
-////set the color filter, you can use also Mode.SRC_ATOP
-//        willBeWhite.mutate().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
-////set it to your fab button initialized before
-//        fab.setImageDrawable(willBeWhite);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 startActivity(new Intent(ShowAllRequestsActivity.this,RequestFormActivity.class));
-
-
             }
         });
-    }
-
-
-
-    public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
-
-        private int spanCount;
-        private int spacing;
-        private boolean includeEdge;
-
-        public GridSpacingItemDecoration(int spanCount, int spacing, boolean includeEdge) {
-            this.spanCount = spanCount;
-            this.spacing = spacing;
-            this.includeEdge = includeEdge;
-        }
-
-        @Override
-        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-            int position = parent.getChildAdapterPosition(view); // item position
-            int column = position % spanCount; // item column
-
-            if (includeEdge) {
-                outRect.left = spacing - column * spacing / spanCount; // spacing - column * ((1f / spanCount) * spacing)
-                outRect.right = (column + 1) * spacing / spanCount; // (column + 1) * ((1f / spanCount) * spacing)
-
-                if (position < spanCount) { // top edge
-                    outRect.top = spacing;
-                }
-                outRect.bottom = spacing; // item bottom
-            } else {
-                outRect.left = column * spacing / spanCount; // column * ((1f / spanCount) * spacing)
-                outRect.right = spacing - (column + 1) * spacing / spanCount; // spacing - (column + 1) * ((1f /    spanCount) * spacing)
-                if (position >= spanCount) {
-                    outRect.top = spacing; // item top
-                }
-            }
-        }
-    }
-
-    /**
-     * Converting dp to pixel
-     */
-    private int dpToPx(int dp) {
-        Resources r = getResources();
-        return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
     }
 }
