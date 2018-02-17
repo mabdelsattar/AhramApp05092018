@@ -34,6 +34,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.abdelsattar.alahramapp.Preferences;
 import com.abdelsattar.alahramapp.R;
 import com.abdelsattar.alahramapp.model.AddRequestModel;
 import com.abdelsattar.alahramapp.model.Constant;
@@ -267,8 +268,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         }
                         else
                         {
-                            startActivity(new Intent(LoginActivity.this,ShowAllRequestsActivity.class));
+                            try {
+                                Preferences preferences = new Preferences(LoginActivity.this);
+                                preferences.setUserId(new JSONObject(response).getInt("UserId"));
+                            }catch (Exception ex){}
 
+                            startActivity(new Intent(LoginActivity.this,ShowAllRequestsActivity.class));
+                            finish();
                         }
 
                     }

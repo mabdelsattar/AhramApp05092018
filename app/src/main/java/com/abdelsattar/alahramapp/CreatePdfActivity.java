@@ -3,6 +3,7 @@ package com.abdelsattar.alahramapp;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -770,6 +771,7 @@ public class CreatePdfActivity extends AppCompatActivity {
     boolean fileOneFinish=false;
     boolean fileTwoFinish=false;
 
+    String fileNameclinet;
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     void createPdf1(){
         DisplayMetrics displaymetrics = new DisplayMetrics();
@@ -822,8 +824,8 @@ public class CreatePdfActivity extends AppCompatActivity {
         MediaScannerConnection.scanFile(this, new String[] {root.toString()}, null, null);
 
         Preferences preferences=new Preferences(this);
-        String fileName=preferences.getclientname()+"_فاتورة العميل_"+String.valueOf(getRandomBillNumber())+".pdf";
-        File filePath = new File(root,fileName);
+         fileNameclinet=preferences.getclientname()+"_فاتورة العميل_"+String.valueOf(getRandomBillNumber())+".pdf";
+        File filePath = new File(root,fileNameclinet);
         try {
             FileOutputStream fileOutputStream=new FileOutputStream(filePath);
             document.writeTo(fileOutputStream);
@@ -934,38 +936,25 @@ public class CreatePdfActivity extends AppCompatActivity {
 
     private void dismissDialog()
     {
-        if (fileOneFinish&& fileTwoFinish)
-        {
+        if (fileOneFinish&& fileTwoFinish) {
             dialog.dismiss();
-          //  openFolder();
-            try{
-                Uri selectedUri = Uri.parse(Environment.getExternalStorageDirectory() + "/AlAhram/");
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setDataAndType(selectedUri, "resource/folder");
+            //  openFolder();
+        //    public void openFolder(){
 
-                if (intent.resolveActivityInfo(getPackageManager(), 0) != null)
-                {
-                    startActivity(intent);
-                }
-                else
-                {
+           // }
 
+            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/AlAhram" +"/"+ fileNameclinet);
+            Intent target = new Intent(Intent.ACTION_VIEW);
+            target.setDataAndType(Uri.fromFile(file),"application/pdf");
+            target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+            Intent intent = Intent.createChooser(target, "Open File");
 
-                    // if you reach this place, it means there is no any file
-                    // explorer app installed on your device
-                    Intent chooser = Intent.createChooser(intent, "Any Title");
-                    // Verify the intent will resolve to at least one activity
-                    if (intent.resolveActivity(getPackageManager()) != null) {
-                        startActivity(chooser);
-                    }
-
-                }
-
-            }catch (Exception ex){
-
-                String message= ex.getMessage();
-                String esc= message;
+            try {
+                startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                // Instruct the user to install a PDF reader here, or something
             }
+
         }
     }
 

@@ -37,7 +37,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/lblclientnam"
-                        android:imeActionLabel="@string/lblclientnam"
+                        android:imeActionLabel="اسم العميل"
                         android:imeOptions="actionUnspecified"
                         android:inputType="text"
                         android:maxLines="1"

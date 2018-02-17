@@ -14,142 +14,43 @@
         android:layout_centerInParent="true"
         android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical">
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/mylogo"
+                android:layout_width="match_parent"
+                android:padding="30dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:textColor="#113353"
-                android:text="@string/lbl_ordernumber"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tv_ordernuber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView3"
-                android:layout_alignBottom="@+id/textView3"
-                android:layout_toLeftOf="@+id/textView3"
-                android:layout_toStartOf="@+id/textView3"
-                android:textSize="18sp"
-                android:textAlignment="textEnd"
-                android:text="77888555" />
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#113353"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/textView3"
-                android:text="@string/lbl_clientName"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tv_clientname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textView3"
-
-                android:layout_toLeftOf="@+id/textView5"
-                android:text="@string/lbl_clientName"
-                android:textSize="18sp"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@drawable/group"
                 />
 
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/btnVisitor"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:textColor="#113353"
-
-                android:layout_below="@+id/textView5"
-                android:text="@string/lbl_clientphone"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tv_phone"
-                android:layout_width="wrap_content"
+                android:layout_below="@+id/mylogo"
+                android:layout_marginTop="25dp"
+                android:textColor="#FFF"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:text="@string/lblvisitor"
+                android:background="#113353"
+                />
+            <Button
+                android:id="@+id/btnEmployee"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/textView7"
-                android:layout_toLeftOf="@+id/textView7"
-                android:layout_toStartOf="@+id/textView7"
-                android:textSize="18sp"
-                android:textAlignment="textEnd"
-                android:text="01281609575" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/textView7"
-                android:textColor="#113353"
-
-                android:text="تاريخ الطلب:"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tv_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/textView10"
-                android:layout_toLeftOf="@+id/textView10"
-                android:layout_toStartOf="@+id/textView10"
-                android:textSize="18sp"
-                android:textAlignment="textEnd"
-                android:text="20/5/2017" />
-
-        </RelativeLayout>
-
-        <ImageView
-        android:id="@+id/mylogo"
-        android:layout_width="match_parent"
-        android:padding="30dp"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"
-        android:src="@drawable/group"
-        />
-
-    <Button
-        android:id="@+id/btnVisitor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mylogo"
-        android:layout_marginTop="25dp"
-        android:textColor="#FFF"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:text="@string/lblvisitor"
-        android:background="#113353"
-        />
-    <Button
-        android:id="@+id/btnEmployee"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#FFF"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/btnVisitor"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:text="@string/lblEmp"
-        android:background="#113353"
-        />
-    </LinearLayout>
+                android:textColor="#FFF"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/btnVisitor"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:text="@string/lblEmp"
+                android:background="#113353"
+                />
+        </LinearLayout>
     </ScrollView>
 </RelativeLayout>

@@ -14,7 +14,7 @@ public class RequestModel
         return ordernumber;
     }
 
-    public RequestModel(String ordernumber, String clientname, String clientphone, String reciverdate,JSONObject object) {
+    public RequestModel(String ordernumber, String clientname, String clientphone, String reciverdate,String object) {
         this.ordernumber = ordernumber;
         this.clientname = clientname;
         this.clientphone = clientphone;
@@ -22,7 +22,16 @@ public class RequestModel
         this.StrObject = object;
     }
 
-    public JSONObject StrObject;
+    public String StrObject;
+
+    public String getStrObject() {
+        return StrObject;
+    }
+
+    public void setStrObject(String strObject) {
+        StrObject = strObject;
+    }
+
     public void setOrdernumber(String ordernumber) {
         this.ordernumber = ordernumber;
     }

@@ -112,7 +112,10 @@ public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.
         holder.mItemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                holder.mItemView.getContext().startActivity(new Intent(holder.mItemView.getContext(), OrderdetailsActivity.class));
+
+                Intent intent = new Intent(holder.mItemView.getContext(),OrderdetailsActivity.class);
+                intent.putExtra("jsonObj",requestModel.getStrObject());
+                holder.mItemView.getContext().startActivity(intent);
 
             }
         });

@@ -62,9 +62,9 @@ public class orderListAdapter extends RecyclerView.Adapter<orderListAdapter.Cust
 
         public CustomViewHolder(View view) {
             super(view);
-            this.ordernumber=(TextView)view.findViewById(R.id.tv_ordernuber);
+          //  this.ordernumber=(TextView)view.findViewById(R.id.tv_ordernuber);
             this.clientphone=(TextView)view.findViewById(R.id.tv_phone);
-            this.clientname=(TextView)view.findViewById(R.id.tv_clientname);
+           // this.clientname=(TextView)view.findViewById(R.id.tv_clientname);
             this.reciverdate=(TextView)view.findViewById(R.id.tv_date);
         }
     }

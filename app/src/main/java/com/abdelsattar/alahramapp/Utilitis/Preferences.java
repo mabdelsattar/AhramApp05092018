@@ -38,6 +38,12 @@ public class Preferences
     private static final String RECIVERDETAILLADDRESS = "reciveraddressdetail";
     private static final String RECIVERDETAILLADDRESS1= "reciveraddressdetail1";
     private static final String RECIVERDETAILLADDRESS2 = "reciveraddressdetail2";
+
+    private static final String NATIONALITY = "clientNationality";
+    private static final String CLIENT_COUNTRY = "client_country";
+    private static final String CLIENT_City = "client_city";
+    private static final String RECIVER_COUNTRY = "reciever_country";
+    private static final String RECIEVER_CITY = "reciever_city";
     private final Context context;
 
     /**
@@ -89,6 +95,63 @@ public class Preferences
         editor.putString(Preferences.CLIENTPHONEKSA, clientphoneksa);
         editor.commit();
     }
+
+    public int getClientNationality()
+    {
+        int clientphoneksa=sharedPreferences.getInt(Preferences.NATIONALITY,-1);
+        return  clientphoneksa;
+    }
+    public void setClientNationality(int Id)
+    {
+        editor.putInt(Preferences.NATIONALITY, Id);
+        editor.commit();
+    }
+
+    public int getClientCountry()
+    {
+        int clientphoneksa=sharedPreferences.getInt(Preferences.CLIENT_COUNTRY,-1);
+        return  clientphoneksa;
+    }
+    public void setClientCountry(int Id)
+    {
+        editor.putInt(Preferences.CLIENT_COUNTRY, Id);
+        editor.commit();
+    }
+
+    public int getClientCity()
+    {
+        int clientphoneksa=sharedPreferences.getInt(Preferences.CLIENT_City,-1);
+        return  clientphoneksa;
+    }
+    public void setClientCity(int Id)
+    {
+        editor.putInt(Preferences.CLIENT_City, Id);
+        editor.commit();
+    }
+
+    public int getRecieverCountry()
+    {
+        int clientphoneksa=sharedPreferences.getInt(Preferences.RECIVER_COUNTRY,-1);
+        return  clientphoneksa;
+    }
+    public void setRecieverCountry(int Id)
+    {
+        editor.putInt(Preferences.RECIVER_COUNTRY, Id);
+        editor.commit();
+    }
+
+
+    public int getRecieverCity()
+    {
+        int clientphoneksa=sharedPreferences.getInt(Preferences.RECIEVER_CITY,-1);
+        return  clientphoneksa;
+    }
+    public void setRecieverCity(int Id)
+    {
+        editor.putInt(Preferences.RECIEVER_CITY, Id);
+        editor.commit();
+    }
+
     public String getClientNationalId()
     {
         String nationalid=sharedPreferences.getString(Preferences.NATIONALID,"");

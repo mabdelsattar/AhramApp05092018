@@ -38,6 +38,7 @@ public class Preferences
     private static final String RECIVERDETAILLADDRESS = "reciveraddressdetail";
     private static final String RECIVERDETAILLADDRESS1= "reciveraddressdetail1";
     private static final String RECIVERDETAILLADDRESS2 = "reciveraddressdetail2";
+    private static final String USERID = "USERID";
     private final Context context;
 
     /**
@@ -218,5 +219,16 @@ public class Preferences
     {
         editor.putString(Preferences.CLIENTDETAILLADDRESS2, reciverAddressDetail2);
         editor.commit();
+    }
+
+    public void setUserId(int UserId)
+    {
+        editor.putInt(Preferences.USERID, UserId);
+        editor.commit();
+    }
+    public int getUserId()
+    {
+        int userId=sharedPreferences.getInt(Preferences.USERID,-1);
+        return  userId;
     }
 }
