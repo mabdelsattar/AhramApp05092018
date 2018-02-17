@@ -6,13 +6,28 @@
     android:layout_height="match_parent"
     tools:context="com.abdelsattar.alahramapp.Ui.AttachActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
     <TextView
         android:id="@+id/lblattachImg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:text="قم بارفاق صورة من توقيع العميل علي الفاتورة"/>
+
+    <ImageView
+        android:id="@+id/imgViewInvoice"
+        android:layout_width="200dp"
+        android:layout_below="@+id/lblattachImg"
+        android:layout_height="200dp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+     />
 
 
     <Button
@@ -21,13 +36,45 @@
         android:id="@+id/btnAttach"
         style="@style/Base.TextAppearance.AppCompat.Medium"
         android:layout_below="@+id/lblattachImg"
-        android:layout_marginTop="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:textColor="#FFF"
         android:background="#113353"
         android:text="ارفاق"
         />
+            <TextView
+                android:id="@+id/lblattachImgNationalId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgViewInvoice"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:text="قم بارفاق صورة هوية العميل"/>
 
+            <ImageView
+                android:id="@+id/imgViewInvoiceNationId"
+                android:layout_width="200dp"
+                android:layout_below="@+id/lblattachImgNationalId"
+                android:layout_height="200dp"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                />
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnAttachNationalId"
+                style="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_below="@+id/lblattachImgNationalId"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="#FFF"
+                android:background="#113353"
+                android:text="ارفاق"
+                />
 
     <EditText
         android:id="@+id/ETpaid"
@@ -35,7 +82,7 @@
         android:layout_alignParentRight="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnAttach"
+        android:layout_below="@+id/imgViewInvoiceNationId"
         android:hint="المدفوع"
         android:inputType="number"
         />
@@ -56,14 +103,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/Base.TextAppearance.AppCompat.Medium"
-      android:layout_alignParentBottom="true"
+     android:layout_below="@+id/ETRemain"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="10dp"
+
         android:textColor="#FFF"
         android:layout_marginBottom="10dp"
-
         android:background="#113353"
         android:text="ارسال الطلب"
         />
+</RelativeLayout>
+    </ScrollView>
 </RelativeLayout>
