@@ -105,8 +105,8 @@ dialog.dismiss();
 
                     int UserId = mpreference.getUserId();
                     jsonBody.put("RequestId",mpreference.getRequestNum());
-                    jsonBody.put("ClientSignatureImage",myimage_pill);
-                    jsonBody.put("ClientNationalIdImage",myimage_national);
+                 //   jsonBody.put("ClientSignatureImage",myimage_pill);
+                   // jsonBody.put("ClientNationalIdImage",myimage_national);
 
                     jsonBody.put("Paid",Integer.parseInt(etPaid.getText().toString()));
                     jsonBody.put("Remaining",Integer.parseInt(etRemain.getText().toString()));
