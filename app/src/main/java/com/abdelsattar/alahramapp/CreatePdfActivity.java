@@ -240,6 +240,12 @@ public class CreatePdfActivity extends AppCompatActivity {
     @BindView(R.id.page2_verticalLine4)
     View mPage2VerticalLine4;
 
+    @BindView(R.id.secretNumberHint)
+    TextView mSecretNumberHint;
+    @BindView(R.id.secretNumber)
+    TextView mSecretNumber;
+
+
     /** ButterKnife Code **/
 
 
@@ -559,7 +565,7 @@ public class CreatePdfActivity extends AppCompatActivity {
 
     private void  bindDataToBill1()
     {
-        String billNumber=String.valueOf(getRandomBillNumber());
+        String billNumber=String.valueOf(getRandomBillNumber())+" كود سري: "+mpreference.getSecretNum();
         String mobileNumber=mpreference.getClientPhoneKsa();
         String itemNumber=String.valueOf(data.size());
         String date=getCurrantDate();
@@ -821,6 +827,21 @@ public class CreatePdfActivity extends AppCompatActivity {
                                 try {
                                     int RequestId = response.getInt("RequestId");
 mpreference.setRequestnum(RequestId);
+                                    int SecretNum = response.getInt("Serial");
+                                    mpreference.setSecretNum(SecretNum);
+
+
+                                    mSecretNumber.setTypeface(tf);
+                                    mSecretNumberHint.setTypeface(tf);
+
+
+                                    // add this line to function bindDataToBill1()
+
+                                 //   String secretNumber=SecretNum+"";
+                                    mSecretNumber.setText(SecretNum+"");
+                                    mBillNumber.setText(RequestId+"");
+
+
                                 //   view.setClickable(false);
                                  //   view.setEnabled(false);
                                     view.setVisibility(View.INVISIBLE);

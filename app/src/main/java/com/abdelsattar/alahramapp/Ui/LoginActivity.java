@@ -271,7 +271,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                             try {
                                 Preferences preferences = new Preferences(LoginActivity.this);
                                 preferences.setUserId(new JSONObject(response).getInt("UserId"));
-                            }catch (Exception ex){}
+                            }catch (Exception ex){
+
+                                Toast.makeText(LoginActivity.this, "حدث خطأ تقني",Toast.LENGTH_LONG).show();
+
+                            }
 
                             startActivity(new Intent(LoginActivity.this,ShowAllRequestsActivity.class));
                             finish();
@@ -284,6 +288,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 if (dialog.isShowing()) {
                     dialog.dismiss();
                 }
+                Toast.makeText(LoginActivity.this, "خطأ بالانترنت رجاء اعادة المحاولة",Toast.LENGTH_LONG).show();
+
                 // clientname.setText("Error getting response");
                 error.printStackTrace();
             }

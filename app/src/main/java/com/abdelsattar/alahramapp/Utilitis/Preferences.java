@@ -46,6 +46,7 @@ public class Preferences
     private static final String RECIEVER_CITY = "reciever_city";
     private static final String USERID = "userId";
     private static final String REQUESTNUM = "REQUESTNUM";
+    private static final String SECRERTNUM = "SECRERTNUM";
 
     private final Context context;
 
@@ -306,5 +307,17 @@ public class Preferences
     {
         int requestNum=sharedPreferences.getInt(REQUESTNUM,-1);
         return  requestNum;
+    }
+
+
+    public void setSecretNum(int secretNum)
+    {
+        editor.putInt(SECRERTNUM, secretNum);
+        editor.commit();
+    }
+    public int getSecretNum()
+    {
+        int secretNum=sharedPreferences.getInt(SECRERTNUM,-1);
+        return  secretNum;
     }
 }
