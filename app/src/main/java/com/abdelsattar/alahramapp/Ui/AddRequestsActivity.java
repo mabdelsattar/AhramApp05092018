@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.abdelsattar.alahramapp.CreatePdfActivity;
+import com.abdelsattar.alahramapp.NotesActivity;
 import com.abdelsattar.alahramapp.R;
 import com.abdelsattar.alahramapp.adpaters.AddRequestAdpater;
 import com.abdelsattar.alahramapp.model.AddRequestModel;
@@ -94,11 +95,13 @@ public class AddRequestsActivity extends AppCompatActivity {
                 }
 
                 if(isEmptry == false) {
-                    Intent intent = new Intent(AddRequestsActivity.this, CreatePdfActivity.class);
+                    Intent intent = new Intent(AddRequestsActivity.this, NotesActivity.class);
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("dataList", data);
                     intent.putExtras(bundle);
                     startActivity(intent);
+
+
                 }else{
                     Toast.makeText(AddRequestsActivity.this,"الرجاء اختيار طرد واحد علي الاقل",Toast.LENGTH_LONG).show();
                 }

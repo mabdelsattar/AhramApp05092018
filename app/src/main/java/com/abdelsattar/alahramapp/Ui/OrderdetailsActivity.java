@@ -28,7 +28,8 @@ public class OrderdetailsActivity extends AppCompatActivity {
             bindRecieverName,
             bindRecieverAddress,
             bindRecieverCity,
-            bindRecieverPhone;
+            bindRecieverPhone,
+            bindNotes;
     LinearLayout bindItemsContainer;
 
 
@@ -48,6 +49,7 @@ public class OrderdetailsActivity extends AppCompatActivity {
         bindRecieverCity = (TextView) findViewById(R.id.bindRecieverCity);
         bindRecieverPhone = (TextView) findViewById(R.id.bindRecieverPhone);
         bindItemsContainer = (LinearLayout) findViewById(R.id.bindItemsContainer);
+        bindNotes = (TextView) findViewById(R.id.bindNotes);
 
 
         String JsonStr = getIntent().getExtras().getString("jsonObj");
@@ -60,6 +62,7 @@ public class OrderdetailsActivity extends AppCompatActivity {
             String RecieverAddress = jsonObject.getString("RecieverAddress");
             String RecieverCity = jsonObject.getString("RecieverCity");
             String RecieverPhone = jsonObject.getString("RecieverPhone");
+            String notes = jsonObject.getString("Notes");
 
                     bindRequestNum.setText(RequestId+"");
                     bindRequestStatus.setText(RequestStatus);
@@ -68,6 +71,8 @@ public class OrderdetailsActivity extends AppCompatActivity {
                     bindRecieverAddress.setText(RecieverAddress);
                     bindRecieverCity.setText(RecieverCity);
                     bindRecieverPhone.setText(RecieverPhone);
+            if(!(notes == null || notes.equals("null") || notes.equals("")))
+                    bindNotes.setText(notes);
 
 
             JSONArray Items = jsonObject.getJSONArray("Items");

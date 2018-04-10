@@ -43,6 +43,19 @@
             android:id="@+id/btnprint"/>
 
         <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:visibility="invisible"
+            android:textColor="#FFF"
+            android:layout_below="@+id/btn_Print"
+            android:layout_marginTop="31dp"
+            android:background="#f21a1a"
+
+            android:text="فاتورة الاستلام"
+            android:textSize="30sp"
+            android:onClick="btnRecieverClicked"
+            android:id="@+id/btnReciever"/>
+        <Button
             android:id="@+id/nextbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -235,12 +248,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:weightSum="3">
+                            android:weightSum="4">
                             <RelativeLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:layout_weight="1">
+                                android:layout_weight="2">
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -269,6 +282,7 @@
                                     android:gravity="right"
                                     android:layout_centerVertical="true"/>
                             </RelativeLayout>
+
                             <RelativeLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -586,6 +600,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_below="@+id/tableHeader"
                                 android:id="@+id/tableItem"
+                                android:background="#DCDCDC"
+                                android:minHeight="200dp"
                                 android:orientation="vertical"
                                 android:layout_height="wrap_content">
                             </LinearLayout>
@@ -2492,44 +2508,49 @@
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:background="#9b9696"/>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:weightSum="5"
-                            android:orientation="horizontal"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
-                                android:text=""
-                                android:id="@+id/page4_receiverName1"
-                                android:maxLines="1"
-                                android:minLines="1"
-                                android:gravity="center_vertical|right"
-                                android:textSize="11dp"
-                                android:textColor="#000000"
-                                android:layout_weight="4"/>
-                            <View
-                                android:layout_width="1dp"
-                                android:layout_height="match_parent"
-                                android:background="#9b9696"/>
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:id="@+id/page4_receiverNameHint1"
-                                android:layout_weight="1"
-                                android:maxLines="1"
-                                android:minLines="1"
-                                android:layout_margin="2dp"
-                                android:gravity="center_vertical"
-                                android:textSize="11dp"
-                                android:text="اسم المستلم"
-                                android:textColor="#000000"/>
-                        </LinearLayout>
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:background="#9b9696"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="5">
+
+                            <TextView
+                                android:id="@+id/page4_receiverName1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:layout_weight="4"
+                                android:gravity="center_vertical|right"
+                                android:maxLines="1"
+                                android:minLines="1"
+                                android:text=""
+                                android:textColor="#000000"
+                                android:textSize="11dp" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="#9b9696" />
+
+                            <TextView
+                                android:id="@+id/page4_receiverNameHint1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2dp"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:maxLines="1"
+                                android:minLines="1"
+                                android:text="اسم المستلم"
+                                android:textColor="#000000"
+                                android:textSize="11dp" />
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -2720,44 +2741,50 @@
                                 android:text="رقم الفاتوره"
                                 android:textColor="#000000"/>
                         </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="5">
+
+                            <TextView
+                                android:id="@+id/page4_senderName2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:layout_weight="4"
+                                android:gravity="center_vertical|right"
+                                android:maxLines="1"
+                                android:minLines="1"
+                                android:text=""
+                                android:textColor="#000000"
+                                android:textSize="11dp" />
+
+                            <TextView
+                                android:id="@+id/page4_senderNameHint2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2dp"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:maxLines="1"
+                                android:minLines="1"
+                                android:text="اسم المرسل"
+                                android:textColor="#000000"
+                                android:textSize="11dp" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="#9b9696" />
+                        </LinearLayout>
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:background="#9b9696"/>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:weightSum="5"
-                            android:orientation="horizontal"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
-                                android:text=""
-                                android:id="@+id/page4_senderName2"
-                                android:maxLines="1"
-                                android:minLines="1"
-                                android:gravity="center_vertical|right"
-                                android:textSize="11dp"
-                                android:textColor="#000000"
-                                android:layout_weight="4"/>
-                            <View
-                                android:layout_width="1dp"
-                                android:layout_height="match_parent"
-                                android:background="#9b9696"/>
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:id="@+id/page4_senderNameHint2"
-                                android:layout_weight="1"
-                                android:maxLines="1"
-                                android:minLines="1"
-                                android:layout_margin="2dp"
-                                android:gravity="center_vertical"
-                                android:textSize="11dp"
-                                android:text="اسم المرسل"
-                                android:textColor="#000000"/>
-                        </LinearLayout>
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"

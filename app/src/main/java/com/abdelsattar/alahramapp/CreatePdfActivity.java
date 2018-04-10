@@ -72,6 +72,9 @@ public class CreatePdfActivity extends AppCompatActivity {
 
     static final String REQ_TAG = "VACTIVITY";
     RequestQueue requestQueue;
+    String filerecieverName= "";
+    String more="";
+
 
     /** ButterKnife Code **/
     @BindView(R.id.pageView)
@@ -511,11 +514,14 @@ public class CreatePdfActivity extends AppCompatActivity {
             getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         }
     }
+    Button btnRecieve;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         forceRTLIfSupported();
         setContentView(R.layout.activity_print_pdf);
+        btnRecieve =(Button)findViewById(R.id.btnReciever);
+
 
         requestQueue = RequestQueueSingleton.getInstance(CreatePdfActivity.this)
                 .getRequestQueue();
@@ -533,6 +539,7 @@ public class CreatePdfActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 
         ArrayList<AddRequestModel> allData = (ArrayList<AddRequestModel>) bundle.getSerializable("dataList");
+        more = getIntent().getExtras().getString("more");
 
         for (int i=0 ; i< allData.size() ; i++)
         {
@@ -544,6 +551,12 @@ public class CreatePdfActivity extends AppCompatActivity {
         {
             totalPrice+=data.get(i).getCounter()*Integer.valueOf(data.get(i).getOrderprice());
             Log.d("dataItem",""+data.get(i).toString());
+        }
+
+        if(data.size() < 10)
+        {
+           // for(int i=0 ; i<10 ; i++)
+             //   data.add(new AddRequestModel(-1,"",""));
         }
 
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#113353"));
@@ -567,6 +580,11 @@ public class CreatePdfActivity extends AppCompatActivity {
     {
         String billNumber=String.valueOf(getRandomBillNumber())+" كود سري: "+mpreference.getSecretNum();
         String mobileNumber=mpreference.getClientPhoneKsa();
+        if(mpreference.getClientPhoneEgy().equals(null) || mpreference.getClientPhoneEgy().equals(""))
+        {}
+        else
+            mobileNumber += "/"+mpreference.getClientPhoneEgy();
+
         String itemNumber=String.valueOf(data.size());
         String date=getCurrantDate();
 
@@ -574,6 +592,11 @@ public class CreatePdfActivity extends AppCompatActivity {
         String senderName=mpreference.getclientname();
         String receiverAddress=mpreference.getReciverAddressDetial();
         String receiverPhones=mpreference.getReciverPhoneEgy();
+        if(mpreference.getReciverPhoneKsa().equals(null) || mpreference.getReciverPhoneKsa().equals(""))
+        {}
+        else
+            receiverPhones += " / "+mpreference.getReciverPhoneKsa();
+
         String total=String.valueOf(totalPrice);
         String receiverInOffice="hen recier in office name";
         String receiverId=mpreference.getReciverNationalId();
@@ -599,6 +622,7 @@ public class CreatePdfActivity extends AppCompatActivity {
         mTableItem.removeAllViews();
         for (int i=0;i<data.size();i++)
         {
+
             TextView bayanTextView,quantityTextView,priceTextView,totalTextView;
             View child = layoutInflator.inflate(R.layout.table_item, null);
             bayanTextView=child.findViewById(R.id.bayan);
@@ -606,11 +630,17 @@ public class CreatePdfActivity extends AppCompatActivity {
             priceTextView=child.findViewById(R.id.price);
             totalTextView=child.findViewById(R.id.total);
 
-            bayanTextView.setText(data.get(i).getOrdername());
-            quantityTextView.setText(String.valueOf(data.get(i).getCounter()));
+            if(!data.get(i).getOrdername().equals(""))
+                bayanTextView.setText(data.get(i).getOrdername());
+            if(data.get(i).getCounter() != 0)
+                quantityTextView.setText(String.valueOf(data.get(i).getCounter()));
+            if(!data.get(i).getOrderprice().equals(""))
             priceTextView.setText(data.get(i).getOrderprice() +currencyUnit);
+            if(!data.get(i).getOrderprice().equals(""))
             totalTextView.setText(String.valueOf((data.get(i).getCounter() * (Integer.valueOf(data.get(i).getOrderprice()))))+ currencyUnit );
+
             child.setTag(i);
+            child.setBackgroundColor(Color.WHITE);
             mTableItem.addView(child);
         }
     }
@@ -625,11 +655,15 @@ public class CreatePdfActivity extends AppCompatActivity {
         String city=mpreference.getReciverAddressDetial12();
         String country=mpreference.getReciverAddressDetial1();
         String mobileNumber=mpreference.getReciverPhoneEgy();
+        if(mpreference.getReciverPhoneKsa().equals(null) || mpreference.getReciverPhoneKsa().equals(""))
+        {}
+        else
+            mobileNumber += " / "+mpreference.getReciverPhoneKsa();
+
         String receiver=mpreference.getRecivername();
         String signature="";
         String idNumber=mpreference.getReciverNationalId();
 
-        mPage2BillNumber.setText(billNumber);
         mPage2Count.setText(itemCount);
         mPage2Date.setText(date);
         mPage2ReceiverName.setText(receiverName);
@@ -639,6 +673,7 @@ public class CreatePdfActivity extends AppCompatActivity {
         mPage2Receiver.setText(receiver);
         mPage2Signature.setText(signature);
         mPage2IdNumber.setText(idNumber);
+        mPage2BillNumber.setText(billNumber);
 
         LayoutInflater layoutInflator1 = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mPage2TableView.removeAllViews();
@@ -682,12 +717,17 @@ public class CreatePdfActivity extends AppCompatActivity {
     {
         Preferences preferences=new Preferences(this);
         // Stickers
-        String stickersBillNumber=String.valueOf(getRandomBillNumber());
+        String stickersBillNumber=mpreference.getRequestNum()+"";
         String stickersSenderName=preferences.getclientname();
         String stickersReceiverName= preferences.getRecivername();
         String stickersDirection=preferences.getReciverAddressDetial();
         String stickersContent=content;
+
         String stickersMobileNumber=preferences.getClientPhoneKsa();
+        if(mpreference.getClientPhoneEgy().equals(null) || mpreference.getClientPhoneEgy().equals(""))
+        {}
+        else
+            stickersMobileNumber += "/"+mpreference.getClientPhoneEgy();
 
 //        mPage4ReceiverName1.setText(stickersReceiverName);
 //        mPage4ReceiverName2.setText(stickersReceiverName);
@@ -802,6 +842,7 @@ public class CreatePdfActivity extends AppCompatActivity {
                 jsonBody.put("Paid",0);
                 jsonBody.put("Remaining",0);
                 jsonBody.put("Required",totalPrice);
+                jsonBody.put("EntitiesNote",more);
 
 
                 JSONObject Items = new JSONObject();
@@ -826,7 +867,7 @@ public class CreatePdfActivity extends AppCompatActivity {
                                 Log.i("respones", "succed");
                                 try {
                                     int RequestId = response.getInt("RequestId");
-mpreference.setRequestnum(RequestId);
+                                    mpreference.setRequestnum(RequestId);
                                     int SecretNum = response.getInt("Serial");
                                     mpreference.setSecretNum(SecretNum);
 
@@ -838,19 +879,21 @@ mpreference.setRequestnum(RequestId);
                                     // add this line to function bindDataToBill1()
 
                                  //   String secretNumber=SecretNum+"";
+
                                     mSecretNumber.setText(SecretNum+"");
                                     mBillNumber.setText(RequestId+"");
-
+                                   // mPage2IdNumber.setText(RequestId+"");
+                                    mPage2BillNumber.setText(RequestId+"");
 
                                 //   view.setClickable(false);
                                  //   view.setEnabled(false);
                                     view.setVisibility(View.INVISIBLE);
+                                    btnRecieve.setVisibility(View.VISIBLE);
+
                                     createPdf1();
                                     createPdf2();
                                 }catch (Exception ex){
                                     Toast.makeText(CreatePdfActivity.this,"حدث خطأ تقني",Toast.LENGTH_LONG).show();
-
-
                                 }
 
 
@@ -876,6 +919,23 @@ mpreference.setRequestnum(RequestId);
             }
 
         }
+    }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public void btnRecieverClicked(final View view) {
+        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/AlAhram" +"/"+ filerecieverName);
+        Intent target = new Intent(Intent.ACTION_VIEW);
+        target.setDataAndType(Uri.fromFile(file),"application/pdf");
+        target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        Intent intent = Intent.createChooser(target, "Open File");
+
+        try {
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            // Instruct the user to install a PDF reader here, or something
+        }
+
     }
 
     public static final int REQUEST_PERMISSIONS = 1;
@@ -983,6 +1043,7 @@ mpreference.setRequestnum(RequestId);
 
     }
 
+
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     void createPdf2(){
         DisplayMetrics displaymetrics = new DisplayMetrics();
@@ -1012,6 +1073,7 @@ mpreference.setRequestnum(RequestId);
         Preferences preferences=new Preferences(this);
         String fileName=preferences.getclientname()+"_فاتورة الاستلام_"+String.valueOf(getRandomBillNumber())+".pdf";
         File filePath = new File(root,fileName);
+            filerecieverName = fileName;
         try {
             FileOutputStream fileOutputStream=new FileOutputStream(filePath);
             document.writeTo(fileOutputStream);
@@ -1066,6 +1128,9 @@ mpreference.setRequestnum(RequestId);
         if (requestCode == REQUEST_PERMISSIONS) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 boolean_permission = true;
+                bindDataToStickersView("");
+                bindDataToBill1();
+                bindDataToBill2();
                 createPdf1();
                 createPdf2();
             } else {
