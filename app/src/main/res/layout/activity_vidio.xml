@@ -8,11 +8,11 @@
 
 
     <com.google.android.youtube.player.YouTubePlayerView
-android:layout_centerVertical="true"
+        android:layout_centerVertical="true"
         android:id="@+id/youtube_view"
         android:layout_width="match_parent"
-
         android:layout_height="wrap_content" />
+
 
     <Button
         android:layout_width="match_parent"

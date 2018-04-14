@@ -92,7 +92,8 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".VidioActivity"></activity>
+        <activity android:name=".VidioActivity" />
+        <activity android:name=".ClientHomeActivity"></activity>
     </application>
 
 </manifest>

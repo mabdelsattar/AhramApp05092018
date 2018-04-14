@@ -28,4 +28,5 @@
         android:layout_alignParentBottom="true"
         android:text="التالي"/>
         </RelativeLayout>
+
 </RelativeLayout>
