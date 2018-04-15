@@ -20,6 +20,7 @@
         android:text="تخطي"
         android:textColor="#FFF"
         android:background="#113353"
+        android:onClick="skip"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:layout_alignParentBottom="true"
         />

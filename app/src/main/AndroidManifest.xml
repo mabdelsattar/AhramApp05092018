@@ -94,6 +94,9 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".VidioActivity" />
         <activity android:name=".ClientHomeActivity"></activity>
+        <activity
+            android:name=".TabsActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
