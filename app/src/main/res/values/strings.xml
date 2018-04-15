@@ -61,4 +61,5 @@
     <string name="order_number">Order Number</string>
     <string name="password">Password</string>
     <string name="submit">submit</string>
+    <string name="there_is_no_internet_connection">There is no internet connection</string>
 </resources>
