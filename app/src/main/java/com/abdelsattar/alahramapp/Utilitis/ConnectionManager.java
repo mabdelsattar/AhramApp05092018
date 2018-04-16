@@ -29,7 +29,8 @@ public class ConnectionManager {
         if (checkNetworkConnection()) {
 
             Log.i(MyApplication.TAG, "httpPostRequest URL: " + url);
-            Log.i(MyApplication.TAG, "httpPostRequest parameter: " + parameter.toString());
+            if (parameter!=null)
+                Log.i(MyApplication.TAG, "httpPostRequest parameter: " + parameter.toString());
 
             JsonObjectRequest req = new JsonObjectRequest(url, parameter,
                     new Response.Listener<JSONObject>() {
