@@ -55,8 +55,8 @@ public class AttachActivity extends AppCompatActivity {
     String myimage_pill;
     Button btn_pill;
     private Uri picUri_pill = null;
-public  static  int latestSource;
-    public  ImageView pickimage_national;
+    public static int latestSource;
+    public ImageView pickimage_national;
     String myimage_national;
     Button btn_national;
     private Uri picUri_national = null;
@@ -64,55 +64,50 @@ public  static  int latestSource;
     EditText etPaid;
 
 
-
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    private void forceRTLIfSupported()
-    {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1){
+    private void forceRTLIfSupported() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         }
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attach);
         forceRTLIfSupported();
-        mpreference=new Preferences(this);
+        mpreference = new Preferences(this);
 
         requestQueue = RequestQueueSingleton.getInstance(AttachActivity.this)
                 .getRequestQueue();
         dialog = ProgressDialog.show(AttachActivity.this, "",
                 "جاري التحميل...", true);
-dialog.dismiss();
+        dialog.dismiss();
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#113353"));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
         getSupportActionBar().setTitle("انشاء طلب جديد");
-        Button
-                buttonSubmit = (Button)findViewById(R.id.buttonSubmit);
+        Button buttonSubmit = (Button) findViewById(R.id.buttonSubmit);
 
-        etPaid = (EditText)findViewById(R.id.ETpaid);
-        etRemain = (EditText)findViewById(R.id.ETRemain);
+        etPaid = (EditText) findViewById(R.id.ETpaid);
+        etRemain = (EditText) findViewById(R.id.ETRemain);
 
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                try {
+                try {/**/
                     dialog.show();
                     String url = Constant.serversite + "/api/AlAhram/AddOrUpdateRequest";
 
                     final JSONObject jsonBody = new JSONObject();
 
                     int UserId = mpreference.getUserId();
-                    jsonBody.put("RequestId",mpreference.getRequestNum());
-                 //   jsonBody.put("ClientSignatureImage",myimage_pill);
-                   // jsonBody.put("ClientNationalIdImage",myimage_national);
+                    jsonBody.put("RequestId", mpreference.getRequestNum());
+                    //   jsonBody.put("ClientSignatureImage",myimage_pill);
+                    // jsonBody.put("ClientNationalIdImage",myimage_national);
 
-                    jsonBody.put("Paid",Integer.parseInt(etPaid.getText().toString()));
-                    jsonBody.put("Remaining",Integer.parseInt(etRemain.getText().toString()));
-
-
-
+                    jsonBody.put("Paid", Integer.parseInt(etPaid.getText().toString()));
+                    jsonBody.put("Remaining", Integer.parseInt(etRemain.getText().toString()));
 
 
                     JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonBody,
@@ -126,11 +121,11 @@ dialog.dismiss();
                                     Log.i("respones", "succed");
                                     try {
                                         int RequestId = response.getInt("RequestId");
-                                        Intent intent = new Intent(AttachActivity.this,ShowAllRequestsActivity.class);
+                                        Intent intent = new Intent(AttachActivity.this, ShowAllRequestsActivity.class);
                                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                         startActivity(intent);
-                                    }catch (Exception ex){
-                                        Toast.makeText(AttachActivity.this,"حدث خطأ تقني",Toast.LENGTH_LONG).show();
+                                    } catch (Exception ex) {
+                                        Toast.makeText(AttachActivity.this, "حدث خطأ تقني", Toast.LENGTH_LONG).show();
 
 
                                     }
@@ -143,7 +138,7 @@ dialog.dismiss();
                             if (dialog.isShowing()) {
                                 dialog.dismiss();
                             }
-                            Toast.makeText(AttachActivity.this,"حدث خطأ تقني اثناء الاتصال بالخادم",Toast.LENGTH_LONG).show();
+                            Toast.makeText(AttachActivity.this, "حدث خطأ تقني اثناء الاتصال بالخادم", Toast.LENGTH_LONG).show();
                             // clientname.setText("Error getting response");
                             error.printStackTrace();
                         }
@@ -152,13 +147,12 @@ dialog.dismiss();
                     requestQueue.add(jsonObjectRequest);
 
 
-
-                }catch (Exception ex){
+                } catch (Exception ex) {
 
                 }
 
                 // myimage_national
-               //  myimage_pill
+                //  myimage_pill
                 /*
                 Intent intent = new Intent(AttachActivity.this,ShowAllRequestsActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -174,7 +168,7 @@ dialog.dismiss();
             public void onClick(View view) {
                 PhotoWaiterHelper.CurrentPhotoWaiter = 3;
                 captureImageCameraOrGallery(1);
-                latestSource =1;
+                latestSource = 1;
             }
         });
 
@@ -191,24 +185,22 @@ dialog.dismiss();
 
 
     public void captureImageCameraOrGallery(int source) {
-        boolean camGranted= PermissionHelper.isCameraPermissionGranted(AttachActivity.this);
-        if(camGranted)
-        {
-            boolean storageGranted= PermissionHelper.isStoragePermissionGranted(AttachActivity.this);
-            if(storageGranted)
-            {
+        boolean camGranted = PermissionHelper.isCameraPermissionGranted(AttachActivity.this);
+        if (camGranted) {
+            boolean storageGranted = PermissionHelper.isStoragePermissionGranted(AttachActivity.this);
+            if (storageGranted) {
                 openMediaScreens(source);
             }
         }
 
 
     }
-    private void openMediaScreens(final int source)
-    {
+
+    private void openMediaScreens(final int source) {
         PermissionHelper.WaitingStoragePermission = false;
         PermissionHelper.WaitingCamPermission = false;
-        final CharSequence[] options = { "التقاط صورة", "اختيار من الاستوديو",
-                "الغاء" };
+        final CharSequence[] options = {"التقاط صورة", "اختيار من الاستوديو",
+                "الغاء"};
         AlertDialog.Builder builder = new AlertDialog.Builder(
                 AttachActivity.this);
 
@@ -222,7 +214,7 @@ dialog.dismiss();
                 if (options[which].equals("التقاط صورة")) {
                     try {
 
-                        if(source == 1) {
+                        if (source == 1) {
                             Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
                             File file = CameraHelper.getOutputMediaFile(1);
@@ -230,7 +222,7 @@ dialog.dismiss();
                             i.putExtra(MediaStore.EXTRA_OUTPUT, picUri_pill); // set the image file
 
                             startActivityForResult(i, source);
-                        }else{
+                        } else {
                             Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
                             File file = CameraHelper.getOutputMediaFile(1);
@@ -239,7 +231,7 @@ dialog.dismiss();
 
                             startActivityForResult(i, source);
                         }
-                        } catch (ActivityNotFoundException ex) {
+                    } catch (ActivityNotFoundException ex) {
                         String errorMessage = "Whoops - your device doesn't support capturing images!";
 
                     }
@@ -261,9 +253,9 @@ dialog.dismiss();
 
         builder.show();
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-
 
 
         if (requestCode == 2001 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -273,100 +265,81 @@ dialog.dismiss();
             PermissionHelper.isStoragePermissionGranted(AttachActivity.this);
             Toast.makeText(this, "Permission Granted", Toast.LENGTH_LONG).show();
 
-        }
-        else if (requestCode == 2002 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        } else if (requestCode == 2002 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             PermissionHelper.WaitingStoragePermission = false;
-        }
-        else {
+        } else {
 
             Toast.makeText(this, "You can not use this feature unless you grant all permissions", Toast.LENGTH_LONG).show();
 
         }
 
-        if(PermissionHelper.WaitingCamPermission == false && PermissionHelper.WaitingStoragePermission == false)
-        {
+        if (PermissionHelper.WaitingCamPermission == false && PermissionHelper.WaitingStoragePermission == false) {
             openMediaScreens(latestSource);
         }
 
 
-
     }
+
     @Override
     protected void onActivityResult(int requestcode, int resultcode, Intent intent) {
         super.onActivityResult(requestcode, resultcode, intent);
 
 
-        if(resultcode != 100 && PhotoWaiterHelper.CurrentPhotoWaiter == PhotoWaiterHelper.PROFILE_PIC )
-        {
-            if(requestcode == 10 || requestcode == 1)
-            {
-                if(intent != null || picUri_pill != null)
-                {
+        if (resultcode != 100 && PhotoWaiterHelper.CurrentPhotoWaiter == PhotoWaiterHelper.PROFILE_PIC) {
+            if (requestcode == 10 || requestcode == 1) {
+                if (intent != null || picUri_pill != null) {
                     Uri imageUri = null;
 
-                    if(intent != null)
-                    {
+                    if (intent != null) {
                         imageUri = intent.getData();
-                    }
-                    else
-                    {
+                    } else {
                         File myFile = new File(picUri_pill.getPath());
-                        imageUri = getImageContentUri(getApplicationContext(),myFile);
+                        imageUri = getImageContentUri(getApplicationContext(), myFile);
                     }
 
-                    if(imageUri  != null)
-                    {
-                        String realPath = ImageConverterBase64.GetRealPathFromURI(getApplicationContext(),imageUri);
+                    if (imageUri != null) {
+                        String realPath = ImageConverterBase64.GetRealPathFromURI(getApplicationContext(), imageUri);
                         File myFile = new File(realPath);
-                        File result= CameraHelper.saveBitmapToFile(myFile,realPath,true);
-                        Uri resultimage= getImageContentUri(getApplicationContext(),result);
-                                                HandleRoomImage(resultimage,1);
+                        File result = CameraHelper.saveBitmapToFile(myFile, realPath, true);
+                        Uri resultimage = getImageContentUri(getApplicationContext(), result);
+                        HandleRoomImage(resultimage, 1);
                     }
 
                 }
 
                 picUri_pill = null;
+            }
+        }
+
+        if (requestcode == 20 || requestcode == 2) {
+            if (intent != null || picUri_national != null) {
+                Uri imageUri = null;
+
+                if (intent != null) {
+                    imageUri = intent.getData();
+                } else {
+                    File myFile = new File(picUri_national.getPath());
+                    imageUri = getImageContentUri(getApplicationContext(), myFile);
                 }
+
+                if (imageUri != null) {
+                    String realPath = ImageConverterBase64.GetRealPathFromURI(getApplicationContext(), imageUri);
+                    File myFile = new File(realPath);
+                    File result = CameraHelper.saveBitmapToFile(myFile, realPath, true);
+                    Uri resultimage = getImageContentUri(getApplicationContext(), result);
+                    HandleRoomImage(resultimage, 2);
+                }
+
             }
 
-            if(requestcode == 20 || requestcode == 2)
-            {
-                if(intent != null || picUri_national != null)
-                {
-                    Uri imageUri = null;
-
-                    if(intent != null)
-                    {
-                        imageUri = intent.getData();
-                    }
-                    else
-                    {
-                        File myFile = new File(picUri_national.getPath());
-                        imageUri = getImageContentUri(getApplicationContext(),myFile);
-                    }
-
-                    if(imageUri  != null)
-                    {
-                        String realPath = ImageConverterBase64.GetRealPathFromURI(getApplicationContext(),imageUri);
-                        File myFile = new File(realPath);
-                        File result= CameraHelper.saveBitmapToFile(myFile,realPath,true);
-                        Uri resultimage= getImageContentUri(getApplicationContext(),result);
-                        HandleRoomImage(resultimage,2);
-                    }
-
-                }
-
-                picUri_national = null;
-                }
-            }
+            picUri_national = null;
+        }
+    }
 
 
-
-
-    public  void HandleRoomImage(Uri selectedImage,int source)
-    {
-        if(source == 1) {
-            pickimage_pill = (ImageView)findViewById(R.id.imgViewInvoice);
+    public void HandleRoomImage(Uri selectedImage, int source) {
+        if (source == 1) {
+            pickimage_pill = (ImageView) findViewById(R.id.imgViewInvoice);
             pickimage_pill.setImageURI(selectedImage);
             String imagePath = ImageConverterBase64.GetRealPathFromURI(getApplicationContext(), selectedImage);
             String base64 = null;
@@ -386,8 +359,8 @@ dialog.dismiss();
 
             }
         }
-        if(source == 2) {
-            pickimage_national = (ImageView)findViewById(R.id.imgViewInvoiceNationId);
+        if (source == 2) {
+            pickimage_national = (ImageView) findViewById(R.id.imgViewInvoiceNationId);
             pickimage_national.setImageURI(selectedImage);
             String imagePath = ImageConverterBase64.GetRealPathFromURI(getApplicationContext(), selectedImage);
             String base64 = null;
@@ -410,9 +383,6 @@ dialog.dismiss();
 
 
     }
-
-
-
 
 
 }

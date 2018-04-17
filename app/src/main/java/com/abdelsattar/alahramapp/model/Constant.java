@@ -12,4 +12,7 @@ public class Constant {
 
     // YouTube video id
     public static final String YOUTUBE_VIDEO_CODE = "ojhwH7RBCt0";
+    public static final int MANAGER_ACCOUNT_ID = 1;
+
+
 }

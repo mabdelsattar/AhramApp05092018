@@ -16,10 +16,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.abdelsattar.alahramapp.ChangeStatusActivity;
 import com.abdelsattar.alahramapp.Ui.LoginActivity;
 import com.abdelsattar.alahramapp.Ui.OrderdetailsActivity;
 import com.abdelsattar.alahramapp.R;
 import com.abdelsattar.alahramapp.Ui.ShowAllRequestsActivity;
+import com.abdelsattar.alahramapp.Utilitis.Preferences;
 import com.abdelsattar.alahramapp.model.Constant;
 import com.abdelsattar.alahramapp.model.RequestModel;
 import com.abdelsattar.alahramapp.model.RequestQueueSingleton;
@@ -29,11 +31,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.abdelsattar.alahramapp.model.Constant.MANAGER_ACCOUNT_ID;
 
 /**
  * Created by amiraelsayed on 1/7/2018.
@@ -113,7 +119,14 @@ public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(holder.mItemView.getContext(),OrderdetailsActivity.class);
+                Intent intent;
+
+                Preferences preferences = new Preferences(holder.mItemView.getContext());
+                if (preferences.getUserId()==MANAGER_ACCOUNT_ID)
+                    intent = new Intent(holder.mItemView.getContext(),ChangeStatusActivity.class);
+                else
+                    intent = new Intent(holder.mItemView.getContext(),OrderdetailsActivity.class);
+
                 intent.putExtra("jsonObj",requestModel.getStrObject());
                 holder.mItemView.getContext().startActivity(intent);
 
