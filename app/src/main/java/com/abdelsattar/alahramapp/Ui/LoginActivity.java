@@ -261,6 +261,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         }
                         // .setText("String Response : "+ response.toString());
                         Log.i("respones","succed");
+                        Log.i("respones","response : "+response);
                         if(response.equals("null"))
                         {
                             cancel=true;
@@ -271,6 +272,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                             try {
                                 Preferences preferences = new Preferences(LoginActivity.this);
                                 preferences.setUserId(new JSONObject(response).getInt("UserId"));
+                                preferences.setRole(new JSONObject(response).getInt("Role"));
                             }catch (Exception ex){
 
                                 Toast.makeText(LoginActivity.this, "حدث خطأ تقني",Toast.LENGTH_LONG).show();

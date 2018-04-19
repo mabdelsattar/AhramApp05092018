@@ -79,6 +79,20 @@ public class ShowAllRequestsActivity extends AppCompatActivity {
         divider.setDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.divider_gray));
         requestrecycleview.addItemDecoration(divider);
 
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ShowAllRequestsActivity.this,RequestFormActivity.class));
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         requestQueue = RequestQueueSingleton.getInstance(ShowAllRequestsActivity.this)
                 .getRequestQueue();
 
@@ -117,13 +131,5 @@ public class ShowAllRequestsActivity extends AppCompatActivity {
         jsonObjectRequest.setTag(REQ_TAG);
         requestQueue.add(jsonObjectRequest);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(ShowAllRequestsActivity.this,RequestFormActivity.class));
-            }
-        });
     }
 }

@@ -20,13 +20,20 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
+//            case 0:
+//                return new Fragment4();
+//            case 1:
+//                return new Fragment3();
+//            case 2:
+//                return new Fragment2();
+//            case 3:
+//                return new Fragment1();
+
             case 0:
                 return new Fragment4();
             case 1:
-                return new Fragment3();
-            case 2:
                 return new Fragment2();
-            case 3:
+            case 2:
                 return new Fragment1();
             default:
                 return null;

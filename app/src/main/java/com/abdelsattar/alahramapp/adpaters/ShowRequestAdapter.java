@@ -39,21 +39,22 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.abdelsattar.alahramapp.model.Constant.MANAGER_ACCOUNT_ID;
+import static com.abdelsattar.alahramapp.model.Constant.MANAGER_ROLE;
 
 /**
  * Created by amiraelsayed on 1/7/2018.
  */
 
 
-
-
 public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.MyViewHolder> {
     private List<RequestModel> requestModelList;
     Context context;
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        /** ButterKnife Code **/
+        /**
+         * ButterKnife Code
+         **/
         @BindView(R.id.deleteBtn)
         ImageView mDeleteBtn;
         @BindView(R.id.orderNumber)
@@ -76,8 +77,11 @@ public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.
         View mMyline;
         @BindView(R.id.itemView)
         LinearLayout mItemView;
-        /** ButterKnife Code **/
+        /**
+         * ButterKnife Code
+         **/
         Typeface tf;
+
         public MyViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
@@ -85,9 +89,9 @@ public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.
         }
     }
 
-    public ShowRequestAdapter(List<RequestModel> requestModelList,Context context) {
+    public ShowRequestAdapter(List<RequestModel> requestModelList, Context context) {
         this.requestModelList = requestModelList;
-        this.context=context;
+        this.context = context;
     }
 
     @Override
@@ -118,16 +122,14 @@ public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.
         holder.mItemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent;
-
                 Preferences preferences = new Preferences(holder.mItemView.getContext());
-                if (preferences.getUserId()==MANAGER_ACCOUNT_ID)
-                    intent = new Intent(holder.mItemView.getContext(),ChangeStatusActivity.class);
+                if (preferences.getRole() == MANAGER_ROLE)
+                    intent = new Intent(holder.mItemView.getContext(), ChangeStatusActivity.class);
                 else
-                    intent = new Intent(holder.mItemView.getContext(),OrderdetailsActivity.class);
+                    intent = new Intent(holder.mItemView.getContext(), OrderdetailsActivity.class);
 
-                intent.putExtra("jsonObj",requestModel.getStrObject());
+                intent.putExtra("jsonObj", requestModel.getStrObject());
                 holder.mItemView.getContext().startActivity(intent);
 
             }
@@ -140,12 +142,13 @@ public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.
             }
         });
     }
+
     @Override
     public int getItemCount() {
         return requestModelList.size();
     }
-    private void deleteRequest(final RequestModel requestModel)
-    {
+
+    private void deleteRequest(final RequestModel requestModel) {
         new AlertDialog.Builder(context)
                 .setTitle("الغاء الطلب")
                 .setMessage("تأكيد الغاء الطلب ؟")
@@ -153,18 +156,19 @@ public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.
                 .setPositiveButton("موافق", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        Log.d("Delete Item",requestModel.toString());
+                        Log.d("Delete Item", requestModel.toString());
                         getJsonResponsePost(requestModel);
-                    }})
+                    }
+                })
                 .setNegativeButton("تراجع", null).show();
     }
-
 
 
     private ProgressDialog dialog;
     static final String REQ_TAG = "DeleteRequest";
     RequestQueue requestQueue;
-    public void getJsonResponsePost(final RequestModel requestModel){
+
+    public void getJsonResponsePost(final RequestModel requestModel) {
 
         requestQueue = RequestQueueSingleton.getInstance(context)
                 .getRequestQueue();
@@ -173,7 +177,7 @@ public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.
         dialog.setCancelable(false);
         dialog.show();
 
-        String url = "http://mabdelsattar1992-001-site1.gtempurl.com//api/AlAhram/CancelRequest?requestId="+requestModel.getOrdernumber();
+        String url = "http://mabdelsattar1992-001-site1.gtempurl.com//api/AlAhram/CancelRequest?requestId=" + requestModel.getOrdernumber();
         StringRequest jsonObjectRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
@@ -181,15 +185,13 @@ public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.
                         if (dialog.isShowing()) {
                             dialog.dismiss();
                         }
-                        Log.i("respones",response);
+                        Log.i("respones", response);
                         if (response.equals("true")) {
                             // .setText("String Response : "+ response.toString());
 
                             ShowRequestAdapter.this.requestModelList.remove(requestModel);
                             notifyDataSetChanged();
-                        }
-                        else
-                        {
+                        } else {
 
                         }
                     }

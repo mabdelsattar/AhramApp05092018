@@ -26,9 +26,9 @@
         android:allowBackup="true"
         android:icon="@drawable/myicon"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@drawable/myicon"
-        android:theme="@style/AppTheme"
-        android:largeHeap="true">
+        android:theme="@style/AppTheme">
         <activity
             android:name=".Ui.HomeActivity"
             android:configChanges="orientation|keyboardHidden"
@@ -62,7 +62,7 @@
             android:name=".Ui.ShowAllRequestsActivity"
             android:configChanges="orientation|keyboardHidden"
             android:layoutDirection="ltr"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Ui.OrderdetailsActivity"
             android:configChanges="orientation|keyboardHidden"
@@ -98,12 +98,13 @@
             android:name=".TabsActivity"
             android:layoutDirection="rtl"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".ChangeStatusActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan">
-
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity android:name=".SearchForOrderActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
     </application>

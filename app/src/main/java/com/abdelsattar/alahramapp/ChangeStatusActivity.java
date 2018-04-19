@@ -37,11 +37,6 @@ import java.util.List;
 
 public class ChangeStatusActivity extends AppCompatActivity {
 
-
-
-
-
-
     TextView
             bindRequestNum,
             bindRequestStatus,
@@ -53,14 +48,14 @@ public class ChangeStatusActivity extends AppCompatActivity {
             bindNotes;
     LinearLayout bindItemsContainer;
 
-
-
     static final String REQ_TAG = "VACTIVITY";
     RequestQueue requestQueue;
     private ProgressDialog dialog;
     ArrayList<Status>statuses;
     ArrayAdapter<String> statusArrayAdapter;
     int RequestId;
+    int statusIndex=0;
+    int statusId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,9 +80,11 @@ public class ChangeStatusActivity extends AppCompatActivity {
         bindNotes = (TextView) findViewById(R.id.bindNotes);
         if (getIntent().hasExtra("jsonObj")) {
             String JsonStr = getIntent().getExtras().getString("jsonObj");
+            Log.d("TestStatusId",JsonStr);
             try {
                 JSONObject jsonObject = new JSONObject(JsonStr);
                 RequestId = jsonObject.getInt("RequestId");
+                statusId = jsonObject.getInt("RequestStatusId");
                 String RequestStatus = jsonObject.getString("RequestStatus");
                 String RequestDate = jsonObject.getString("RequestDate");
                 String RecieverName = jsonObject.getString("RecieverName");
@@ -142,6 +139,7 @@ public class ChangeStatusActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        Log.d("response",response);
                         if (dialog.isShowing()) {
                             dialog.dismiss();
                         }
@@ -156,6 +154,8 @@ public class ChangeStatusActivity extends AppCompatActivity {
                                 String id = jsonObject.getString("Id");
                                 String name =  jsonObject.getString("Name");
                                 Status status = new Status(id,name);
+                                if (id.equals(String.valueOf(statusId)))
+                                    statusIndex=i;
                                 Log.d("States",status.toString());
                                 statusList.add(name);
                                 statuses.add(status);
@@ -163,6 +163,7 @@ public class ChangeStatusActivity extends AppCompatActivity {
 
                             statusArrayAdapter = new ArrayAdapter<String>(ChangeStatusActivity.this, android.R.layout.simple_spinner_item, statusList);
                             mSpinnerStatus.setAdapter(statusArrayAdapter);
+                            mSpinnerStatus.setSelection(statusIndex);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -231,9 +232,16 @@ public class ChangeStatusActivity extends AppCompatActivity {
         String url = Constant.serversite + "/api/AlAhram/AddOrUpdateRequest";
         final JSONObject jsonBody = new JSONObject();
         try {
+
             jsonBody.put("RequestId",RequestId);
-            jsonBody.put("Paid", Integer.parseInt(paidAmount));
-            jsonBody.put("Remaining", Integer.parseInt(toBePaid));
+            if (paidAmount.length()>0)
+                jsonBody.put("Paid", Integer.parseInt(paidAmount));
+            else
+                jsonBody.put("Paid", 0);
+            if (toBePaid.length()>0)
+                jsonBody.put("Remaining", Integer.parseInt(toBePaid));
+            else
+                jsonBody.put("Remaining", 0);
             jsonBody.put("StatusId", Integer.parseInt(statusId));
 
         } catch (JSONException e) {

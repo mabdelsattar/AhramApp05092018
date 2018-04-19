@@ -25,9 +25,9 @@ public class TabsActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_add));
-        tabLayout.addTab(tabLayout.newTab().setText("ج"));
-        tabLayout.addTab(tabLayout.newTab().setText("ب"));
-        tabLayout.addTab(tabLayout.newTab().setText("أ"));
+//        tabLayout.addTab(tabLayout.newTab().setText("ج"));
+        tabLayout.addTab(tabLayout.newTab().setText("معاينة و تواصل"));
+        tabLayout.addTab(tabLayout.newTab().setText("متابعة الطلب"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tabLayout.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         final ViewPager viewPager =  (ViewPager)findViewById(R.id.container);
