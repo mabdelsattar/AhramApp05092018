@@ -2,10 +2,12 @@ package com.abdelsattar.alahramapp;
 
 
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -24,7 +26,7 @@ public class TabsActivity extends AppCompatActivity {
 
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_add));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.rectangle_804_copy_2));
 //        tabLayout.addTab(tabLayout.newTab().setText("ج"));
         tabLayout.addTab(tabLayout.newTab().setText("معاينة و تواصل"));
         tabLayout.addTab(tabLayout.newTab().setText("متابعة الطلب"));

@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
-                android:src="@drawable/group"
+                android:src="@drawable/application_icon"
                 />
 
             <Button
