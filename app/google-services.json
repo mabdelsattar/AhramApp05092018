@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "634382978493",
+    "firebase_url": "https://alahramapp.firebaseio.com",
+    "project_id": "alahramapp",
+    "storage_bucket": "alahramapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634382978493:android:c1e1747d5d9a5af5",
+        "android_client_info": {
+          "package_name": "com.abdelsattar.alahramapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "634382978493-jh8c21b0g7j6vsv4b2blfot2o34op75r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtKxhHEu5L9Jwj-PJyGCN93MHtJ9Wheto"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

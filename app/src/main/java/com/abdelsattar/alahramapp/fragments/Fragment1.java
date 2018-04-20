@@ -3,7 +3,9 @@ package com.abdelsattar.alahramapp.fragments;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.abdelsattar.alahramapp.MyApplication;
+import com.abdelsattar.alahramapp.MyNotificationHelper.Config;
 import com.abdelsattar.alahramapp.R;
 import com.abdelsattar.alahramapp.SearchForOrderActivity;
 import com.abdelsattar.alahramapp.Ui.AttachActivity;
@@ -58,6 +61,9 @@ public class Fragment1 extends Fragment {
             bindRecieverPhone,
             bindNotes;
     LinearLayout bindItemsContainer;
+
+
+
 
 
     @Override
@@ -155,5 +161,21 @@ public class Fragment1 extends Fragment {
                 }
             }
         }
+    }
+
+    // Fetches reg id from shared preferences
+    // and displays on the screen
+    private void displayFirebaseRegId() {
+        SharedPreferences pref = getActivity().getApplicationContext().getSharedPreferences(Config.SHARED_PREF, 0);
+        String regId = pref.getString("regId", null);
+
+
+        Log.e("nothing", "Firebase reg id: " + regId);
+        //TODO Save It to API
+
+        /*if (!TextUtils.isEmpty(regId))
+            txtRegId.setText("Firebase Reg Id: " + regId);
+        else
+            txtRegId.setText("Firebase Reg Id is not received yet!");*/
     }
 }

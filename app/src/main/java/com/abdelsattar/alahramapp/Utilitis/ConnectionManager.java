@@ -47,22 +47,26 @@ public class ConnectionManager {
                     }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    VolleyLog.e("Error: ", error.getMessage());
-                    Log.d( MyApplication.TAG, error.getMessage());
-                    listener.onFailure(error.getMessage());
+                    VolleyLog.e("Error: ","Error");
+
+                    Log.d( MyApplication.TAG, "Error");
+                    listener.onFailure("Error");
                 }
             });
             // add the request object to the queue to be executed
             MyApplication.getApplicationInstance().addToRequestQueue(req);
-        }
+        }else
+            listener.onFailure("Connection Error");
+
     }
 
     public static boolean checkNetworkConnection() {
-        if (isOnline()) {
+        return true;
+        /*if (isOnline()) {
             return true;
         }
         Toast.makeText(MyApplication.getApplicationInstance().getApplicationContext(), R.string.there_is_no_internet_connection,Toast.LENGTH_LONG).show();
-        return false;
+        return false;*/
     }
 
 
