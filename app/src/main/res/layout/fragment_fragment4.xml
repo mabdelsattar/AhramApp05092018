@@ -1,14 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.Fragment4">
 
     <!-- TODO: Update blank fragment layout -->
+
+
+    <ImageView
+        android:id="@+id/mylogo"
+        android:layout_width="match_parent"
+
+        android:padding="50dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:background="#ebebeb"
+        android:src="@drawable/application_icon"
+        android:layout_alignParentRight="true"
+        android:gravity="right"
+        />
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Fragment4" />
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:id="@+id/des1"
+        android:layout_below="@+id/mylogo"
+        android:textColor="#7c7d7f"
+        android:layout_height="wrap_content"
+        android:text="شركة الأهرام للشحن من جدة و مكة والطائف إلى جميع محافظات مصــر." />
 
-</FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_marginTop="2dp"
+        android:padding="5dp"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+
+        android:layout_below="@+id/des1"
+        android:id="@+id/des2"
+        android:textColor="#7c7d7f"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:gravity="right"
+        android:text="شركة الأهرام بتشحنلك أغراضك بجودة عالية وفنيين متخصصين فى التغليف." />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:layout_below="@+id/des2"
+        android:textColor="#7c7d7f"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:gravity="right"
+        android:text="اغراضك امانة عندنا." />
+
+
+
+</RelativeLayout>
