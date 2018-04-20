@@ -97,11 +97,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/paidAmount"
-                        android:maxLines="1"
                         android:layout_marginRight="15dp"
                         android:layout_marginLeft="15dp"
                         android:layout_weight="1"
-                        android:inputType="number"
                         style="@style/Base.TextAppearance.AppCompat.Medium"
                         android:hint="ما تم دفعه"/>
                     <TextView
@@ -124,11 +122,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/toBePaid"
-                        android:maxLines="1"
                         android:layout_marginRight="15dp"
                         android:layout_marginLeft="15dp"
                         android:layout_weight="1"
-                        android:inputType="number"
                         style="@style/Base.TextAppearance.AppCompat.Medium"
                         android:hint="المتبقي"/>
                     <TextView

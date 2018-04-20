@@ -50,10 +50,14 @@ public class SearchForOrderActivity extends AppCompatActivity {
                         if (dialog.isShowing()) {
                             dialog.dismiss();
                         }
-                        Intent returnIntent = new Intent();
-                        returnIntent.putExtra("jsonObj",response);
-                        setResult(Activity.RESULT_OK,returnIntent);
-                        finish();
+                        if(response == null || response.equals("null"))
+                            Toast.makeText(getApplicationContext(),"بيانات غير صحيحه ..الرجاء اعادة المحاولة",Toast.LENGTH_LONG).show();
+                        else {
+                            Intent returnIntent = new Intent();
+                            returnIntent.putExtra("jsonObj", response);
+                            setResult(Activity.RESULT_OK, returnIntent);
+                            finish();
+                        }
                     }
                     @Override
                     public void onFailure(String message) {

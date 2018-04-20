@@ -3,6 +3,8 @@ package com.abdelsattar.alahramapp;
 
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -23,7 +25,8 @@ public class TabsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabs);
-
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#113353"));
+        getSupportActionBar().setBackgroundDrawable(colorDrawable);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.rectangle_804_copy_2));

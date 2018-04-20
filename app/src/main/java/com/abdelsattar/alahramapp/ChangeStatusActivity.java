@@ -92,6 +92,11 @@ public class ChangeStatusActivity extends AppCompatActivity {
                 String RecieverCity = jsonObject.getString("RecieverCity");
                 String RecieverPhone = jsonObject.getString("RecieverPhone");
                 String notes = jsonObject.getString("Notes");
+                String paid = String.valueOf(jsonObject.getInt("Paid"));
+                String remain = String.valueOf(jsonObject.getString("Remain"));
+
+                mPaidAmount.setText(paid);
+                mToBePaid.setText(remain);
 
                 bindRequestNum.setText(RequestId + "");
                 bindRequestStatus.setText(RequestStatus);
@@ -100,6 +105,8 @@ public class ChangeStatusActivity extends AppCompatActivity {
                 bindRecieverAddress.setText(RecieverAddress);
                 bindRecieverCity.setText(RecieverCity);
                 bindRecieverPhone.setText(RecieverPhone);
+
+
                 if (!(notes == null || notes.equals("null") || notes.equals("")))
                     bindNotes.setText(notes);
 

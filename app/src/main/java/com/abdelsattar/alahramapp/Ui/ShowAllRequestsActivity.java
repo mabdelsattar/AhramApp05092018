@@ -20,7 +20,9 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 
+import com.abdelsattar.alahramapp.ChangeStatusActivity;
 import com.abdelsattar.alahramapp.R;
+import com.abdelsattar.alahramapp.Utilitis.Preferences;
 import com.abdelsattar.alahramapp.adpaters.AddRequestAdpater;
 import com.abdelsattar.alahramapp.adpaters.ShowRequestAdapter;
 import com.abdelsattar.alahramapp.model.AddRequestModel;
@@ -40,6 +42,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.abdelsattar.alahramapp.Utilitis.ResponseParser.getRequestData;
+import static com.abdelsattar.alahramapp.model.Constant.MANAGER_ROLE;
 
 public class ShowAllRequestsActivity extends AppCompatActivity {
     RecyclerView requestrecycleview;
@@ -88,6 +91,11 @@ public class ShowAllRequestsActivity extends AppCompatActivity {
                 startActivity(new Intent(ShowAllRequestsActivity.this,RequestFormActivity.class));
             }
         });
+        Preferences preferences = new Preferences(getApplicationContext());
+        if (preferences.getRole() == MANAGER_ROLE)
+            fab.setVisibility(View.INVISIBLE);
+        else
+            fab.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -99,6 +107,8 @@ public class ShowAllRequestsActivity extends AppCompatActivity {
         dialog = new ProgressDialog(ShowAllRequestsActivity.this);
         dialog.setMessage("جاري التحميل...");
         dialog.show();
+
+
 
         String url = Constant.serversite+"/api/AlAhram/GetAllByUserId?userid";
         StringRequest jsonObjectRequest = new StringRequest(Request.Method.GET, url,

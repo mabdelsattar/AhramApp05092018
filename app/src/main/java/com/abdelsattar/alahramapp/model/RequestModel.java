@@ -8,19 +8,38 @@ import org.json.JSONObject;
 
 public class RequestModel
 {
-    String ordernumber,clientname,clientphone,reciverdate,Notes;
+    String ordernumber,clientname,clientphone,reciverdate,Notes,paid,remain;
+
 
     public String getOrdernumber() {
         return ordernumber;
     }
 
-    public RequestModel(String ordernumber, String clientname, String clientphone, String reciverdate,String object,String notes) {
+    public RequestModel(String ordernumber, String clientname, String clientphone, String reciverdate,String object,String notes,String _paid,String _remain) {
         this.ordernumber = ordernumber;
         this.clientname = clientname;
         this.clientphone = clientphone;
         this.reciverdate = reciverdate;
         this.StrObject = object;
         this.Notes = notes;
+        this.paid = _paid;
+        this.remain = _remain;
+    }
+
+    public String getPaid() {
+        return paid;
+    }
+
+    public void setPaid(String paid) {
+        this.paid = paid;
+    }
+
+    public String getRemain() {
+        return remain;
+    }
+
+    public void setRemain(String remain) {
+        this.remain = remain;
     }
 
     public String StrObject;

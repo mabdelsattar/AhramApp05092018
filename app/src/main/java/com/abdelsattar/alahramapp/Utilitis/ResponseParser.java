@@ -26,7 +26,9 @@ public class ResponseParser {
                 String ClientPhone = jsonObject.getString("ClientPhone");
                 String RequestDate = jsonObject.getString("RequestDate");
                 String Notes = jsonObject.getString("Notes");
-                data.add(new RequestModel(RequestId + "", ClientName, ClientPhone, RequestDate, jsonObject.toString(),Notes));
+                String paid = String.valueOf(jsonObject.getInt("Paid"));
+                String remain = String.valueOf(jsonObject.getInt("Remain"));
+                data.add(new RequestModel(RequestId + "", ClientName, ClientPhone, RequestDate, jsonObject.toString(),Notes,paid,remain));
             }
         } catch (Exception ex) {
 
