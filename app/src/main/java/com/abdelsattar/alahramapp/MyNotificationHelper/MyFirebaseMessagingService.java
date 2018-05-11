@@ -81,7 +81,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     .setContentText(message)
                     .setContentTitle("الأهرام للشحن لمصر")
                     .setContentIntent(pendingIntent)
-                    .setSmallIcon(R.drawable.myicon)
+                    .setSmallIcon(R.mipmap.myicon)
                     .build();
 
             NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);

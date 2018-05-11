@@ -124,8 +124,7 @@ public class ShowAllRequestsActivity extends AppCompatActivity {
                             adapter.notifyDataSetChanged();
 
                         }catch (Exception ex){
-
-
+                            
                         }
 
                     }

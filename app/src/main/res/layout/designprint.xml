@@ -31,7 +31,7 @@
         android:layout_height="50dp"
         android:layout_alignBottom="@+id/textView26"
         android:layout_centerHorizontal="true"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@mipmap/myicon" />
 
     <TextView
         android:id="@+id/textView24"
