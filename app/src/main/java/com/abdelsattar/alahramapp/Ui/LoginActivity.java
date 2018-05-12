@@ -34,6 +34,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.abdelsattar.alahramapp.Admin.AdminHomeActivity;
 import com.abdelsattar.alahramapp.Utilitis.Preferences;
 import com.abdelsattar.alahramapp.R;
 import com.abdelsattar.alahramapp.model.AddRequestModel;
@@ -53,6 +54,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.Manifest.permission.READ_CONTACTS;
+import static com.abdelsattar.alahramapp.model.Constant.MANAGER_ROLE;
 
 /**
  * A login screen that offers login via email/password.
@@ -273,13 +275,20 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                                 Preferences preferences = new Preferences(LoginActivity.this);
                                 preferences.setUserId(new JSONObject(response).getInt("UserId"));
                                 preferences.setRole(new JSONObject(response).getInt("Role"));
+
+
+
                             }catch (Exception ex){
 
                                 Toast.makeText(LoginActivity.this, "حدث خطأ تقني",Toast.LENGTH_LONG).show();
-
                             }
 
-                            startActivity(new Intent(LoginActivity.this,ShowAllRequestsActivity.class));
+                            Preferences preferences = new Preferences(LoginActivity.this);
+                            if (preferences.getRole() == MANAGER_ROLE)
+                                startActivity(new Intent(LoginActivity.this,AdminHomeActivity.class));
+                            else
+                                startActivity(new Intent(LoginActivity.this,ShowAllRequestsActivity.class));
+
                             finish();
                         }
 

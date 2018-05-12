@@ -79,6 +79,11 @@
             android:layoutDirection="ltr"
             android:screenOrientation="portrait" />
         <activity android:name=".NotesActivity" />
+        <activity
+            android:name=".Admin.ManageItemsActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:layoutDirection="ltr"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -86,11 +91,15 @@
 
         <activity
             android:name=".MapsActivity"
+            android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_maps"
-            android:layoutDirection="ltr" />
+            android:layoutDirection="ltr"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".VidioActivity"
-            android:layoutDirection="rtl" />
+            android:configChanges="orientation|keyboardHidden"
+            android:layoutDirection="rtl"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ClientHomeActivity"
             android:layoutDirection="ltr" />
@@ -101,13 +110,11 @@
         <activity
             android:name=".ChangeStatusActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"></activity>
-        <activity android:name=".SearchForOrderActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".SearchForOrderActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- Firebase Notifications -->
         <service android:name=".MyNotificationHelper.MyFirebaseMessagingService">
@@ -115,7 +122,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
         <service android:name=".MyNotificationHelper.MyFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
@@ -123,6 +129,17 @@
         </service>
         <!-- ./Firebase Notifications -->
 
+        <activity
+            android:name=".Admin.AdminHomeActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:layoutDirection="ltr"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Admin.DataManagHomeActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:layoutDirection="ltr"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Admin.AddEditItemActivity"></activity>
     </application>
 
 </manifest>

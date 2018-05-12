@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.abdelsattar.alahramapp.Admin.AddEditItemActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+
+        <EditText
+            android:id="@+id/etname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:hint="الاسم"
+            android:inputType="text"
+            />
+
+
+        <EditText
+            android:id="@+id/etprice"
+            android:hint="الــسعر"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:layout_marginTop="10dp"
+            android:inputType="number"
+            />
+
+        <Button
+            android:id="@+id/btnsaveitem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/barColor"
+            android:layout_marginTop="15dp"
+            android:textColor="#FFF"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:text="اضافة"
+            />
+
+    </LinearLayout>
+</RelativeLayout>
