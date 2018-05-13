@@ -1,31 +1,25 @@
-package com.abdelsattar.alahramapp.Ui;
+package com.abdelsattar.alahramapp.Admin;
 
 import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.util.TypedValue;
 import android.view.View;
 
-import com.abdelsattar.alahramapp.ChangeStatusActivity;
 import com.abdelsattar.alahramapp.R;
+import com.abdelsattar.alahramapp.Ui.RequestFormActivity;
 import com.abdelsattar.alahramapp.Utilitis.Preferences;
-import com.abdelsattar.alahramapp.adpaters.AddRequestAdpater;
 import com.abdelsattar.alahramapp.adpaters.ShowRequestAdapter;
-import com.abdelsattar.alahramapp.model.AddRequestModel;
 import com.abdelsattar.alahramapp.model.Constant;
 import com.abdelsattar.alahramapp.model.RequestModel;
 import com.abdelsattar.alahramapp.model.RequestQueueSingleton;
@@ -35,21 +29,17 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.abdelsattar.alahramapp.Utilitis.ResponseParser.getRequestData;
 import static com.abdelsattar.alahramapp.model.Constant.MANAGER_ROLE;
 
-public class ShowAllRequestsActivity extends AppCompatActivity {
+public class ShowAllRequestsCustomDateActivity extends AppCompatActivity {
     RecyclerView requestrecycleview;
     ShowRequestAdapter adapter;
     List<RequestModel> data;
     private ProgressDialog dialog;
-    int type = -1;
 
     static final String REQ_TAG = "VACTIVITY";
     RequestQueue requestQueue;
@@ -63,35 +53,14 @@ public class ShowAllRequestsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_allrequests);
+        setContentView(R.layout.activity_allrequests_customdate);
         forceRTLIfSupported();
 
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#113353"));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
-        getSupportActionBar().setTitle("جميع الطلبات");
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        getSupportActionBar().setTitle("الطلبات في فترة محددة");
 
-        if(getIntent().getExtras() != null)
-        {
-            type =getIntent().getExtras().getInt("type",-1);
-            if(type == 1) {
-                getSupportActionBar().setTitle("الطلبات في اخر اسبوع");
-fab.setVisibility(View.INVISIBLE);
-            }
 
-            else if(type ==2){
-                getSupportActionBar().setTitle("الطلبات في اخر شهر");
-                fab.setVisibility(View.INVISIBLE);
-
-            }
-
-            else if(type ==3){
-                getSupportActionBar().setTitle("الطلبات في اخر عام");
-                fab.setVisibility(View.INVISIBLE);
-
-            }
-
-        }
 
         data = new ArrayList<RequestModel>();
         adapter = new ShowRequestAdapter(data,this);
@@ -106,12 +75,12 @@ fab.setVisibility(View.INVISIBLE);
         requestrecycleview.addItemDecoration(divider);
 
 
-
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ShowAllRequestsActivity.this,RequestFormActivity.class));
+                startActivity(new Intent(ShowAllRequestsCustomDateActivity.this,RequestFormActivity.class));
             }
         });
         Preferences preferences = new Preferences(getApplicationContext());
@@ -124,29 +93,17 @@ fab.setVisibility(View.INVISIBLE);
     @Override
     protected void onResume() {
         super.onResume();
-        requestQueue = RequestQueueSingleton.getInstance(ShowAllRequestsActivity.this)
+        requestQueue = RequestQueueSingleton.getInstance(ShowAllRequestsCustomDateActivity.this)
                 .getRequestQueue();
 
-        dialog = new ProgressDialog(ShowAllRequestsActivity.this);
+        dialog = new ProgressDialog(ShowAllRequestsCustomDateActivity.this);
         dialog.setMessage("جاري التحميل...");
         dialog.show();
 
 
 
         String url = Constant.serversite+"/api/AlAhram/GetAllByUserId?userid";
-        if(type == 1)
-        {
-        url = Constant.serversite+"/api/AlAhram/GetAllBasedOnTime?type=1";
-        }
-        if(type == 2)
-        {
-            url = Constant.serversite+"/api/AlAhram/GetAllBasedOnTime?type=2";
-        }
 
-        if(type == 3)
-        {
-            url = Constant.serversite+"/api/AlAhram/GetAllBasedOnTime?type=3";
-        }
 
         StringRequest jsonObjectRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -161,20 +118,7 @@ fab.setVisibility(View.INVISIBLE);
                             adapter.notifyDataSetChanged();
 
 
-                            if(type == 1)
-                            {
-                                getSupportActionBar().setTitle("الطلبات في اخر اسبوع "+data.size());
-                            }
-                            if(type == 2)
-                            {
-                                getSupportActionBar().setTitle("الطلبات في اخر شهر "+data.size());
-                            }
-
-                            if(type == 3)
-                            {
-                                getSupportActionBar().setTitle("الطلبات في اخر عام "+data.size());
-                            }
-
+                                getSupportActionBar().setTitle("الطلبات في فترة محددة "+data.size());
 
                         }catch (Exception ex){
                             
