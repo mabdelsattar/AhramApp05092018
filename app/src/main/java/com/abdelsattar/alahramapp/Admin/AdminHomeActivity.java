@@ -29,5 +29,15 @@ public class AdminHomeActivity extends AppCompatActivity {
             }
         });
 
+        layoutstatistics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(AdminHomeActivity.this,StatisticsHomeActivity.class));
+            }
+        });
+
+
+
     }
 }

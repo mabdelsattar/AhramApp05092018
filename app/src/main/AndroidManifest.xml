@@ -156,6 +156,10 @@
             android:layoutDirection="ltr"
             android:screenOrientation="portrait"></activity>
 
+        <activity android:name=".Admin.StatisticsHomeActivity"  android:configChanges="orientation|keyboardHidden"
+            android:layoutDirection="ltr"
+            android:screenOrientation="portrait"></activity>
+
     </application>
 
 </manifest>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DFDFDF"
+    tools:context="com.abdelsattar.alahramapp.Admin.DataManagHomeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="30dp"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/RequestsLastWeek"
+            android:layout_marginTop="0dp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:text="الطلبات في اخر اسبوع"
+            android:textStyle="bold"
+            android:background="@color/barColor"
+            android:textColor="#FFFFFF"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/RequestsLastMonth"
+            android:layout_marginTop="5dp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:text="الطلبات في اخر شهر"
+            android:textStyle="bold"
+            android:background="@color/barColor"
+            android:textColor="#FFFFFF"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/RequestsLastYear"
+            android:layout_marginTop="5dp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:text="الطلبات في اخر عام"
+            android:textStyle="bold"
+            android:background="@color/barColor"
+            android:textColor="#FFFFFF"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnRequestsCustomDate"
+            android:layout_marginTop="5dp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:text="الطلبات في فترة محدده"
+            android:textStyle="bold"
+            android:background="@color/barColor"
+            android:textColor="#FFFFFF"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnRequestsArea"
+            android:layout_marginTop="5dp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:text="الطلبات حسب المنطقة"
+            android:textStyle="bold"
+            android:background="@color/barColor"
+            android:textColor="#FFFFFF"
+            />
+
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>
