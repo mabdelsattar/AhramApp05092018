@@ -152,6 +152,9 @@
             android:layoutDirection="ltr"
             android:screenOrientation="portrait"></activity>
 
+        <activity android:name=".Admin.ManageClientsActivity"  android:configChanges="orientation|keyboardHidden"
+            android:layoutDirection="ltr"
+            android:screenOrientation="portrait"></activity>
 
     </application>
 

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.abdelsattar.alahramapp.R;
+import com.abdelsattar.alahramapp.Ui.ShowAllRequestsActivity;
 
 public class DataManagHomeActivity extends AppCompatActivity {
 
@@ -36,6 +37,20 @@ public class DataManagHomeActivity extends AppCompatActivity {
                 startActivity(new Intent(DataManagHomeActivity.this,ManageEmpolyeesActivity.class));
             }
         });
+        manageClients.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DataManagHomeActivity.this,ManageClientsActivity.class));
+            }
+        });
+
+        manageRequests.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DataManagHomeActivity.this,ShowAllRequestsActivity.class));
+            }
+        });
+
 
     }
 }
