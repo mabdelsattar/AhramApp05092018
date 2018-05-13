@@ -139,7 +139,20 @@
             android:configChanges="orientation|keyboardHidden"
             android:layoutDirection="ltr"
             android:screenOrientation="portrait" />
-        <activity android:name=".Admin.AddEditItemActivity"></activity>
+
+
+        <activity android:name=".Admin.AddEditItemActivity"  android:configChanges="orientation|keyboardHidden"
+            android:layoutDirection="ltr"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Admin.AddEditUserActivity"  android:configChanges="orientation|keyboardHidden"
+            android:layoutDirection="ltr"
+            android:screenOrientation="portrait"></activity>
+
+        <activity android:name=".Admin.ManageEmpolyeesActivity"  android:configChanges="orientation|keyboardHidden"
+            android:layoutDirection="ltr"
+            android:screenOrientation="portrait"></activity>
+
+
     </application>
 
 </manifest>

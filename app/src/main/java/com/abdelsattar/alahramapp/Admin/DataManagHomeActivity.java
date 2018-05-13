@@ -30,6 +30,12 @@ public class DataManagHomeActivity extends AppCompatActivity {
                 startActivity(new Intent(DataManagHomeActivity.this,ManageItemsActivity.class));
             }
         });
+        manageempoyees.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DataManagHomeActivity.this,ManageEmpolyeesActivity.class));
+            }
+        });
 
     }
 }
