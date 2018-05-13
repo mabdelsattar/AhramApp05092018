@@ -30,21 +30,27 @@ public class StatisticsHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //send specefic filter type 1
-                startActivity(new Intent(StatisticsHomeActivity.this,ShowAllRequestsActivity.class));
+                Intent intent= new Intent(StatisticsHomeActivity.this,ShowAllRequestsActivity.class);
+                intent.putExtra("type",1);
+                startActivity(intent);
             }
         });
         RequestsLastMonth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //send specefic filter type 2
-                startActivity(new Intent(StatisticsHomeActivity.this,ShowAllRequestsActivity.class));
+                Intent intent= new Intent(StatisticsHomeActivity.this,ShowAllRequestsActivity.class);
+                intent.putExtra("type",2);
+                startActivity(intent);
             }
         });
         RequestsLastYear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //send specefic filter type 3
-                startActivity(new Intent(StatisticsHomeActivity.this,ShowAllRequestsActivity.class));
+                Intent intent= new Intent(StatisticsHomeActivity.this,ShowAllRequestsActivity.class);
+                intent.putExtra("type",3);
+                startActivity(intent);
             }
         });
 

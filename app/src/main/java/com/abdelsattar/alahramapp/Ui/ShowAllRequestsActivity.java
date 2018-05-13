@@ -49,6 +49,7 @@ public class ShowAllRequestsActivity extends AppCompatActivity {
     ShowRequestAdapter adapter;
     List<RequestModel> data;
     private ProgressDialog dialog;
+    int type = -1;
 
     static final String REQ_TAG = "VACTIVITY";
     RequestQueue requestQueue;
@@ -69,6 +70,23 @@ public class ShowAllRequestsActivity extends AppCompatActivity {
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
         getSupportActionBar().setTitle("جميع الطلبات");
 
+        if(getIntent().getExtras() != null)
+        {
+            type =getIntent().getExtras().getInt("type",-1);
+            if(type == 1) {
+                getSupportActionBar().setTitle("الطلبات في اخر اسبوع");
+
+            }
+
+            else if(type ==2){
+                getSupportActionBar().setTitle("الطلبات في اخر شهر");
+            }
+
+            else if(type ==3){
+                getSupportActionBar().setTitle("الطلبات في اخر عام");
+            }
+
+        }
 
         data = new ArrayList<RequestModel>();
         adapter = new ShowRequestAdapter(data,this);
@@ -111,6 +129,20 @@ public class ShowAllRequestsActivity extends AppCompatActivity {
 
 
         String url = Constant.serversite+"/api/AlAhram/GetAllByUserId?userid";
+        if(type == 1)
+        {
+        url = Constant.serversite+"/api/AlAhram/GetAllBasedOnTime?type=1";
+        }
+        if(type == 2)
+        {
+            url = Constant.serversite+"/api/AlAhram/GetAllBasedOnTime?type=2";
+        }
+
+        if(type == 3)
+        {
+            url = Constant.serversite+"/api/AlAhram/GetAllBasedOnTime?type=3";
+        }
+
         StringRequest jsonObjectRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
@@ -122,6 +154,22 @@ public class ShowAllRequestsActivity extends AppCompatActivity {
                             data.clear();
                             data.addAll(getRequestData(response));
                             adapter.notifyDataSetChanged();
+
+
+                            if(type == 1)
+                            {
+                                getSupportActionBar().setTitle("الطلبات في اخر اسبوع "+data.size());
+                            }
+                            if(type == 2)
+                            {
+                                getSupportActionBar().setTitle("الطلبات في اخر شهر "+data.size());
+                            }
+
+                            if(type == 3)
+                            {
+                                getSupportActionBar().setTitle("الطلبات في اخر عام "+data.size());
+                            }
+
 
                         }catch (Exception ex){
                             
