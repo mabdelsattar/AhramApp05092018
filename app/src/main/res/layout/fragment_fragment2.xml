@@ -40,7 +40,7 @@
 
                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                android:textColor="#7c7d7f"
-               android:text="0567984900"
+               android:text="00966553572260"
                />
 
        </RelativeLayout>
@@ -70,7 +70,7 @@
                android:layout_centerInParent="true"
                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                android:textColor="#7c7d7f"
-               android:text="0555463565"
+               android:text="00966567984900"
                />
 
        </RelativeLayout>

@@ -6,11 +6,11 @@ android {
         applicationId "com.abdelsattar.alahramapp"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 6
-        versionName "1.5"
+        versionCode 7
+        versionName "1.6"
         multiDexEnabled true //important
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
+    } 
     buildTypes {
         release {
             minifyEnabled false

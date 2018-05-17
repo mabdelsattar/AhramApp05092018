@@ -49,13 +49,13 @@
 
 
     <string name="lbl_clientphone"> جوال العميل : </string>
-    <string name="labldata">جده-طريق المدينه-حى طيبه -واتس-0555463565-مكه -بطحاءقريش بالقرب من الممشى-جوال:0599999999999-مصر-جوال:0020125645555</string>
+    <string name="labldata">جده-طريق المدينه-حى طيبه -واتس-00966567984900 -مكه -بطحاءقريش بالقرب من الممشى-جوال:00966553572260-مصر-جوال:0020125645555</string>
     <string name="invalidloginMessage">اسم المستخدم او كلمة المرور خطأ يرجي اعادة المحاولة</string>
     <string name="lbl_clientName">اسم العميل:</string>
 
 
-    <string name="line1">جدة  -  طريق  المدينة  -  حي طـيبة  -  الرحيلي  -  واتس  : 055463565</string>
-    <string name="line2">مكة- بطحاء قريش بالقرب من الممشي-جوال 0543406389 -مصر- 0020122525952</string>
+    <string name="line1">جدة  -  طريق  المدينة  -  حي طـيبة  -  الرحيلي  -  واتس  : 00966567984900</string>
+    <string name="line2">مكة- بطحاء قريش بالقرب من الممشي-جوال 00966553572260 -مصر- 0020122525952</string>
     <string name="title_activity_maps">Map</string>
 
     <string name="order_number">رقم الطلب</string>

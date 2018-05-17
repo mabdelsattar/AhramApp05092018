@@ -44,7 +44,7 @@ public class Fragment2 extends Fragment {
         btnContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String phone = "0567984900";
+                String phone = "00966553572260";
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
                 startActivity(intent);
             }
@@ -66,10 +66,10 @@ public class Fragment2 extends Fragment {
                 int sdk = android.os.Build.VERSION.SDK_INT;
                 if(sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
                     android.text.ClipboardManager clipboard = (android.text.ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-                    clipboard.setText("0555463565");
+                    clipboard.setText("00966567984900");
                 } else {
                     android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-                    android.content.ClipData clip = android.content.ClipData.newPlainText("whatsapp","0555463565");
+                    android.content.ClipData clip = android.content.ClipData.newPlainText("whatsapp","00966567984900");
                     clipboard.setPrimaryClip(clip);
                 }
                 Toast.makeText(getActivity(),"تم نسخ رقم واتس ابب",Toast.LENGTH_LONG).show();
