@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -46,8 +48,9 @@ import static com.abdelsattar.alahramapp.model.Constant.MANAGER_ROLE;
  */
 
 
-public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.MyViewHolder> {
+public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.MyViewHolder>  implements Filterable{
     private List<RequestModel> requestModelList;
+    private List<RequestModel> requestModelListFiltered;
     Context context;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -87,10 +90,60 @@ public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.
             ButterKnife.bind(this, view);
             tf = Typeface.createFromAsset(view.getResources().getAssets(), "DroidKufi-Bold.ttf");
         }
+
+
     }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String charString = charSequence.toString();
+                if (charString.isEmpty()) {
+                    requestModelListFiltered = requestModelList;
+                } else {
+                    List<RequestModel> filteredList = new ArrayList<>();
+                    for (RequestModel row : requestModelList) {
+
+                        // name match condition. this might differ depending on your requirement
+                        // here we are looking for name or phone number match
+                        if (
+                                row.getClientname().toLowerCase().contains(charString.toLowerCase()) ||
+                                row.getClientphone().toLowerCase().contains(charString.toLowerCase()) ||
+                                row.getNotes().toLowerCase().contains(charString.toLowerCase()) ||
+                                row.getOrdernumber().toLowerCase().contains(charString.toLowerCase()) ||
+                                row.getPaid().toLowerCase().contains(charString.toLowerCase()) ||
+                                row.getReciverdate().toLowerCase().contains(charString.toLowerCase()) ||
+                                row.getRemain().toLowerCase().contains(charString.toLowerCase()) ||
+                                row.getStrObject().toLowerCase().contains(charString.toLowerCase())
+                                )
+                                {
+                            filteredList.add(row);
+                        }
+                    }
+
+                    requestModelListFiltered = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = requestModelListFiltered;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                requestModelListFiltered = (ArrayList<RequestModel>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
+    }
+
+
 
     public ShowRequestAdapter(List<RequestModel> requestModelList, Context context) {
         this.requestModelList = requestModelList;
+        this.requestModelListFiltered = requestModelList;
         this.context = context;
     }
 
@@ -103,7 +156,7 @@ public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        final RequestModel requestModel = requestModelList.get(position);
+        final RequestModel requestModel = requestModelListFiltered.get(position);
 
 
         holder.mOrderNumber.setTypeface(holder.tf);
@@ -145,7 +198,7 @@ public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.
 
     @Override
     public int getItemCount() {
-        return requestModelList.size();
+        return requestModelListFiltered.size();
     }
 
     private void deleteRequest(final RequestModel requestModel) {
@@ -189,7 +242,7 @@ public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.
                         if (response.equals("true")) {
                             // .setText("String Response : "+ response.toString());
 
-                            ShowRequestAdapter.this.requestModelList.remove(requestModel);
+                            ShowRequestAdapter.this.requestModelListFiltered.remove(requestModel);
                             notifyDataSetChanged();
                         } else {
 

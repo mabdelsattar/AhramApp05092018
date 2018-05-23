@@ -119,7 +119,7 @@ public class ManageClientsActivity extends AppCompatActivity {
 
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#113353"));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
-        getSupportActionBar().setTitle("ادارة المندوبين");
+        getSupportActionBar().setTitle("ادارة العملاء");
 
 
 
@@ -131,13 +131,7 @@ public class ManageClientsActivity extends AppCompatActivity {
                 startActivity(new Intent(ManageClientsActivity.this,AddEditUserActivity.class));
             }
         });
-
-
-
-
-
-
-
+        
 
     }
 

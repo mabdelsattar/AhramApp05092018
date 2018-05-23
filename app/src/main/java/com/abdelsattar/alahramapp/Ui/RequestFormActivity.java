@@ -329,10 +329,10 @@ public class RequestFormActivity extends AppCompatActivity {
                  Toast.makeText(RequestFormActivity.this,"يجب ادخال رقم الهوية للعميل"  ,Toast.LENGTH_LONG).show();
              else  if("".equals(recivername.getText().toString()))
                  Toast.makeText(RequestFormActivity.this,"يجب ادخال اسم المستلم"  ,Toast.LENGTH_LONG).show();
-             else  if("".equals(reciverphoneegy.getText().toString()))
-                 Toast.makeText(RequestFormActivity.this,"يجب ادخال جوال المستلم المصري"  ,Toast.LENGTH_LONG).show();
-             else  if("".equals(recivernationalid.getText().toString()))
-                 Toast.makeText(RequestFormActivity.this,"يجب ادخال رقم هوية المستلم"  ,Toast.LENGTH_LONG).show();
+           //  else  if("".equals(reciverphoneegy.getText().toString()))
+             //    Toast.makeText(RequestFormActivity.this,"يجب ادخال جوال المستلم المصري"  ,Toast.LENGTH_LONG).show();
+            // else  if("".equals(recivernationalid.getText().toString()))
+              //   Toast.makeText(RequestFormActivity.this,"يجب ادخال رقم هوية المستلم"  ,Toast.LENGTH_LONG).show();
              else if(spinner_nationality.getSelectedItemPosition() == 0)
                  Toast.makeText(RequestFormActivity.this,"يجب اختيار جنسية العميل"  ,Toast.LENGTH_LONG).show();
              else if(spinner_client_address_country.getSelectedItemPosition() == 0)

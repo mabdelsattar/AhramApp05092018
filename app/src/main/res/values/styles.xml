@@ -13,6 +13,18 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <!-- Gets rid of the search icon -->
+        <item name="searchIcon">@drawable/searchicon</item>
+        <!-- Gets rid of the "underline" in the text -->
+        <item name="queryBackground">@color/white</item>
+        <!-- Gets rid of the search icon when the SearchView is expanded -->
+
+        <!-- The hint text that appears when the user has not typed anything -->
+        <item name="queryHint">@string/search_hint</item>
+
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
@@ -31,4 +43,6 @@
         parent="android:Widget.TextView">
         <item name="android:textSize">12sp</item>
     </style>
+
+    <string name="search_hint">أبحث هنا...</string>
 </resources>

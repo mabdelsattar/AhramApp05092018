@@ -16,9 +16,11 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.EditText;
 
 import com.abdelsattar.alahramapp.ChangeStatusActivity;
 import com.abdelsattar.alahramapp.R;
@@ -71,6 +73,32 @@ public class ShowAllRequestsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("جميع الطلبات");
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
+        SearchView searchView = (SearchView) findViewById(R.id.search);
+        EditText searchEditText = (EditText) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
+        searchEditText.setTextColor(Color.BLACK);
+        searchEditText.setHintTextColor(Color.GRAY);
+
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                adapter.getFilter().filter(query);
+                adapter.notifyDataSetChanged();
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                //adapter.getFilter().filter(newText);
+                adapter.getFilter().filter(newText);
+                adapter.notifyDataSetChanged();
+                return false;
+            }
+
+        });
+
+
         if(getIntent().getExtras() != null)
         {
             type =getIntent().getExtras().getInt("type",-1);
@@ -104,6 +132,7 @@ fab.setVisibility(View.INVISIBLE);
         DividerItemDecoration divider = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         divider.setDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.divider_gray));
         requestrecycleview.addItemDecoration(divider);
+        adapter.notifyDataSetChanged();
 
 
 
