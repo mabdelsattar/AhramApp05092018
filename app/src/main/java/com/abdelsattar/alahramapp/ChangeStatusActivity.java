@@ -45,7 +45,8 @@ public class ChangeStatusActivity extends AppCompatActivity {
             bindRecieverAddress,
             bindRecieverCity,
             bindRecieverPhone,
-            bindNotes;
+            bindNotes,
+            bindMadeBy;
     LinearLayout bindItemsContainer;
 
     static final String REQ_TAG = "VACTIVITY";
@@ -78,6 +79,7 @@ public class ChangeStatusActivity extends AppCompatActivity {
         bindRecieverPhone = (TextView) findViewById(R.id.bindRecieverPhone);
         bindItemsContainer = (LinearLayout) findViewById(R.id.bindItemsContainer);
         bindNotes = (TextView) findViewById(R.id.bindNotes);
+        bindMadeBy = (TextView) findViewById(R.id.bindMadeBy);
         if (getIntent().hasExtra("jsonObj")) {
             String JsonStr = getIntent().getExtras().getString("jsonObj");
             Log.d("TestStatusId",JsonStr);
@@ -94,6 +96,7 @@ public class ChangeStatusActivity extends AppCompatActivity {
                 String notes = jsonObject.getString("Notes");
                 String paid = String.valueOf(jsonObject.getInt("Paid"));
                 String remain = String.valueOf(jsonObject.getString("Remain"));
+                String madeby = String.valueOf(jsonObject.getString("MadeBy"));
 
                 mPaidAmount.setText(paid);
                 mToBePaid.setText(remain);
@@ -105,6 +108,7 @@ public class ChangeStatusActivity extends AppCompatActivity {
                 bindRecieverAddress.setText(RecieverAddress);
                 bindRecieverCity.setText(RecieverCity);
                 bindRecieverPhone.setText(RecieverPhone);
+                bindMadeBy.setText(madeby);
 
 
                 if (!(notes == null || notes.equals("null") || notes.equals("")))

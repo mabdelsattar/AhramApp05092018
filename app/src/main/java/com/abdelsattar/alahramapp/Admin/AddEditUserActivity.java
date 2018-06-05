@@ -24,9 +24,9 @@ import org.json.JSONObject;
 
 public class AddEditUserActivity extends AppCompatActivity {
 
-    EditText etprice,etname;
+    EditText etprice,etname,etFullName;
     Button btnsaveitem;
-    String Name,Prices;
+    String Name,Prices,FullName;
     RequestQueue requestQueue;
     ProgressDialog dialog;
 
@@ -40,13 +40,16 @@ public class AddEditUserActivity extends AppCompatActivity {
         btnsaveitem = (Button) findViewById(R.id.btnsaveitem);
         etprice = (EditText) findViewById(R.id.etprice);
         etname = (EditText) findViewById(R.id.etname);
+        etFullName = (EditText) findViewById(R.id.etFullName);
 
         if(getIntent().getExtras() != null) {
             ItemId = getIntent().getExtras().getString("Id", null);
             Name= getIntent().getExtras().getString("UserName", null);
             Prices= getIntent().getExtras().getString("Password", null);
+            FullName= getIntent().getExtras().getString("FullName", null);
 
             etname.setText(Name);
+            etFullName.setText(FullName);
             etprice.setText(Prices);
 
         }
@@ -75,7 +78,8 @@ public class AddEditUserActivity extends AppCompatActivity {
                 Prices = etprice.getText().toString();
 
                 if(Name == null || Name.equals("null") || Name.equals("")
-                  || Prices == null || Prices.equals("null") || Prices.equals(""))
+                  || Prices == null || Prices.equals("null") || Prices.equals("")
+                        || FullName == null || FullName.equals("null") || FullName.equals(""))
                 {
                     Toast.makeText(getApplicationContext(),"يجب ملئ كافة الحقول",Toast.LENGTH_LONG).show();
                 }else{
@@ -90,6 +94,7 @@ public class AddEditUserActivity extends AppCompatActivity {
                         jsonBody.put("Role",3);
                         jsonBody.put("UserName",Name);
                         jsonBody.put("Password",Prices);
+                        jsonBody.put("FullName",FullName);
 
 
                         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonBody,
@@ -107,7 +112,6 @@ public class AddEditUserActivity extends AppCompatActivity {
                                         }catch (Exception ex){
                                             Toast.makeText(AddEditUserActivity.this,"حدث خطأ تقني",Toast.LENGTH_LONG).show();
                                         }
-
 
                                     }
                                 }, new Response.ErrorListener() {

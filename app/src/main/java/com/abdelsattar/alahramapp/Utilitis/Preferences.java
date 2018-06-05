@@ -46,6 +46,7 @@ public class Preferences
     private static final String RECIEVER_CITY = "reciever_city";
     private static final String USERID = "userId";
     private static final String ROLE = "role";
+    private static final String FULLNAME= "fullName";
     private static final String REQUESTNUM = "REQUESTNUM";
     private static final String SECRERTNUM = "SECRERTNUM";
 
@@ -308,6 +309,17 @@ public class Preferences
     {
         int Role=sharedPreferences.getInt(ROLE,-1);
         return  Role;
+    }
+
+    public void setFullName(String fullname)
+    {
+        editor.putString(ROLE, fullname);
+        editor.commit();
+    }
+    public String getFullName()
+    {
+        String  fullName=sharedPreferences.getString(FULLNAME,"");
+        return  fullName;
     }
 
     public void setRequestnum(int requestnum)

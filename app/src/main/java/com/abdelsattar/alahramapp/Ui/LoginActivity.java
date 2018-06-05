@@ -275,7 +275,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                                 Preferences preferences = new Preferences(LoginActivity.this);
                                 preferences.setUserId(new JSONObject(response).getInt("UserId"));
                                 preferences.setRole(new JSONObject(response).getInt("Role"));
-
+                                preferences.setFullName(new JSONObject(response).getString("FullName"));
 
 
                             }catch (Exception ex){

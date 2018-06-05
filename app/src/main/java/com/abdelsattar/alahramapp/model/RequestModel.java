@@ -8,14 +8,14 @@ import org.json.JSONObject;
 
 public class RequestModel
 {
-    String ordernumber,clientname,clientphone,reciverdate,Notes,paid,remain;
+    String ordernumber,clientname,clientphone,reciverdate,Notes,paid,remain,MadeBy;
 
 
     public String getOrdernumber() {
         return ordernumber;
     }
 
-    public RequestModel(String ordernumber, String clientname, String clientphone, String reciverdate,String object,String notes,String _paid,String _remain) {
+    public RequestModel(String ordernumber, String clientname, String clientphone, String reciverdate,String object,String notes,String _paid,String _remain,String madeBy) {
         this.ordernumber = ordernumber;
         this.clientname = clientname;
         this.clientphone = clientphone;
@@ -24,6 +24,15 @@ public class RequestModel
         this.Notes = notes;
         this.paid = _paid;
         this.remain = _remain;
+        this.MadeBy = madeBy;
+    }
+
+    public String getMadeBy() {
+        return MadeBy;
+    }
+
+    public void setMadeBy(String madeBy) {
+        MadeBy = madeBy;
     }
 
     public String getPaid() {

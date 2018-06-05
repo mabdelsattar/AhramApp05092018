@@ -67,7 +67,7 @@ public class ManageEmpoyeesAdpater extends RecyclerView.Adapter<ManageEmpoyeesAd
     @Override
     public void onBindViewHolder(final CustomViewHolder holder, final int position) {
         final UserViewModel item = UserslistFilter.get(position);
-        holder.ordername.setText(item.getUserName());
+        holder.ordername.setText(item.getFullName());
         holder.orderprice.setVisibility(View.INVISIBLE);
         holder.tvCounter.setVisibility(View.INVISIBLE);
 
@@ -83,6 +83,7 @@ public class ManageEmpoyeesAdpater extends RecyclerView.Adapter<ManageEmpoyeesAd
                 intent.putExtra("UserName",item.getUserName()+"");
                 intent.putExtra("Password",item.getPassword()+"");
                 intent.putExtra("Role",item.getRole()+"");
+                intent.putExtra("FullName",item.getFullName()+"");
                 mcontext.startActivity(intent);
             }
         });

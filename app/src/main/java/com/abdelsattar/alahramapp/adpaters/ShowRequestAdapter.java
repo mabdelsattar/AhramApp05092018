@@ -116,7 +116,8 @@ public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.
                                 row.getPaid().toLowerCase().contains(charString.toLowerCase()) ||
                                 row.getReciverdate().toLowerCase().contains(charString.toLowerCase()) ||
                                 row.getRemain().toLowerCase().contains(charString.toLowerCase()) ||
-                                row.getStrObject().toLowerCase().contains(charString.toLowerCase())
+                                row.getStrObject().toLowerCase().contains(charString.toLowerCase()) ||
+                                        row.getMadeBy().toLowerCase().contains(charString.toLowerCase())
                                 )
                                 {
                             filteredList.add(row);

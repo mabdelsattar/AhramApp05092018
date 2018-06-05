@@ -86,7 +86,8 @@ public class ManageEmpolyeesActivity extends AppCompatActivity {
                                 int Role = 3;//jsonObject.getInt("Role");
                                 String UserName =  jsonObject.getString("UserName");
                                 String Password =  jsonObject.getString("Password");
-                                data.add(new UserViewModel(UserName,Password, Role,id));
+                                String FullName =  jsonObject.getString("FullName");
+                                data.add(new UserViewModel(UserName,Password, Role,id,FullName));
                             }
                             // .setText("String Response : "+ response.toString());
                             Log.i("respones", "succed");
