@@ -15,10 +15,10 @@ public class StatisticsHomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_data_statistics_home);
 
         getSupportActionBar().hide();
-
         RequestsLastWeek = (Button)findViewById(R.id.RequestsLastWeek);
         RequestsLastMonth =(Button)findViewById(R.id.RequestsLastMonth);
         RequestsLastYear =(Button)findViewById(R.id.RequestsLastYear);
@@ -35,6 +35,7 @@ public class StatisticsHomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         RequestsLastMonth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

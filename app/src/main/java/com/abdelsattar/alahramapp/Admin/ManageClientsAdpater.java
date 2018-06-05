@@ -11,11 +11,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.abdelsattar.alahramapp.R;
+import com.abdelsattar.alahramapp.model.RequestModel;
 import com.abdelsattar.alahramapp.model.RequestQueueSingleton;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -23,18 +26,21 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by amiraelsayed on 1/7/2018.
  */
 
-public class ManageClientsAdpater extends RecyclerView.Adapter<ManageClientsAdpater.CustomViewHolder> {
+public class ManageClientsAdpater extends RecyclerView.Adapter<ManageClientsAdpater.CustomViewHolder> implements Filterable {
     private List<ClientViewModel> Userslist;
+    private List<ClientViewModel> UserslistFiltered;
     Context mcontext;
 
     public ManageClientsAdpater(Context mcontext, List<ClientViewModel> userslist) {
         this.Userslist = userslist;
+        this.UserslistFiltered = userslist;
         this.mcontext = mcontext;
     }
 
@@ -49,7 +55,7 @@ public class ManageClientsAdpater extends RecyclerView.Adapter<ManageClientsAdpa
 
     @Override
     public void onBindViewHolder(final CustomViewHolder holder, final int position) {
-        final ClientViewModel item = Userslist.get(position);
+        final ClientViewModel item = UserslistFiltered.get(position);
         holder.ordername.setText(item.getName());
         holder.orderprice.setText(item.getPhone());
         holder.tvCounter.setVisibility(View.INVISIBLE);
@@ -71,7 +77,7 @@ public class ManageClientsAdpater extends RecyclerView.Adapter<ManageClientsAdpa
 
     @Override
     public int getItemCount() {
-        return (null != Userslist ? Userslist.size() : 0);
+        return (null != UserslistFiltered ? UserslistFiltered.size() : 0);
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder{
@@ -88,6 +94,48 @@ public class ManageClientsAdpater extends RecyclerView.Adapter<ManageClientsAdpa
 
         }
     }
+
+
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String charString = charSequence.toString();
+                if (charString.isEmpty()) {
+                    UserslistFiltered = Userslist;
+                } else {
+                    List<ClientViewModel> filteredList = new ArrayList<>();
+                    for (ClientViewModel row : Userslist) {
+
+                        // name match condition. this might differ depending on your requirement
+                        // here we are looking for name or phone number match
+                        if (
+                                row.getPhone().toLowerCase().contains(charString.toLowerCase()) ||
+                                        row.getName().toLowerCase().contains(charString.toLowerCase())
+                                )
+                        {
+                            filteredList.add(row);
+                        }
+                    }
+
+                    UserslistFiltered = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = UserslistFiltered;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                UserslistFiltered = (ArrayList<ClientViewModel>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
+    }
+
 
 
     private ProgressDialog dialog;

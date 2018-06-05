@@ -7,10 +7,18 @@
     android:background="#dfdfdf"
     tools:context="com.abdelsattar.alahramapp.Ui.AddRequestsActivity">
 
+    <android.support.v7.widget.SearchView
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        style="@style/SearchViewStyle"
+        android:background="#113353"
+        android:layout_height="wrap_content" />
+
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:padding="10dp"
+        android:layout_below="@+id/search"
         android:layout_height="match_parent"
         android:id="@+id/listview"
         />

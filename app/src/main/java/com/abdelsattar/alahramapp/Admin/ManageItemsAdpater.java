@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,18 +27,22 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by amiraelsayed on 1/7/2018.
  */
 
-public class ManageItemsAdpater extends RecyclerView.Adapter<ManageItemsAdpater.CustomViewHolder> {
+public class ManageItemsAdpater extends RecyclerView.Adapter<ManageItemsAdpater.CustomViewHolder>  implements Filterable {
+
     private List<AddRequestModel> Itemlist;
+    private List<AddRequestModel> ItemlistFilter;
     Context mcontext;
 
     public ManageItemsAdpater(Context mcontext, List<AddRequestModel> itemlist) {
         this.Itemlist = itemlist;
+        this.ItemlistFilter = itemlist;
         this.mcontext = mcontext;
     }
 
@@ -64,7 +70,7 @@ public class ManageItemsAdpater extends RecyclerView.Adapter<ManageItemsAdpater.
 
     @Override
     public void onBindViewHolder(final CustomViewHolder holder, final int position) {
-        final AddRequestModel item = Itemlist.get(position);
+        final AddRequestModel item = ItemlistFilter.get(position);
         holder.ordername.setText(item.getOrdername());
         holder.orderprice.setText(item.getOrderprice());
 
@@ -116,7 +122,7 @@ public class ManageItemsAdpater extends RecyclerView.Adapter<ManageItemsAdpater.
 
     @Override
     public int getItemCount() {
-        return (null != Itemlist ? Itemlist.size() : 0);
+        return (null != ItemlistFilter ? ItemlistFilter.size() : 0);
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder{
@@ -182,6 +188,48 @@ public class ManageItemsAdpater extends RecyclerView.Adapter<ManageItemsAdpater.
         jsonObjectRequest.setTag(REQ_TAG);
         requestQueue.add(jsonObjectRequest);
     }
+
+
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String charString = charSequence.toString();
+                if (charString.isEmpty()) {
+                    ItemlistFilter = Itemlist;
+                } else {
+                    List<AddRequestModel> filteredList = new ArrayList<>();
+                    for (AddRequestModel row : Itemlist) {
+
+                        // name match condition. this might differ depending on your requirement
+                        // here we are looking for name or phone number match
+                        if (
+                                row.getOrdername().toLowerCase().contains(charString.toLowerCase())
+                                )
+                        {
+                            filteredList.add(row);
+                        }
+                    }
+
+                    ItemlistFilter = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = ItemlistFilter;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                ItemlistFilter = (ArrayList<AddRequestModel>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
+    }
+
+
 
 
 

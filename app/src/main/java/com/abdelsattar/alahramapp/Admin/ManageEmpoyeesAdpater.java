@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,18 +24,21 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by amiraelsayed on 1/7/2018.
  */
 
-public class ManageEmpoyeesAdpater extends RecyclerView.Adapter<ManageEmpoyeesAdpater.CustomViewHolder> {
+public class ManageEmpoyeesAdpater extends RecyclerView.Adapter<ManageEmpoyeesAdpater.CustomViewHolder> implements Filterable {
     private List<UserViewModel> Userslist;
+    private List<UserViewModel> UserslistFilter;
     Context mcontext;
 
     public ManageEmpoyeesAdpater(Context mcontext, List<UserViewModel> userslist) {
         this.Userslist = userslist;
+        this.UserslistFilter = userslist;
         this.mcontext = mcontext;
     }
 
@@ -61,7 +66,7 @@ public class ManageEmpoyeesAdpater extends RecyclerView.Adapter<ManageEmpoyeesAd
 
     @Override
     public void onBindViewHolder(final CustomViewHolder holder, final int position) {
-        final UserViewModel item = Userslist.get(position);
+        final UserViewModel item = UserslistFilter.get(position);
         holder.ordername.setText(item.getUserName());
         holder.orderprice.setVisibility(View.INVISIBLE);
         holder.tvCounter.setVisibility(View.INVISIBLE);
@@ -105,7 +110,7 @@ public class ManageEmpoyeesAdpater extends RecyclerView.Adapter<ManageEmpoyeesAd
 
     @Override
     public int getItemCount() {
-        return (null != Userslist ? Userslist.size() : 0);
+        return (null != UserslistFilter ? UserslistFilter.size() : 0);
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder{
@@ -167,6 +172,47 @@ public class ManageEmpoyeesAdpater extends RecyclerView.Adapter<ManageEmpoyeesAd
         jsonObjectRequest.setTag(REQ_TAG);
         requestQueue.add(jsonObjectRequest);
     }
+
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String charString = charSequence.toString();
+                if (charString.isEmpty()) {
+                    UserslistFilter = Userslist;
+                } else {
+                    List<UserViewModel> filteredList = new ArrayList<>();
+                    for (UserViewModel row : Userslist) {
+
+                        // name match condition. this might differ depending on your requirement
+                        // here we are looking for name or phone number match
+                        if (
+                                row.getUserName().toLowerCase().contains(charString.toLowerCase())
+                                )
+                        {
+                            filteredList.add(row);
+                        }
+                    }
+
+                    UserslistFilter = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = UserslistFilter;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                UserslistFilter = (ArrayList<UserViewModel>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
+    }
+
+
 
 
 

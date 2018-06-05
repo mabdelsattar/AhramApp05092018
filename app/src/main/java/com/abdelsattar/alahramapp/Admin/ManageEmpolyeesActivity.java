@@ -13,9 +13,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.EditText;
 
 import com.abdelsattar.alahramapp.R;
 import com.abdelsattar.alahramapp.model.AddRequestModel;
@@ -98,6 +100,33 @@ public class ManageEmpolyeesActivity extends AppCompatActivity {
                             requestrecycleview.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(10), true));
                             requestrecycleview.setItemAnimator(new DefaultItemAnimator());
                             requestrecycleview.setAdapter(adapter);
+
+
+                            SearchView searchView = (SearchView) findViewById(R.id.search);
+                            EditText searchEditText = (EditText) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
+                            searchEditText.setTextColor(Color.BLACK);
+                            searchEditText.setHintTextColor(Color.GRAY);
+
+
+                            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                                @Override
+                                public boolean onQueryTextSubmit(String query) {
+                                    adapter.getFilter().filter(query);
+                                    adapter.notifyDataSetChanged();
+                                    return false;
+                                }
+
+                                @Override
+                                public boolean onQueryTextChange(String newText) {
+
+                                    //adapter.getFilter().filter(newText);
+                                    adapter.getFilter().filter(newText);
+                                    adapter.notifyDataSetChanged();
+                                    return false;
+                                }
+
+                            });
+
                         }catch (Exception ex){
 
 

@@ -189,7 +189,6 @@ fab.setVisibility(View.INVISIBLE);
                             data.addAll(getRequestData(response));
                             adapter.notifyDataSetChanged();
 
-
                             if(type == 1)
                             {
                                 getSupportActionBar().setTitle("الطلبات في اخر اسبوع "+data.size());
@@ -208,7 +207,6 @@ fab.setVisibility(View.INVISIBLE);
                         }catch (Exception ex){
                             
                         }
-
                     }
                 }, new Response.ErrorListener() {
             @Override
