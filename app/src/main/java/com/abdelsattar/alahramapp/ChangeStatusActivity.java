@@ -71,7 +71,6 @@ public class ChangeStatusActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("التفاصيل");
 
         bindRequestNum = (TextView) findViewById(R.id.bindRequestNum);
-        bindRequestStatus = (TextView) findViewById(R.id.bindRequestStatus);
         bindRequestDate = (TextView) findViewById(R.id.bindRequestDate);
         bindRecieverName = (TextView) findViewById(R.id.bindRecieverName);
         bindRecieverAddress = (TextView) findViewById(R.id.bindRecieverAddress);
@@ -96,13 +95,12 @@ public class ChangeStatusActivity extends AppCompatActivity {
                 String notes = jsonObject.getString("Notes");
                 String paid = String.valueOf(jsonObject.getInt("Paid"));
                 String remain = String.valueOf(jsonObject.getString("Remain"));
-                String madeby = String.valueOf(jsonObject.getString("MadeBy"));
+                String madeby = jsonObject.getString("MadeBy");
 
                 mPaidAmount.setText(paid);
                 mToBePaid.setText(remain);
 
                 bindRequestNum.setText(RequestId + "");
-                bindRequestStatus.setText(RequestStatus);
                 bindRequestDate.setText(RequestDate);
                 bindRecieverName.setText(RecieverName);
                 bindRecieverAddress.setText(RecieverAddress);
@@ -132,7 +130,7 @@ public class ChangeStatusActivity extends AppCompatActivity {
 
 
             } catch (Exception ex) {
-
+int x= 1;
             }
         }
     }

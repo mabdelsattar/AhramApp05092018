@@ -76,6 +76,7 @@ public class AddEditUserActivity extends AppCompatActivity {
 
                 Name = etname.getText().toString();
                 Prices = etprice.getText().toString();
+                FullName = etFullName.getText().toString();
 
                 if(Name == null || Name.equals("null") || Name.equals("")
                   || Prices == null || Prices.equals("null") || Prices.equals("")
@@ -86,7 +87,7 @@ public class AddEditUserActivity extends AppCompatActivity {
                     //Call Web Service That Save or Update
 
                     try {
-                        String url = Constant.serversite + "/api/AlAhram/AddOrUpdateUSer";
+                        String url = Constant.serversite + "/api/AlAhram/AddOrUpdateUser";
 
                         final JSONObject jsonBody = new JSONObject();
 

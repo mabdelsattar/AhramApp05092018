@@ -29,7 +29,8 @@ public class OrderdetailsActivity extends AppCompatActivity {
             bindRecieverAddress,
             bindRecieverCity,
             bindRecieverPhone,
-            bindNotes;
+            bindNotes,
+           bindMadeBy;
     LinearLayout bindItemsContainer;
 
 
@@ -50,6 +51,8 @@ public class OrderdetailsActivity extends AppCompatActivity {
         bindRecieverPhone = (TextView) findViewById(R.id.bindRecieverPhone);
         bindItemsContainer = (LinearLayout) findViewById(R.id.bindItemsContainer);
         bindNotes = (TextView) findViewById(R.id.bindNotes);
+        bindMadeBy = (TextView) findViewById(R.id.bindMadeBy);
+
 
 
         String JsonStr = getIntent().getExtras().getString("jsonObj");
@@ -63,6 +66,7 @@ public class OrderdetailsActivity extends AppCompatActivity {
             String RecieverCity = jsonObject.getString("RecieverCity");
             String RecieverPhone = jsonObject.getString("RecieverPhone");
             String notes = jsonObject.getString("Notes");
+            String madeby = jsonObject.getString("MadeBy");
 
                     bindRequestNum.setText(RequestId+"");
                     bindRequestStatus.setText(RequestStatus);
@@ -71,6 +75,8 @@ public class OrderdetailsActivity extends AppCompatActivity {
                     bindRecieverAddress.setText(RecieverAddress);
                     bindRecieverCity.setText(RecieverCity);
                     bindRecieverPhone.setText(RecieverPhone);
+                    bindMadeBy.setText(madeby);
+
             if(!(notes == null || notes.equals("null") || notes.equals("")))
                     bindNotes.setText(notes);
 

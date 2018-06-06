@@ -313,7 +313,7 @@ public class Preferences
 
     public void setFullName(String fullname)
     {
-        editor.putString(ROLE, fullname);
+        editor.putString(FULLNAME, fullname);
         editor.commit();
     }
     public String getFullName()
