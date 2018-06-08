@@ -218,7 +218,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="مؤسسة نبيهة إبراهيم صالح مرعي"
+                                    android:text=" من الباب للباب"
                                     android:textStyle="bold"
                                     android:textSize="9dp"
                                     android:maxLines="1"
@@ -723,7 +723,7 @@
                             android:layout_marginTop="-1dp"
                             android:layout_marginBottom="-1dp"
                             android:textColor="#000000"
-                            android:text="4 : في حالة فقدان  أي طرد يقوم المكتب بتعويض العميل ضعف قيمة الطرد المفقود ."
+                            android:text="4 : في حالة فقدان  أي طرد يقوم المكتب بتعويض العميل ضعف قيمة شحن الطرد المفقود ."
                             android:id="@+id/ruleLine4"/>
                         <TextView
                             android:layout_width="match_parent"
@@ -1115,7 +1115,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="مؤسسة نبيهة إبراهيم صالح مرعي"
+                                    android:text=" من الباب للباب"
                                     android:textStyle="bold"
                                     android:textSize="9dp"
                                     android:maxLines="1"

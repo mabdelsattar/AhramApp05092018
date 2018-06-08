@@ -59,7 +59,8 @@ public class Fragment1 extends Fragment {
             bindRecieverAddress,
             bindRecieverCity,
             bindRecieverPhone,
-            bindNotes;
+            bindNotes,
+            bindMadeBy;
     LinearLayout bindItemsContainer;
 
 
@@ -87,6 +88,7 @@ public class Fragment1 extends Fragment {
         bindRecieverPhone = fragmentView.findViewById(R.id.bindRecieverPhone);
         bindItemsContainer = fragmentView.findViewById(R.id.bindItemsContainer);
         bindNotes = fragmentView.findViewById(R.id.bindNotes);
+        bindMadeBy = fragmentView.findViewById(R.id.bindMadeBy);
 
         search1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,6 +132,7 @@ public class Fragment1 extends Fragment {
                     String RecieverCity = jsonObject.getString("RecieverCity");
                     String RecieverPhone = jsonObject.getString("RecieverPhone");
                     String notes = jsonObject.getString("Notes");
+                    String MadeBy = jsonObject.getString("MadeBy");
 
                     bindRequestNum.setText(RequestId+"");
                     bindRequestStatus.setText(RequestStatus);
@@ -138,6 +141,7 @@ public class Fragment1 extends Fragment {
                     bindRecieverAddress.setText(RecieverAddress);
                     bindRecieverCity.setText(RecieverCity);
                     bindRecieverPhone.setText(RecieverPhone);
+                    bindMadeBy.setText(MadeBy);
                     if(!(notes == null || notes.equals("null") || notes.equals("")))
                         bindNotes.setText(notes);
 

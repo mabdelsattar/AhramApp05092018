@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".fragments.Fragment4">
 
     <!-- TODO: Update blank fragment layout -->
 
 
-    <ImageView
+    <WebView
         android:id="@+id/mylogo"
         android:layout_width="match_parent"
-
-        android:padding="50dp"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"
-        android:background="#ebebeb"
-        android:src="@drawable/application_icon"
-        android:layout_alignParentRight="true"
-        android:gravity="right"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
         />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+android:layout_weight="0.5"
+        >
     <TextView
         android:layout_width="match_parent"
         android:layout_marginTop="5dp"
@@ -60,6 +61,6 @@
         android:gravity="right"
         android:text="اغراضك امانة عندنا." />
 
+    </LinearLayout>
 
-
-</RelativeLayout>
+</LinearLayout>
