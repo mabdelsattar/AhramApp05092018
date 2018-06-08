@@ -66,8 +66,8 @@
         android:layout_alignLeft="@+id/textView26"
         android:layout_alignStart="@+id/textView26"
         android:layout_below="@+id/textView26"
-        android:text="توصيل الطلبات من الباب للباب"
-        android:textSize="10sp" />
+        android:text="*توصيل الطلبات من الباب للباب*"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/textView28"
