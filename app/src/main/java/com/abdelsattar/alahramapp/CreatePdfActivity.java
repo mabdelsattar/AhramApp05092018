@@ -769,9 +769,6 @@ public class CreatePdfActivity extends AppCompatActivity {
         mPage3Mobile2.setText(stickersMobileNumber);
         mPage3Mobile3.setText(stickersMobileNumber);
 
-//        mPage4SenderName1.setText(stickersSenderName);
-//        mPage4SenderName2.setText(stickersSenderName);
-//        mPage4SenderName3.setText(stickersSenderName);
 
         mPage3SenderName1.setText(stickersSenderName);
         mPage3SenderName2.setText(stickersSenderName);
@@ -896,6 +893,7 @@ public class CreatePdfActivity extends AppCompatActivity {
 
                                     createPdf1();
                                     createPdf2();
+                                    createPdfSticker();
                                 }catch (Exception ex){
                                     Toast.makeText(CreatePdfActivity.this,"حدث خطأ تقني",Toast.LENGTH_LONG).show();
                                 }
@@ -974,8 +972,10 @@ public class CreatePdfActivity extends AppCompatActivity {
 
     boolean fileOneFinish=false;
     boolean fileTwoFinish=false;
+    boolean fileThreeFinish=false;
 
     String fileNameclinet;
+    String fileNameclinetSticker;
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     void createPdf1(){
         DisplayMetrics displaymetrics = new DisplayMetrics();
@@ -997,6 +997,77 @@ public class CreatePdfActivity extends AppCompatActivity {
         bitmap1 = Bitmap.createScaledBitmap(bitmap1, bitmap1.getWidth(), bitmap1.getHeight(), true);
         canvas1.drawBitmap(bitmap1, 0, 0, null);
         document.finishPage(page1);
+
+
+//        int pageNumber=2;
+//        for (int i=0;i<data.size();i++) {
+//            for (int j=0;j<data.get(i).getCounter();j++) {
+//
+//                mPage3ContentNumber1.setText(data.get(i).getOrdername());
+//                mPage3ContentNumber2.setText(data.get(i).getOrdername());
+//                mPage3ContentNumber3.setText(data.get(i).getOrdername());
+//                Bitmap bitmap2;
+//                PdfDocument.PageInfo pageInfo2;
+//                PdfDocument.Page page2;
+//                Canvas canvas2;
+//                bitmap2 = getBitmapImageOfView(this.getWindow().findViewById(R.id.page3_myView));
+//                pageInfo2 = new PdfDocument.PageInfo.Builder(bitmap2.getWidth(), bitmap2.getHeight(), pageNumber).create();
+//                pageNumber++;
+//                page2 = document.startPage(pageInfo2);
+//                canvas2 = page2.getCanvas();
+//                bitmap2 = Bitmap.createScaledBitmap(bitmap2, bitmap2.getWidth(), bitmap2.getHeight(), true);
+//                canvas2.drawBitmap(bitmap2, 0, 0, null);
+//                document.finishPage(page2);
+//            }
+//        }
+
+        File root = new File(Environment.getExternalStorageDirectory(), "AlAhram");
+        if (!root.exists()) {
+            root.mkdirs();
+        }
+        MediaScannerConnection.scanFile(this, new String[] {root.toString()}, null, null);
+
+        Preferences preferences=new Preferences(this);
+         fileNameclinet=preferences.getclientname()+"_فاتورة العميل_"+String.valueOf(getRandomBillNumber())+".pdf";
+        File filePath = new File(root,fileNameclinet);
+        try {
+            FileOutputStream fileOutputStream=new FileOutputStream(filePath);
+            document.writeTo(fileOutputStream);
+            Toast.makeText(this, "تم انشاء الفواتير قم بالطباعه اولا ثم اضغط علي التالي " , Toast.LENGTH_LONG).show();
+            fileOutputStream.close();
+            document.close();
+            fileOneFinish=true;
+            dismissDialog();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Something wrong: " + e.toString(), Toast.LENGTH_LONG).show();
+            fileOneFinish=true;
+            dismissDialog();
+        }
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    void createPdfSticker(){
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        this.getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+
+        PdfDocument document = new PdfDocument();
+
+
+        Bitmap bitmap1;
+        PdfDocument.PageInfo pageInfo1;
+        PdfDocument.Page page1;
+        Canvas canvas1;
+
+
+//        bitmap1 = getBitmapImageOfView(this.getWindow().findViewById(R.id.myView));
+//        pageInfo1 = new PdfDocument.PageInfo.Builder(bitmap1.getWidth(), bitmap1.getHeight(), 1).create();
+//        page1 = document.startPage(pageInfo1);
+//        canvas1 = page1.getCanvas();
+//        bitmap1 = Bitmap.createScaledBitmap(bitmap1, bitmap1.getWidth(), bitmap1.getHeight(), true);
+//        canvas1.drawBitmap(bitmap1, 0, 0, null);
+//        document.finishPage(page1);
 
 
         int pageNumber=2;
@@ -1028,26 +1099,24 @@ public class CreatePdfActivity extends AppCompatActivity {
         MediaScannerConnection.scanFile(this, new String[] {root.toString()}, null, null);
 
         Preferences preferences=new Preferences(this);
-         fileNameclinet=preferences.getclientname()+"_فاتورة العميل_"+String.valueOf(getRandomBillNumber())+".pdf";
-        File filePath = new File(root,fileNameclinet);
+        fileNameclinetSticker=preferences.getclientname()+"_استكر_"+String.valueOf(getRandomBillNumber())+".pdf";
+        File filePath = new File(root,fileNameclinetSticker);
         try {
             FileOutputStream fileOutputStream=new FileOutputStream(filePath);
             document.writeTo(fileOutputStream);
             Toast.makeText(this, "تم انشاء الفواتير قم بالطباعه اولا ثم اضغط علي التالي " , Toast.LENGTH_LONG).show();
             fileOutputStream.close();
             document.close();
-            fileOneFinish=true;
+            fileThreeFinish=true;
             dismissDialog();
         } catch (IOException e) {
             e.printStackTrace();
             Toast.makeText(this, "Something wrong: " + e.toString(), Toast.LENGTH_LONG).show();
-            fileOneFinish=true;
+            fileThreeFinish=true;
             dismissDialog();
         }
 
     }
-
-
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     void createPdf2(){
         DisplayMetrics displaymetrics = new DisplayMetrics();
@@ -1137,6 +1206,7 @@ public class CreatePdfActivity extends AppCompatActivity {
                 bindDataToBill2();
                 createPdf1();
                 createPdf2();
+                createPdfSticker();
             } else {
                 Toast.makeText(getApplicationContext(), "Please allow the permission", Toast.LENGTH_LONG).show();
             }
@@ -1145,12 +1215,8 @@ public class CreatePdfActivity extends AppCompatActivity {
 
     private void dismissDialog()
     {
-        if (fileOneFinish&& fileTwoFinish) {
+        if (fileOneFinish&& fileTwoFinish && fileThreeFinish) {
             dialog.dismiss();
-            //  openFolder();
-        //    public void openFolder(){
-
-           // }
 
             File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/AlAhram" +"/"+ fileNameclinet);
             Intent target = new Intent(Intent.ACTION_VIEW);
