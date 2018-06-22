@@ -34,11 +34,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:layoutDirection="ltr"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Ui.LoginActivity"
@@ -139,32 +135,46 @@
             android:configChanges="orientation|keyboardHidden"
             android:layoutDirection="ltr"
             android:screenOrientation="portrait" />
-
-
-        <activity android:name=".Admin.AddEditItemActivity"  android:configChanges="orientation|keyboardHidden"
+        <activity
+            android:name=".Admin.AddEditItemActivity"
+            android:configChanges="orientation|keyboardHidden"
             android:layoutDirection="ltr"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".Admin.AddEditUserActivity"  android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Admin.AddEditUserActivity"
+            android:configChanges="orientation|keyboardHidden"
             android:layoutDirection="ltr"
-            android:screenOrientation="portrait"></activity>
-
-        <activity android:name=".Admin.ManageEmpolyeesActivity"  android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Admin.ManageEmpolyeesActivity"
+            android:configChanges="orientation|keyboardHidden"
             android:layoutDirection="ltr"
-            android:screenOrientation="portrait"></activity>
-
-        <activity android:name=".Admin.ManageClientsActivity"  android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Admin.ManageClientsActivity"
+            android:configChanges="orientation|keyboardHidden"
             android:layoutDirection="ltr"
-            android:screenOrientation="portrait"></activity>
-
-        <activity android:name=".Admin.StatisticsHomeActivity"  android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Admin.StatisticsHomeActivity"
+            android:configChanges="orientation|keyboardHidden"
             android:layoutDirection="ltr"
-            android:screenOrientation="portrait"></activity>
-
-
-        <activity android:name=".Admin.ShowAllRequestsCustomDateActivity"  android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Admin.ShowAllRequestsCustomDateActivity"
+            android:configChanges="orientation|keyboardHidden"
             android:layoutDirection="ltr"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".SplashActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:layoutDirection="ltr"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

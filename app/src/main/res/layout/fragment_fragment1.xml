@@ -12,8 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:id="@+id/search1"
-            android:background="#FFFFFF">
+            android:id="@+id/search1">
             <RelativeLayout
                 android:layout_width="60dp"
                 android:layout_height="60dp"
@@ -54,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#ebebeb">
+            >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="vertical"
@@ -103,7 +102,6 @@
                         android:layout_alignParentTop="true"
                         android:layout_alignParentRight="true"
                         android:padding="10dp"
-                        android:background="#D3D3D3"
                         android:textColor="#113353"
                         android:layout_centerHorizontal="true"
                         android:text="تفاصيل عن الطلب"
@@ -329,7 +327,6 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:padding="5dp"
-                                android:background="@drawable/my_custom_background"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/bindItemsContainer"
                                 android:orientation="vertical">

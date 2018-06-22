@@ -723,11 +723,11 @@ public class CreatePdfActivity extends AppCompatActivity {
         String stickersDirection=preferences.getReciverAddressDetial();
         String stickersContent=content;
 
-        String stickersMobileNumber=preferences.getClientPhoneKsa();
-        if(mpreference.getClientPhoneEgy().equals(null) || mpreference.getClientPhoneEgy().equals(""))
+        String stickersMobileNumber=preferences.getReciverPhoneEgy();
+        if(mpreference.getReciverPhoneKsa().equals(null) || mpreference.getReciverPhoneKsa().equals(""))
         {}
         else
-            stickersMobileNumber += "/"+mpreference.getClientPhoneEgy();
+            stickersMobileNumber += "/"+mpreference.getReciverPhoneKsa();
 
 //        mPage4ReceiverName1.setText(stickersReceiverName);
 //        mPage4ReceiverName2.setText(stickersReceiverName);
@@ -889,6 +889,10 @@ public class CreatePdfActivity extends AppCompatActivity {
                                  //   view.setEnabled(false);
                                     view.setVisibility(View.INVISIBLE);
                                     btnRecieve.setVisibility(View.VISIBLE);
+
+                                    mPage3BillNumber1.setText(RequestId+"");
+                                    mPage3BillNumber2.setText(RequestId+"");
+                                    mPage3BillNumber3.setText(RequestId+"");
 
                                     createPdf1();
                                     createPdf2();

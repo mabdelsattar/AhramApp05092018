@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#EBEBEB"
+    android:background="@drawable/splash"
     android:padding="50dp"
     android:layout_height="match_parent"
     tools:context="com.abdelsattar.alahramapp.Ui.HomeActivity">
@@ -11,18 +11,21 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_centerInParent="true"
-        android:layout_height="match_parent">
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
             android:orientation="vertical">
             <ImageView
                 android:id="@+id/mylogo"
                 android:layout_width="match_parent"
                 android:padding="30dp"
+                android:visibility="invisible"
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
@@ -35,21 +38,21 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/mylogo"
                 android:layout_marginTop="25dp"
-                android:textColor="#FFF"
+                android:textColor="#113353"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:text="@string/lblvisitor"
-                android:background="#113353"
+                android:background="@drawable/borderbuttonbg"
                 />
             <Button
                 android:id="@+id/btnEmployee"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#FFF"
-                android:layout_marginTop="10dp"
+                android:textColor="#113353"
+                android:layout_marginTop="15dp"
                 android:layout_below="@+id/btnVisitor"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:text="@string/lblEmp"
-                android:background="#113353"
+                android:background="@drawable/borderbuttonbg"
                 />
         </LinearLayout>
     </ScrollView>
