@@ -35,9 +35,22 @@
             android:layoutDirection="ltr"
             android:screenOrientation="portrait">
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
         </activity>
         <activity
             android:name=".Ui.LoginActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/title_activity_login"
+            android:layoutDirection="ltr"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".Admin.ShowAllRequestsByCityActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_login"
             android:layoutDirection="ltr"
@@ -169,11 +182,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:layoutDirection="ltr"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

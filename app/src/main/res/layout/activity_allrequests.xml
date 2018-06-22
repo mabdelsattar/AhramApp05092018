@@ -6,12 +6,23 @@
     android:layout_height="match_parent"
     tools:context="com.abdelsattar.alahramapp.Ui.ShowAllRequestsActivity">
 
+    <Spinner
+        android:id="@+id/spinner_search_city"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        />
+
     <android.support.v7.widget.SearchView
         android:id="@+id/search"
+        android:layout_below="@+id/spinner_search_city"
         android:layout_width="match_parent"
         style="@style/SearchViewStyle"
         android:background="#113353"
         android:layout_height="wrap_content" />
+
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/allrequest"

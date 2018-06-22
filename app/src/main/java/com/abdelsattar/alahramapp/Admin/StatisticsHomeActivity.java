@@ -66,7 +66,7 @@ public class StatisticsHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //send specefic filter with Area Selection (new activity)
-                startActivity(new Intent(StatisticsHomeActivity.this,ShowAllRequestsActivity.class));
+                startActivity(new Intent(StatisticsHomeActivity.this,ShowAllRequestsByCityActivity.class));
             }
         });
 
