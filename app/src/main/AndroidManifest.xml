@@ -55,6 +55,14 @@
             android:label="@string/title_activity_login"
             android:layoutDirection="ltr"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".Admin.ShowAllRequestsByDateActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/title_activity_login"
+            android:layoutDirection="ltr"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".Ui.AddRequestsActivity"
             android:configChanges="orientation|keyboardHidden"

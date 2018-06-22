@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.abdelsattar.alahramapp.Ui.ShowAllRequestsActivity">
+
+
+    <EditText
+        android:id="@+id/etFrom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:editable="false"
+        android:focusable="false"
+        android:hint="من تاريخ"/>
+
+    <EditText
+        android:id="@+id/etTo"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:focusable="false"
+        android:layout_below="@+id/etFrom"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:editable="false"
+        android:hint="الي تاريخ"/>
+
+
+    <Button
+        android:id="@+id/btnDateSearch"
+        android:layout_below="@+id/etTo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ابحث"/>
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        style="@style/SearchViewStyle"
+        android:layout_below="@+id/btnDateSearch"
+        android:background="#113353"
+        android:layout_height="wrap_content" />
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/allrequest"
+        android:layout_below="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        app:backgroundTint="@android:color/holo_red_dark"
+        android:tint="@android:color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_input_add" />
+
+</RelativeLayout>

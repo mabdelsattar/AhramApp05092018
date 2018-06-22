@@ -59,7 +59,7 @@ public class StatisticsHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //send specefic filter from ,to (new Activity)
-                startActivity(new Intent(StatisticsHomeActivity.this,ShowAllRequestsActivity.class));
+                startActivity(new Intent(StatisticsHomeActivity.this,ShowAllRequestsByDateActivity.class));
             }
         });
         btnRequestsArea.setOnClickListener(new View.OnClickListener() {
