@@ -1,4 +1,4 @@
-package com.abdelsattar.alahramapp;
+package com.alahram.alahramapp;
 
 import org.junit.Test;
 

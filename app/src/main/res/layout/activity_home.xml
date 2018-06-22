@@ -6,7 +6,7 @@
     android:background="@drawable/splash"
     android:padding="50dp"
     android:layout_height="match_parent"
-    tools:context="com.abdelsattar.alahramapp.Ui.HomeActivity">
+    tools:context="com.alahram.alahramapp.Ui.HomeActivity">
 
 
     <ScrollView

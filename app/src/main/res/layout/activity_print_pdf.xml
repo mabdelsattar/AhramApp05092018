@@ -3,7 +3,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.abdelsattar.alahramapp.CreatePdfActivity"
+    tools:context="com.alahram.alahramapp.CreatePdfActivity"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -509,7 +509,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <com.abdelsattar.alahramapp.pdfCreate.VerticalTextView
+                        <com.alahram.alahramapp.pdfCreate.VerticalTextView
                             style="@style/verticalTextStyle"
                             android:layout_marginTop="35dp"
                             android:layout_marginBottom="35dp"

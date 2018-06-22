@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#dfdfdf"
-    tools:context="com.abdelsattar.alahramapp.Ui.AddRequestsActivity">
+    tools:context="com.alahram.alahramapp.Ui.AddRequestsActivity">
 
 
     <android.support.v7.widget.SearchView

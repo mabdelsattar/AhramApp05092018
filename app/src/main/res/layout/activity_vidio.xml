@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/ahrambackground"
 
-    tools:context="com.abdelsattar.alahramapp.VidioActivity">
+    tools:context="com.alahram.alahramapp.VidioActivity">
 
 
     <com.google.android.youtube.player.YouTubePlayerView

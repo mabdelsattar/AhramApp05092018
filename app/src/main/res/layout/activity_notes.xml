@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.abdelsattar.alahramapp.NotesActivity">
+    tools:context="com.alahram.alahramapp.NotesActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
