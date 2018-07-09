@@ -49,6 +49,7 @@ public class Preferences
     private static final String FULLNAME= "fullName";
     private static final String REQUESTNUM = "REQUESTNUM";
     private static final String SECRERTNUM = "SECRERTNUM";
+    private static final String NOTES = "NOTES";
 
     private final Context context;
 
@@ -155,6 +156,17 @@ public class Preferences
     public void setRecieverCity(int Id)
     {
         editor.putInt(Preferences.RECIEVER_CITY, Id);
+        editor.commit();
+    }
+
+    public String getNotes()
+    {
+        String notes=sharedPreferences.getString(Preferences.NOTES,"");
+        return  notes;
+    }
+    public void setNotes(String note)
+    {
+        editor.putString(Preferences.NOTES, note);
         editor.commit();
     }
 

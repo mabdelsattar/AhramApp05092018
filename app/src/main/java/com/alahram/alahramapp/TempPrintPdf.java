@@ -424,6 +424,11 @@ public class TempPrintPdf extends AppCompatActivity {
     TextView mPage4Mobile3;
     @BindView(R.id.page4_mobileHint3)
     TextView mPage4MobileHint3;
+
+
+    @BindView(R.id.tvclientnotes)
+    TextView tvclientnotes;
+
     @BindView(R.id.page4_leftLine3)
     View mPage4LeftLine3;
     @BindView(R.id.page4_topLine3)

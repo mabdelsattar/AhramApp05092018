@@ -678,6 +678,17 @@
                             android:textStyle="bold"
                             android:layout_marginTop="-1dp"
                             android:layout_marginBottom="-1dp"
+                            android:textColor="#000000"
+                            android:text="الملاحظات: يتم كتابه الملاحظات هنا"
+                            android:id="@+id/tvclientnotes"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLines="2"
+                            android:textSize="7dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="-1dp"
+                            android:layout_marginBottom="-1dp"
                             android:textColor="@color/pageColor"
                             android:text="أقر انا صاحب البضاعة الموضحة أعلاه أنه إذا وجدت :"
                             android:id="@+id/ruleLine0"/>
@@ -1411,6 +1422,17 @@
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:text="قد إستلمت كامل الأغراض و هي بحالة جيدة ."/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:minLines="1"
+                        android:id="@+id/clientnotes2"
+                        android:textSize="10dp"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="الملاحظات يتم كتابه الملاحظات هنا"/>
 
 
                     <LinearLayout

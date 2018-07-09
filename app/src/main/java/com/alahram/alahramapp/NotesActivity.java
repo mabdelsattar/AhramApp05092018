@@ -25,10 +25,14 @@ public class NotesActivity extends AppCompatActivity {
     Button btnNext;
     EditText tvNotes;
     String Notes = "";
+    com.alahram.alahramapp.Utilitis.Preferences pref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
+
+        pref = new com.alahram.alahramapp.Utilitis.Preferences(NotesActivity.this);
+
 
 
         tvNotes = (EditText) findViewById(R.id.orderDetails);
@@ -37,7 +41,10 @@ public class NotesActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 if (fn_permission())
+
                     openActivity();
             }
         });
@@ -50,6 +57,7 @@ public class NotesActivity extends AppCompatActivity {
         Intent intent = new Intent(NotesActivity.this, CreatePdfActivity.class);
         Bundle bundle = new Bundle();
         Notes = tvNotes.getText().toString();
+        pref.setNotes(Notes);
 
         bundle.putSerializable("dataList", (ArrayList<AddRequestModel>) getIntent().getExtras().getSerializable("dataList"));
         intent.putExtras(bundle);

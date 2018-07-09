@@ -163,6 +163,15 @@ public class CreatePdfActivity extends AppCompatActivity {
     TextView mReceiverInOffice;
     @BindView(R.id.receiverIdHint)
     TextView mReceiverIdHint;
+
+
+    @BindView(R.id.tvclientnotes)
+    TextView tvclientnotes;
+
+    @BindView(R.id.clientnotes2)
+    TextView clientnotes2;
+
+
     @BindView(R.id.receiverId)
     TextView mReceiverId;
     @BindView(R.id.signature1Hint)
@@ -498,6 +507,8 @@ public class CreatePdfActivity extends AppCompatActivity {
         mReceiverInOfficeHint.setTypeface(tf);
         mReceiverInOffice.setTypeface(tf);
         mReceiverIdHint.setTypeface(tf);
+        tvclientnotes.setTypeface(tf);
+        clientnotes2.setTypeface(tf);
         mReceiverId.setTypeface(tf);
         mSignature1Hint.setTypeface(tf);
         mSignature1.setTypeface(tf);
@@ -580,6 +591,8 @@ public class CreatePdfActivity extends AppCompatActivity {
     {
         String billNumber=String.valueOf(getRandomBillNumber())+" كود سري: "+mpreference.getSecretNum();
         String mobileNumber=mpreference.getClientPhoneKsa();
+        String clientNotes = mpreference.getNotes();
+        tvclientnotes.setText(clientNotes);
         if(mpreference.getClientPhoneEgy().equals(null) || mpreference.getClientPhoneEgy().equals(""))
         {}
         else
@@ -655,6 +668,9 @@ public class CreatePdfActivity extends AppCompatActivity {
         String city=mpreference.getReciverAddressDetial12();
         String country=mpreference.getReciverAddressDetial1();
         String mobileNumber=mpreference.getReciverPhoneEgy();
+        String Notes = mpreference.getNotes();
+
+        clientnotes2.setText(Notes);
         if(mpreference.getReciverPhoneKsa().equals(null) || mpreference.getReciverPhoneKsa().equals(""))
         {}
         else
