@@ -165,6 +165,25 @@ public class CreatePdfActivity extends AppCompatActivity {
     TextView mReceiverIdHint;
 
 
+    @BindView(R.id.page2_dateHint_sender)
+    TextView page2_dateHint_sender;
+
+    @BindView(R.id.page2_date_senderTV)
+    TextView page2_date_senderTV;
+
+    @BindView(R.id.page2_dateHint_nationalid)
+    TextView page2_dateHint_nationalid;
+
+    @BindView(R.id.page2_date_NationalIdTV)
+    TextView page2_date_NationalIdTV;
+
+    @BindView(R.id.clientNationalIdHint)
+    TextView clientNationalIdHint;
+
+    @BindView(R.id.clientNationalId)
+    TextView clientNationalId;
+
+
     @BindView(R.id.tvclientnotes)
     TextView tvclientnotes;
 
@@ -517,6 +536,15 @@ public class CreatePdfActivity extends AppCompatActivity {
         mLine1.setTypeface(tf);
         mLine2.setTypeface(tf);
         mVerticalTextView.setTypeface(tf);
+
+        page2_dateHint_sender.setTypeface(tf);
+        page2_date_senderTV.setTypeface(tf);
+        page2_dateHint_nationalid.setTypeface(tf);
+        page2_date_NationalIdTV.setTypeface(tf);
+        clientNationalIdHint.setTypeface(tf);
+        clientNationalId.setTypeface(tf);
+
+
     }
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void forceRTLIfSupported()
@@ -593,6 +621,10 @@ public class CreatePdfActivity extends AppCompatActivity {
         String mobileNumber=mpreference.getClientPhoneKsa();
         String clientNotes = mpreference.getNotes();
         tvclientnotes.setText(clientNotes);
+
+        String clientNationalIdStr = mpreference.getClientNationalId();
+        clientNationalId.setText(clientNationalIdStr);
+
         if(mpreference.getClientPhoneEgy().equals(null) || mpreference.getClientPhoneEgy().equals(""))
         {}
         else
@@ -669,6 +701,12 @@ public class CreatePdfActivity extends AppCompatActivity {
         String country=mpreference.getReciverAddressDetial1();
         String mobileNumber=mpreference.getReciverPhoneEgy();
         String Notes = mpreference.getNotes();
+
+        String clientname = mpreference.getclientname();
+        page2_date_senderTV.setText(clientname);
+
+        String clientNationalidStr =mpreference.getClientNationalId();
+        page2_date_NationalIdTV.setText(clientNationalidStr);
 
         clientnotes2.setText(Notes);
         if(mpreference.getReciverPhoneKsa().equals(null) || mpreference.getReciverPhoneKsa().equals(""))

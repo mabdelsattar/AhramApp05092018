@@ -95,6 +95,13 @@ public class AttachActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                if(etPaid.getText().toString().equals("") || etPaid.getText().toString().equals("null")
+                        || etRemain.getText().toString().equals("") || etRemain.getText().toString().equals("null"))
+
+                {
+                 Toast.makeText(getApplicationContext(),"يجب اضافة المدفوع والمتبقي اولا",Toast.LENGTH_LONG).show();
+                }
+                else{
                 try {/**/
                     dialog.show();
                     String url = Constant.serversite + "/api/AlAhram/AddOrUpdateRequest";
@@ -148,7 +155,7 @@ public class AttachActivity extends AppCompatActivity {
 
 
                 } catch (Exception ex) {
-
+                }
                 }
 
                 // myimage_national
