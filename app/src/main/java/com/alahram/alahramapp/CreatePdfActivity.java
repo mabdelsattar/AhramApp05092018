@@ -592,12 +592,6 @@ public class CreatePdfActivity extends AppCompatActivity {
             Log.d("dataItem",""+data.get(i).toString());
         }
 
-        if(data.size() < 10)
-        {
-           // for(int i=0 ; i<10 ; i++)
-             //   data.add(new AddRequestModel(-1,"",""));
-        }
-
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#113353"));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
         getSupportActionBar().setTitle("انشاء طلب جديد");
@@ -908,8 +902,6 @@ public class CreatePdfActivity extends AppCompatActivity {
 
                 jsonBody.put("Items",Items);
 
-
-
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonBody,
                         new Response.Listener<JSONObject>() {
                             @Override
@@ -917,7 +909,6 @@ public class CreatePdfActivity extends AppCompatActivity {
                                 if (dialog.isShowing()) {
                                     dialog.dismiss();
                                 }
-                                // .setText("String Response : "+ response.toString());
                                 Log.i("respones", "succed");
                                 try {
                                     int RequestId = response.getInt("RequestId");
@@ -925,22 +916,13 @@ public class CreatePdfActivity extends AppCompatActivity {
                                     int SecretNum = response.getInt("Serial");
                                     mpreference.setSecretNum(SecretNum);
 
-
                                     mSecretNumber.setTypeface(tf);
                                     mSecretNumberHint.setTypeface(tf);
 
-
-                                    // add this line to function bindDataToBill1()
-
-                                 //   String secretNumber=SecretNum+"";
-
                                     mSecretNumber.setText(SecretNum+"");
                                     mBillNumber.setText(RequestId+"");
-                                   // mPage2IdNumber.setText(RequestId+"");
                                     mPage2BillNumber.setText(RequestId+"");
 
-                                //   view.setClickable(false);
-                                 //   view.setEnabled(false);
                                     view.setVisibility(View.INVISIBLE);
                                     btnRecieve.setVisibility(View.VISIBLE);
 
@@ -1033,6 +1015,8 @@ public class CreatePdfActivity extends AppCompatActivity {
 
     String fileNameclinet;
     String fileNameclinetSticker;
+
+
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     void createPdf1(){
         DisplayMetrics displaymetrics = new DisplayMetrics();
@@ -1056,27 +1040,7 @@ public class CreatePdfActivity extends AppCompatActivity {
         document.finishPage(page1);
 
 
-//        int pageNumber=2;
-//        for (int i=0;i<data.size();i++) {
-//            for (int j=0;j<data.get(i).getCounter();j++) {
-//
-//                mPage3ContentNumber1.setText(data.get(i).getOrdername());
-//                mPage3ContentNumber2.setText(data.get(i).getOrdername());
-//                mPage3ContentNumber3.setText(data.get(i).getOrdername());
-//                Bitmap bitmap2;
-//                PdfDocument.PageInfo pageInfo2;
-//                PdfDocument.Page page2;
-//                Canvas canvas2;
-//                bitmap2 = getBitmapImageOfView(this.getWindow().findViewById(R.id.page3_myView));
-//                pageInfo2 = new PdfDocument.PageInfo.Builder(bitmap2.getWidth(), bitmap2.getHeight(), pageNumber).create();
-//                pageNumber++;
-//                page2 = document.startPage(pageInfo2);
-//                canvas2 = page2.getCanvas();
-//                bitmap2 = Bitmap.createScaledBitmap(bitmap2, bitmap2.getWidth(), bitmap2.getHeight(), true);
-//                canvas2.drawBitmap(bitmap2, 0, 0, null);
-//                document.finishPage(page2);
-//            }
-//        }
+
 
         File root = new File(Environment.getExternalStorageDirectory(), "AlAhram");
         if (!root.exists()) {
