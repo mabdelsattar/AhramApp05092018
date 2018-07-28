@@ -25,7 +25,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4.6"
+            android:layout_weight="4"
             android:text="..................................................................................................................."
             android:gravity="right"
             android:textColor="#000000"
@@ -35,6 +35,25 @@
             android:minLines="1"
             android:padding="3dp"
             android:id="@+id/bayan"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#9f9a9a"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:text="..........................................................."
+            android:gravity="right"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="10dp"
+            android:padding="2dp"
+            android:maxLines="1"
+            android:minLines="1"
+            android:id="@+id/trode"/>
+
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"

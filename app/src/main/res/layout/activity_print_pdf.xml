@@ -83,7 +83,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:id="@+id/myView"
-                android:visibility="invisible"
+                android:visibility="visible"
                 android:layout_height="match_parent">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -592,8 +592,23 @@
                                 <TextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="4.6"
+                                    android:layout_weight="4"
                                     android:text="البيـــــــــان"
+                                    android:gravity="center"
+                                    android:textColor="#FFFFFF"
+                                    android:textStyle="bold"
+                                    android:textSize="8dp"
+                                    android:maxLines="1"
+                                    android:minLines="1"/>
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="#9f9a9a"/>
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.8"
+                                    android:text="الطرود"
                                     android:gravity="center"
                                     android:textColor="#FFFFFF"
                                     android:textStyle="bold"

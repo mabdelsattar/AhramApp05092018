@@ -17,6 +17,17 @@ public class AddRequestModel implements Serializable
     String ordername,orderprice;
     int counter;
     int Id;
+    int trode;
+
+    public int getTrode() {
+        if (trode<0)
+            trode =0;
+        return trode;
+    }
+
+    public void setTrode(int trode) {
+        this.trode = trode;
+    }
 
     public int getId() {
         return Id;

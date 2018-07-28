@@ -668,12 +668,13 @@ public class CreatePdfActivity extends AppCompatActivity {
         for (int i=0;i<data.size();i++)
         {
 
-            TextView bayanTextView,quantityTextView,priceTextView,totalTextView;
+            TextView bayanTextView,quantityTextView,priceTextView,totalTextView , trodeTextView;
             View child = layoutInflator.inflate(R.layout.table_item, null);
             bayanTextView=child.findViewById(R.id.bayan);
             quantityTextView=child.findViewById(R.id.quantity);
             priceTextView=child.findViewById(R.id.price);
             totalTextView=child.findViewById(R.id.total);
+            trodeTextView=child.findViewById(R.id.trode);
 
             if(!data.get(i).getOrdername().equals(""))
                 bayanTextView.setText(data.get(i).getOrdername());
@@ -683,6 +684,8 @@ public class CreatePdfActivity extends AppCompatActivity {
             priceTextView.setText(data.get(i).getOrderprice() +currencyUnit);
             if(!data.get(i).getOrderprice().equals(""))
             totalTextView.setText(String.valueOf((data.get(i).getCounter() * (Integer.valueOf(data.get(i).getOrderprice()))))+ currencyUnit );
+
+            trodeTextView.setText(data.get(i).getTrode());
 
             child.setTag(i);
             child.setBackgroundColor(Color.WHITE);
