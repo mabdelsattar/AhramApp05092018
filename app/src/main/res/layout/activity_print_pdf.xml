@@ -736,6 +736,36 @@
                         android:id="@+id/rules"
                         android:layout_above="@+id/verticalLine2">
 
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_gravity="right"
+                            android:gravity="right"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="عدد الطرود الكلي : "
+                                android:textStyle="bold"
+                                android:textSize="14dp"
+                                android:gravity="center"
+                                android:textAlignment="center"
+                                android:textColor="@color/pageColor"
+                                android:id="@+id/TrodeNumberHint"
+                                android:layout_toRightOf="@+id/TrodeNumber" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="00"
+                                android:textStyle="bold"
+                                android:textSize="14dp"
+                                android:gravity="center"
+                                android:textColor="#000000"
+                                android:id="@+id/TrodeNumber"
+                                android:textAlignment="center" />
+
+                        </RelativeLayout>
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

@@ -1074,7 +1074,12 @@ public class CreatePdfActivity extends AppCompatActivity {
     TextView mLine29;
     /** ButterKnife Code **/
 
-
+    /** ButterKnife Code **/
+    @BindView(R.id.TrodeNumberHint)
+    TextView mTrodeNumberHint;
+    @BindView(R.id.TrodeNumber)
+    TextView mTrodeNumber;
+    /** ButterKnife Code **/
 
 
 
@@ -1428,6 +1433,7 @@ public class CreatePdfActivity extends AppCompatActivity {
         mBillNumber9.setText(billNumber);
 
         String trodeNumber = String.valueOf(data.size()) + " طرد " ;
+        mTrodeNumber.setText(trodeNumber);
         mTrodeNumber2.setText(trodeNumber);
         mTrodeNumber3.setText(trodeNumber);
         mTrodeNumber4.setText(trodeNumber);
@@ -1534,27 +1540,43 @@ public class CreatePdfActivity extends AppCompatActivity {
                 mTableItem.addView(child);
             }
             else if (i>=10 && i<=19) {
+                mTrodeNumber.setVisibility(View.GONE);
+                mTrodeNumberHint.setVisibility(View.GONE);
                 mTableItem2.addView(child);
             }
             else if (i>=20 && i<=29) {
+                mTrodeNumber2.setVisibility(View.GONE);
+                mTrodeNumberHint2.setVisibility(View.GONE);
                 mTableItem3.addView(child);
             }
             else if (i>=30 && i<=39) {
+                mTrodeNumber3.setVisibility(View.GONE);
+                mTrodeNumberHint3.setVisibility(View.GONE);
                 mTableItem4.addView(child);
             }
             else if (i>=40 && i<=49) {
+                mTrodeNumber4.setVisibility(View.GONE);
+                mTrodeNumberHint4.setVisibility(View.GONE);
                 mTableItem5.addView(child);
             }
             else if (i>=50 && i<=59) {
+                mTrodeNumber5.setVisibility(View.GONE);
+                mTrodeNumberHint5.setVisibility(View.GONE);
                 mTableItem6.addView(child);
             }
             else if (i>=60 && i<=69) {
+                mTrodeNumber6.setVisibility(View.GONE);
+                mTrodeNumberHint6.setVisibility(View.GONE);
                 mTableItem7.addView(child);
             }
             else if (i>=70 && i<=79) {
+                mTrodeNumber7.setVisibility(View.GONE);
+                mTrodeNumberHint7.setVisibility(View.GONE);
                 mTableItem8.addView(child);
             }
             else if (i>=80 && i<=89) {
+                mTrodeNumber8.setVisibility(View.GONE);
+                mTrodeNumberHint8.setVisibility(View.GONE);
                 mTableItem9.addView(child);
             }
         }
