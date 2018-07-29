@@ -490,6 +490,594 @@ public class CreatePdfActivity extends AppCompatActivity {
     @BindView(R.id.page4_bottomLine3)
     View mPage4BottomLine3;
     /** ButterKnife Code **/
+
+
+
+
+
+    /** ButterKnife Code **/
+    @BindView(R.id.myView_2)
+    RelativeLayout mMyView2;
+    @BindView(R.id.header_2)
+    LinearLayout mHeader2;
+    @BindView(R.id.billNumberHint_2)
+    TextView mBillNumberHint2;
+    @BindView(R.id.billNumber_2)
+    TextView mBillNumber2;
+    @BindView(R.id.verticalLine_2)
+    View mVerticalLine_2;
+    @BindView(R.id.verticalTextView_2)
+    com.alahram.alahramapp.pdfCreate.VerticalTextView mVerticalTextView2;
+    @BindView(R.id.tableHeader_2)
+    LinearLayout mTableHeader2;
+    @BindView(R.id.tableItem_2)
+    LinearLayout mTableItem2;
+    @BindView(R.id.tableFooter_2)
+    LinearLayout mTableFooter2;
+    @BindView(R.id.totalHint_2)
+    TextView mTotalHint2;
+    @BindView(R.id.total_2)
+    TextView mTotal2;
+    @BindView(R.id.rules_2)
+    LinearLayout mRules2;
+    @BindView(R.id.TrodeNumberHint_2)
+    TextView mTrodeNumberHint2;
+    @BindView(R.id.TrodeNumber_2)
+    TextView mTrodeNumber2;
+    @BindView(R.id.ruleLine0_2)
+    TextView mRuleLine02;
+    @BindView(R.id.ruleLine1_2)
+    TextView mRuleLine12;
+    @BindView(R.id.ruleLine2_2)
+    TextView mRuleLine22;
+    @BindView(R.id.ruleLine3_2)
+    TextView mRuleLine32;
+    @BindView(R.id.ruleLine4_2)
+    TextView mRuleLine42;
+    @BindView(R.id.ruleLine5_2)
+    TextView mRuleLine52;
+    @BindView(R.id.ruleLine6_2)
+    TextView mRuleLine62;
+    @BindView(R.id.ruleLine7_2)
+    TextView mRuleLine72;
+    @BindView(R.id.ruleLine8_2)
+    TextView mRuleLine82;
+    @BindView(R.id.verticalLine2_2)
+    View mVerticalLine22;
+    @BindView(R.id.signatureDetails_2)
+    LinearLayout mSignatureDetails2;
+    @BindView(R.id.receiverInOfficeHint_2)
+    TextView mReceiverInOfficeHint2;
+    @BindView(R.id.receiverInOffice_2)
+    TextView mReceiverInOffice2;
+    @BindView(R.id.receiverIdHint_2)
+    TextView mReceiverIdHint2;
+    @BindView(R.id.receiverId_2)
+    TextView mReceiverId2;
+    @BindView(R.id.signature1Hint_2)
+    TextView mSignature1Hint2;
+    @BindView(R.id.signature1_2)
+    TextView mSignature12;
+    @BindView(R.id.signature2Hint_2)
+    TextView mSignature2Hint2;
+    @BindView(R.id.signature2_2)
+    TextView mSignature22;
+    @BindView(R.id.footer_2_2)
+    LinearLayout mFooter22;
+    @BindView(R.id.line1_2)
+    TextView mLine12;
+    @BindView(R.id.line2_2)
+    TextView mLine22;
+    @BindView(R.id.myView_3)
+    RelativeLayout mMyView3;
+    @BindView(R.id.header_3)
+    LinearLayout mHeader3;
+    @BindView(R.id.billNumberHint_3)
+    TextView mBillNumberHint3;
+    @BindView(R.id.billNumber_3)
+    TextView mBillNumber3;
+    @BindView(R.id.verticalLine_3)
+    View mVerticalLine3;
+    @BindView(R.id.verticalTextView_3)
+    com.alahram.alahramapp.pdfCreate.VerticalTextView mVerticalTextView3;
+    @BindView(R.id.tableHeader_3)
+    LinearLayout mTableHeader3;
+    @BindView(R.id.tableItem_3)
+    LinearLayout mTableItem3;
+    @BindView(R.id.tableFooter_3)
+    LinearLayout mTableFooter3;
+    @BindView(R.id.totalHint_3)
+    TextView mTotalHint3;
+    @BindView(R.id.total_3)
+    TextView mTotal3;
+    @BindView(R.id.rules_3)
+    LinearLayout mRules3;
+    @BindView(R.id.TrodeNumberHint_3)
+    TextView mTrodeNumberHint3;
+    @BindView(R.id.TrodeNumber_3)
+    TextView mTrodeNumber3;
+    @BindView(R.id.ruleLine0_3)
+    TextView mRuleLine03;
+    @BindView(R.id.ruleLine1_3)
+    TextView mRuleLine13;
+    @BindView(R.id.ruleLine2_3)
+    TextView mRuleLine23;
+    @BindView(R.id.ruleLine3_3)
+    TextView mRuleLine33;
+    @BindView(R.id.ruleLine4_3)
+    TextView mRuleLine43;
+    @BindView(R.id.ruleLine5_3)
+    TextView mRuleLine53;
+    @BindView(R.id.ruleLine6_3)
+    TextView mRuleLine63;
+    @BindView(R.id.ruleLine7_3)
+    TextView mRuleLine73;
+    @BindView(R.id.ruleLine8_3)
+    TextView mRuleLine83;
+    @BindView(R.id.verticalLine2_3)
+    View mVerticalLine23;
+    @BindView(R.id.signatureDetails_3)
+    LinearLayout mSignatureDetails3;
+    @BindView(R.id.receiverInOfficeHint_3)
+    TextView mReceiverInOfficeHint3;
+    @BindView(R.id.receiverInOffice_3)
+    TextView mReceiverInOffice3;
+    @BindView(R.id.receiverIdHint_3)
+    TextView mReceiverIdHint3;
+    @BindView(R.id.receiverId_3)
+    TextView mReceiverId3;
+    @BindView(R.id.signature1Hint_3)
+    TextView mSignature1Hint3;
+    @BindView(R.id.signature1_3)
+    TextView mSignature13;
+    @BindView(R.id.signature2Hint_3)
+    TextView mSignature2Hint3;
+    @BindView(R.id.signature2_3)
+    TextView mSignature23;
+    @BindView(R.id.footer_2_3)
+    LinearLayout mFooter23;
+    @BindView(R.id.line1_3)
+    TextView mLine13;
+    @BindView(R.id.line2_3)
+    TextView mLine23;
+    @BindView(R.id.myView_4)
+    RelativeLayout mMyView4;
+    @BindView(R.id.header_4)
+    LinearLayout mHeader4;
+    @BindView(R.id.billNumberHint_4)
+    TextView mBillNumberHint4;
+    @BindView(R.id.billNumber_4)
+    TextView mBillNumber4;
+    @BindView(R.id.verticalLine_4)
+    View mVerticalLine4;
+    @BindView(R.id.verticalTextView_4)
+    com.alahram.alahramapp.pdfCreate.VerticalTextView mVerticalTextView4;
+    @BindView(R.id.tableHeader_4)
+    LinearLayout mTableHeader4;
+    @BindView(R.id.tableItem_4)
+    LinearLayout mTableItem4;
+    @BindView(R.id.tableFooter_4)
+    LinearLayout mTableFooter4;
+    @BindView(R.id.totalHint_4)
+    TextView mTotalHint4;
+    @BindView(R.id.total_4)
+    TextView mTotal4;
+    @BindView(R.id.rules_4)
+    LinearLayout mRules4;
+    @BindView(R.id.TrodeNumberHint_4)
+    TextView mTrodeNumberHint4;
+    @BindView(R.id.TrodeNumber_4)
+    TextView mTrodeNumber4;
+    @BindView(R.id.ruleLine0_4)
+    TextView mRuleLine04;
+    @BindView(R.id.ruleLine1_4)
+    TextView mRuleLine14;
+    @BindView(R.id.ruleLine2_4)
+    TextView mRuleLine24;
+    @BindView(R.id.ruleLine3_4)
+    TextView mRuleLine34;
+    @BindView(R.id.ruleLine4_4)
+    TextView mRuleLine44;
+    @BindView(R.id.ruleLine5_4)
+    TextView mRuleLine54;
+    @BindView(R.id.ruleLine6_4)
+    TextView mRuleLine64;
+    @BindView(R.id.ruleLine7_4)
+    TextView mRuleLine74;
+    @BindView(R.id.ruleLine8_4)
+    TextView mRuleLine84;
+    @BindView(R.id.verticalLine2_4)
+    View mVerticalLine24;
+    @BindView(R.id.signatureDetails_4)
+    LinearLayout mSignatureDetails4;
+    @BindView(R.id.receiverInOfficeHint_4)
+    TextView mReceiverInOfficeHint4;
+    @BindView(R.id.receiverInOffice_4)
+    TextView mReceiverInOffice4;
+    @BindView(R.id.receiverIdHint_4)
+    TextView mReceiverIdHint4;
+    @BindView(R.id.receiverId_4)
+    TextView mReceiverId4;
+    @BindView(R.id.signature1Hint_4)
+    TextView mSignature1Hint4;
+    @BindView(R.id.signature1_4)
+    TextView mSignature14;
+    @BindView(R.id.signature2Hint_4)
+    TextView mSignature2Hint4;
+    @BindView(R.id.signature2_4)
+    TextView mSignature24;
+    @BindView(R.id.footer_2_4)
+    LinearLayout mFooter24;
+    @BindView(R.id.line1_4)
+    TextView mLine14;
+    @BindView(R.id.line2_4)
+    TextView mLine24;
+    @BindView(R.id.myView_5)
+    RelativeLayout mMyView5;
+    @BindView(R.id.header_5)
+    LinearLayout mHeader5;
+    @BindView(R.id.billNumberHint_5)
+    TextView mBillNumberHint5;
+    @BindView(R.id.billNumber_5)
+    TextView mBillNumber5;
+    @BindView(R.id.verticalLine_5)
+    View mVerticalLine5;
+    @BindView(R.id.verticalTextView_5)
+    com.alahram.alahramapp.pdfCreate.VerticalTextView mVerticalTextView5;
+    @BindView(R.id.tableHeader_5)
+    LinearLayout mTableHeader5;
+    @BindView(R.id.tableItem_5)
+    LinearLayout mTableItem5;
+    @BindView(R.id.tableFooter_5)
+    LinearLayout mTableFooter5;
+    @BindView(R.id.totalHint_5)
+    TextView mTotalHint5;
+    @BindView(R.id.total_5)
+    TextView mTotal5;
+    @BindView(R.id.rules_5)
+    LinearLayout mRules5;
+    @BindView(R.id.TrodeNumberHint_5)
+    TextView mTrodeNumberHint5;
+    @BindView(R.id.TrodeNumber_5)
+    TextView mTrodeNumber5;
+    @BindView(R.id.ruleLine0_5)
+    TextView mRuleLine05;
+    @BindView(R.id.ruleLine1_5)
+    TextView mRuleLine15;
+    @BindView(R.id.ruleLine2_5)
+    TextView mRuleLine25;
+    @BindView(R.id.ruleLine3_5)
+    TextView mRuleLine35;
+    @BindView(R.id.ruleLine4_5)
+    TextView mRuleLine45;
+    @BindView(R.id.ruleLine5_5)
+    TextView mRuleLine55;
+    @BindView(R.id.ruleLine6_5)
+    TextView mRuleLine65;
+    @BindView(R.id.ruleLine7_5)
+    TextView mRuleLine75;
+    @BindView(R.id.ruleLine8_5)
+    TextView mRuleLine85;
+    @BindView(R.id.verticalLine2_5)
+    View mVerticalLine25;
+    @BindView(R.id.signatureDetails_5)
+    LinearLayout mSignatureDetails5;
+    @BindView(R.id.receiverInOfficeHint_5)
+    TextView mReceiverInOfficeHint5;
+    @BindView(R.id.receiverInOffice_5)
+    TextView mReceiverInOffice5;
+    @BindView(R.id.receiverIdHint_5)
+    TextView mReceiverIdHint5;
+    @BindView(R.id.receiverId_5)
+    TextView mReceiverId5;
+    @BindView(R.id.signature1Hint_5)
+    TextView mSignature1Hint5;
+    @BindView(R.id.signature1_5)
+    TextView mSignature15;
+    @BindView(R.id.signature2Hint_5)
+    TextView mSignature2Hint5;
+    @BindView(R.id.signature2_5)
+    TextView mSignature25;
+    @BindView(R.id.footer_2_5)
+    LinearLayout mFooter25;
+    @BindView(R.id.line1_5)
+    TextView mLine15;
+    @BindView(R.id.line2_5)
+    TextView mLine25;
+    @BindView(R.id.myView_6)
+    RelativeLayout mMyView6;
+    @BindView(R.id.header_6)
+    LinearLayout mHeader6;
+    @BindView(R.id.billNumberHint_6)
+    TextView mBillNumberHint6;
+    @BindView(R.id.billNumber_6)
+    TextView mBillNumber6;
+    @BindView(R.id.verticalLine_6)
+    View mVerticalLine6;
+    @BindView(R.id.verticalTextView_6)
+    com.alahram.alahramapp.pdfCreate.VerticalTextView mVerticalTextView6;
+    @BindView(R.id.tableHeader_6)
+    LinearLayout mTableHeader6;
+    @BindView(R.id.tableItem_6)
+    LinearLayout mTableItem6;
+    @BindView(R.id.tableFooter_6)
+    LinearLayout mTableFooter6;
+    @BindView(R.id.totalHint_6)
+    TextView mTotalHint6;
+    @BindView(R.id.total_6)
+    TextView mTotal6;
+    @BindView(R.id.rules_6)
+    LinearLayout mRules6;
+    @BindView(R.id.TrodeNumberHint_6)
+    TextView mTrodeNumberHint6;
+    @BindView(R.id.TrodeNumber_6)
+    TextView mTrodeNumber6;
+    @BindView(R.id.ruleLine0_6)
+    TextView mRuleLine06;
+    @BindView(R.id.ruleLine1_6)
+    TextView mRuleLine16;
+    @BindView(R.id.ruleLine2_6)
+    TextView mRuleLine26;
+    @BindView(R.id.ruleLine3_6)
+    TextView mRuleLine36;
+    @BindView(R.id.ruleLine4_6)
+    TextView mRuleLine46;
+    @BindView(R.id.ruleLine5_6)
+    TextView mRuleLine56;
+    @BindView(R.id.ruleLine6_6)
+    TextView mRuleLine66;
+    @BindView(R.id.ruleLine7_6)
+    TextView mRuleLine76;
+    @BindView(R.id.ruleLine8_6)
+    TextView mRuleLine86;
+    @BindView(R.id.verticalLine2_6)
+    View mVerticalLine26;
+    @BindView(R.id.signatureDetails_6)
+    LinearLayout mSignatureDetails6;
+    @BindView(R.id.receiverInOfficeHint_6)
+    TextView mReceiverInOfficeHint6;
+    @BindView(R.id.receiverInOffice_6)
+    TextView mReceiverInOffice6;
+    @BindView(R.id.receiverIdHint_6)
+    TextView mReceiverIdHint6;
+    @BindView(R.id.receiverId_6)
+    TextView mReceiverId6;
+    @BindView(R.id.signature1Hint_6)
+    TextView mSignature1Hint6;
+    @BindView(R.id.signature1_6)
+    TextView mSignature16;
+    @BindView(R.id.signature2Hint_6)
+    TextView mSignature2Hint6;
+    @BindView(R.id.signature2_6)
+    TextView mSignature26;
+    @BindView(R.id.footer_2_6)
+    LinearLayout mFooter26;
+    @BindView(R.id.line1_6)
+    TextView mLine16;
+    @BindView(R.id.line2_6)
+    TextView mLine26;
+    @BindView(R.id.myView_7)
+    RelativeLayout mMyView7;
+    @BindView(R.id.header_7)
+    LinearLayout mHeader7;
+    @BindView(R.id.billNumberHint_7)
+    TextView mBillNumberHint7;
+    @BindView(R.id.billNumber_7)
+    TextView mBillNumber7;
+    @BindView(R.id.verticalLine_7)
+    View mVerticalLine7;
+    @BindView(R.id.verticalTextView_7)
+    com.alahram.alahramapp.pdfCreate.VerticalTextView mVerticalTextView7;
+    @BindView(R.id.tableHeader_7)
+    LinearLayout mTableHeader7;
+    @BindView(R.id.tableItem_7)
+    LinearLayout mTableItem7;
+    @BindView(R.id.tableFooter_7)
+    LinearLayout mTableFooter7;
+    @BindView(R.id.totalHint_7)
+    TextView mTotalHint7;
+    @BindView(R.id.total_7)
+    TextView mTotal7;
+    @BindView(R.id.rules_7)
+    LinearLayout mRules7;
+    @BindView(R.id.TrodeNumberHint_7)
+    TextView mTrodeNumberHint7;
+    @BindView(R.id.TrodeNumber_7)
+    TextView mTrodeNumber7;
+    @BindView(R.id.ruleLine0_7)
+    TextView mRuleLine07;
+    @BindView(R.id.ruleLine1_7)
+    TextView mRuleLine17;
+    @BindView(R.id.ruleLine2_7)
+    TextView mRuleLine27;
+    @BindView(R.id.ruleLine3_7)
+    TextView mRuleLine37;
+    @BindView(R.id.ruleLine4_7)
+    TextView mRuleLine47;
+    @BindView(R.id.ruleLine5_7)
+    TextView mRuleLine57;
+    @BindView(R.id.ruleLine6_7)
+    TextView mRuleLine67;
+    @BindView(R.id.ruleLine7_7)
+    TextView mRuleLine77;
+    @BindView(R.id.ruleLine8_7)
+    TextView mRuleLine87;
+    @BindView(R.id.verticalLine2_7)
+    View mVerticalLine27;
+    @BindView(R.id.signatureDetails_7)
+    LinearLayout mSignatureDetails7;
+    @BindView(R.id.receiverInOfficeHint_7)
+    TextView mReceiverInOfficeHint7;
+    @BindView(R.id.receiverInOffice_7)
+    TextView mReceiverInOffice7;
+    @BindView(R.id.receiverIdHint_7)
+    TextView mReceiverIdHint7;
+    @BindView(R.id.receiverId_7)
+    TextView mReceiverId7;
+    @BindView(R.id.signature1Hint_7)
+    TextView mSignature1Hint7;
+    @BindView(R.id.signature1_7)
+    TextView mSignature17;
+    @BindView(R.id.signature2Hint_7)
+    TextView mSignature2Hint7;
+    @BindView(R.id.signature2_7)
+    TextView mSignature27;
+    @BindView(R.id.footer_2_7)
+    LinearLayout mFooter27;
+    @BindView(R.id.line1_7)
+    TextView mLine17;
+    @BindView(R.id.line2_7)
+    TextView mLine27;
+    @BindView(R.id.myView_8)
+    RelativeLayout mMyView8;
+    @BindView(R.id.header_8)
+    LinearLayout mHeader8;
+    @BindView(R.id.billNumberHint_8)
+    TextView mBillNumberHint8;
+    @BindView(R.id.billNumber_8)
+    TextView mBillNumber8;
+    @BindView(R.id.verticalLine_8)
+    View mVerticalLine8;
+    @BindView(R.id.verticalTextView_8)
+    com.alahram.alahramapp.pdfCreate.VerticalTextView mVerticalTextView8;
+    @BindView(R.id.tableHeader_8)
+    LinearLayout mTableHeader8;
+    @BindView(R.id.tableItem_8)
+    LinearLayout mTableItem8;
+    @BindView(R.id.tableFooter_8)
+    LinearLayout mTableFooter8;
+    @BindView(R.id.totalHint_8)
+    TextView mTotalHint8;
+    @BindView(R.id.total_8)
+    TextView mTotal8;
+    @BindView(R.id.rules_8)
+    LinearLayout mRules8;
+    @BindView(R.id.TrodeNumberHint_8)
+    TextView mTrodeNumberHint8;
+    @BindView(R.id.TrodeNumber_8)
+    TextView mTrodeNumber8;
+    @BindView(R.id.ruleLine0_8)
+    TextView mRuleLine08;
+    @BindView(R.id.ruleLine1_8)
+    TextView mRuleLine18;
+    @BindView(R.id.ruleLine2_8)
+    TextView mRuleLine28;
+    @BindView(R.id.ruleLine3_8)
+    TextView mRuleLine38;
+    @BindView(R.id.ruleLine4_8)
+    TextView mRuleLine48;
+    @BindView(R.id.ruleLine5_8)
+    TextView mRuleLine58;
+    @BindView(R.id.ruleLine6_8)
+    TextView mRuleLine68;
+    @BindView(R.id.ruleLine7_8)
+    TextView mRuleLine78;
+    @BindView(R.id.ruleLine8_8)
+    TextView mRuleLine88;
+    @BindView(R.id.verticalLine2_8)
+    View mVerticalLine28;
+    @BindView(R.id.signatureDetails_8)
+    LinearLayout mSignatureDetails8;
+    @BindView(R.id.receiverInOfficeHint_8)
+    TextView mReceiverInOfficeHint8;
+    @BindView(R.id.receiverInOffice_8)
+    TextView mReceiverInOffice8;
+    @BindView(R.id.receiverIdHint_8)
+    TextView mReceiverIdHint8;
+    @BindView(R.id.receiverId_8)
+    TextView mReceiverId8;
+    @BindView(R.id.signature1Hint_8)
+    TextView mSignature1Hint8;
+    @BindView(R.id.signature1_8)
+    TextView mSignature18;
+    @BindView(R.id.signature2Hint_8)
+    TextView mSignature2Hint8;
+    @BindView(R.id.signature2_8)
+    TextView mSignature28;
+    @BindView(R.id.footer_2_8)
+    LinearLayout mFooter28;
+    @BindView(R.id.line1_8)
+    TextView mLine18;
+    @BindView(R.id.line2_8)
+    TextView mLine28;
+    @BindView(R.id.myView_9)
+    RelativeLayout mMyView9;
+    @BindView(R.id.header_9)
+    LinearLayout mHeader9;
+    @BindView(R.id.billNumberHint_9)
+    TextView mBillNumberHint9;
+    @BindView(R.id.billNumber_9)
+    TextView mBillNumber9;
+    @BindView(R.id.verticalLine_9)
+    View mVerticalLine9;
+    @BindView(R.id.verticalTextView_9)
+    com.alahram.alahramapp.pdfCreate.VerticalTextView mVerticalTextView9;
+    @BindView(R.id.tableHeader_9)
+    LinearLayout mTableHeader9;
+    @BindView(R.id.tableItem_9)
+    LinearLayout mTableItem9;
+    @BindView(R.id.tableFooter_9)
+    LinearLayout mTableFooter9;
+    @BindView(R.id.totalHint_9)
+    TextView mTotalHint9;
+    @BindView(R.id.total_9)
+    TextView mTotal9;
+    @BindView(R.id.rules_9)
+    LinearLayout mRules9;
+    @BindView(R.id.TrodeNumberHint_9)
+    TextView mTrodeNumberHint9;
+    @BindView(R.id.TrodeNumber_9)
+    TextView mTrodeNumber9;
+    @BindView(R.id.ruleLine0_9)
+    TextView mRuleLine09;
+    @BindView(R.id.ruleLine1_9)
+    TextView mRuleLine19;
+    @BindView(R.id.ruleLine2_9)
+    TextView mRuleLine29;
+    @BindView(R.id.ruleLine3_9)
+    TextView mRuleLine39;
+    @BindView(R.id.ruleLine4_9)
+    TextView mRuleLine49;
+    @BindView(R.id.ruleLine5_9)
+    TextView mRuleLine59;
+    @BindView(R.id.ruleLine6_9)
+    TextView mRuleLine69;
+    @BindView(R.id.ruleLine7_9)
+    TextView mRuleLine79;
+    @BindView(R.id.ruleLine8_9)
+    TextView mRuleLine89;
+    @BindView(R.id.verticalLine2_9)
+    View mVerticalLine29;
+    @BindView(R.id.signatureDetails_9)
+    LinearLayout mSignatureDetails9;
+    @BindView(R.id.receiverInOfficeHint_9)
+    TextView mReceiverInOfficeHint9;
+    @BindView(R.id.receiverInOffice_9)
+    TextView mReceiverInOffice9;
+    @BindView(R.id.receiverIdHint_9)
+    TextView mReceiverIdHint9;
+    @BindView(R.id.receiverId_9)
+    TextView mReceiverId9;
+    @BindView(R.id.signature1Hint_9)
+    TextView mSignature1Hint9;
+    @BindView(R.id.signature1_9)
+    TextView mSignature19;
+    @BindView(R.id.signature2Hint_9)
+    TextView mSignature2Hint9;
+    @BindView(R.id.signature2_9)
+    TextView mSignature29;
+    @BindView(R.id.footer_2_9)
+    LinearLayout mFooter29;
+    @BindView(R.id.line1_9)
+    TextView mLine19;
+    @BindView(R.id.line2_9)
+    TextView mLine29;
+    /** ButterKnife Code **/
+
+
+
+
+
     Typeface tf;
     private ArrayList<AddRequestModel> data = new ArrayList<>();
     private int totalPrice=0;
@@ -497,8 +1085,7 @@ public class CreatePdfActivity extends AppCompatActivity {
     void setFontToTextView()
     {
         tf = Typeface.createFromAsset(getResources().getAssets(), "GE_Thameen_Book.otf");
-        mLine1.setTypeface(tf);
-        mLine2.setTypeface(tf);
+
         mBillNumber.setTypeface(tf);
         mMobileNumberHint.setTypeface(tf);
         mMobileNumber.setTypeface(tf);
@@ -514,6 +1101,37 @@ public class CreatePdfActivity extends AppCompatActivity {
         mReceiverAddress.setTypeface(tf);
         mReceiverPhonesHint.setTypeface(tf);
         mReceiverPhones.setTypeface(tf);
+
+
+        mLine12.setTypeface(tf);
+        mLine13.setTypeface(tf);
+        mLine14.setTypeface(tf);
+        mLine15.setTypeface(tf);
+        mLine16.setTypeface(tf);
+        mLine17.setTypeface(tf);
+        mLine18.setTypeface(tf);
+        mLine19.setTypeface(tf);
+
+        mLine22.setTypeface(tf);
+        mLine23.setTypeface(tf);
+        mLine24.setTypeface(tf);
+        mLine25.setTypeface(tf);
+        mLine26.setTypeface(tf);
+        mLine27.setTypeface(tf);
+        mLine28.setTypeface(tf);
+        mLine29.setTypeface(tf);
+
+        mBillNumber2.setTypeface(tf);
+        mBillNumber3.setTypeface(tf);
+        mBillNumber4.setTypeface(tf);
+        mBillNumber5.setTypeface(tf);
+        mBillNumber6.setTypeface(tf);
+        mBillNumber7.setTypeface(tf);
+        mBillNumber8.setTypeface(tf);
+        mBillNumber9.setTypeface(tf);
+
+
+
         mRuleLine0.setTypeface(tf);
         mRuleLine1.setTypeface(tf);
         mRuleLine2.setTypeface(tf);
@@ -523,19 +1141,178 @@ public class CreatePdfActivity extends AppCompatActivity {
         mRuleLine6.setTypeface(tf);
         mRuleLine7.setTypeface(tf);
         mRuleLine8.setTypeface(tf);
+
+
+        mRuleLine02.setTypeface(tf);
+        mRuleLine12.setTypeface(tf);
+        mRuleLine22.setTypeface(tf);
+        mRuleLine32.setTypeface(tf);
+        mRuleLine42.setTypeface(tf);
+        mRuleLine52.setTypeface(tf);
+        mRuleLine62.setTypeface(tf);
+        mRuleLine72.setTypeface(tf);
+        mRuleLine82.setTypeface(tf);
+
+        mRuleLine03.setTypeface(tf);
+        mRuleLine13.setTypeface(tf);
+        mRuleLine23.setTypeface(tf);
+        mRuleLine33.setTypeface(tf);
+        mRuleLine43.setTypeface(tf);
+        mRuleLine53.setTypeface(tf);
+        mRuleLine63.setTypeface(tf);
+        mRuleLine73.setTypeface(tf);
+        mRuleLine83.setTypeface(tf);
+
+        mRuleLine04.setTypeface(tf);
+        mRuleLine14.setTypeface(tf);
+        mRuleLine24.setTypeface(tf);
+        mRuleLine34.setTypeface(tf);
+        mRuleLine44.setTypeface(tf);
+        mRuleLine54.setTypeface(tf);
+        mRuleLine64.setTypeface(tf);
+        mRuleLine74.setTypeface(tf);
+        mRuleLine84.setTypeface(tf);
+
+        mRuleLine05.setTypeface(tf);
+        mRuleLine15.setTypeface(tf);
+        mRuleLine25.setTypeface(tf);
+        mRuleLine35.setTypeface(tf);
+        mRuleLine45.setTypeface(tf);
+        mRuleLine55.setTypeface(tf);
+        mRuleLine65.setTypeface(tf);
+        mRuleLine75.setTypeface(tf);
+        mRuleLine85.setTypeface(tf);
+
+        mRuleLine06.setTypeface(tf);
+        mRuleLine16.setTypeface(tf);
+        mRuleLine26.setTypeface(tf);
+        mRuleLine36.setTypeface(tf);
+        mRuleLine46.setTypeface(tf);
+        mRuleLine56.setTypeface(tf);
+        mRuleLine66.setTypeface(tf);
+        mRuleLine76.setTypeface(tf);
+        mRuleLine86.setTypeface(tf);
+
+        mRuleLine07.setTypeface(tf);
+        mRuleLine17.setTypeface(tf);
+        mRuleLine27.setTypeface(tf);
+        mRuleLine37.setTypeface(tf);
+        mRuleLine47.setTypeface(tf);
+        mRuleLine57.setTypeface(tf);
+        mRuleLine67.setTypeface(tf);
+        mRuleLine77.setTypeface(tf);
+        mRuleLine87.setTypeface(tf);
+
+        mRuleLine08.setTypeface(tf);
+        mRuleLine18.setTypeface(tf);
+        mRuleLine28.setTypeface(tf);
+        mRuleLine38.setTypeface(tf);
+        mRuleLine48.setTypeface(tf);
+        mRuleLine58.setTypeface(tf);
+        mRuleLine68.setTypeface(tf);
+        mRuleLine78.setTypeface(tf);
+        mRuleLine88.setTypeface(tf);
+
+
+        mRuleLine09.setTypeface(tf);
+        mRuleLine19.setTypeface(tf);
+        mRuleLine29.setTypeface(tf);
+        mRuleLine39.setTypeface(tf);
+        mRuleLine49.setTypeface(tf);
+        mRuleLine59.setTypeface(tf);
+        mRuleLine69.setTypeface(tf);
+        mRuleLine79.setTypeface(tf);
+        mRuleLine89.setTypeface(tf);
+
+
+
+
         mReceiverInOfficeHint.setTypeface(tf);
+        mReceiverInOfficeHint2.setTypeface(tf);
+        mReceiverInOfficeHint3.setTypeface(tf);
+        mReceiverInOfficeHint4.setTypeface(tf);
+        mReceiverInOfficeHint5.setTypeface(tf);
+        mReceiverInOfficeHint6.setTypeface(tf);
+        mReceiverInOfficeHint7.setTypeface(tf);
+        mReceiverInOfficeHint8.setTypeface(tf);
+        mReceiverInOfficeHint9.setTypeface(tf);
         mReceiverInOffice.setTypeface(tf);
+        mReceiverInOffice2.setTypeface(tf);
+        mReceiverInOffice3.setTypeface(tf);
+        mReceiverInOffice4.setTypeface(tf);
+        mReceiverInOffice5.setTypeface(tf);
+        mReceiverInOffice6.setTypeface(tf);
+        mReceiverInOffice7.setTypeface(tf);
+        mReceiverInOffice8.setTypeface(tf);
+        mReceiverInOffice9.setTypeface(tf);
         mReceiverIdHint.setTypeface(tf);
+        mReceiverIdHint2.setTypeface(tf);
+        mReceiverIdHint3.setTypeface(tf);
+        mReceiverIdHint4.setTypeface(tf);
+        mReceiverIdHint5.setTypeface(tf);
+        mReceiverIdHint6.setTypeface(tf);
+        mReceiverIdHint7.setTypeface(tf);
+        mReceiverIdHint8.setTypeface(tf);
+        mReceiverIdHint9.setTypeface(tf);
         tvclientnotes.setTypeface(tf);
+
         clientnotes2.setTypeface(tf);
         mReceiverId.setTypeface(tf);
+        mReceiverId2.setTypeface(tf);
+        mReceiverId3.setTypeface(tf);
+        mReceiverId4.setTypeface(tf);
+        mReceiverId5.setTypeface(tf);
+        mReceiverId6.setTypeface(tf);
+        mReceiverId7.setTypeface(tf);
+        mReceiverId8.setTypeface(tf);
+        mReceiverId9.setTypeface(tf);
         mSignature1Hint.setTypeface(tf);
+        mSignature1Hint2.setTypeface(tf);
+        mSignature1Hint3.setTypeface(tf);
+        mSignature1Hint4.setTypeface(tf);
+        mSignature1Hint5.setTypeface(tf);
+        mSignature1Hint6.setTypeface(tf);
+        mSignature1Hint7.setTypeface(tf);
+        mSignature1Hint8.setTypeface(tf);
+        mSignature1Hint9.setTypeface(tf);
         mSignature1.setTypeface(tf);
+        mSignature12.setTypeface(tf);
+        mSignature13.setTypeface(tf);
+        mSignature14.setTypeface(tf);
+        mSignature15.setTypeface(tf);
+        mSignature16.setTypeface(tf);
+        mSignature17.setTypeface(tf);
+        mSignature18.setTypeface(tf);
+        mSignature19.setTypeface(tf);
         mSignature2Hint.setTypeface(tf);
+        mSignature2Hint2.setTypeface(tf);
+        mSignature2Hint3.setTypeface(tf);
+        mSignature2Hint4.setTypeface(tf);
+        mSignature2Hint5.setTypeface(tf);
+        mSignature2Hint6.setTypeface(tf);
+        mSignature2Hint7.setTypeface(tf);
+        mSignature2Hint8.setTypeface(tf);
+        mSignature2Hint9.setTypeface(tf);
         mSignature2.setTypeface(tf);
+        mSignature22.setTypeface(tf);
+        mSignature23.setTypeface(tf);
+        mSignature24.setTypeface(tf);
+        mSignature25.setTypeface(tf);
+        mSignature26.setTypeface(tf);
+        mSignature27.setTypeface(tf);
+        mSignature28.setTypeface(tf);
+        mSignature29.setTypeface(tf);
         mLine1.setTypeface(tf);
         mLine2.setTypeface(tf);
         mVerticalTextView.setTypeface(tf);
+        mVerticalTextView2.setTypeface(tf);
+        mVerticalTextView3.setTypeface(tf);
+        mVerticalTextView4.setTypeface(tf);
+        mVerticalTextView5.setTypeface(tf);
+        mVerticalTextView6.setTypeface(tf);
+        mVerticalTextView7.setTypeface(tf);
+        mVerticalTextView8.setTypeface(tf);
+        mVerticalTextView9.setTypeface(tf);
 
         page2_dateHint_sender.setTypeface(tf);
         page2_date_senderTV.setTypeface(tf);
@@ -543,7 +1320,6 @@ public class CreatePdfActivity extends AppCompatActivity {
         page2_date_NationalIdTV.setTypeface(tf);
         clientNationalIdHint.setTypeface(tf);
         clientNationalId.setTypeface(tf);
-
 
     }
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -560,7 +1336,6 @@ public class CreatePdfActivity extends AppCompatActivity {
         forceRTLIfSupported();
         setContentView(R.layout.activity_print_pdf);
         btnRecieve =(Button)findViewById(R.id.btnReciever);
-
 
         requestQueue = RequestQueueSingleton.getInstance(CreatePdfActivity.this)
                 .getRequestQueue();
@@ -643,7 +1418,27 @@ public class CreatePdfActivity extends AppCompatActivity {
         String signature2="";
 
 
-        mBillNumber.setText(billNumber);
+        mBillNumber2.setText(billNumber);
+        mBillNumber3.setText(billNumber);
+        mBillNumber4.setText(billNumber);
+        mBillNumber5.setText(billNumber);
+        mBillNumber6.setText(billNumber);
+        mBillNumber7.setText(billNumber);
+        mBillNumber8.setText(billNumber);
+        mBillNumber9.setText(billNumber);
+
+        String trodeNumber = String.valueOf(data.size()) + " طرد " ;
+        mTrodeNumber2.setText(trodeNumber);
+        mTrodeNumber3.setText(trodeNumber);
+        mTrodeNumber4.setText(trodeNumber);
+        mTrodeNumber5.setText(trodeNumber);
+        mTrodeNumber6.setText(trodeNumber);
+        mTrodeNumber7.setText(trodeNumber);
+        mTrodeNumber8.setText(trodeNumber);
+        mTrodeNumber9.setText(trodeNumber);
+
+
+
         mMobileNumber.setText(mobileNumber);
         mNumber.setText(itemNumber);
         mDate.setText(date);
@@ -651,14 +1446,66 @@ public class CreatePdfActivity extends AppCompatActivity {
         mSenderName.setText(senderName);
         mReceiverAddress.setText(receiverAddress);
         mReceiverPhones.setText(receiverPhones);
+
         mTotal.setText(total +currencyUnit);
+        mTotal2.setText(total +currencyUnit);
+        mTotal3.setText(total +currencyUnit);
+        mTotal4.setText(total +currencyUnit);
+        mTotal5.setText(total +currencyUnit);
+        mTotal6.setText(total +currencyUnit);
+        mTotal7.setText(total +currencyUnit);
+        mTotal8.setText(total +currencyUnit);
+        mTotal9.setText(total +currencyUnit);
+
         mReceiverInOffice.setText(receiverInOffice);
+        mReceiverInOffice2.setText(receiverInOffice);
+        mReceiverInOffice3.setText(receiverInOffice);
+        mReceiverInOffice4.setText(receiverInOffice);
+        mReceiverInOffice5.setText(receiverInOffice);
+        mReceiverInOffice6.setText(receiverInOffice);
+        mReceiverInOffice7.setText(receiverInOffice);
+        mReceiverInOffice8.setText(receiverInOffice);
+        mReceiverInOffice9.setText(receiverInOffice);
+
         mReceiverId.setText(receiverId);
+        mReceiverId2.setText(receiverId);
+        mReceiverId3.setText(receiverId);
+        mReceiverId4.setText(receiverId);
+        mReceiverId5.setText(receiverId);
+        mReceiverId6.setText(receiverId);
+        mReceiverId7.setText(receiverId);
+        mReceiverId8.setText(receiverId);
+        mReceiverId9.setText(receiverId);
         mSignature1.setText(signature1);
+        mSignature12.setText(signature1);
+        mSignature13.setText(signature1);
+        mSignature14.setText(signature1);
+        mSignature15.setText(signature1);
+        mSignature16.setText(signature1);
+        mSignature17.setText(signature1);
+        mSignature18.setText(signature1);
+        mSignature19.setText(signature1);
         mSignature2.setText(signature2);
+        mSignature22.setText(signature2);
+        mSignature23.setText(signature2);
+        mSignature24.setText(signature2);
+        mSignature25.setText(signature2);
+        mSignature26.setText(signature2);
+        mSignature27.setText(signature2);
+        mSignature28.setText(signature2);
+        mSignature29.setText(signature2);
 
         LayoutInflater layoutInflator = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mTableItem.removeAllViews();
+        mTableItem2.removeAllViews();
+        mTableItem3.removeAllViews();
+        mTableItem4.removeAllViews();
+        mTableItem5.removeAllViews();
+        mTableItem6.removeAllViews();
+        mTableItem7.removeAllViews();
+        mTableItem8.removeAllViews();
+        mTableItem9.removeAllViews();
+
         for (int i=0;i<data.size();i++)
         {
 
@@ -679,11 +1526,37 @@ public class CreatePdfActivity extends AppCompatActivity {
             if(!data.get(i).getOrderprice().equals(""))
             totalTextView.setText(String.valueOf((data.get(i).getCounter() * (Integer.valueOf(data.get(i).getOrderprice()))))+ currencyUnit );
 
-            trodeTextView.setText(data.get(i).getTrode());
+            trodeTextView.setText(String.valueOf(data.get(i).getTrode()));
 
             child.setTag(i);
             child.setBackgroundColor(Color.WHITE);
-            mTableItem.addView(child);
+            if (i>=0 && i<=9) {
+                mTableItem.addView(child);
+            }
+            else if (i>=10 && i<=19) {
+                mTableItem2.addView(child);
+            }
+            else if (i>=20 && i<=29) {
+                mTableItem3.addView(child);
+            }
+            else if (i>=30 && i<=39) {
+                mTableItem4.addView(child);
+            }
+            else if (i>=40 && i<=49) {
+                mTableItem5.addView(child);
+            }
+            else if (i>=50 && i<=59) {
+                mTableItem6.addView(child);
+            }
+            else if (i>=60 && i<=69) {
+                mTableItem7.addView(child);
+            }
+            else if (i>=70 && i<=79) {
+                mTableItem8.addView(child);
+            }
+            else if (i>=80 && i<=89) {
+                mTableItem9.addView(child);
+            }
         }
     }
 
@@ -1025,22 +1898,128 @@ public class CreatePdfActivity extends AppCompatActivity {
         PdfDocument document = new PdfDocument();
 
 
-        Bitmap bitmap1;
-        PdfDocument.PageInfo pageInfo1;
-        PdfDocument.Page page1;
-        Canvas canvas1;
-
-
-        bitmap1 = getBitmapImageOfView(this.getWindow().findViewById(R.id.myView));
-        pageInfo1 = new PdfDocument.PageInfo.Builder(bitmap1.getWidth(), bitmap1.getHeight(), 1).create();
-        page1 = document.startPage(pageInfo1);
-        canvas1 = page1.getCanvas();
-        bitmap1 = Bitmap.createScaledBitmap(bitmap1, bitmap1.getWidth(), bitmap1.getHeight(), true);
-        canvas1.drawBitmap(bitmap1, 0, 0, null);
-        document.finishPage(page1);
 
 
 
+
+
+        if (true) {
+            Bitmap bitmap1;
+            PdfDocument.PageInfo pageInfo1;
+            PdfDocument.Page page1;
+            Canvas canvas1;
+            bitmap1 = getBitmapImageOfView(this.getWindow().findViewById(R.id.myView));
+            pageInfo1 = new PdfDocument.PageInfo.Builder(bitmap1.getWidth(), bitmap1.getHeight(), 1).create();
+            page1 = document.startPage(pageInfo1);
+            canvas1 = page1.getCanvas();
+            bitmap1 = Bitmap.createScaledBitmap(bitmap1, bitmap1.getWidth(), bitmap1.getHeight(), true);
+            canvas1.drawBitmap(bitmap1, 0, 0, null);
+            document.finishPage(page1);
+        }
+        if (data.size()>=10 ) {
+            Bitmap bitmap1;
+            PdfDocument.PageInfo pageInfo1;
+            PdfDocument.Page page1;
+            Canvas canvas1;
+            bitmap1 = getBitmapImageOfView(this.getWindow().findViewById(R.id.myView_2));
+            pageInfo1 = new PdfDocument.PageInfo.Builder(bitmap1.getWidth(), bitmap1.getHeight(), 1).create();
+            page1 = document.startPage(pageInfo1);
+            canvas1 = page1.getCanvas();
+            bitmap1 = Bitmap.createScaledBitmap(bitmap1, bitmap1.getWidth(), bitmap1.getHeight(), true);
+            canvas1.drawBitmap(bitmap1, 0, 0, null);
+            document.finishPage(page1);
+        }
+        if (data.size()>=20 ) {
+            Bitmap bitmap1;
+            PdfDocument.PageInfo pageInfo1;
+            PdfDocument.Page page1;
+            Canvas canvas1;
+            bitmap1 = getBitmapImageOfView(this.getWindow().findViewById(R.id.myView_3));
+            pageInfo1 = new PdfDocument.PageInfo.Builder(bitmap1.getWidth(), bitmap1.getHeight(), 1).create();
+            page1 = document.startPage(pageInfo1);
+            canvas1 = page1.getCanvas();
+            bitmap1 = Bitmap.createScaledBitmap(bitmap1, bitmap1.getWidth(), bitmap1.getHeight(), true);
+            canvas1.drawBitmap(bitmap1, 0, 0, null);
+            document.finishPage(page1);
+        }
+        if (data.size()>=30 ) {
+            Bitmap bitmap1;
+            PdfDocument.PageInfo pageInfo1;
+            PdfDocument.Page page1;
+            Canvas canvas1;
+            bitmap1 = getBitmapImageOfView(this.getWindow().findViewById(R.id.myView_4));
+            pageInfo1 = new PdfDocument.PageInfo.Builder(bitmap1.getWidth(), bitmap1.getHeight(), 1).create();
+            page1 = document.startPage(pageInfo1);
+            canvas1 = page1.getCanvas();
+            bitmap1 = Bitmap.createScaledBitmap(bitmap1, bitmap1.getWidth(), bitmap1.getHeight(), true);
+            canvas1.drawBitmap(bitmap1, 0, 0, null);
+            document.finishPage(page1);
+        }
+        if (data.size()>=40 ) {
+            Bitmap bitmap1;
+            PdfDocument.PageInfo pageInfo1;
+            PdfDocument.Page page1;
+            Canvas canvas1;
+            bitmap1 = getBitmapImageOfView(this.getWindow().findViewById(R.id.myView_5));
+            pageInfo1 = new PdfDocument.PageInfo.Builder(bitmap1.getWidth(), bitmap1.getHeight(), 1).create();
+            page1 = document.startPage(pageInfo1);
+            canvas1 = page1.getCanvas();
+            bitmap1 = Bitmap.createScaledBitmap(bitmap1, bitmap1.getWidth(), bitmap1.getHeight(), true);
+            canvas1.drawBitmap(bitmap1, 0, 0, null);
+            document.finishPage(page1);
+        }
+        if (data.size()>=50 ) {
+            Bitmap bitmap1;
+            PdfDocument.PageInfo pageInfo1;
+            PdfDocument.Page page1;
+            Canvas canvas1;
+            bitmap1 = getBitmapImageOfView(this.getWindow().findViewById(R.id.myView_6));
+            pageInfo1 = new PdfDocument.PageInfo.Builder(bitmap1.getWidth(), bitmap1.getHeight(), 1).create();
+            page1 = document.startPage(pageInfo1);
+            canvas1 = page1.getCanvas();
+            bitmap1 = Bitmap.createScaledBitmap(bitmap1, bitmap1.getWidth(), bitmap1.getHeight(), true);
+            canvas1.drawBitmap(bitmap1, 0, 0, null);
+            document.finishPage(page1);
+        }
+        if (data.size()>=60 ) {
+            Bitmap bitmap1;
+            PdfDocument.PageInfo pageInfo1;
+            PdfDocument.Page page1;
+            Canvas canvas1;
+            bitmap1 = getBitmapImageOfView(this.getWindow().findViewById(R.id.myView_7));
+            pageInfo1 = new PdfDocument.PageInfo.Builder(bitmap1.getWidth(), bitmap1.getHeight(), 1).create();
+            page1 = document.startPage(pageInfo1);
+            canvas1 = page1.getCanvas();
+            bitmap1 = Bitmap.createScaledBitmap(bitmap1, bitmap1.getWidth(), bitmap1.getHeight(), true);
+            canvas1.drawBitmap(bitmap1, 0, 0, null);
+            document.finishPage(page1);
+        }
+        if (data.size()>=70 ) {
+            Bitmap bitmap1;
+            PdfDocument.PageInfo pageInfo1;
+            PdfDocument.Page page1;
+            Canvas canvas1;
+            bitmap1 = getBitmapImageOfView(this.getWindow().findViewById(R.id.myView_8));
+            pageInfo1 = new PdfDocument.PageInfo.Builder(bitmap1.getWidth(), bitmap1.getHeight(), 1).create();
+            page1 = document.startPage(pageInfo1);
+            canvas1 = page1.getCanvas();
+            bitmap1 = Bitmap.createScaledBitmap(bitmap1, bitmap1.getWidth(), bitmap1.getHeight(), true);
+            canvas1.drawBitmap(bitmap1, 0, 0, null);
+            document.finishPage(page1);
+        }
+        if (data.size()>=80 ) {
+            Bitmap bitmap1;
+            PdfDocument.PageInfo pageInfo1;
+            PdfDocument.Page page1;
+            Canvas canvas1;
+            bitmap1 = getBitmapImageOfView(this.getWindow().findViewById(R.id.myView_9));
+            pageInfo1 = new PdfDocument.PageInfo.Builder(bitmap1.getWidth(), bitmap1.getHeight(), 1).create();
+            page1 = document.startPage(pageInfo1);
+            canvas1 = page1.getCanvas();
+            bitmap1 = Bitmap.createScaledBitmap(bitmap1, bitmap1.getWidth(), bitmap1.getHeight(), true);
+            canvas1.drawBitmap(bitmap1, 0, 0, null);
+            document.finishPage(page1);
+        }
 
         File root = new File(Environment.getExternalStorageDirectory(), "AlAhram");
         if (!root.exists()) {
@@ -1049,7 +2028,7 @@ public class CreatePdfActivity extends AppCompatActivity {
         MediaScannerConnection.scanFile(this, new String[] {root.toString()}, null, null);
 
         Preferences preferences=new Preferences(this);
-         fileNameclinet=preferences.getclientname()+"_فاتورة العميل_"+String.valueOf(getRandomBillNumber())+".pdf";
+        fileNameclinet=preferences.getclientname()+"_فاتورة العميل_"+String.valueOf(getRandomBillNumber())+".pdf";
         File filePath = new File(root,fileNameclinet);
         try {
             FileOutputStream fileOutputStream=new FileOutputStream(filePath);
