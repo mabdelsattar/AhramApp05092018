@@ -1694,15 +1694,19 @@ public class CreatePdfActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        billNumber=String.valueOf(getRandomBillNumber())+" كود سري: "+mpreference.getSecretNum();
+        trodeNumber = String.valueOf(data.size()) + " طرد " ;
+
         bindDataToStickersView("");
         bindDataToBill1();
         bindDataToBill2();
 
     }
-
+    String trodeNumber;
+    String billNumber;
     private void  bindDataToBill1()
     {
-        String billNumber=String.valueOf(getRandomBillNumber())+" كود سري: "+mpreference.getSecretNum();
+
         String mobileNumber=mpreference.getClientPhoneKsa();
         String clientNotes = mpreference.getNotes();
         tvclientnotes.setText(clientNotes);
@@ -1734,16 +1738,15 @@ public class CreatePdfActivity extends AppCompatActivity {
         String signature2="";
 
 
-        mBillNumber2.setText(billNumber);
-        mBillNumber3.setText(billNumber);
-        mBillNumber4.setText(billNumber);
-        mBillNumber5.setText(billNumber);
-        mBillNumber6.setText(billNumber);
-        mBillNumber7.setText(billNumber);
-        mBillNumber8.setText(billNumber);
-        mBillNumber9.setText(billNumber);
+        mPage2BillNumber2.setText(billNumber);
+        mPage2BillNumber3.setText(billNumber);
+        mPage2BillNumber4.setText(billNumber);
+        mPage2BillNumber5.setText(billNumber);
+        mPage2BillNumber6.setText(billNumber);
+        mPage2BillNumber7.setText(billNumber);
+        mPage2BillNumber8.setText(billNumber);
+        mPage2BillNumber9.setText(billNumber);
 
-        String trodeNumber = String.valueOf(data.size()) + " طرد " ;
         mTrodeNumber.setText(trodeNumber);
         mTrodeNumber2.setText(trodeNumber);
         mTrodeNumber3.setText(trodeNumber);
@@ -1895,7 +1898,6 @@ public class CreatePdfActivity extends AppCompatActivity {
 
     private void bindDataToBill2()
     {
-        String billNumber=String.valueOf(getRandomBillNumber());
         String itemCount=String.valueOf(data.size());
         String date=getCurrantDate();
 
@@ -1932,6 +1934,18 @@ public class CreatePdfActivity extends AppCompatActivity {
         mPage2IdNumber.setText(idNumber);
         mPage2BillNumber.setText(billNumber);
 
+
+
+
+
+        mPage2TrodeNumber2.setText(trodeNumber);
+        mPage2TrodeNumber3.setText(trodeNumber);
+        mPage2TrodeNumber4.setText(trodeNumber);
+        mPage2TrodeNumber5.setText(trodeNumber);
+        mPage2TrodeNumber6.setText(trodeNumber);
+        mPage2TrodeNumber7.setText(trodeNumber);
+        mPage2TrodeNumber8.setText(trodeNumber);
+        mPage2TrodeNumber9.setText(trodeNumber);
 
 
         mPage2Mobile2.setText(mobileNumber);
@@ -2093,7 +2107,6 @@ public class CreatePdfActivity extends AppCompatActivity {
         mPage3SenderName3.setText(stickersSenderName);
     }
 
-    int billNumber=-1;
     public int getRandomBillNumber() {
         return mpreference.getRequestNum();
     }
