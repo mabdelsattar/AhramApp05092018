@@ -207,6 +207,9 @@ public class CreatePdfActivity extends AppCompatActivity {
     TextView mLine1;
     @BindView(R.id.line2)
     TextView mLine2;
+
+
+
     @BindView(R.id.page2_myView)
     RelativeLayout mPage2MyView;
     @BindView(R.id.page2_header)
@@ -271,11 +274,316 @@ public class CreatePdfActivity extends AppCompatActivity {
     @BindView(R.id.page2_verticalLine4)
     View mPage2VerticalLine4;
 
+
+
+
+    /** ButterKnife Code **/
+    @BindView(R.id.page2_myView_2)
+    RelativeLayout mPage2MyView2;
+    @BindView(R.id.page2_billNumberHint_2)
+    TextView mPage2BillNumberHint2;
+    @BindView(R.id.page2_billNumber_2)
+    TextView mPage2BillNumber2;
+
+    @BindView(R.id.page2_billDetails_2)
+    LinearLayout mPage2BillDetails2;
+    @BindView(R.id.page2_tableView_2)
+    LinearLayout mPage2TableView2;
+
+    @BindView(R.id.clientnotes2_2)
+    TextView mClientnotes22;
+    @BindView(R.id.Page2_TrodeNumberHint_2)
+    TextView mPage2TrodeNumberHint2;
+    @BindView(R.id.Page2_TrodeNumber_2)
+    TextView mPage2TrodeNumber2;
+    @BindView(R.id.page2_reciverDetails_2)
+    LinearLayout mPage2ReciverDetails2;
+    @BindView(R.id.page2_mobileHint_2)
+    TextView mPage2MobileHint2;
+    @BindView(R.id.page2_mobile_2)
+    TextView mPage2Mobile2;
+    @BindView(R.id.page2_receiverHint_2)
+    TextView mPage2ReceiverHint2;
+    @BindView(R.id.page2_receiver_2)
+    TextView mPage2Receiver2;
+    @BindView(R.id.page2_signatureHint_2)
+    TextView mPage2SignatureHint2;
+    @BindView(R.id.page2_signature_2)
+    TextView mPage2Signature2;
+    @BindView(R.id.page2_idNumberHint_2)
+    TextView mPage2IdNumberHint2;
+    @BindView(R.id.page2_idNumber_2)
+    TextView mPage2IdNumber2;
+
+    @BindView(R.id.page2_myView_3)
+    RelativeLayout mPage2MyView3;
+    @BindView(R.id.page2_billNumberHint_3)
+    TextView mPage2BillNumberHint3;
+    @BindView(R.id.page2_billNumber_3)
+    TextView mPage2BillNumber3;
+
+    @BindView(R.id.page2_billDetails_3)
+    LinearLayout mPage2BillDetails3;
+    @BindView(R.id.page2_tableView_3)
+    LinearLayout mPage2TableView3;
+
+    @BindView(R.id.clientnotes2_3)
+    TextView mClientnotes23;
+    @BindView(R.id.Page2_TrodeNumberHint_3)
+    TextView mPage2TrodeNumberHint3;
+    @BindView(R.id.Page2_TrodeNumber_3)
+    TextView mPage2TrodeNumber3;
+    @BindView(R.id.page2_reciverDetails_3)
+    LinearLayout mPage2ReciverDetails3;
+    @BindView(R.id.page2_mobileHint_3)
+    TextView mPage2MobileHint3;
+    @BindView(R.id.page2_mobile_3)
+    TextView mPage2Mobile3;
+    @BindView(R.id.page2_receiverHint_3)
+    TextView mPage2ReceiverHint3;
+    @BindView(R.id.page2_receiver_3)
+    TextView mPage2Receiver3;
+    @BindView(R.id.page2_signatureHint_3)
+    TextView mPage2SignatureHint3;
+    @BindView(R.id.page2_signature_3)
+    TextView mPage2Signature3;
+    @BindView(R.id.page2_idNumberHint_3)
+    TextView mPage2IdNumberHint3;
+    @BindView(R.id.page2_idNumber_3)
+    TextView mPage2IdNumber3;
+
+    @BindView(R.id.page2_myView_4)
+    RelativeLayout mPage2MyView4;
+    @BindView(R.id.page2_billNumberHint_4)
+    TextView mPage2BillNumberHint4;
+    @BindView(R.id.page2_billNumber_4)
+    TextView mPage2BillNumber4;
+
+    @BindView(R.id.page2_billDetails_4)
+    LinearLayout mPage2BillDetails4;
+    @BindView(R.id.page2_tableView_4)
+    LinearLayout mPage2TableView4;
+
+    @BindView(R.id.clientnotes2_4)
+    TextView mClientnotes24;
+    @BindView(R.id.Page2_TrodeNumberHint_4)
+    TextView mPage2TrodeNumberHint4;
+    @BindView(R.id.Page2_TrodeNumber_4)
+    TextView mPage2TrodeNumber4;
+    @BindView(R.id.page2_reciverDetails_4)
+    LinearLayout mPage2ReciverDetails4;
+    @BindView(R.id.page2_mobileHint_4)
+    TextView mPage2MobileHint4;
+    @BindView(R.id.page2_mobile_4)
+    TextView mPage2Mobile4;
+    @BindView(R.id.page2_receiverHint_4)
+    TextView mPage2ReceiverHint4;
+    @BindView(R.id.page2_receiver_4)
+    TextView mPage2Receiver4;
+    @BindView(R.id.page2_signatureHint_4)
+    TextView mPage2SignatureHint4;
+    @BindView(R.id.page2_signature_4)
+    TextView mPage2Signature4;
+    @BindView(R.id.page2_idNumberHint_4)
+    TextView mPage2IdNumberHint4;
+    @BindView(R.id.page2_idNumber_4)
+    TextView mPage2IdNumber4;
+
+    @BindView(R.id.page2_myView_5)
+    RelativeLayout mPage2MyView5;
+    @BindView(R.id.page2_billNumberHint_5)
+    TextView mPage2BillNumberHint5;
+    @BindView(R.id.page2_billNumber_5)
+    TextView mPage2BillNumber5;
+
+    @BindView(R.id.page2_billDetails_5)
+    LinearLayout mPage2BillDetails5;
+    @BindView(R.id.page2_tableView_5)
+    LinearLayout mPage2TableView5;
+
+    @BindView(R.id.clientnotes2_5)
+    TextView mClientnotes25;
+    @BindView(R.id.Page2_TrodeNumberHint_5)
+    TextView mPage2TrodeNumberHint5;
+    @BindView(R.id.Page2_TrodeNumber_5)
+    TextView mPage2TrodeNumber5;
+    @BindView(R.id.page2_reciverDetails_5)
+    LinearLayout mPage2ReciverDetails5;
+    @BindView(R.id.page2_mobileHint_5)
+    TextView mPage2MobileHint5;
+    @BindView(R.id.page2_mobile_5)
+    TextView mPage2Mobile5;
+    @BindView(R.id.page2_receiverHint_5)
+    TextView mPage2ReceiverHint5;
+    @BindView(R.id.page2_receiver_5)
+    TextView mPage2Receiver5;
+    @BindView(R.id.page2_signatureHint_5)
+    TextView mPage2SignatureHint5;
+    @BindView(R.id.page2_signature_5)
+    TextView mPage2Signature5;
+    @BindView(R.id.page2_idNumberHint_5)
+    TextView mPage2IdNumberHint5;
+    @BindView(R.id.page2_idNumber_5)
+    TextView mPage2IdNumber5;
+
+    @BindView(R.id.page2_myView_6)
+    RelativeLayout mPage2MyView6;
+    @BindView(R.id.page2_billNumberHint_6)
+    TextView mPage2BillNumberHint6;
+    @BindView(R.id.page2_billNumber_6)
+    TextView mPage2BillNumber6;
+
+    @BindView(R.id.page2_billDetails_6)
+    LinearLayout mPage2BillDetails6;
+    @BindView(R.id.page2_tableView_6)
+    LinearLayout mPage2TableView6;
+
+    @BindView(R.id.clientnotes2_6)
+    TextView mClientnotes26;
+    @BindView(R.id.Page2_TrodeNumberHint_6)
+    TextView mPage2TrodeNumberHint6;
+    @BindView(R.id.Page2_TrodeNumber_6)
+    TextView mPage2TrodeNumber6;
+    @BindView(R.id.page2_reciverDetails_6)
+    LinearLayout mPage2ReciverDetails6;
+    @BindView(R.id.page2_mobileHint_6)
+    TextView mPage2MobileHint6;
+    @BindView(R.id.page2_mobile_6)
+    TextView mPage2Mobile6;
+    @BindView(R.id.page2_receiverHint_6)
+    TextView mPage2ReceiverHint6;
+    @BindView(R.id.page2_receiver_6)
+    TextView mPage2Receiver6;
+    @BindView(R.id.page2_signatureHint_6)
+    TextView mPage2SignatureHint6;
+    @BindView(R.id.page2_signature_6)
+    TextView mPage2Signature6;
+    @BindView(R.id.page2_idNumberHint_6)
+    TextView mPage2IdNumberHint6;
+    @BindView(R.id.page2_idNumber_6)
+    TextView mPage2IdNumber6;
+
+    @BindView(R.id.page2_myView_7)
+    RelativeLayout mPage2MyView7;
+    @BindView(R.id.page2_billNumberHint_7)
+    TextView mPage2BillNumberHint7;
+    @BindView(R.id.page2_billNumber_7)
+    TextView mPage2BillNumber7;
+
+    @BindView(R.id.page2_billDetails_7)
+    LinearLayout mPage2BillDetails7;
+    @BindView(R.id.page2_tableView_7)
+    LinearLayout mPage2TableView7;
+
+    @BindView(R.id.clientnotes2_7)
+    TextView mClientnotes27;
+    @BindView(R.id.Page2_TrodeNumberHint_7)
+    TextView mPage2TrodeNumberHint7;
+    @BindView(R.id.Page2_TrodeNumber_7)
+    TextView mPage2TrodeNumber7;
+    @BindView(R.id.page2_reciverDetails_7)
+    LinearLayout mPage2ReciverDetails7;
+    @BindView(R.id.page2_mobileHint_7)
+    TextView mPage2MobileHint7;
+    @BindView(R.id.page2_mobile_7)
+    TextView mPage2Mobile7;
+    @BindView(R.id.page2_receiverHint_7)
+    TextView mPage2ReceiverHint7;
+    @BindView(R.id.page2_receiver_7)
+    TextView mPage2Receiver7;
+    @BindView(R.id.page2_signatureHint_7)
+    TextView mPage2SignatureHint7;
+    @BindView(R.id.page2_signature_7)
+    TextView mPage2Signature7;
+    @BindView(R.id.page2_idNumberHint_7)
+    TextView mPage2IdNumberHint7;
+    @BindView(R.id.page2_idNumber_7)
+    TextView mPage2IdNumber7;
+
+    @BindView(R.id.page2_myView_8)
+    RelativeLayout mPage2MyView8;
+    @BindView(R.id.page2_billNumberHint_8)
+    TextView mPage2BillNumberHint8;
+    @BindView(R.id.page2_billNumber_8)
+    TextView mPage2BillNumber8;
+
+    @BindView(R.id.page2_billDetails_8)
+    LinearLayout mPage2BillDetails8;
+    @BindView(R.id.page2_tableView_8)
+    LinearLayout mPage2TableView8;
+
+    @BindView(R.id.clientnotes2_8)
+    TextView mClientnotes28;
+    @BindView(R.id.Page2_TrodeNumberHint_8)
+    TextView mPage2TrodeNumberHint8;
+    @BindView(R.id.Page2_TrodeNumber_8)
+    TextView mPage2TrodeNumber8;
+    @BindView(R.id.page2_reciverDetails_8)
+    LinearLayout mPage2ReciverDetails8;
+    @BindView(R.id.page2_mobileHint_8)
+    TextView mPage2MobileHint8;
+    @BindView(R.id.page2_mobile_8)
+    TextView mPage2Mobile8;
+    @BindView(R.id.page2_receiverHint_8)
+    TextView mPage2ReceiverHint8;
+    @BindView(R.id.page2_receiver_8)
+    TextView mPage2Receiver8;
+    @BindView(R.id.page2_signatureHint_8)
+    TextView mPage2SignatureHint8;
+    @BindView(R.id.page2_signature_8)
+    TextView mPage2Signature8;
+    @BindView(R.id.page2_idNumberHint_8)
+    TextView mPage2IdNumberHint8;
+    @BindView(R.id.page2_idNumber_8)
+    TextView mPage2IdNumber8;
+
+    @BindView(R.id.page2_myView_9)
+    RelativeLayout mPage2MyView9;
+    @BindView(R.id.page2_billNumberHint_9)
+    TextView mPage2BillNumberHint9;
+    @BindView(R.id.page2_billNumber_9)
+    TextView mPage2BillNumber9;
+
+    @BindView(R.id.page2_billDetails_9)
+    LinearLayout mPage2BillDetails9;
+    @BindView(R.id.page2_tableView_9)
+    LinearLayout mPage2TableView9;
+
+    @BindView(R.id.clientnotes2_9)
+    TextView mClientnotes29;
+    @BindView(R.id.Page2_TrodeNumberHint_9)
+    TextView mPage2TrodeNumberHint9;
+    @BindView(R.id.Page2_TrodeNumber_9)
+    TextView mPage2TrodeNumber9;
+    @BindView(R.id.page2_reciverDetails_9)
+    LinearLayout mPage2ReciverDetails9;
+    @BindView(R.id.page2_mobileHint_9)
+    TextView mPage2MobileHint9;
+    @BindView(R.id.page2_mobile_9)
+    TextView mPage2Mobile9;
+    @BindView(R.id.page2_receiverHint_9)
+    TextView mPage2ReceiverHint9;
+    @BindView(R.id.page2_receiver_9)
+    TextView mPage2Receiver9;
+    @BindView(R.id.page2_signatureHint_9)
+    TextView mPage2SignatureHint9;
+    @BindView(R.id.page2_signature_9)
+    TextView mPage2Signature9;
+    @BindView(R.id.page2_idNumberHint_9)
+    TextView mPage2IdNumberHint9;
+    @BindView(R.id.page2_idNumber_9)
+    TextView mPage2IdNumber9;
+
+    /** ButterKnife Code **/
+
+
+
+
+
     @BindView(R.id.secretNumberHint)
     TextView mSecretNumberHint;
     @BindView(R.id.secretNumber)
     TextView mSecretNumber;
-
 
     /** ButterKnife Code **/
 
@@ -1323,6 +1631,9 @@ public class CreatePdfActivity extends AppCompatActivity {
         page2_date_senderTV.setTypeface(tf);
         page2_dateHint_nationalid.setTypeface(tf);
         page2_date_NationalIdTV.setTypeface(tf);
+
+
+
         clientNationalIdHint.setTypeface(tf);
         clientNationalId.setTypeface(tf);
 
@@ -1620,6 +1931,67 @@ public class CreatePdfActivity extends AppCompatActivity {
         mPage2Signature.setText(signature);
         mPage2IdNumber.setText(idNumber);
         mPage2BillNumber.setText(billNumber);
+
+
+
+        mPage2Mobile2.setText(mobileNumber);
+        mPage2Receiver2.setText(receiver);
+        mPage2Signature2.setText(signature);
+        mPage2IdNumber2.setText(idNumber);
+        mPage2BillNumber2.setText(billNumber);
+
+        mPage2Mobile3.setText(mobileNumber);
+        mPage2Receiver3.setText(receiver);
+        mPage2Signature3.setText(signature);
+        mPage2IdNumber3.setText(idNumber);
+        mPage2BillNumber3.setText(billNumber);
+
+        mPage2Mobile3.setText(mobileNumber);
+        mPage2Receiver3.setText(receiver);
+        mPage2Signature3.setText(signature);
+        mPage2IdNumber3.setText(idNumber);
+        mPage2BillNumber3.setText(billNumber);
+
+
+        mPage2Mobile4.setText(mobileNumber);
+        mPage2Receiver4.setText(receiver);
+        mPage2Signature4.setText(signature);
+        mPage2IdNumber4.setText(idNumber);
+        mPage2BillNumber4.setText(billNumber);
+
+        mPage2Mobile5.setText(mobileNumber);
+        mPage2Receiver5.setText(receiver);
+        mPage2Signature5.setText(signature);
+        mPage2IdNumber5.setText(idNumber);
+        mPage2BillNumber5.setText(billNumber);
+
+
+        mPage2Mobile6.setText(mobileNumber);
+        mPage2Receiver6.setText(receiver);
+        mPage2Signature6.setText(signature);
+        mPage2IdNumber6.setText(idNumber);
+        mPage2BillNumber6.setText(billNumber);
+
+
+        mPage2Mobile7.setText(mobileNumber);
+        mPage2Receiver7.setText(receiver);
+        mPage2Signature7.setText(signature);
+        mPage2IdNumber7.setText(idNumber);
+        mPage2BillNumber7.setText(billNumber);
+
+
+        mPage2Mobile8.setText(mobileNumber);
+        mPage2Receiver8.setText(receiver);
+        mPage2Signature8.setText(signature);
+        mPage2IdNumber8.setText(idNumber);
+        mPage2BillNumber8.setText(billNumber);
+
+        mPage2Mobile9.setText(mobileNumber);
+        mPage2Receiver9.setText(receiver);
+        mPage2Signature9.setText(signature);
+        mPage2IdNumber9.setText(idNumber);
+        mPage2BillNumber9.setText(billNumber);
+
 
         LayoutInflater layoutInflator1 = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mPage2TableView.removeAllViews();
