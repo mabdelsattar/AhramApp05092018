@@ -6388,6 +6388,2457 @@
 
             </RelativeLayout>
 
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:id="@+id/page2_myView_2"
+
+                android:visibility="invisible"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تابع فاتوره رقم : "
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/page2_billNumberHint_2"
+                            android:layout_toRightOf="@+id/page2_billNumber_2" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:id="@+id/page2_billNumber_2"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/page2_header"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/page2_verticalLine_2"
+                        android:background="@color/pageColor"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/page2_billDetails_2"
+                        android:layout_margin="5dp"
+                        android:layout_below="@+id/page2_verticalLine"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:id="@+id/page2_tableView_2"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="5dp"
+                        android:layout_above="@+id/page2_signatureDetails_2"
+                        android:id="@+id/page2_verticalLine2_2"
+                        android:background="@color/pageColor"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:minLines="1"
+                        android:textSize="10dp"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="قد إستلمت كامل الأغراض و هي بحالة جيدة ."/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:minLines="1"
+                        android:id="@+id/clientnotes2_2"
+                        android:textSize="11sp"
+                        android:textColor="#fd6926"
+                        android:textStyle="bold"
+                        android:text="الملاحظات يتم كتابه الملاحظات هنا"/>
+
+
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="عدد الطرود الكلي : "
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/Page2_TrodeNumberHint_2"
+                            android:layout_toRightOf="@+id/Page2_TrodeNumber_2" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:id="@+id/Page2_TrodeNumber_2"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/page2_reciverDetails_2"
+                        android:layout_above="@+id/page2_footer"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="الموبايل:"
+                                    android:id="@+id/page2_mobileHint_2"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_mobileHint_2"
+                                    android:text="..................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:id="@+id/page2_mobile_2"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="المستلم : "
+                                    android:id="@+id/page2_receiverHint_2"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_receiverHint_2"
+                                    android:text="..........................................................................................................................................................................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:id="@+id/page2_receiver_2"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="التوقيع:"
+                                    android:id="@+id/page2_signatureHint_2"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_signatureHint_2"
+                                    android:text="..........................................................................................................................................................................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:id="@+id/page2_signature_2"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="بطاقه رقم :"
+                                    android:id="@+id/page2_idNumberHint_2"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_idNumberHint_2"
+                                    android:text="..................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textStyle="bold"
+                                    android:textColor="#000000"
+                                    android:id="@+id/page2_idNumber_2"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="5dp"
+                        android:id="@+id/page2_verticalLine3_2"
+                        android:background="@color/pageColor"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_margin="5dp"
+                        android:id="@+id/page2_verticalLine4_2"
+                        android:background="@color/pageColor"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:id="@+id/page2_myView_3"
+
+                android:visibility="invisible"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تابع فاتوره رقم : "
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/page2_billNumberHint_3"
+                            android:layout_toRightOf="@+id/page2_billNumber_3" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:id="@+id/page2_billNumber_3"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/page2_header"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/page2_verticalLine_3"
+                        android:background="@color/pageColor"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/page2_billDetails_3"
+                        android:layout_margin="5dp"
+                        android:layout_below="@+id/page2_verticalLine"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:id="@+id/page2_tableView_3"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="5dp"
+                        android:layout_above="@+id/page2_signatureDetails_3"
+                        android:id="@+id/page2_verticalLine2_3"
+                        android:background="@color/pageColor"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:minLines="1"
+                        android:textSize="10dp"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="قد إستلمت كامل الأغراض و هي بحالة جيدة ."/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:minLines="1"
+                        android:id="@+id/clientnotes2_3"
+                        android:textSize="11sp"
+                        android:textColor="#fd6926"
+                        android:textStyle="bold"
+                        android:text="الملاحظات يتم كتابه الملاحظات هنا"/>
+
+
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="عدد الطرود الكلي : "
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/Page2_TrodeNumberHint_3"
+                            android:layout_toRightOf="@+id/Page2_TrodeNumber_3" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:id="@+id/Page2_TrodeNumber_3"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/page2_reciverDetails_3"
+                        android:layout_above="@+id/page2_footer"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="الموبايل:"
+                                    android:id="@+id/page2_mobileHint_3"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_mobileHint_3"
+                                    android:text="..................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:id="@+id/page2_mobile_3"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="المستلم : "
+                                    android:id="@+id/page2_receiverHint_3"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_receiverHint_3"
+                                    android:text="..........................................................................................................................................................................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:id="@+id/page2_receiver_3"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="التوقيع:"
+                                    android:id="@+id/page2_signatureHint_3"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_signatureHint_3"
+                                    android:text="..........................................................................................................................................................................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:id="@+id/page2_signature_3"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="بطاقه رقم :"
+                                    android:id="@+id/page2_idNumberHint_3"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_idNumberHint_3"
+                                    android:text="..................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textStyle="bold"
+                                    android:textColor="#000000"
+                                    android:id="@+id/page2_idNumber_3"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="5dp"
+                        android:id="@+id/page2_verticalLine3_3"
+                        android:background="@color/pageColor"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_margin="5dp"
+                        android:id="@+id/page2_verticalLine4_3"
+                        android:background="@color/pageColor"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:id="@+id/page2_myView_4"
+
+                android:visibility="invisible"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تابع فاتوره رقم : "
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/page2_billNumberHint_4"
+                            android:layout_toRightOf="@+id/page2_billNumber_4" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:id="@+id/page2_billNumber_4"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/page2_header"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/page2_verticalLine_4"
+                        android:background="@color/pageColor"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/page2_billDetails_4"
+                        android:layout_margin="5dp"
+                        android:layout_below="@+id/page2_verticalLine"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:id="@+id/page2_tableView_4"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="5dp"
+                        android:layout_above="@+id/page2_signatureDetails_4"
+                        android:id="@+id/page2_verticalLine2_4"
+                        android:background="@color/pageColor"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:minLines="1"
+                        android:textSize="10dp"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="قد إستلمت كامل الأغراض و هي بحالة جيدة ."/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:minLines="1"
+                        android:id="@+id/clientnotes2_4"
+                        android:textSize="11sp"
+                        android:textColor="#fd6926"
+                        android:textStyle="bold"
+                        android:text="الملاحظات يتم كتابه الملاحظات هنا"/>
+
+
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="عدد الطرود الكلي : "
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/Page2_TrodeNumberHint_4"
+                            android:layout_toRightOf="@+id/Page2_TrodeNumber_4" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:id="@+id/Page2_TrodeNumber_4"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/page2_reciverDetails_4"
+                        android:layout_above="@+id/page2_footer"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="الموبايل:"
+                                    android:id="@+id/page2_mobileHint_4"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_mobileHint_4"
+                                    android:text="..................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:id="@+id/page2_mobile_4"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="المستلم : "
+                                    android:id="@+id/page2_receiverHint_4"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_receiverHint_4"
+                                    android:text="..........................................................................................................................................................................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:id="@+id/page2_receiver_4"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="التوقيع:"
+                                    android:id="@+id/page2_signatureHint_4"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_signatureHint_4"
+                                    android:text="..........................................................................................................................................................................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:id="@+id/page2_signature_4"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="بطاقه رقم :"
+                                    android:id="@+id/page2_idNumberHint_4"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_idNumberHint_4"
+                                    android:text="..................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textStyle="bold"
+                                    android:textColor="#000000"
+                                    android:id="@+id/page2_idNumber_4"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="5dp"
+                        android:id="@+id/page2_verticalLine3_4"
+                        android:background="@color/pageColor"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_margin="5dp"
+                        android:id="@+id/page2_verticalLine4_4"
+                        android:background="@color/pageColor"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:id="@+id/page2_myView_5"
+
+                android:visibility="invisible"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تابع فاتوره رقم : "
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/page2_billNumberHint_5"
+                            android:layout_toRightOf="@+id/page2_billNumber_5" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:id="@+id/page2_billNumber_5"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/page2_header"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/page2_verticalLine_5"
+                        android:background="@color/pageColor"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/page2_billDetails_5"
+                        android:layout_margin="5dp"
+                        android:layout_below="@+id/page2_verticalLine"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:id="@+id/page2_tableView_5"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="5dp"
+                        android:layout_above="@+id/page2_signatureDetails_5"
+                        android:id="@+id/page2_verticalLine2_5"
+                        android:background="@color/pageColor"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:minLines="1"
+                        android:textSize="10dp"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="قد إستلمت كامل الأغراض و هي بحالة جيدة ."/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:minLines="1"
+                        android:id="@+id/clientnotes2_5"
+                        android:textSize="11sp"
+                        android:textColor="#fd6926"
+                        android:textStyle="bold"
+                        android:text="الملاحظات يتم كتابه الملاحظات هنا"/>
+
+
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="عدد الطرود الكلي : "
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/Page2_TrodeNumberHint_5"
+                            android:layout_toRightOf="@+id/Page2_TrodeNumber_5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:id="@+id/Page2_TrodeNumber_5"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/page2_reciverDetails_5"
+                        android:layout_above="@+id/page2_footer"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="الموبايل:"
+                                    android:id="@+id/page2_mobileHint_5"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_mobileHint_5"
+                                    android:text="..................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:id="@+id/page2_mobile_5"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="المستلم : "
+                                    android:id="@+id/page2_receiverHint_5"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_receiverHint_5"
+                                    android:text="..........................................................................................................................................................................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:id="@+id/page2_receiver_5"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="التوقيع:"
+                                    android:id="@+id/page2_signatureHint_5"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_signatureHint_5"
+                                    android:text="..........................................................................................................................................................................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:id="@+id/page2_signature_5"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="بطاقه رقم :"
+                                    android:id="@+id/page2_idNumberHint_5"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_idNumberHint_5"
+                                    android:text="..................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textStyle="bold"
+                                    android:textColor="#000000"
+                                    android:id="@+id/page2_idNumber_5"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="5dp"
+                        android:id="@+id/page2_verticalLine3_5"
+                        android:background="@color/pageColor"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_margin="5dp"
+                        android:id="@+id/page2_verticalLine4_5"
+                        android:background="@color/pageColor"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:id="@+id/page2_myView_6"
+
+                android:visibility="invisible"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تابع فاتوره رقم : "
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/page2_billNumberHint_6"
+                            android:layout_toRightOf="@+id/page2_billNumber_6" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:id="@+id/page2_billNumber_6"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/page2_header"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/page2_verticalLine_6"
+                        android:background="@color/pageColor"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/page2_billDetails_6"
+                        android:layout_margin="5dp"
+                        android:layout_below="@+id/page2_verticalLine"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:id="@+id/page2_tableView_6"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="5dp"
+                        android:layout_above="@+id/page2_signatureDetails_6"
+                        android:id="@+id/page2_verticalLine2_6"
+                        android:background="@color/pageColor"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:minLines="1"
+                        android:textSize="10dp"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="قد إستلمت كامل الأغراض و هي بحالة جيدة ."/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:minLines="1"
+                        android:id="@+id/clientnotes2_6"
+                        android:textSize="11sp"
+                        android:textColor="#fd6926"
+                        android:textStyle="bold"
+                        android:text="الملاحظات يتم كتابه الملاحظات هنا"/>
+
+
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="عدد الطرود الكلي : "
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/Page2_TrodeNumberHint_6"
+                            android:layout_toRightOf="@+id/Page2_TrodeNumber_6" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:id="@+id/Page2_TrodeNumber_6"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/page2_reciverDetails_6"
+                        android:layout_above="@+id/page2_footer"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="الموبايل:"
+                                    android:id="@+id/page2_mobileHint_6"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_mobileHint_6"
+                                    android:text="..................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:id="@+id/page2_mobile_6"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="المستلم : "
+                                    android:id="@+id/page2_receiverHint_6"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_receiverHint_6"
+                                    android:text="..........................................................................................................................................................................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:id="@+id/page2_receiver_6"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="التوقيع:"
+                                    android:id="@+id/page2_signatureHint_6"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_signatureHint_6"
+                                    android:text="..........................................................................................................................................................................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:id="@+id/page2_signature_6"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="بطاقه رقم :"
+                                    android:id="@+id/page2_idNumberHint_6"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_idNumberHint_6"
+                                    android:text="..................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textStyle="bold"
+                                    android:textColor="#000000"
+                                    android:id="@+id/page2_idNumber_6"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="5dp"
+                        android:id="@+id/page2_verticalLine3_6"
+                        android:background="@color/pageColor"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_margin="5dp"
+                        android:id="@+id/page2_verticalLine4_6"
+                        android:background="@color/pageColor"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:id="@+id/page2_myView_7"
+
+                android:visibility="invisible"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تابع فاتوره رقم : "
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/page2_billNumberHint_7"
+                            android:layout_toRightOf="@+id/page2_billNumber_7" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:id="@+id/page2_billNumber_7"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/page2_header"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/page2_verticalLine_7"
+                        android:background="@color/pageColor"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/page2_billDetails_7"
+                        android:layout_margin="5dp"
+                        android:layout_below="@+id/page2_verticalLine"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:id="@+id/page2_tableView_7"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="5dp"
+                        android:layout_above="@+id/page2_signatureDetails_7"
+                        android:id="@+id/page2_verticalLine2_7"
+                        android:background="@color/pageColor"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:minLines="1"
+                        android:textSize="10dp"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="قد إستلمت كامل الأغراض و هي بحالة جيدة ."/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:minLines="1"
+                        android:id="@+id/clientnotes2_7"
+                        android:textSize="11sp"
+                        android:textColor="#fd6926"
+                        android:textStyle="bold"
+                        android:text="الملاحظات يتم كتابه الملاحظات هنا"/>
+
+
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="عدد الطرود الكلي : "
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/Page2_TrodeNumberHint_7"
+                            android:layout_toRightOf="@+id/Page2_TrodeNumber_7" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:id="@+id/Page2_TrodeNumber_7"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/page2_reciverDetails_7"
+                        android:layout_above="@+id/page2_footer"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="الموبايل:"
+                                    android:id="@+id/page2_mobileHint_7"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_mobileHint_7"
+                                    android:text="..................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:id="@+id/page2_mobile_7"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="المستلم : "
+                                    android:id="@+id/page2_receiverHint_7"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_receiverHint_7"
+                                    android:text="..........................................................................................................................................................................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:id="@+id/page2_receiver_7"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="التوقيع:"
+                                    android:id="@+id/page2_signatureHint_7"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_signatureHint_7"
+                                    android:text="..........................................................................................................................................................................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:id="@+id/page2_signature_7"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="بطاقه رقم :"
+                                    android:id="@+id/page2_idNumberHint_7"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_idNumberHint_7"
+                                    android:text="..................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textStyle="bold"
+                                    android:textColor="#000000"
+                                    android:id="@+id/page2_idNumber_7"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="5dp"
+                        android:id="@+id/page2_verticalLine3_7"
+                        android:background="@color/pageColor"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_margin="5dp"
+                        android:id="@+id/page2_verticalLine4_7"
+                        android:background="@color/pageColor"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:id="@+id/page2_myView_8"
+
+                android:visibility="invisible"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تابع فاتوره رقم : "
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/page2_billNumberHint_8"
+                            android:layout_toRightOf="@+id/page2_billNumber_8" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:id="@+id/page2_billNumber_8"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/page2_header"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/page2_verticalLine_8"
+                        android:background="@color/pageColor"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/page2_billDetails_8"
+                        android:layout_margin="5dp"
+                        android:layout_below="@+id/page2_verticalLine"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:id="@+id/page2_tableView_8"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="5dp"
+                        android:layout_above="@+id/page2_signatureDetails_8"
+                        android:id="@+id/page2_verticalLine2_8"
+                        android:background="@color/pageColor"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:minLines="1"
+                        android:textSize="10dp"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="قد إستلمت كامل الأغراض و هي بحالة جيدة ."/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:minLines="1"
+                        android:id="@+id/clientnotes2_8"
+                        android:textSize="11sp"
+                        android:textColor="#fd6926"
+                        android:textStyle="bold"
+                        android:text="الملاحظات يتم كتابه الملاحظات هنا"/>
+
+
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="عدد الطرود الكلي : "
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/Page2_TrodeNumberHint_8"
+                            android:layout_toRightOf="@+id/Page2_TrodeNumber_8" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:id="@+id/Page2_TrodeNumber_8"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/page2_reciverDetails_8"
+                        android:layout_above="@+id/page2_footer"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="الموبايل:"
+                                    android:id="@+id/page2_mobileHint_8"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_mobileHint_8"
+                                    android:text="..................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:id="@+id/page2_mobile_8"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="المستلم : "
+                                    android:id="@+id/page2_receiverHint_8"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_receiverHint_8"
+                                    android:text="..........................................................................................................................................................................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:id="@+id/page2_receiver_8"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="التوقيع:"
+                                    android:id="@+id/page2_signatureHint_8"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_signatureHint_8"
+                                    android:text="..........................................................................................................................................................................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:id="@+id/page2_signature_8"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="بطاقه رقم :"
+                                    android:id="@+id/page2_idNumberHint_8"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_idNumberHint_8"
+                                    android:text="..................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textStyle="bold"
+                                    android:textColor="#000000"
+                                    android:id="@+id/page2_idNumber_8"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="5dp"
+                        android:id="@+id/page2_verticalLine3_8"
+                        android:background="@color/pageColor"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_margin="5dp"
+                        android:id="@+id/page2_verticalLine4_8"
+                        android:background="@color/pageColor"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:id="@+id/page2_myView_9"
+
+                android:visibility="invisible"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تابع فاتوره رقم : "
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/page2_billNumberHint_9"
+                            android:layout_toRightOf="@+id/page2_billNumber_9" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:id="@+id/page2_billNumber_9"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/page2_header"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/page2_verticalLine_9"
+                        android:background="@color/pageColor"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/page2_billDetails_9"
+                        android:layout_margin="5dp"
+                        android:layout_below="@+id/page2_verticalLine"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:id="@+id/page2_tableView_9"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="5dp"
+                        android:layout_above="@+id/page2_signatureDetails_9"
+                        android:id="@+id/page2_verticalLine2_9"
+                        android:background="@color/pageColor"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:minLines="1"
+                        android:textSize="10dp"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:text="قد إستلمت كامل الأغراض و هي بحالة جيدة ."/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:minLines="1"
+                        android:id="@+id/clientnotes2_9"
+                        android:textSize="11sp"
+                        android:textColor="#fd6926"
+                        android:textStyle="bold"
+                        android:text="الملاحظات يتم كتابه الملاحظات هنا"/>
+
+
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="عدد الطرود الكلي : "
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/Page2_TrodeNumberHint_9"
+                            android:layout_toRightOf="@+id/Page2_TrodeNumber_9" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:id="@+id/Page2_TrodeNumber_9"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/page2_reciverDetails_9"
+                        android:layout_above="@+id/page2_footer"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="الموبايل:"
+                                    android:id="@+id/page2_mobileHint_9"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_mobileHint_9"
+                                    android:text="..................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:id="@+id/page2_mobile_9"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="المستلم : "
+                                    android:id="@+id/page2_receiverHint_9"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_receiverHint_9"
+                                    android:text="..........................................................................................................................................................................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:id="@+id/page2_receiver_9"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="التوقيع:"
+                                    android:id="@+id/page2_signatureHint_9"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_signatureHint_9"
+                                    android:text="..........................................................................................................................................................................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:id="@+id/page2_signature_9"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="بطاقه رقم :"
+                                    android:id="@+id/page2_idNumberHint_9"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_toLeftOf="@+id/page2_idNumberHint_9"
+                                    android:text="..................................................................."
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:textStyle="bold"
+                                    android:textColor="#000000"
+                                    android:id="@+id/page2_idNumber_9"
+                                    android:textSize="10dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"/>
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="5dp"
+                        android:id="@+id/page2_verticalLine3_9"
+                        android:background="@color/pageColor"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_margin="5dp"
+                        android:id="@+id/page2_verticalLine4_9"
+                        android:background="@color/pageColor"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+
+
+
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="vertical"
