@@ -5705,7 +5705,7 @@
                 android:layout_width="match_parent"
                 android:id="@+id/page2_myView"
 
-                android:visibility="invisible"
+                android:visibility="visible"
                 android:layout_height="match_parent">
                 <LinearLayout
                     android:layout_width="match_parent"

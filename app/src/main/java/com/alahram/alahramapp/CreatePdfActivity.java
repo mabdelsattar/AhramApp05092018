@@ -2025,7 +2025,39 @@ public class CreatePdfActivity extends AppCompatActivity {
             page2_item2.setText(data.get(i+1).getOrdername());
 
             child.setTag(i);
+
+
             mPage2TableView.addView(child);
+
+
+
+
+
+
+
+
+            if (i>=0 && i<=19) {
+                mPage2TableView.addView(child);
+            }
+            else if (i>=20 && i<=39) {
+                mPage2TableView2.addView(child);
+            }
+            else if (i>=40 && i<=59) {
+                mPage2TrodeNumber2.setVisibility(View.GONE);
+                mPage2TrodeNumberHint2.setVisibility(View.GONE);
+                mPage2TableView3.addView(child);
+            }
+            else if (i>=60 && i<=89) {
+                mPage2TrodeNumber3.setVisibility(View.GONE);
+                mPage2TrodeNumberHint3.setVisibility(View.GONE);
+                mPage2TableView4.addView(child);
+            }
+            else if (i>=90 && i<=109) {
+                mPage2TrodeNumber4.setVisibility(View.GONE);
+                mPage2TrodeNumberHint4.setVisibility(View.GONE);
+                mPage2TableView5.addView(child);
+            }
+
         }
 
         if (data.size()%2!=0)
@@ -2041,8 +2073,32 @@ public class CreatePdfActivity extends AppCompatActivity {
             page2_item2.setText("");
             page2_item2Number.setText("");
             child.setTag(data.size()-1);
-            mPage2TableView.addView(child);
+//            mPage2TableView.addView(child);
+
+            int i=data.size()-1;
+            if (i>=0 && i<=19) {
+                mPage2TableView.addView(child);
+            }
+            else if (i>=20 && i<=39) {
+                mPage2TableView2.addView(child);
+            }
+            else if (i>=40 && i<=59) {
+                mPage2TrodeNumber2.setVisibility(View.GONE);
+                mPage2TrodeNumberHint2.setVisibility(View.GONE);
+                mPage2TableView3.addView(child);
+            }
+            else if (i>=60 && i<=89) {
+                mPage2TrodeNumber3.setVisibility(View.GONE);
+                mPage2TrodeNumberHint3.setVisibility(View.GONE);
+                mPage2TableView4.addView(child);
+            }
+            else if (i>=90 && i<=109) {
+                mPage2TrodeNumber4.setVisibility(View.GONE);
+                mPage2TrodeNumberHint4.setVisibility(View.GONE);
+                mPage2TableView5.addView(child);
+            }
         }
+
     }
 
     private void bindDataToStickersView(String content)
@@ -2531,18 +2587,80 @@ public class CreatePdfActivity extends AppCompatActivity {
 
         PdfDocument document = new PdfDocument();
 
-        Bitmap bitmap;
-        PdfDocument.PageInfo pageInfo;
-        PdfDocument.Page page;
-        Canvas canvas;
 
-        bitmap= getBitmapImageOfView(this.getWindow().findViewById(R.id.page2_myView));
-        pageInfo = new PdfDocument.PageInfo.Builder(bitmap.getWidth(), bitmap.getHeight(), 1).create();
-        page = document.startPage(pageInfo);
-        canvas = page.getCanvas();
-        bitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
-        canvas.drawBitmap(bitmap, 0, 0 , null);
-        document.finishPage(page);
+
+
+        if (true) {
+            Bitmap bitmap;
+            PdfDocument.PageInfo pageInfo;
+            PdfDocument.Page page;
+            Canvas canvas;
+
+            bitmap= getBitmapImageOfView(this.getWindow().findViewById(R.id.page2_myView));
+            pageInfo = new PdfDocument.PageInfo.Builder(bitmap.getWidth(), bitmap.getHeight(), 1).create();
+            page = document.startPage(pageInfo);
+            canvas = page.getCanvas();
+            bitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
+            canvas.drawBitmap(bitmap, 0, 0 , null);
+            document.finishPage(page);
+        }
+        else if (data.size()>=20) {
+            Bitmap bitmap;
+            PdfDocument.PageInfo pageInfo;
+            PdfDocument.Page page;
+            Canvas canvas;
+
+            bitmap= getBitmapImageOfView(this.getWindow().findViewById(R.id.page2_myView_2));
+            pageInfo = new PdfDocument.PageInfo.Builder(bitmap.getWidth(), bitmap.getHeight(), 1).create();
+            page = document.startPage(pageInfo);
+            canvas = page.getCanvas();
+            bitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
+            canvas.drawBitmap(bitmap, 0, 0 , null);
+            document.finishPage(page);
+        }
+        else if (data.size()>=40 ) {
+            Bitmap bitmap;
+            PdfDocument.PageInfo pageInfo;
+            PdfDocument.Page page;
+            Canvas canvas;
+
+            bitmap= getBitmapImageOfView(this.getWindow().findViewById(R.id.page2_myView_3));
+            pageInfo = new PdfDocument.PageInfo.Builder(bitmap.getWidth(), bitmap.getHeight(), 1).create();
+            page = document.startPage(pageInfo);
+            canvas = page.getCanvas();
+            bitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
+            canvas.drawBitmap(bitmap, 0, 0 , null);
+            document.finishPage(page);
+        }
+        else if (data.size()>=60) {
+            Bitmap bitmap;
+            PdfDocument.PageInfo pageInfo;
+            PdfDocument.Page page;
+            Canvas canvas;
+
+            bitmap= getBitmapImageOfView(this.getWindow().findViewById(R.id.page2_myView_4));
+            pageInfo = new PdfDocument.PageInfo.Builder(bitmap.getWidth(), bitmap.getHeight(), 1).create();
+            page = document.startPage(pageInfo);
+            canvas = page.getCanvas();
+            bitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
+            canvas.drawBitmap(bitmap, 0, 0 , null);
+            document.finishPage(page);
+        }
+        else if (data.size()>=90 ) {
+            Bitmap bitmap;
+            PdfDocument.PageInfo pageInfo;
+            PdfDocument.Page page;
+            Canvas canvas;
+
+            bitmap= getBitmapImageOfView(this.getWindow().findViewById(R.id.page2_myView_5));
+            pageInfo = new PdfDocument.PageInfo.Builder(bitmap.getWidth(), bitmap.getHeight(), 1).create();
+            page = document.startPage(pageInfo);
+            canvas = page.getCanvas();
+            bitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
+            canvas.drawBitmap(bitmap, 0, 0 , null);
+            document.finishPage(page);
+        }
+
 
         File root = new File(Environment.getExternalStorageDirectory(), "AlAhram");
         if (!root.exists()) {
