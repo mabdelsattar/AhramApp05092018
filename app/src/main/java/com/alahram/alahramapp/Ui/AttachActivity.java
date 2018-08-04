@@ -97,7 +97,6 @@ public class AttachActivity extends AppCompatActivity {
 
                 if(etPaid.getText().toString().equals("") || etPaid.getText().toString().equals("null")
                         || etRemain.getText().toString().equals("") || etRemain.getText().toString().equals("null"))
-
                 {
                  Toast.makeText(getApplicationContext(),"يجب اضافة المدفوع والمتبقي اولا",Toast.LENGTH_LONG).show();
                 }

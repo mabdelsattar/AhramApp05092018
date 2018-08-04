@@ -74,6 +74,7 @@ public class CreatePdfActivity extends AppCompatActivity {
     RequestQueue requestQueue;
     String filerecieverName= "";
     String more="";
+    int RequestId;
 
 
     /** ButterKnife Code **/
@@ -806,8 +807,7 @@ public class CreatePdfActivity extends AppCompatActivity {
     /** ButterKnife Code **/
     @BindView(R.id.myView_2)
     RelativeLayout mMyView2;
-    @BindView(R.id.header_2)
-    LinearLayout mHeader2;
+
     @BindView(R.id.billNumberHint_2)
     TextView mBillNumberHint2;
     @BindView(R.id.billNumber_2)
@@ -878,8 +878,7 @@ public class CreatePdfActivity extends AppCompatActivity {
     TextView mLine22;
     @BindView(R.id.myView_3)
     RelativeLayout mMyView3;
-    @BindView(R.id.header_3)
-    LinearLayout mHeader3;
+
     @BindView(R.id.billNumberHint_3)
     TextView mBillNumberHint3;
     @BindView(R.id.billNumber_3)
@@ -950,8 +949,7 @@ public class CreatePdfActivity extends AppCompatActivity {
     TextView mLine23;
     @BindView(R.id.myView_4)
     RelativeLayout mMyView4;
-    @BindView(R.id.header_4)
-    LinearLayout mHeader4;
+
     @BindView(R.id.billNumberHint_4)
     TextView mBillNumberHint4;
     @BindView(R.id.billNumber_4)
@@ -1022,8 +1020,7 @@ public class CreatePdfActivity extends AppCompatActivity {
     TextView mLine24;
     @BindView(R.id.myView_5)
     RelativeLayout mMyView5;
-    @BindView(R.id.header_5)
-    LinearLayout mHeader5;
+
     @BindView(R.id.billNumberHint_5)
     TextView mBillNumberHint5;
     @BindView(R.id.billNumber_5)
@@ -1094,8 +1091,7 @@ public class CreatePdfActivity extends AppCompatActivity {
     TextView mLine25;
     @BindView(R.id.myView_6)
     RelativeLayout mMyView6;
-    @BindView(R.id.header_6)
-    LinearLayout mHeader6;
+
     @BindView(R.id.billNumberHint_6)
     TextView mBillNumberHint6;
     @BindView(R.id.billNumber_6)
@@ -1166,8 +1162,7 @@ public class CreatePdfActivity extends AppCompatActivity {
     TextView mLine26;
     @BindView(R.id.myView_7)
     RelativeLayout mMyView7;
-    @BindView(R.id.header_7)
-    LinearLayout mHeader7;
+
     @BindView(R.id.billNumberHint_7)
     TextView mBillNumberHint7;
     @BindView(R.id.billNumber_7)
@@ -1238,8 +1233,7 @@ public class CreatePdfActivity extends AppCompatActivity {
     TextView mLine27;
     @BindView(R.id.myView_8)
     RelativeLayout mMyView8;
-    @BindView(R.id.header_8)
-    LinearLayout mHeader8;
+
     @BindView(R.id.billNumberHint_8)
     TextView mBillNumberHint8;
     @BindView(R.id.billNumber_8)
@@ -1310,8 +1304,7 @@ public class CreatePdfActivity extends AppCompatActivity {
     TextView mLine28;
     @BindView(R.id.myView_9)
     RelativeLayout mMyView9;
-    @BindView(R.id.header_9)
-    LinearLayout mHeader9;
+
     @BindView(R.id.billNumberHint_9)
     TextView mBillNumberHint9;
     @BindView(R.id.billNumber_9)
@@ -1434,14 +1427,14 @@ public class CreatePdfActivity extends AppCompatActivity {
         mLine28.setTypeface(tf);
         mLine29.setTypeface(tf);
 
-        mBillNumber2.setTypeface(tf);
+     /*   mBillNumber2.setTypeface(tf);
         mBillNumber3.setTypeface(tf);
         mBillNumber4.setTypeface(tf);
         mBillNumber5.setTypeface(tf);
         mBillNumber6.setTypeface(tf);
         mBillNumber7.setTypeface(tf);
         mBillNumber8.setTypeface(tf);
-        mBillNumber9.setTypeface(tf);
+        mBillNumber9.setTypeface(tf);*/
 
 
 
@@ -1649,23 +1642,28 @@ public class CreatePdfActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        forceRTLIfSupported();
+
         setContentView(R.layout.activity_print_pdf);
+
+        forceRTLIfSupported();
+        RelativeLayout pageView = (RelativeLayout) findViewById(R.id.pageView);
+        pageView.bringToFront();
+
         btnRecieve =(Button)findViewById(R.id.btnReciever);
 
         requestQueue = RequestQueueSingleton.getInstance(CreatePdfActivity.this)
                 .getRequestQueue();
 
-        ButterKnife.bind(this);
+//        ButterKnife.bind(this);
         mpreference=new Preferences(this);
-        mPageView.bringToFront();
-        setFontToTextView();
-        mMyRootView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return true;
-            }
-        });
+//        mPageView.bringToFront();
+//        setFontToTextView();
+//        mMyRootView.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                return true;
+//            }
+//        });
         Bundle bundle = getIntent().getExtras();
 
         ArrayList<AddRequestModel> allData = (ArrayList<AddRequestModel>) bundle.getSerializable("dataList");
@@ -1694,16 +1692,17 @@ public class CreatePdfActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        billNumber=String.valueOf(getRandomBillNumber())+" كود سري: "+mpreference.getSecretNum();
+      //  لفقاقفاق
+      //  billNumber=String.valueOf(getRandomBillNumber())+" كود سري: "+mpreference.getSecretNum();
         trodeNumber = String.valueOf(data.size()) + " طرد " ;
 
-        bindDataToStickersView("");
-        bindDataToBill1();
-        bindDataToBill2();
+//       bindDataToStickersView("");
+//        bindDataToBill1();
+//        bindDataToBill2();
 
     }
     String trodeNumber;
-    String billNumber;
+   // String billNumber;
     private void  bindDataToBill1()
     {
 
@@ -1713,6 +1712,9 @@ public class CreatePdfActivity extends AppCompatActivity {
 
         String clientNationalIdStr = mpreference.getClientNationalId();
         clientNationalId.setText(clientNationalIdStr);
+
+        clientNationalIdHint.setVisibility(View.GONE);
+        clientNationalId.setVisibility(View.GONE);
 
         if(mpreference.getClientPhoneEgy().equals(null) || mpreference.getClientPhoneEgy().equals(""))
         {}
@@ -1738,14 +1740,7 @@ public class CreatePdfActivity extends AppCompatActivity {
         String signature2="";
 
 
-        mPage2BillNumber2.setText(billNumber);
-        mPage2BillNumber3.setText(billNumber);
-        mPage2BillNumber4.setText(billNumber);
-        mPage2BillNumber5.setText(billNumber);
-        mPage2BillNumber6.setText(billNumber);
-        mPage2BillNumber7.setText(billNumber);
-        mPage2BillNumber8.setText(billNumber);
-        mPage2BillNumber9.setText(billNumber);
+
 
         mTrodeNumber.setText(trodeNumber);
         mTrodeNumber2.setText(trodeNumber);
@@ -1846,7 +1841,7 @@ public class CreatePdfActivity extends AppCompatActivity {
             if(!data.get(i).getOrderprice().equals(""))
             totalTextView.setText(String.valueOf((data.get(i).getCounter() * (Integer.valueOf(data.get(i).getOrderprice()))))+ currencyUnit );
 
-            trodeTextView.setText(String.valueOf(data.get(i).getTrode()));
+           //trodeTextView.setText(String.valueOf(data.get(i).getTrode()));
 
             child.setTag(i);
             child.setBackgroundColor(Color.WHITE);
@@ -1894,6 +1889,8 @@ public class CreatePdfActivity extends AppCompatActivity {
                 mTableItem9.addView(child);
             }
         }
+
+
     }
 
     private void bindDataToBill2()
@@ -1912,6 +1909,9 @@ public class CreatePdfActivity extends AppCompatActivity {
 
         String clientNationalidStr =mpreference.getClientNationalId();
         page2_date_NationalIdTV.setText(clientNationalidStr);
+
+       // page2_dateHint_nationalid.setVisibility(View.GONE);
+       // page2_date_NationalIdTV.setVisibility(View.GONE);
 
         clientnotes2.setText(Notes);
         if(mpreference.getReciverPhoneKsa().equals(null) || mpreference.getReciverPhoneKsa().equals(""))
@@ -1932,7 +1932,6 @@ public class CreatePdfActivity extends AppCompatActivity {
         mPage2Receiver.setText(receiver);
         mPage2Signature.setText(signature);
         mPage2IdNumber.setText(idNumber);
-        mPage2BillNumber.setText(billNumber);
 
 
 
@@ -1952,59 +1951,50 @@ public class CreatePdfActivity extends AppCompatActivity {
         mPage2Receiver2.setText(receiver);
         mPage2Signature2.setText(signature);
         mPage2IdNumber2.setText(idNumber);
-        mPage2BillNumber2.setText(billNumber);
 
         mPage2Mobile3.setText(mobileNumber);
         mPage2Receiver3.setText(receiver);
         mPage2Signature3.setText(signature);
         mPage2IdNumber3.setText(idNumber);
-        mPage2BillNumber3.setText(billNumber);
 
         mPage2Mobile3.setText(mobileNumber);
         mPage2Receiver3.setText(receiver);
         mPage2Signature3.setText(signature);
         mPage2IdNumber3.setText(idNumber);
-        mPage2BillNumber3.setText(billNumber);
 
 
         mPage2Mobile4.setText(mobileNumber);
         mPage2Receiver4.setText(receiver);
         mPage2Signature4.setText(signature);
         mPage2IdNumber4.setText(idNumber);
-        mPage2BillNumber4.setText(billNumber);
 
         mPage2Mobile5.setText(mobileNumber);
         mPage2Receiver5.setText(receiver);
         mPage2Signature5.setText(signature);
         mPage2IdNumber5.setText(idNumber);
-        mPage2BillNumber5.setText(billNumber);
 
 
         mPage2Mobile6.setText(mobileNumber);
         mPage2Receiver6.setText(receiver);
         mPage2Signature6.setText(signature);
         mPage2IdNumber6.setText(idNumber);
-        mPage2BillNumber6.setText(billNumber);
 
 
         mPage2Mobile7.setText(mobileNumber);
         mPage2Receiver7.setText(receiver);
         mPage2Signature7.setText(signature);
         mPage2IdNumber7.setText(idNumber);
-        mPage2BillNumber7.setText(billNumber);
 
 
         mPage2Mobile8.setText(mobileNumber);
         mPage2Receiver8.setText(receiver);
         mPage2Signature8.setText(signature);
         mPage2IdNumber8.setText(idNumber);
-        mPage2BillNumber8.setText(billNumber);
 
         mPage2Mobile9.setText(mobileNumber);
         mPage2Receiver9.setText(receiver);
         mPage2Signature9.setText(signature);
         mPage2IdNumber9.setText(idNumber);
-        mPage2BillNumber9.setText(billNumber);
 
 
         LayoutInflater layoutInflator1 = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -2027,7 +2017,7 @@ public class CreatePdfActivity extends AppCompatActivity {
             child.setTag(i);
 
 
-            mPage2TableView.addView(child);
+//            mPage2TableView.addView(child);
 
 
 
@@ -2098,7 +2088,14 @@ public class CreatePdfActivity extends AppCompatActivity {
                 mPage2TableView5.addView(child);
             }
         }
-
+        mClientnotes22.setVisibility(View.GONE);
+        mClientnotes23.setVisibility(View.GONE);
+        mClientnotes24.setVisibility(View.GONE);
+        mClientnotes25.setVisibility(View.GONE);
+        mClientnotes26.setVisibility(View.GONE);
+        mClientnotes27.setVisibility(View.GONE);
+        mClientnotes28.setVisibility(View.GONE);
+        mClientnotes29.setVisibility(View.GONE);
     }
 
     private void bindDataToStickersView(String content)
@@ -2163,12 +2160,10 @@ public class CreatePdfActivity extends AppCompatActivity {
         mPage3SenderName3.setText(stickersSenderName);
     }
 
-    public int getRandomBillNumber() {
-        return mpreference.getRequestNum();
-    }
+
     public String getCurrantDate()
     {
-        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         String dateFormat = formatter.format(date.getTime());
         return dateFormat;
@@ -2178,7 +2173,20 @@ public class CreatePdfActivity extends AppCompatActivity {
     public void savePdf(final View view) {
 
 
+        ButterKnife.bind(CreatePdfActivity.this);
 
+        mPageView.bringToFront();
+        setFontToTextView();
+        mMyRootView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
+
+        bindDataToStickersView("");
+        bindDataToBill1();
+        bindDataToBill2();
 
         if (fn_permission()) {
             dialog = ProgressDialog.show(CreatePdfActivity.this, "",
@@ -2242,12 +2250,10 @@ public class CreatePdfActivity extends AppCompatActivity {
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
-                                if (dialog.isShowing()) {
-                                    dialog.dismiss();
-                                }
+
                                 Log.i("respones", "succed");
                                 try {
-                                    int RequestId = response.getInt("RequestId");
+                                    RequestId = response.getInt("RequestId");
                                     mpreference.setRequestnum(RequestId);
                                     int SecretNum = response.getInt("Serial");
                                     mpreference.setSecretNum(SecretNum);
@@ -2257,7 +2263,34 @@ public class CreatePdfActivity extends AppCompatActivity {
 
                                     mSecretNumber.setText(SecretNum+"");
                                     mBillNumber.setText(RequestId+"");
+                                    mBillNumber2.setText(RequestId+"");
+                                    mBillNumber3.setText(RequestId+"");
+                                    mBillNumber4.setText(RequestId+"");
+                                    mBillNumber5.setText(RequestId+"");
+                                    mBillNumber6.setText(RequestId+"");
+                                    mBillNumber7.setText(RequestId+"");
+                                    mBillNumber8.setText(RequestId+"");
+                                    mBillNumber9.setText(RequestId+"");
+
+
+                                    String  str= "رقـم: "+RequestId;
+
+                                    // mPage2BillNumber.setText(RequestId+"");
+
+//                                    mPage2BillNumberHint.setText(RequestId+"");
+
                                     mPage2BillNumber.setText(RequestId+"");
+
+                                    mPage2BillNumber2.setText(RequestId+"");
+                                    mPage2BillNumber3.setText(RequestId+"");
+                                    mPage2BillNumber4.setText(RequestId+"");
+                                    mPage2BillNumber5.setText(RequestId+"");
+                                    mPage2BillNumber6.setText(RequestId+"");
+                                    mPage2BillNumber7.setText(RequestId+"");
+                                    mPage2BillNumber8.setText(RequestId+"");
+                                    mPage2BillNumber9.setText(RequestId+"");
+
+                                    //  mPage2BillNumber.setText(RequestId+"");
 
                                     view.setVisibility(View.INVISIBLE);
                                     btnRecieve.setVisibility(View.VISIBLE);
@@ -2269,6 +2302,10 @@ public class CreatePdfActivity extends AppCompatActivity {
                                     createPdf1();
                                     createPdf2();
                                     createPdfSticker();
+
+                                    if (dialog.isShowing()) {
+                                        dialog.dismiss();
+                                    }
                                 }catch (Exception ex){
                                     Toast.makeText(CreatePdfActivity.this,"حدث خطأ تقني",Toast.LENGTH_LONG).show();
                                 }
@@ -2491,7 +2528,7 @@ public class CreatePdfActivity extends AppCompatActivity {
         MediaScannerConnection.scanFile(this, new String[] {root.toString()}, null, null);
 
         Preferences preferences=new Preferences(this);
-        fileNameclinet=preferences.getclientname()+"_فاتورة العميل_"+String.valueOf(getRandomBillNumber())+".pdf";
+        fileNameclinet=preferences.getclientname()+"_فاتورة العميل_"+String.valueOf(RequestId)+".pdf";
         File filePath = new File(root,fileNameclinet);
         try {
             FileOutputStream fileOutputStream=new FileOutputStream(filePath);
@@ -2562,7 +2599,7 @@ public class CreatePdfActivity extends AppCompatActivity {
         MediaScannerConnection.scanFile(this, new String[] {root.toString()}, null, null);
 
         Preferences preferences=new Preferences(this);
-        fileNameclinetSticker=preferences.getclientname()+"_استكر_"+String.valueOf(getRandomBillNumber())+".pdf";
+        fileNameclinetSticker=preferences.getclientname()+"_استكر_"+String.valueOf(RequestId)+".pdf";
         File filePath = new File(root,fileNameclinetSticker);
         try {
             FileOutputStream fileOutputStream=new FileOutputStream(filePath);
@@ -2604,7 +2641,7 @@ public class CreatePdfActivity extends AppCompatActivity {
             canvas.drawBitmap(bitmap, 0, 0 , null);
             document.finishPage(page);
         }
-        else if (data.size()>=20) {
+        if (data.size()>=20) {
             Bitmap bitmap;
             PdfDocument.PageInfo pageInfo;
             PdfDocument.Page page;
@@ -2618,7 +2655,7 @@ public class CreatePdfActivity extends AppCompatActivity {
             canvas.drawBitmap(bitmap, 0, 0 , null);
             document.finishPage(page);
         }
-        else if (data.size()>=40 ) {
+        if (data.size()>=40 ) {
             Bitmap bitmap;
             PdfDocument.PageInfo pageInfo;
             PdfDocument.Page page;
@@ -2632,7 +2669,7 @@ public class CreatePdfActivity extends AppCompatActivity {
             canvas.drawBitmap(bitmap, 0, 0 , null);
             document.finishPage(page);
         }
-        else if (data.size()>=60) {
+        if (data.size()>=60) {
             Bitmap bitmap;
             PdfDocument.PageInfo pageInfo;
             PdfDocument.Page page;
@@ -2646,7 +2683,7 @@ public class CreatePdfActivity extends AppCompatActivity {
             canvas.drawBitmap(bitmap, 0, 0 , null);
             document.finishPage(page);
         }
-        else if (data.size()>=90 ) {
+        if (data.size()>=90 ) {
             Bitmap bitmap;
             PdfDocument.PageInfo pageInfo;
             PdfDocument.Page page;
@@ -2669,7 +2706,7 @@ public class CreatePdfActivity extends AppCompatActivity {
         MediaScannerConnection.scanFile(this, new String[] {root.toString()}, null, null);
 
         Preferences preferences=new Preferences(this);
-        String fileName=preferences.getclientname()+"_فاتورة الاستلام_"+String.valueOf(getRandomBillNumber())+".pdf";
+        String fileName=preferences.getclientname()+"_فاتورة الاستلام_"+String.valueOf(RequestId)+".pdf";
         File filePath = new File(root,fileName);
             filerecieverName = fileName;
         try {

@@ -22,11 +22,13 @@ import java.util.List;
  */
 
 public class AddRequestAdpater extends RecyclerView.Adapter<AddRequestAdpater.CustomViewHolder>  implements Filterable {
-    private List<AddRequestModel> Itemlist;
-    private List<AddRequestModel> ItemlistFilter;
+    ArrayList<AddRequestModel> Itemlist;
+      ArrayList<AddRequestModel> ItemlistFilter;
+    public  CustomFilter filter;
+
     Context mcontext;
 
-    public AddRequestAdpater(Context mcontext, List<AddRequestModel> itemlist) {
+    public AddRequestAdpater(Context mcontext, ArrayList<AddRequestModel> itemlist) {
         this.Itemlist = itemlist;
         this.ItemlistFilter = itemlist;
         this.mcontext = mcontext;
@@ -41,7 +43,7 @@ public class AddRequestAdpater extends RecyclerView.Adapter<AddRequestAdpater.Cu
 
     @Override
     public void onBindViewHolder(final CustomViewHolder holder, final int position) {
-        final AddRequestModel item = ItemlistFilter.get(position);
+        final AddRequestModel item = Itemlist.get(position);
         holder.ordername.setText(item.getOrdername());
         holder.orderprice.setText(item.getOrderprice());
 
@@ -100,7 +102,7 @@ public class AddRequestAdpater extends RecyclerView.Adapter<AddRequestAdpater.Cu
 
     @Override
     public int getItemCount() {
-        return (null != ItemlistFilter ? ItemlistFilter.size() : 0);
+        return Itemlist.size();
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder{
@@ -115,7 +117,6 @@ public class AddRequestAdpater extends RecyclerView.Adapter<AddRequestAdpater.Cu
             this.remove = (ImageView) view.findViewById(R.id.decrease);
             this.tvCounter = (TextView) view.findViewById(R.id.tvCount);
 
-
         }
 
 
@@ -125,40 +126,46 @@ public class AddRequestAdpater extends RecyclerView.Adapter<AddRequestAdpater.Cu
 
     @Override
     public Filter getFilter() {
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence charSequence) {
-                String charString = charSequence.toString();
-                if (charString.isEmpty()) {
-                    ItemlistFilter = Itemlist;
-                } else {
-                    List<AddRequestModel> filteredList = new ArrayList<>();
-                    for (AddRequestModel row : Itemlist) {
+        if(filter==null)
+        {
+            filter=new CustomFilter(ItemlistFilter,this);
+        }
 
-                        // name match condition. this might differ depending on your requirement
-                        // here we are looking for name or phone number match
-                        if (
-                                row.getOrdername().toLowerCase().contains(charString.toLowerCase()))
+        return filter;
 
-                        {
-                            filteredList.add(row);
-                        }
-                    }
-
-                    ItemlistFilter = filteredList;
-                }
-
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = ItemlistFilter;
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                ItemlistFilter = (ArrayList<AddRequestModel>) filterResults.values;
-                notifyDataSetChanged();
-            }
-        };
+//        return new Filter() {
+//            @Override
+//            protected FilterResults performFiltering(CharSequence charSequence) {
+//                String charString = charSequence.toString();
+//                if (charString.isEmpty()) {
+//                   // ItemlistFilter = Itemlist;
+//                } else {
+//                    List<AddRequestModel> filteredList = new ArrayList<>();
+//                    for (AddRequestModel row : Itemlist) {
+//                        // name match condition. this might differ depending on your requirement
+//                        // here we are looking for name or phone number match
+//                        if (
+//                                row.getOrdername().toLowerCase().contains(charString.toLowerCase()))
+//                        {
+//                            filteredList.add(row);
+//                        }
+//                    }
+//
+//                    //ItemlistFilter = filteredList;
+//                }
+//
+//                FilterResults filterResults = new FilterResults();
+//                filterResults.values = ItemlistFilter;
+//                filterResults.count = ItemlistFilter.size();
+//                return filterResults;
+//            }
+//
+//            @Override
+//            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+//                ItemlistFilter = (ArrayList<AddRequestModel>) filterResults.values;
+//                notifyDataSetChanged();
+//            }
+//        };
     }
 
 

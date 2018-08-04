@@ -141,12 +141,13 @@ public class AddRequestsActivity extends AppCompatActivity {
 
 
 
-                            adapter = new AddRequestAdpater(AddRequestsActivity.this, data);
                             requestrecycleview = (RecyclerView) findViewById(R.id.listview);
+                            requestrecycleview.getRecycledViewPool().clear();
+                            adapter = new AddRequestAdpater(AddRequestsActivity.this, data);
                             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(AddRequestsActivity.this);
                             requestrecycleview.setLayoutManager(mLayoutManager);
                             requestrecycleview.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(10), true));
-                            requestrecycleview.setItemAnimator(new DefaultItemAnimator());
+                            requestrecycleview.setItemAnimator(null);
                             requestrecycleview.setAdapter(adapter);
 
 
@@ -159,8 +160,9 @@ public class AddRequestsActivity extends AppCompatActivity {
                             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                                 @Override
                                 public boolean onQueryTextSubmit(String query) {
-                                    adapter.getFilter().filter(query);
-                                    adapter.notifyDataSetChanged();
+                                //    adapter.getFilter().filter(query);
+                                    //requestrecycleview.getRecycledViewPool().clear();
+                                   // adapter.notifyDataSetChanged();
                                     return false;
                                 }
 
@@ -169,7 +171,8 @@ public class AddRequestsActivity extends AppCompatActivity {
 
                                     //adapter.getFilter().filter(newText);
                                     adapter.getFilter().filter(newText);
-                                    adapter.notifyDataSetChanged();
+                                  //  requestrecycleview.getRecycledViewPool().clear();
+                                   // adapter.notifyDataSetChanged();
                                     return false;
                                 }
 

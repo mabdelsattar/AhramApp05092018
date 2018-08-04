@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.alahram.alahramapp.Ui.AddRequestsActivity;
 import com.alahram.alahramapp.model.AddRequestModel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class NotesActivity extends AppCompatActivity {
@@ -26,23 +27,33 @@ public class NotesActivity extends AppCompatActivity {
     EditText tvNotes;
     String Notes = "";
     com.alahram.alahramapp.Utilitis.Preferences pref;
+    Serializable  data;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
-
+        data = (ArrayList<AddRequestModel>) getIntent().getExtras().getSerializable("dataList");
         pref = new com.alahram.alahramapp.Utilitis.Preferences(NotesActivity.this);
 
 
 
         tvNotes = (EditText) findViewById(R.id.orderDetails);
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         btnNext = (Button)findViewById(R.id.btnNext);
+        btnNext.setActivated(true);
+
+
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-
+                btnNext.setActivated(false);
                 if (fn_permission())
 
                     openActivity();
@@ -59,7 +70,9 @@ public class NotesActivity extends AppCompatActivity {
         Notes = tvNotes.getText().toString();
         pref.setNotes(Notes);
 
-        bundle.putSerializable("dataList", (ArrayList<AddRequestModel>) getIntent().getExtras().getSerializable("dataList"));
+       // MyApplication.getApplicationInstance().setNotes(Notes);
+
+        bundle.putSerializable("dataList",data);
         intent.putExtras(bundle);
         intent.putExtra("more",Notes);
         startActivity(intent);

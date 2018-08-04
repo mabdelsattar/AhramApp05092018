@@ -4,10 +4,13 @@ import android.app.Application;
 import android.graphics.Typeface;
 import android.text.TextUtils;
 
+import com.alahram.alahramapp.model.AddRequestModel;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.Volley;
+
+import java.util.ArrayList;
 
 /**
  * Created by mohamed_3ntar on 2/28/2018.
@@ -28,6 +31,28 @@ public class MyApplication extends Application {
     public static synchronized MyApplication getApplicationInstance() {
         return myApplicationInstance;
     }
+
+    private ArrayList<AddRequestModel> data;
+
+    public ArrayList<AddRequestModel> getData() {
+        return data;
+    }
+
+    public void setData(ArrayList<AddRequestModel> data) {
+        this.data = data;
+    }
+
+    private String notes;
+
+    public String getNotes() {
+        return notes;
+    }
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+
+
 
     public RequestQueue getRequestQueue() {
         // lazy initialize the request queue, the queue instance will be

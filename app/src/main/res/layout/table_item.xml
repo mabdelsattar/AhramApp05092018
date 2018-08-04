@@ -16,7 +16,7 @@
         android:id="@+id/tableHeader"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        android:weightSum="7.1">
+        >
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"

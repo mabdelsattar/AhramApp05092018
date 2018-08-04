@@ -45,7 +45,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-           android:visibility="invisible"
+            android:visibility="invisible"
             android:textColor="#FFF"
             android:layout_below="@+id/btn_Print"
             android:layout_marginTop="31dp"
@@ -588,7 +588,7 @@
                                 android:paddingBottom="2dp"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/text_round_background_2"
-                                android:weightSum="7.1">
+                                >
                                 <TextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -667,6 +667,7 @@
                                 android:id="@+id/tableItem"
                                 android:background="#DCDCDC"
                                 android:minHeight="200dp"
+
                                 android:orientation="vertical"
                                 android:layout_height="wrap_content">
                             </LinearLayout>
@@ -676,7 +677,6 @@
                                 android:background="@drawable/footer_round_background"
                                 android:layout_below="@+id/tableItem"
                                 android:orientation="horizontal"
-                                android:weightSum="7.1"
                                 android:layout_height="match_parent">
                                 <RelativeLayout
                                     android:layout_width="0dp"
@@ -746,7 +746,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="عدد الطرود الكلي : "
                                 android:textStyle="bold"
-                                android:textSize="14dp"
+                                android:textSize="12sp"
                                 android:gravity="center"
                                 android:textAlignment="center"
                                 android:textColor="@color/pageColor"
@@ -758,7 +758,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="00"
                                 android:textStyle="bold"
-                                android:textSize="14dp"
+                                android:textSize="12sp"
                                 android:gravity="center"
                                 android:textColor="#000000"
                                 android:id="@+id/TrodeNumber"
@@ -1087,42 +1087,34 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_alignParentTop="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:id="@+id/header_2"
-                        android:orientation="horizontal">
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:layout_height="match_parent">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="تابع فاتوره رقم : "
-                                android:textStyle="bold"
-                                android:textSize="14dp"
-                                android:gravity="center"
-                                android:textAlignment="center"
-                                android:textColor="@color/pageColor"
-                                android:id="@+id/billNumberHint_2"
-                                android:layout_toRightOf="@+id/billNumber_2" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="00"
-                                android:textStyle="bold"
-                                android:textSize="14dp"
-                                android:gravity="center"
-                                android:textColor="#000000"
-                                android:id="@+id/billNumber_2"
-                                android:textAlignment="center" />
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تابع فاتوره رقم  : "
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/billNumberHint_2"
+                            android:layout_toRightOf="@+id/billNumber_2" />
+                        <TextView
+                            android:layout_width="150dp" android:gravity="right"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textColor="#000000"
+                            android:id="@+id/billNumber_2"
 
-                        </RelativeLayout>
+                            android:textAlignment="center" />
 
-                    </LinearLayout>
+                    </RelativeLayout>
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -1164,7 +1156,7 @@
                                 android:paddingBottom="2dp"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/text_round_background_2"
-                                android:weightSum="7.1">
+                                >
                                 <TextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -1252,7 +1244,6 @@
                                 android:background="@drawable/footer_round_background"
                                 android:layout_below="@+id/tableItem_2"
                                 android:orientation="horizontal"
-                                android:weightSum="7.1"
                                 android:layout_height="match_parent">
                                 <RelativeLayout
                                     android:layout_width="0dp"
@@ -1322,7 +1313,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="عدد الطرود الكلي : "
                                 android:textStyle="bold"
-                                android:textSize="14dp"
+                                android:textSize="12sp"
                                 android:gravity="center"
                                 android:textAlignment="center"
                                 android:textColor="@color/pageColor"
@@ -1334,7 +1325,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="00"
                                 android:textStyle="bold"
-                                android:textSize="14dp"
+                                android:textSize="12sp"
                                 android:gravity="center"
                                 android:textColor="#000000"
                                 android:id="@+id/TrodeNumber_2"
@@ -1662,42 +1653,33 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_alignParentTop="true"
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:id="@+id/header_3"
-                        android:orientation="horizontal">
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:layout_height="match_parent">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="تابع فاتوره رقم : "
-                                android:textStyle="bold"
-                                android:textSize="14dp"
-                                android:gravity="center"
-                                android:textAlignment="center"
-                                android:textColor="@color/pageColor"
-                                android:id="@+id/billNumberHint_3"
-                                android:layout_toRightOf="@+id/billNumber_3" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="00"
-                                android:textStyle="bold"
-                                android:textSize="14dp"
-                                android:gravity="center"
-                                android:textColor="#000000"
-                                android:id="@+id/billNumber_3"
-                                android:textAlignment="center" />
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تابع فاتوره رقم  : "
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/billNumberHint_3"
+                            android:layout_toRightOf="@+id/billNumber_3" />
+                        <TextView
+                            android:layout_width="150dp" android:gravity="right"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textColor="#000000"
+                            android:id="@+id/billNumber_3"
+                            android:textAlignment="center" />
 
-                        </RelativeLayout>
+                    </RelativeLayout>
 
-                    </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -1739,7 +1721,7 @@
                                 android:paddingBottom="2dp"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/text_round_background_2"
-                                android:weightSum="7.1">
+                                >
                                 <TextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -1827,7 +1809,6 @@
                                 android:background="@drawable/footer_round_background"
                                 android:layout_below="@+id/tableItem_3"
                                 android:orientation="horizontal"
-                                android:weightSum="7.1"
                                 android:layout_height="match_parent">
                                 <RelativeLayout
                                     android:layout_width="0dp"
@@ -1897,7 +1878,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="عدد الطرود الكلي : "
                                 android:textStyle="bold"
-                                android:textSize="14dp"
+                                android:textSize="12sp"
                                 android:gravity="center"
                                 android:textAlignment="center"
                                 android:textColor="@color/pageColor"
@@ -1909,7 +1890,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="00"
                                 android:textStyle="bold"
-                                android:textSize="14dp"
+                                android:textSize="12sp"
                                 android:gravity="center"
                                 android:textColor="#000000"
                                 android:id="@+id/TrodeNumber_3"
@@ -2237,42 +2218,34 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_alignParentTop="true"
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:id="@+id/header_4"
-                        android:orientation="horizontal">
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:layout_height="match_parent">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="تابع فاتوره رقم : "
-                                android:textStyle="bold"
-                                android:textSize="14dp"
-                                android:gravity="center"
-                                android:textAlignment="center"
-                                android:textColor="@color/pageColor"
-                                android:id="@+id/billNumberHint_4"
-                                android:layout_toRightOf="@+id/billNumber_4" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="00"
-                                android:textStyle="bold"
-                                android:textSize="14dp"
-                                android:gravity="center"
-                                android:textColor="#000000"
-                                android:id="@+id/billNumber_4"
-                                android:textAlignment="center" />
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تابع فاتوره رقم  : "
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/billNumberHint_4"
+                            android:layout_toRightOf="@+id/billNumber_4" />
+                        <TextView
+                            android:layout_width="150dp" android:gravity="right"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textColor="#000000"
+                            android:id="@+id/billNumber_4"
+                            android:textAlignment="center" />
 
-                        </RelativeLayout>
+                    </RelativeLayout>
 
-                    </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -2314,7 +2287,7 @@
                                 android:paddingBottom="2dp"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/text_round_background_2"
-                                android:weightSum="7.1">
+                                >
                                 <TextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -2402,7 +2375,6 @@
                                 android:background="@drawable/footer_round_background"
                                 android:layout_below="@+id/tableItem_4"
                                 android:orientation="horizontal"
-                                android:weightSum="7.1"
                                 android:layout_height="match_parent">
                                 <RelativeLayout
                                     android:layout_width="0dp"
@@ -2472,7 +2444,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="عدد الطرود الكلي : "
                                 android:textStyle="bold"
-                                android:textSize="14dp"
+                                android:textSize="12sp"
                                 android:gravity="center"
                                 android:textAlignment="center"
                                 android:textColor="@color/pageColor"
@@ -2484,7 +2456,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="00"
                                 android:textStyle="bold"
-                                android:textSize="14dp"
+                                android:textSize="12sp"
                                 android:gravity="center"
                                 android:textColor="#000000"
                                 android:id="@+id/TrodeNumber_4"
@@ -2813,42 +2785,34 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_alignParentTop="true"
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:id="@+id/header_5"
-                        android:orientation="horizontal">
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:layout_height="match_parent">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="تابع فاتوره رقم : "
-                                android:textStyle="bold"
-                                android:textSize="14dp"
-                                android:gravity="center"
-                                android:textAlignment="center"
-                                android:textColor="@color/pageColor"
-                                android:id="@+id/billNumberHint_5"
-                                android:layout_toRightOf="@+id/billNumber_5" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="00"
-                                android:textStyle="bold"
-                                android:textSize="14dp"
-                                android:gravity="center"
-                                android:textColor="#000000"
-                                android:id="@+id/billNumber_5"
-                                android:textAlignment="center" />
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تابع فاتوره رقم  : "
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/billNumberHint_5"
+                            android:layout_toRightOf="@+id/billNumber_5" />
+                        <TextView
+                            android:layout_width="150dp" android:gravity="right"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textColor="#000000"
+                            android:id="@+id/billNumber_5"
+                            android:textAlignment="center" />
 
-                        </RelativeLayout>
+                    </RelativeLayout>
 
-                    </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -2890,7 +2854,7 @@
                                 android:paddingBottom="2dp"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/text_round_background_2"
-                                android:weightSum="7.1">
+                                >
                                 <TextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -2978,7 +2942,6 @@
                                 android:background="@drawable/footer_round_background"
                                 android:layout_below="@+id/tableItem_5"
                                 android:orientation="horizontal"
-                                android:weightSum="7.1"
                                 android:layout_height="match_parent">
                                 <RelativeLayout
                                     android:layout_width="0dp"
@@ -3048,7 +3011,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="عدد الطرود الكلي : "
                                 android:textStyle="bold"
-                                android:textSize="14dp"
+                                android:textSize="12sp"
                                 android:gravity="center"
                                 android:textAlignment="center"
                                 android:textColor="@color/pageColor"
@@ -3060,7 +3023,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="00"
                                 android:textStyle="bold"
-                                android:textSize="14dp"
+                                android:textSize="12sp"
                                 android:gravity="center"
                                 android:textColor="#000000"
                                 android:id="@+id/TrodeNumber_5"
@@ -3389,42 +3352,34 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_alignParentTop="true"
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:id="@+id/header_6"
-                        android:orientation="horizontal">
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:layout_height="match_parent">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="تابع فاتوره رقم : "
-                                android:textStyle="bold"
-                                android:textSize="14dp"
-                                android:gravity="center"
-                                android:textAlignment="center"
-                                android:textColor="@color/pageColor"
-                                android:id="@+id/billNumberHint_6"
-                                android:layout_toRightOf="@+id/billNumber_6" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="00"
-                                android:textStyle="bold"
-                                android:textSize="14dp"
-                                android:gravity="center"
-                                android:textColor="#000000"
-                                android:id="@+id/billNumber_6"
-                                android:textAlignment="center" />
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تابع فاتوره رقم  : "
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/billNumberHint_6"
+                            android:layout_toRightOf="@+id/billNumber_6" />
+                        <TextView
+                            android:layout_width="150dp" android:gravity="right"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textColor="#000000"
+                            android:id="@+id/billNumber_6"
+                            android:textAlignment="center" />
 
-                        </RelativeLayout>
+                    </RelativeLayout>
 
-                    </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -3466,7 +3421,7 @@
                                 android:paddingBottom="2dp"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/text_round_background_2"
-                                android:weightSum="7.1">
+                                >
                                 <TextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -3554,7 +3509,6 @@
                                 android:background="@drawable/footer_round_background"
                                 android:layout_below="@+id/tableItem_6"
                                 android:orientation="horizontal"
-                                android:weightSum="7.1"
                                 android:layout_height="match_parent">
                                 <RelativeLayout
                                     android:layout_width="0dp"
@@ -3624,7 +3578,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="عدد الطرود الكلي : "
                                 android:textStyle="bold"
-                                android:textSize="14dp"
+                                android:textSize="12sp"
                                 android:gravity="center"
                                 android:textAlignment="center"
                                 android:textColor="@color/pageColor"
@@ -3636,7 +3590,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="00"
                                 android:textStyle="bold"
-                                android:textSize="14dp"
+                                android:textSize="12sp"
                                 android:gravity="center"
                                 android:textColor="#000000"
                                 android:id="@+id/TrodeNumber_6"
@@ -3964,42 +3918,34 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_alignParentTop="true"
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:id="@+id/header_7"
-                        android:orientation="horizontal">
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:layout_height="match_parent">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="تابع فاتوره رقم : "
-                                android:textStyle="bold"
-                                android:textSize="14dp"
-                                android:gravity="center"
-                                android:textAlignment="center"
-                                android:textColor="@color/pageColor"
-                                android:id="@+id/billNumberHint_7"
-                                android:layout_toRightOf="@+id/billNumber_7" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="00"
-                                android:textStyle="bold"
-                                android:textSize="14dp"
-                                android:gravity="center"
-                                android:textColor="#000000"
-                                android:id="@+id/billNumber_7"
-                                android:textAlignment="center" />
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تابع فاتوره رقم  : "
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/billNumberHint_7"
+                            android:layout_toRightOf="@+id/billNumber_7" />
+                        <TextView
+                            android:layout_width="150dp" android:gravity="right"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textColor="#000000"
+                            android:id="@+id/billNumber_7"
+                            android:textAlignment="center" />
 
-                        </RelativeLayout>
+                    </RelativeLayout>
 
-                    </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -4041,7 +3987,7 @@
                                 android:paddingBottom="2dp"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/text_round_background_2"
-                                android:weightSum="7.1">
+                                >
                                 <TextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -4129,7 +4075,6 @@
                                 android:background="@drawable/footer_round_background"
                                 android:layout_below="@+id/tableItem_7"
                                 android:orientation="horizontal"
-                                android:weightSum="7.1"
                                 android:layout_height="match_parent">
                                 <RelativeLayout
                                     android:layout_width="0dp"
@@ -4199,7 +4144,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="عدد الطرود الكلي : "
                                 android:textStyle="bold"
-                                android:textSize="14dp"
+                                android:textSize="12sp"
                                 android:gravity="center"
                                 android:textAlignment="center"
                                 android:textColor="@color/pageColor"
@@ -4211,7 +4156,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="00"
                                 android:textStyle="bold"
-                                android:textSize="14dp"
+                                android:textSize="12sp"
                                 android:gravity="center"
                                 android:textColor="#000000"
                                 android:id="@+id/TrodeNumber_7"
@@ -4539,42 +4484,34 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_alignParentTop="true"
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:id="@+id/header_8"
-                        android:orientation="horizontal">
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:layout_height="match_parent">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="تابع فاتوره رقم : "
-                                android:textStyle="bold"
-                                android:textSize="14dp"
-                                android:gravity="center"
-                                android:textAlignment="center"
-                                android:textColor="@color/pageColor"
-                                android:id="@+id/billNumberHint_8"
-                                android:layout_toRightOf="@+id/billNumber_8" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="00"
-                                android:textStyle="bold"
-                                android:textSize="14dp"
-                                android:gravity="center"
-                                android:textColor="#000000"
-                                android:id="@+id/billNumber_8"
-                                android:textAlignment="center" />
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تابع فاتوره رقم  : "
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/billNumberHint_8"
+                            android:layout_toRightOf="@+id/billNumber_8" />
+                        <TextView
+                            android:layout_width="150dp" android:gravity="right"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textColor="#000000"
+                            android:id="@+id/billNumber_8"
+                            android:textAlignment="center" />
 
-                        </RelativeLayout>
+                    </RelativeLayout>
 
-                    </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -4616,7 +4553,7 @@
                                 android:paddingBottom="2dp"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/text_round_background_2"
-                                android:weightSum="7.1">
+                                >
                                 <TextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -4704,7 +4641,6 @@
                                 android:background="@drawable/footer_round_background"
                                 android:layout_below="@+id/tableItem_8"
                                 android:orientation="horizontal"
-                                android:weightSum="7.1"
                                 android:layout_height="match_parent">
                                 <RelativeLayout
                                     android:layout_width="0dp"
@@ -4774,7 +4710,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="عدد الطرود الكلي : "
                                 android:textStyle="bold"
-                                android:textSize="14dp"
+                                android:textSize="12sp"
                                 android:gravity="center"
                                 android:textAlignment="center"
                                 android:textColor="@color/pageColor"
@@ -4786,7 +4722,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="00"
                                 android:textStyle="bold"
-                                android:textSize="14dp"
+                                android:textSize="12sp"
                                 android:gravity="center"
                                 android:textColor="#000000"
                                 android:id="@+id/TrodeNumber_8"
@@ -5114,42 +5050,34 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_alignParentTop="true"
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:id="@+id/header_9"
-                        android:orientation="horizontal">
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:layout_height="match_parent">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="تابع فاتوره رقم : "
-                                android:textStyle="bold"
-                                android:textSize="14dp"
-                                android:gravity="center"
-                                android:textAlignment="center"
-                                android:textColor="@color/pageColor"
-                                android:id="@+id/billNumberHint_9"
-                                android:layout_toRightOf="@+id/billNumber_9" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="00"
-                                android:textStyle="bold"
-                                android:textSize="14dp"
-                                android:gravity="center"
-                                android:textColor="#000000"
-                                android:id="@+id/billNumber_9"
-                                android:textAlignment="center" />
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تابع فاتوره رقم  : "
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textAlignment="center"
+                            android:textColor="@color/pageColor"
+                            android:id="@+id/billNumberHint_9"
+                            android:layout_toRightOf="@+id/billNumber_9" />
+                        <TextView
+                            android:layout_width="150dp" android:gravity="right"
+                            android:layout_height="wrap_content"
+                            android:text="00"
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textColor="#000000"
+                            android:id="@+id/billNumber_9"
+                            android:textAlignment="center" />
 
-                        </RelativeLayout>
+                    </RelativeLayout>
 
-                    </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -5191,7 +5119,7 @@
                                 android:paddingBottom="2dp"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/text_round_background_2"
-                                android:weightSum="7.1">
+                                >
                                 <TextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -5279,7 +5207,6 @@
                                 android:background="@drawable/footer_round_background"
                                 android:layout_below="@+id/tableItem_9"
                                 android:orientation="horizontal"
-                                android:weightSum="7.1"
                                 android:layout_height="match_parent">
                                 <RelativeLayout
                                     android:layout_width="0dp"
@@ -5349,7 +5276,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="عدد الطرود الكلي : "
                                 android:textStyle="bold"
-                                android:textSize="14dp"
+                                android:textSize="12sp"
                                 android:gravity="center"
                                 android:textAlignment="center"
                                 android:textColor="@color/pageColor"
@@ -5361,7 +5288,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="00"
                                 android:textStyle="bold"
-                                android:textSize="14dp"
+                                android:textSize="12sp"
                                 android:gravity="center"
                                 android:textColor="#000000"
                                 android:id="@+id/TrodeNumber_9"
@@ -5705,7 +5632,7 @@
                 android:layout_width="match_parent"
                 android:id="@+id/page2_myView"
 
-                android:visibility="visible"
+                android:visibility="invisible"
                 android:layout_height="match_parent">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -5740,7 +5667,7 @@
                                 android:id="@+id/page2_title"
                                 android:padding="3dp"/>
                             <RelativeLayout
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/page2_billNumberView"
                                 android:layout_below="@+id/page2_title"
@@ -5750,17 +5677,18 @@
                                     android:layout_height="wrap_content"
                                     android:text="رقـــــــم : "
                                     android:textStyle="bold"
-                                    android:textSize="10dp"
+                                    android:textSize="12sp"
                                     android:layout_alignParentRight="true"
                                     android:textAlignment="center"
                                     android:textColor="#000000"
                                     android:id="@+id/page2_billNumberHint" />
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="150dp"
                                     android:layout_height="wrap_content"
                                     android:text=""
+                                    android:gravity="right"
                                     android:textStyle="bold"
-                                    android:textSize="10dp"
+                                    android:textSize="12sp"
                                     android:textColor="#000000"
                                     android:layout_toLeftOf="@+id/page2_billNumberHint"
                                     android:id="@+id/page2_billNumber"/>
@@ -6407,28 +6335,26 @@
                     android:orientation="vertical">
 
                     <RelativeLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:layout_height="match_parent">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="تابع فاتوره رقم : "
+                            android:text="تابع فاتوره رقم  : "
                             android:textStyle="bold"
-                            android:textSize="14dp"
-                            android:gravity="center"
+                            android:textSize="12sp"
                             android:textAlignment="center"
                             android:textColor="@color/pageColor"
                             android:id="@+id/page2_billNumberHint_2"
                             android:layout_toRightOf="@+id/page2_billNumber_2" />
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="150dp" android:gravity="right"
                             android:layout_height="wrap_content"
                             android:text="00"
                             android:textStyle="bold"
-                            android:textSize="14dp"
-                            android:gravity="center"
+                            android:textSize="12sp"
                             android:textColor="#000000"
                             android:id="@+id/page2_billNumber_2"
                             android:textAlignment="center" />
@@ -6507,7 +6433,7 @@
                             android:layout_height="wrap_content"
                             android:text="عدد الطرود الكلي : "
                             android:textStyle="bold"
-                            android:textSize="14dp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:textAlignment="center"
                             android:textColor="@color/pageColor"
@@ -6519,7 +6445,7 @@
                             android:layout_height="wrap_content"
                             android:text="00"
                             android:textStyle="bold"
-                            android:textSize="14dp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:id="@+id/Page2_TrodeNumber_2"
@@ -6719,21 +6645,19 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="تابع فاتوره رقم : "
+                            android:text="تابع فاتوره رقم  : "
                             android:textStyle="bold"
-                            android:textSize="14dp"
-                            android:gravity="center"
+                            android:textSize="12sp"
                             android:textAlignment="center"
                             android:textColor="@color/pageColor"
                             android:id="@+id/page2_billNumberHint_3"
                             android:layout_toRightOf="@+id/page2_billNumber_3" />
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="150dp" android:gravity="right"
                             android:layout_height="wrap_content"
                             android:text="00"
                             android:textStyle="bold"
-                            android:textSize="14dp"
-                            android:gravity="center"
+                            android:textSize="12sp"
                             android:textColor="#000000"
                             android:id="@+id/page2_billNumber_3"
                             android:textAlignment="center" />
@@ -6812,7 +6736,7 @@
                             android:layout_height="wrap_content"
                             android:text="عدد الطرود الكلي : "
                             android:textStyle="bold"
-                            android:textSize="14dp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:textAlignment="center"
                             android:textColor="@color/pageColor"
@@ -6824,7 +6748,7 @@
                             android:layout_height="wrap_content"
                             android:text="00"
                             android:textStyle="bold"
-                            android:textSize="14dp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:id="@+id/Page2_TrodeNumber_3"
@@ -7024,21 +6948,19 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="تابع فاتوره رقم : "
+                            android:text="تابع فاتوره رقم  : "
                             android:textStyle="bold"
-                            android:textSize="14dp"
-                            android:gravity="center"
+                            android:textSize="12sp"
                             android:textAlignment="center"
                             android:textColor="@color/pageColor"
                             android:id="@+id/page2_billNumberHint_4"
                             android:layout_toRightOf="@+id/page2_billNumber_4" />
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="150dp" android:gravity="right"
                             android:layout_height="wrap_content"
                             android:text="00"
                             android:textStyle="bold"
-                            android:textSize="14dp"
-                            android:gravity="center"
+                            android:textSize="12sp"
                             android:textColor="#000000"
                             android:id="@+id/page2_billNumber_4"
                             android:textAlignment="center" />
@@ -7117,7 +7039,7 @@
                             android:layout_height="wrap_content"
                             android:text="عدد الطرود الكلي : "
                             android:textStyle="bold"
-                            android:textSize="14dp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:textAlignment="center"
                             android:textColor="@color/pageColor"
@@ -7129,7 +7051,7 @@
                             android:layout_height="wrap_content"
                             android:text="00"
                             android:textStyle="bold"
-                            android:textSize="14dp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:id="@+id/Page2_TrodeNumber_4"
@@ -7329,21 +7251,19 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="تابع فاتوره رقم : "
+                            android:text="تابع فاتوره رقم  : "
                             android:textStyle="bold"
-                            android:textSize="14dp"
-                            android:gravity="center"
+                            android:textSize="12sp"
                             android:textAlignment="center"
                             android:textColor="@color/pageColor"
                             android:id="@+id/page2_billNumberHint_5"
                             android:layout_toRightOf="@+id/page2_billNumber_5" />
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="150dp" android:gravity="right"
                             android:layout_height="wrap_content"
                             android:text="00"
                             android:textStyle="bold"
-                            android:textSize="14dp"
-                            android:gravity="center"
+                            android:textSize="12sp"
                             android:textColor="#000000"
                             android:id="@+id/page2_billNumber_5"
                             android:textAlignment="center" />
@@ -7422,7 +7342,7 @@
                             android:layout_height="wrap_content"
                             android:text="عدد الطرود الكلي : "
                             android:textStyle="bold"
-                            android:textSize="14dp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:textAlignment="center"
                             android:textColor="@color/pageColor"
@@ -7434,7 +7354,7 @@
                             android:layout_height="wrap_content"
                             android:text="00"
                             android:textStyle="bold"
-                            android:textSize="14dp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:id="@+id/Page2_TrodeNumber_5"
@@ -7634,21 +7554,19 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="تابع فاتوره رقم : "
+                            android:text="تابع فاتوره رقم  : "
                             android:textStyle="bold"
-                            android:textSize="14dp"
-                            android:gravity="center"
+                            android:textSize="12sp"
                             android:textAlignment="center"
                             android:textColor="@color/pageColor"
                             android:id="@+id/page2_billNumberHint_6"
                             android:layout_toRightOf="@+id/page2_billNumber_6" />
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="150dp" android:gravity="right"
                             android:layout_height="wrap_content"
                             android:text="00"
                             android:textStyle="bold"
-                            android:textSize="14dp"
-                            android:gravity="center"
+                            android:textSize="12sp"
                             android:textColor="#000000"
                             android:id="@+id/page2_billNumber_6"
                             android:textAlignment="center" />
@@ -7727,7 +7645,7 @@
                             android:layout_height="wrap_content"
                             android:text="عدد الطرود الكلي : "
                             android:textStyle="bold"
-                            android:textSize="14dp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:textAlignment="center"
                             android:textColor="@color/pageColor"
@@ -7739,7 +7657,7 @@
                             android:layout_height="wrap_content"
                             android:text="00"
                             android:textStyle="bold"
-                            android:textSize="14dp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:id="@+id/Page2_TrodeNumber_6"
@@ -7939,21 +7857,19 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="تابع فاتوره رقم : "
+                            android:text="تابع فاتوره رقم  : "
                             android:textStyle="bold"
-                            android:textSize="14dp"
-                            android:gravity="center"
+                            android:textSize="12sp"
                             android:textAlignment="center"
                             android:textColor="@color/pageColor"
                             android:id="@+id/page2_billNumberHint_7"
                             android:layout_toRightOf="@+id/page2_billNumber_7" />
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="150dp" android:gravity="right"
                             android:layout_height="wrap_content"
                             android:text="00"
                             android:textStyle="bold"
-                            android:textSize="14dp"
-                            android:gravity="center"
+                            android:textSize="12sp"
                             android:textColor="#000000"
                             android:id="@+id/page2_billNumber_7"
                             android:textAlignment="center" />
@@ -8032,7 +7948,7 @@
                             android:layout_height="wrap_content"
                             android:text="عدد الطرود الكلي : "
                             android:textStyle="bold"
-                            android:textSize="14dp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:textAlignment="center"
                             android:textColor="@color/pageColor"
@@ -8044,7 +7960,7 @@
                             android:layout_height="wrap_content"
                             android:text="00"
                             android:textStyle="bold"
-                            android:textSize="14dp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:id="@+id/Page2_TrodeNumber_7"
@@ -8244,21 +8160,19 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="تابع فاتوره رقم : "
+                            android:text="تابع فاتوره رقم  : "
                             android:textStyle="bold"
-                            android:textSize="14dp"
-                            android:gravity="center"
+                            android:textSize="12sp"
                             android:textAlignment="center"
                             android:textColor="@color/pageColor"
                             android:id="@+id/page2_billNumberHint_8"
                             android:layout_toRightOf="@+id/page2_billNumber_8" />
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="150dp" android:gravity="right"
                             android:layout_height="wrap_content"
                             android:text="00"
                             android:textStyle="bold"
-                            android:textSize="14dp"
-                            android:gravity="center"
+                            android:textSize="12sp"
                             android:textColor="#000000"
                             android:id="@+id/page2_billNumber_8"
                             android:textAlignment="center" />
@@ -8337,7 +8251,7 @@
                             android:layout_height="wrap_content"
                             android:text="عدد الطرود الكلي : "
                             android:textStyle="bold"
-                            android:textSize="14dp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:textAlignment="center"
                             android:textColor="@color/pageColor"
@@ -8349,7 +8263,7 @@
                             android:layout_height="wrap_content"
                             android:text="00"
                             android:textStyle="bold"
-                            android:textSize="14dp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:id="@+id/Page2_TrodeNumber_8"
@@ -8549,21 +8463,19 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="تابع فاتوره رقم : "
+                            android:text="تابع فاتوره رقم  : "
                             android:textStyle="bold"
-                            android:textSize="14dp"
-                            android:gravity="center"
+                            android:textSize="12sp"
                             android:textAlignment="center"
                             android:textColor="@color/pageColor"
                             android:id="@+id/page2_billNumberHint_9"
                             android:layout_toRightOf="@+id/page2_billNumber_9" />
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="150dp" android:gravity="right"
                             android:layout_height="wrap_content"
                             android:text="00"
                             android:textStyle="bold"
-                            android:textSize="14dp"
-                            android:gravity="center"
+                            android:textSize="12sp"
                             android:textColor="#000000"
                             android:id="@+id/page2_billNumber_9"
                             android:textAlignment="center" />
@@ -8642,7 +8554,7 @@
                             android:layout_height="wrap_content"
                             android:text="عدد الطرود الكلي : "
                             android:textStyle="bold"
-                            android:textSize="14dp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:textAlignment="center"
                             android:textColor="@color/pageColor"
@@ -8654,7 +8566,7 @@
                             android:layout_height="wrap_content"
                             android:text="00"
                             android:textStyle="bold"
-                            android:textSize="14dp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:id="@+id/Page2_TrodeNumber_9"
@@ -10506,4 +10418,5 @@
     </ScrollView>
 
 </RelativeLayout>
+
 
