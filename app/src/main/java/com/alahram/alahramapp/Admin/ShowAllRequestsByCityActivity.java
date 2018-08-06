@@ -48,7 +48,7 @@ import static com.alahram.alahramapp.model.Constant.MANAGER_ROLE;
 public class ShowAllRequestsByCityActivity extends AppCompatActivity {
     RecyclerView requestrecycleview;
     ShowRequestAdapter adapter;
-    List<RequestModel> data;
+    ArrayList<RequestModel> data;
     Spinner spinner_search_city;
     public  ArrayList<Integer> clientCities;
 
@@ -90,8 +90,8 @@ public class ShowAllRequestsByCityActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                adapter.getFilter().filter(query);
-                adapter.notifyDataSetChanged();
+                //adapter.getFilter().filter(query);
+                //adapter.notifyDataSetChanged();
                 return false;
             }
 
@@ -100,7 +100,7 @@ public class ShowAllRequestsByCityActivity extends AppCompatActivity {
 
                 //adapter.getFilter().filter(newText);
                 adapter.getFilter().filter(newText);
-                adapter.notifyDataSetChanged();
+               // adapter.notifyDataSetChanged();
                 return false;
             }
 

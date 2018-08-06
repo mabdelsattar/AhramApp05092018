@@ -36,13 +36,15 @@ import java.util.List;
 
 public class ManageItemsAdpater extends RecyclerView.Adapter<ManageItemsAdpater.CustomViewHolder>  implements Filterable {
 
-    private List<AddRequestModel> Itemlist;
-    private List<AddRequestModel> ItemlistFilter;
+     ArrayList<AddRequestModel> Itemlist;
+     ArrayList<AddRequestModel> filterList;
+    private CustomFilterItems filter;
+
     Context mcontext;
 
-    public ManageItemsAdpater(Context mcontext, List<AddRequestModel> itemlist) {
+    public ManageItemsAdpater(Context mcontext, ArrayList<AddRequestModel> itemlist) {
         this.Itemlist = itemlist;
-        this.ItemlistFilter = itemlist;
+        this.filterList = itemlist;
         this.mcontext = mcontext;
     }
 
@@ -70,7 +72,7 @@ public class ManageItemsAdpater extends RecyclerView.Adapter<ManageItemsAdpater.
 
     @Override
     public void onBindViewHolder(final CustomViewHolder holder, final int position) {
-        final AddRequestModel item = ItemlistFilter.get(position);
+        final AddRequestModel item = Itemlist.get(position);
         holder.ordername.setText(item.getOrdername());
         holder.orderprice.setText(item.getOrderprice());
 
@@ -122,7 +124,7 @@ public class ManageItemsAdpater extends RecyclerView.Adapter<ManageItemsAdpater.
 
     @Override
     public int getItemCount() {
-        return (null != ItemlistFilter ? ItemlistFilter.size() : 0);
+        return Itemlist.size() ;
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder{
@@ -193,40 +195,46 @@ public class ManageItemsAdpater extends RecyclerView.Adapter<ManageItemsAdpater.
 
     @Override
     public Filter getFilter() {
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence charSequence) {
-                String charString = charSequence.toString();
-                if (charString.isEmpty()) {
-                    ItemlistFilter = Itemlist;
-                } else {
-                    List<AddRequestModel> filteredList = new ArrayList<>();
-                    for (AddRequestModel row : Itemlist) {
+        if(filter==null)
+        {
+            filter=new CustomFilterItems(filterList,this);
+        }
 
-                        // name match condition. this might differ depending on your requirement
-                        // here we are looking for name or phone number match
-                        if (
-                                row.getOrdername().toLowerCase().contains(charString.toLowerCase())
-                                )
-                        {
-                            filteredList.add(row);
-                        }
-                    }
-
-                    ItemlistFilter = filteredList;
-                }
-
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = ItemlistFilter;
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                ItemlistFilter = (ArrayList<AddRequestModel>) filterResults.values;
-                notifyDataSetChanged();
-            }
-        };
+        return filter;
+//        return new Filter() {
+//            @Override
+//            protected FilterResults performFiltering(CharSequence charSequence) {
+//                String charString = charSequence.toString();
+//                if (charString.isEmpty()) {
+//                    ItemlistFilter = Itemlist;
+//                } else {
+//                    List<AddRequestModel> filteredList = new ArrayList<>();
+//                    for (AddRequestModel row : Itemlist) {
+//
+//                        // name match condition. this might differ depending on your requirement
+//                        // here we are looking for name or phone number match
+//                        if (
+//                                row.getOrdername().toLowerCase().contains(charString.toLowerCase())
+//                                )
+//                        {
+//                            filteredList.add(row);
+//                        }
+//                    }
+//
+//                    ItemlistFilter = filteredList;
+//                }
+//
+//                FilterResults filterResults = new FilterResults();
+//                filterResults.values = ItemlistFilter;
+//                return filterResults;
+//            }
+//
+//            @Override
+//            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+//                ItemlistFilter = (ArrayList<AddRequestModel>) filterResults.values;
+//                notifyDataSetChanged();
+//            }
+//        };
     }
 
 

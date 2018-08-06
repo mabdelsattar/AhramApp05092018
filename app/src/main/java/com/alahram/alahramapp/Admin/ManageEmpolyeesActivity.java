@@ -112,8 +112,8 @@ public class ManageEmpolyeesActivity extends AppCompatActivity {
                             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                                 @Override
                                 public boolean onQueryTextSubmit(String query) {
-                                    adapter.getFilter().filter(query);
-                                    adapter.notifyDataSetChanged();
+                                   // adapter.getFilter().filter(query);
+                                 //   adapter.notifyDataSetChanged();
                                     return false;
                                 }
 
@@ -122,7 +122,7 @@ public class ManageEmpolyeesActivity extends AppCompatActivity {
 
                                     //adapter.getFilter().filter(newText);
                                     adapter.getFilter().filter(newText);
-                                    adapter.notifyDataSetChanged();
+                                 //   adapter.notifyDataSetChanged();
                                     return false;
                                 }
 

@@ -49,8 +49,9 @@ import static com.alahram.alahramapp.model.Constant.MANAGER_ROLE;
 
 
 public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.MyViewHolder>  implements Filterable{
-    private List<RequestModel> requestModelList;
-    private List<RequestModel> requestModelListFiltered;
+      ArrayList<RequestModel> requestModelList;
+    ArrayList<RequestModel> requestModelListfilter;
+    CustomFilterRequest filter;
     Context context;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -96,55 +97,63 @@ public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.
 
     @Override
     public Filter getFilter() {
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence charSequence) {
-                String charString = charSequence.toString();
-                if (charString.isEmpty()) {
-                    requestModelListFiltered = requestModelList;
-                } else {
-                    List<RequestModel> filteredList = new ArrayList<>();
-                    for (RequestModel row : requestModelList) {
 
-                        // name match condition. this might differ depending on your requirement
-                        // here we are looking for name or phone number match
-                        if (
-                                row.getClientname().toLowerCase().contains(charString.toLowerCase()) ||
-                                row.getClientphone().toLowerCase().contains(charString.toLowerCase()) ||
-                                row.getNotes().toLowerCase().contains(charString.toLowerCase()) ||
-                                row.getOrdernumber().toLowerCase().contains(charString.toLowerCase()) ||
-                                row.getPaid().toLowerCase().contains(charString.toLowerCase()) ||
-                                row.getReciverdate().toLowerCase().contains(charString.toLowerCase()) ||
-                                row.getRemain().toLowerCase().contains(charString.toLowerCase()) ||
-                                row.getStrObject().toLowerCase().contains(charString.toLowerCase()) ||
-                                        row.getMadeBy().toLowerCase().contains(charString.toLowerCase())
-                                )
-                                {
-                            filteredList.add(row);
-                        }
-                    }
+        if(filter==null)
+        {
+            filter=new CustomFilterRequest(requestModelListfilter,this);
+        }
 
-                    requestModelListFiltered = filteredList;
-                }
+        return filter;
 
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = requestModelListFiltered;
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                requestModelListFiltered = (ArrayList<RequestModel>) filterResults.values;
-                notifyDataSetChanged();
-            }
-        };
+//        return new Filter() {
+//            @Override
+//            protected FilterResults performFiltering(CharSequence charSequence) {
+//                String charString = charSequence.toString();
+//                if (charString.isEmpty()) {
+//                    requestModelListFiltered = requestModelList;
+//                } else {
+//                    List<RequestModel> filteredList = new ArrayList<>();
+//                    for (RequestModel row : requestModelList) {
+//
+//                        // name match condition. this might differ depending on your requirement
+//                        // here we are looking for name or phone number match
+//                        if (
+//                                row.getClientname().toLowerCase().contains(charString.toLowerCase()) ||
+//                                row.getClientphone().toLowerCase().contains(charString.toLowerCase()) ||
+//                                row.getNotes().toLowerCase().contains(charString.toLowerCase()) ||
+//                                row.getOrdernumber().toLowerCase().contains(charString.toLowerCase()) ||
+//                                row.getPaid().toLowerCase().contains(charString.toLowerCase()) ||
+//                                row.getReciverdate().toLowerCase().contains(charString.toLowerCase()) ||
+//                                row.getRemain().toLowerCase().contains(charString.toLowerCase()) ||
+//                                row.getStrObject().toLowerCase().contains(charString.toLowerCase()) ||
+//                                        row.getMadeBy().toLowerCase().contains(charString.toLowerCase())
+//                                )
+//                                {
+//                            filteredList.add(row);
+//                        }
+//                    }
+//
+//                    requestModelListFiltered = filteredList;
+//                }
+//
+//                FilterResults filterResults = new FilterResults();
+//                filterResults.values = requestModelListFiltered;
+//                return filterResults;
+//            }
+//
+//            @Override
+//            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+//                requestModelListFiltered = (ArrayList<RequestModel>) filterResults.values;
+//                notifyDataSetChanged();
+//            }
+//        };
     }
 
 
 
-    public ShowRequestAdapter(List<RequestModel> requestModelList, Context context) {
+    public ShowRequestAdapter(ArrayList<RequestModel> requestModelList, Context context) {
         this.requestModelList = requestModelList;
-        this.requestModelListFiltered = requestModelList;
+        this.requestModelListfilter = requestModelList;
         this.context = context;
     }
 
@@ -157,7 +166,7 @@ public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        final RequestModel requestModel = requestModelListFiltered.get(position);
+        final RequestModel requestModel = requestModelList.get(position);
 
 
         holder.mOrderNumber.setTypeface(holder.tf);
@@ -199,7 +208,7 @@ public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.
 
     @Override
     public int getItemCount() {
-        return requestModelListFiltered.size();
+        return requestModelList.size();
     }
 
     private void deleteRequest(final RequestModel requestModel) {
@@ -243,7 +252,7 @@ public class ShowRequestAdapter extends RecyclerView.Adapter<ShowRequestAdapter.
                         if (response.equals("true")) {
                             // .setText("String Response : "+ response.toString());
 
-                            ShowRequestAdapter.this.requestModelListFiltered.remove(requestModel);
+                            ShowRequestAdapter.this.requestModelList.remove(requestModel);
                             notifyDataSetChanged();
                         } else {
 

@@ -34,13 +34,15 @@ import java.util.List;
  */
 
 public class ManageClientsAdpater extends RecyclerView.Adapter<ManageClientsAdpater.CustomViewHolder> implements Filterable {
-    private List<ClientViewModel> Userslist;
-    private List<ClientViewModel> UserslistFiltered;
+     ArrayList<ClientViewModel> Userslist;
+    ArrayList<ClientViewModel> Userslistfilter;
     Context mcontext;
 
-    public ManageClientsAdpater(Context mcontext, List<ClientViewModel> userslist) {
+    CustomFilterClients filter;
+
+    public ManageClientsAdpater(Context mcontext, ArrayList<ClientViewModel> userslist) {
         this.Userslist = userslist;
-        this.UserslistFiltered = userslist;
+        this.Userslistfilter = userslist;
         this.mcontext = mcontext;
     }
 
@@ -55,7 +57,7 @@ public class ManageClientsAdpater extends RecyclerView.Adapter<ManageClientsAdpa
 
     @Override
     public void onBindViewHolder(final CustomViewHolder holder, final int position) {
-        final ClientViewModel item = UserslistFiltered.get(position);
+        final ClientViewModel item = Userslist.get(position);
         holder.ordername.setText(item.getName());
         holder.orderprice.setText(item.getPhone());
         holder.tvCounter.setVisibility(View.INVISIBLE);
@@ -77,7 +79,7 @@ public class ManageClientsAdpater extends RecyclerView.Adapter<ManageClientsAdpa
 
     @Override
     public int getItemCount() {
-        return (null != UserslistFiltered ? UserslistFiltered.size() : 0);
+        return  Userslist.size();
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder{
@@ -99,41 +101,47 @@ public class ManageClientsAdpater extends RecyclerView.Adapter<ManageClientsAdpa
 
     @Override
     public Filter getFilter() {
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence charSequence) {
-                String charString = charSequence.toString();
-                if (charString.isEmpty()) {
-                    UserslistFiltered = Userslist;
-                } else {
-                    List<ClientViewModel> filteredList = new ArrayList<>();
-                    for (ClientViewModel row : Userslist) {
+        if(filter==null)
+        {
+            filter=new CustomFilterClients(Userslistfilter,this);
+        }
 
-                        // name match condition. this might differ depending on your requirement
-                        // here we are looking for name or phone number match
-                        if (
-                                row.getPhone().toLowerCase().contains(charString.toLowerCase()) ||
-                                        row.getName().toLowerCase().contains(charString.toLowerCase())
-                                )
-                        {
-                            filteredList.add(row);
-                        }
-                    }
-
-                    UserslistFiltered = filteredList;
-                }
-
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = UserslistFiltered;
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                UserslistFiltered = (ArrayList<ClientViewModel>) filterResults.values;
-                notifyDataSetChanged();
-            }
-        };
+        return filter;
+//        return new Filter() {
+//            @Override
+//            protected FilterResults performFiltering(CharSequence charSequence) {
+//                String charString = charSequence.toString();
+//                if (charString.isEmpty()) {
+//                    UserslistFiltered = Userslist;
+//                } else {
+//                    List<ClientViewModel> filteredList = new ArrayList<>();
+//                    for (ClientViewModel row : Userslist) {
+//
+//                        // name match condition. this might differ depending on your requirement
+//                        // here we are looking for name or phone number match
+//                        if (
+//                                row.getPhone().toLowerCase().contains(charString.toLowerCase()) ||
+//                                        row.getName().toLowerCase().contains(charString.toLowerCase())
+//                                )
+//                        {
+//                            filteredList.add(row);
+//                        }
+//                    }
+//
+//                    UserslistFiltered = filteredList;
+//                }
+//
+//                FilterResults filterResults = new FilterResults();
+//                filterResults.values = UserslistFiltered;
+//                return filterResults;
+//            }
+//
+//            @Override
+//            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+//                UserslistFiltered = (ArrayList<ClientViewModel>) filterResults.values;
+//                notifyDataSetChanged();
+//            }
+//        };
     }
 
 

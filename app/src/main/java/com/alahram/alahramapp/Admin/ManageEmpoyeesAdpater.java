@@ -32,13 +32,15 @@ import java.util.List;
  */
 
 public class ManageEmpoyeesAdpater extends RecyclerView.Adapter<ManageEmpoyeesAdpater.CustomViewHolder> implements Filterable {
-    private List<UserViewModel> Userslist;
-    private List<UserViewModel> UserslistFilter;
+     ArrayList<UserViewModel> Userslist;
+     ArrayList<UserViewModel> Userslistfilter;
+    CustomFilterEmpoyee filter;
+
     Context mcontext;
 
-    public ManageEmpoyeesAdpater(Context mcontext, List<UserViewModel> userslist) {
+    public ManageEmpoyeesAdpater(Context mcontext, ArrayList<UserViewModel> userslist) {
         this.Userslist = userslist;
-        this.UserslistFilter = userslist;
+        this.Userslistfilter = userslist;
         this.mcontext = mcontext;
     }
 
@@ -66,7 +68,7 @@ public class ManageEmpoyeesAdpater extends RecyclerView.Adapter<ManageEmpoyeesAd
 
     @Override
     public void onBindViewHolder(final CustomViewHolder holder, final int position) {
-        final UserViewModel item = UserslistFilter.get(position);
+        final UserViewModel item = Userslist.get(position);
         holder.ordername.setText(item.getFullName());
         holder.orderprice.setVisibility(View.INVISIBLE);
         holder.tvCounter.setVisibility(View.INVISIBLE);
@@ -111,7 +113,7 @@ public class ManageEmpoyeesAdpater extends RecyclerView.Adapter<ManageEmpoyeesAd
 
     @Override
     public int getItemCount() {
-        return (null != UserslistFilter ? UserslistFilter.size() : 0);
+        return Userslist.size();
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder{
@@ -175,42 +177,51 @@ public class ManageEmpoyeesAdpater extends RecyclerView.Adapter<ManageEmpoyeesAd
     }
 
 
+
     @Override
     public Filter getFilter() {
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence charSequence) {
-                String charString = charSequence.toString();
-                if (charString.isEmpty()) {
-                    UserslistFilter = Userslist;
-                } else {
-                    List<UserViewModel> filteredList = new ArrayList<>();
-                    for (UserViewModel row : Userslist) {
 
-                        // name match condition. this might differ depending on your requirement
-                        // here we are looking for name or phone number match
-                        if (
-                                row.getUserName().toLowerCase().contains(charString.toLowerCase())
-                                )
-                        {
-                            filteredList.add(row);
-                        }
-                    }
+        if(filter==null)
+        {
+            filter=new CustomFilterEmpoyee(Userslistfilter,this);
+        }
 
-                    UserslistFilter = filteredList;
-                }
+        return filter;
 
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = UserslistFilter;
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                UserslistFilter = (ArrayList<UserViewModel>) filterResults.values;
-                notifyDataSetChanged();
-            }
-        };
+//        return new Filter() {
+//            @Override
+//            protected FilterResults performFiltering(CharSequence charSequence) {
+//                String charString = charSequence.toString();
+//                if (charString.isEmpty()) {
+//                    UserslistFilter = Userslist;
+//                } else {
+//                    List<UserViewModel> filteredList = new ArrayList<>();
+//                    for (UserViewModel row : Userslist) {
+//
+//                        // name match condition. this might differ depending on your requirement
+//                        // here we are looking for name or phone number match
+//                        if (
+//                                row.getUserName().toLowerCase().contains(charString.toLowerCase())
+//                                )
+//                        {
+//                            filteredList.add(row);
+//                        }
+//                    }
+//
+//                    UserslistFilter = filteredList;
+//                }
+//
+//                FilterResults filterResults = new FilterResults();
+//                filterResults.values = UserslistFilter;
+//                return filterResults;
+//            }
+//
+//            @Override
+//            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+//                UserslistFilter = (ArrayList<UserViewModel>) filterResults.values;
+//                notifyDataSetChanged();
+//            }
+//        };
     }
 
 

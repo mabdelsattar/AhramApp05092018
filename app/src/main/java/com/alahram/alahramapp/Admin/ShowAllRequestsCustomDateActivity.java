@@ -38,7 +38,7 @@ import static com.alahram.alahramapp.model.Constant.MANAGER_ROLE;
 public class ShowAllRequestsCustomDateActivity extends AppCompatActivity {
     RecyclerView requestrecycleview;
     ShowRequestAdapter adapter;
-    List<RequestModel> data;
+    ArrayList<RequestModel> data;
     private ProgressDialog dialog;
 
     static final String REQ_TAG = "VACTIVITY";

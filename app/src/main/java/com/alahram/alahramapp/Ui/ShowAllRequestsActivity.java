@@ -49,7 +49,7 @@ import static com.alahram.alahramapp.model.Constant.MANAGER_ROLE;
 public class ShowAllRequestsActivity extends AppCompatActivity {
     RecyclerView requestrecycleview;
     ShowRequestAdapter adapter;
-    List<RequestModel> data;
+    ArrayList<RequestModel> data;
     private ProgressDialog dialog;
     int type = -1;
 
