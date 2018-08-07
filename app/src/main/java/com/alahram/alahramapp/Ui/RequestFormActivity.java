@@ -365,7 +365,7 @@ public class RequestFormActivity extends AppCompatActivity {
                  mpreferences.setReciverNationalId(recivernationalid.getText().toString());
                  mpreferences.setReciverAddressDetail1(spinner_Reciever_address_city.getSelectedItem().toString());
                  mpreferences.setRecieverCity(recieverCities.get(spinner_Reciever_address_city.getSelectedItemPosition()));
-                 mpreferences.setReciverAddressDetail2(spinner_Reciever_address_country.getSelectedItem().toString());
+                 mpreferences.setReciverAddressDetail2(spinner_Reciever_address_city.getSelectedItem().toString());
                  mpreferences.setRecieverCountry(spinner_Reciever_address_country.getSelectedItemPosition());
                  mpreferences.setClientNationality(spinner_nationality.getSelectedItemPosition());
                  mpreferences.setReciverAddressDetail(reciveraddressdetail.getText().toString());

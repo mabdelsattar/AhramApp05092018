@@ -1713,8 +1713,10 @@ public class CreatePdfActivity extends AppCompatActivity {
         String clientNationalIdStr = mpreference.getClientNationalId();
         clientNationalId.setText(clientNationalIdStr);
 
-        clientNationalIdHint.setVisibility(View.GONE);
-        clientNationalId.setVisibility(View.GONE);
+        clientNationalIdHint.setText("محافظة:");
+        String city=mpreference.getReciverAddressDetial12();
+        clientNationalId.setText(city);
+
 
         if(mpreference.getClientPhoneEgy().equals(null) || mpreference.getClientPhoneEgy().equals(""))
         {}
