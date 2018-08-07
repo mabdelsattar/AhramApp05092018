@@ -25,11 +25,14 @@
             android:layout_centerHorizontal="true"
             android:text="تفاصيل عن الطلب"
             android:textSize="20dp" />
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_below="@+id/tv_deails"
+    android:padding="3dp"
+    android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_deails"
             android:orientation="vertical">
 
 
@@ -270,7 +273,7 @@ android:background="@drawable/my_custom_background"
 
 
         </LinearLayout>
-
+</ScrollView>
 
 
     </RelativeLayout>

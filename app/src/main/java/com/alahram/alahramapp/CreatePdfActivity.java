@@ -1392,7 +1392,7 @@ public class CreatePdfActivity extends AppCompatActivity {
     {
         tf = Typeface.createFromAsset(getResources().getAssets(), "GE_Thameen_Book.otf");
 
-        mBillNumber.setTypeface(tf);
+       /* mBillNumber.setTypeface(tf);
         mMobileNumberHint.setTypeface(tf);
         mMobileNumber.setTypeface(tf);
         mNumberHint.setTypeface(tf);
@@ -1427,14 +1427,14 @@ public class CreatePdfActivity extends AppCompatActivity {
         mLine28.setTypeface(tf);
         mLine29.setTypeface(tf);
 
-     /*   mBillNumber2.setTypeface(tf);
+        mBillNumber2.setTypeface(tf);
         mBillNumber3.setTypeface(tf);
         mBillNumber4.setTypeface(tf);
         mBillNumber5.setTypeface(tf);
         mBillNumber6.setTypeface(tf);
         mBillNumber7.setTypeface(tf);
         mBillNumber8.setTypeface(tf);
-        mBillNumber9.setTypeface(tf);*/
+        mBillNumber9.setTypeface(tf);
 
 
 
@@ -1628,7 +1628,7 @@ public class CreatePdfActivity extends AppCompatActivity {
 
 
         clientNationalIdHint.setTypeface(tf);
-        clientNationalId.setTypeface(tf);
+        clientNationalId.setTypeface(tf);*/
 
     }
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -1729,7 +1729,7 @@ public class CreatePdfActivity extends AppCompatActivity {
         String receiverName=mpreference.getRecivername();
         String senderName=mpreference.getclientname();
         String receiverAddress=mpreference.getReciverAddressDetial();
-        String receiverPhones=mpreference.getReciverPhoneEgy();
+        String receiverPhones= mpreference.getReciverPhoneEgy();
         if(mpreference.getReciverPhoneKsa().equals(null) || mpreference.getReciverPhoneKsa().equals(""))
         {}
         else
@@ -2009,10 +2009,12 @@ public class CreatePdfActivity extends AppCompatActivity {
             page2_item2=child.findViewById(R.id.page2_item2);
             page2_item1Number=child.findViewById(R.id.page2_item1Number);
             page2_item1=child.findViewById(R.id.page2_item1);
-            page2_item1Number.setText(" ( "+String.valueOf(i+1)+" ) ");
+            page2_item1Number.setText(" ( "+data.get(i+1).getCounter()+" ) ");
+          //  page2_item1Number.setText("*"+data.get(i).getCounter());
             page2_item1.setText(data.get(i).getOrdername());
 
-            page2_item2Number.setText(" ( "+String.valueOf(i+2)+" ) ");
+            page2_item2Number.setText(" ( "+data.get(i+1).getCounter()+" ) ");
+           // page2_item2Number.setText("*"+data.get(i+1).getCounter());
 
             page2_item2.setText(data.get(i+1).getOrdername());
 
@@ -2060,7 +2062,7 @@ public class CreatePdfActivity extends AppCompatActivity {
             page2_item2=child.findViewById(R.id.page2_item2);
             page2_item1Number=child.findViewById(R.id.page2_item1Number);
             page2_item1=child.findViewById(R.id.page2_item1);
-            page2_item1Number.setText(" ( "+String.valueOf((data.size())) +" ) ");
+            page2_item1Number.setText(" ( "+data.get(data.size()-1).getCounter() +" ) ");
             page2_item1.setText(data.get(data.size()-1).getOrdername());
             page2_item2.setText("");
             page2_item2Number.setText("");
@@ -2260,8 +2262,8 @@ public class CreatePdfActivity extends AppCompatActivity {
                                     int SecretNum = response.getInt("Serial");
                                     mpreference.setSecretNum(SecretNum);
 
-                                    mSecretNumber.setTypeface(tf);
-                                    mSecretNumberHint.setTypeface(tf);
+                                  //  mSecretNumber.setTypeface(tf);
+                                  //  mSecretNumberHint.setTypeface(tf);
 
                                     mSecretNumber.setText(SecretNum+"");
                                     mBillNumber.setText(RequestId+"");
