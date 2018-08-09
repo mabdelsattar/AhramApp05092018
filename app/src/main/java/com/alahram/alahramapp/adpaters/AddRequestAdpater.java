@@ -2,9 +2,12 @@ package com.alahram.alahramapp.adpaters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -37,7 +40,7 @@ public class AddRequestAdpater extends RecyclerView.Adapter<AddRequestAdpater.Cu
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.carditem, null);
-        CustomViewHolder viewHolder = new CustomViewHolder(view);
+        CustomViewHolder viewHolder = new CustomViewHolder(view,new MyCustomEditTextListener());
         return viewHolder;
     }
 
@@ -46,6 +49,11 @@ public class AddRequestAdpater extends RecyclerView.Adapter<AddRequestAdpater.Cu
         final AddRequestModel item = Itemlist.get(position);
         holder.ordername.setText(item.getOrdername());
         holder.orderprice.setText(item.getOrderprice());
+
+//        holder.ettroodcount.setText(item.getTrode()+"");
+        holder.myCustomEditTextListener.updatePosition(holder.getAdapterPosition());
+        holder.ettroodcount.setText(Itemlist.get(holder.getAdapterPosition()).getTrode()+"");
+
 
         holder.tvCounter.setText(item.getCounter()+"");
         if (item.getCounter() > 0) {
@@ -58,6 +66,7 @@ public class AddRequestAdpater extends RecyclerView.Adapter<AddRequestAdpater.Cu
 
         holder.add.setOnClickListener(null);
         holder.remove.setOnClickListener(null);
+        //holder.ettroodcount.addTextChangedListener(null);
 
         holder.add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +81,25 @@ public class AddRequestAdpater extends RecyclerView.Adapter<AddRequestAdpater.Cu
                 }
             }
         });
+
+       /* holder.ettroodcount.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {}
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                if(s.length() > 0)
+                    item.setTrode(Integer.parseInt(s.toString()));
+            }
+        });*/
+
+
 
         holder.remove.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,23 +134,52 @@ public class AddRequestAdpater extends RecyclerView.Adapter<AddRequestAdpater.Cu
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder{
-        protected TextView ordername, orderprice, tvCounter;
-        protected ImageView add, remove;
 
-        public CustomViewHolder(View view) {
+        protected TextView ordername, orderprice, tvCounter;
+        protected  EditText ettroodcount;
+        protected ImageView add, remove;
+        public MyCustomEditTextListener myCustomEditTextListener;
+
+
+        public CustomViewHolder(View view,MyCustomEditTextListener myCustomEditTextListener) {
             super(view);
             this.ordername = (TextView) view.findViewById(R.id.ordername);
             this.orderprice = (TextView) view.findViewById(R.id.price);
             this.add = (ImageView) view.findViewById(R.id.increase);
             this.remove = (ImageView) view.findViewById(R.id.decrease);
             this.tvCounter = (TextView) view.findViewById(R.id.tvCount);
+            this.ettroodcount = (EditText) view.findViewById(R.id.ettroodcount);
 
+            this.myCustomEditTextListener = myCustomEditTextListener;
+            this.ettroodcount.addTextChangedListener(myCustomEditTextListener);
         }
 
 
     }
 
+    private class MyCustomEditTextListener implements TextWatcher {
+        private int position;
 
+        public void updatePosition(int position) {
+            this.position = position;
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            // no op
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            if(charSequence.length() > 0)
+                Itemlist.get(position).setTrode(Integer.parseInt(charSequence.toString()));
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            // no op
+        }
+    }
 
     @Override
     public Filter getFilter() {

@@ -90,16 +90,20 @@ public class AddRequestsActivity extends AppCompatActivity {
                 //TODO go to page for build your request
 
                 boolean isEmptry= true;
+                ArrayList<AddRequestModel> filledData=new ArrayList<>();
                 for (int i=0 ; i< data.size(); i++)
                 {
-                    if(data.get(i).getCounter() > 0)
+                    if(data.get(i).getCounter() > 0) {
                         isEmptry = false;
-                }
+                        filledData.add(data.get(i));
+
+                    }
+               }
 
                 if(isEmptry == false) {
                     Intent intent = new Intent(AddRequestsActivity.this, NotesActivity.class);
                     Bundle bundle = new Bundle();
-                    bundle.putSerializable("dataList", data);
+                    bundle.putSerializable("dataList", filledData);
                     intent.putExtras(bundle);
                     startActivity(intent);
 

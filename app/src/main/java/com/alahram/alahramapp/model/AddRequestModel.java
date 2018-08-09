@@ -20,8 +20,8 @@ public class AddRequestModel implements Serializable
     int trode;
 
     public int getTrode() {
-        if (trode<0)
-            trode =0;
+        if (trode<=0)
+            trode =1;
         return trode;
     }
 
