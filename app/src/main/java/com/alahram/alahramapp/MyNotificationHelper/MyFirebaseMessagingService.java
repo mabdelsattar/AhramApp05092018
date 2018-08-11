@@ -61,7 +61,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 
     private void handleNotification(String message) {
-        if (!NotificationUtils.isAppIsInBackground(getApplicationContext())) {
+
+          if (!NotificationUtils.isAppIsInBackground(getApplicationContext())) {
             // app is in foreground, broadcast the push message
             Intent pushNotification = new Intent(Config.PUSH_NOTIFICATION);
             pushNotification.putExtra("message", message);
@@ -88,10 +89,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             manager.notify((int)(System.currentTimeMillis()/1000), notification);
 
 
-
         }else{
-            // If the app is in background, firebase itself handles the notification
-            // play notification sound
+          //If the app is in background, firebase itself handles the notification
+          // play notification sound
             NotificationUtils notificationUtils = new NotificationUtils(getApplicationContext());
             notificationUtils.playNotificationSound();
 

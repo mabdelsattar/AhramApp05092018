@@ -55,7 +55,6 @@ public class NotesActivity extends AppCompatActivity {
 
                 btnNext.setActivated(false);
                 if (fn_permission())
-
                     openActivity();
             }
         });

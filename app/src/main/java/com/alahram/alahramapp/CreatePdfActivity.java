@@ -50,6 +50,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -1694,7 +1695,12 @@ public class CreatePdfActivity extends AppCompatActivity {
         });
       //  لفقاقفاق
       //  billNumber=String.valueOf(getRandomBillNumber())+" كود سري: "+mpreference.getSecretNum();
-        trodeNumber = String.valueOf(data.size()) + " طرد " ;
+        int totalCount =  0;
+        for(int index = 0 ; index <data.size(); index++)
+        {
+            totalCount += (data.get(index).getTrode()*data.get(index).getCounter());
+        }
+        trodeNumber = String.valueOf(totalCount) + " طرد " ;
 
 //       bindDataToStickersView("");
 //        bindDataToBill1();
@@ -1843,7 +1849,7 @@ public class CreatePdfActivity extends AppCompatActivity {
             if(!data.get(i).getOrderprice().equals(""))
             totalTextView.setText(String.valueOf((data.get(i).getCounter() * (Integer.valueOf(data.get(i).getOrderprice()))))+ currencyUnit );
 
-           //trodeTextView.setText(String.valueOf(data.get(i).getTrode()));
+            trodeTextView.setText(String.valueOf(data.get(i).getTrode()));
 
             child.setTag(i);
             child.setBackgroundColor(Color.WHITE);
@@ -1897,7 +1903,13 @@ public class CreatePdfActivity extends AppCompatActivity {
 
     private void bindDataToBill2()
     {
-        String itemCount=String.valueOf(data.size());
+        String itemCount="";
+        int totalCount =  0;
+        for(int index = 0 ; index <data.size(); index++)
+        {
+            totalCount += (data.get(index).getTrode()*data.get(index).getCounter());
+        }
+        itemCount = String.valueOf(totalCount);
         String date=getCurrantDate();
 
         String receiverName=mpreference.getRecivername();
@@ -2009,14 +2021,14 @@ public class CreatePdfActivity extends AppCompatActivity {
             page2_item2=child.findViewById(R.id.page2_item2);
             page2_item1Number=child.findViewById(R.id.page2_item1Number);
             page2_item1=child.findViewById(R.id.page2_item1);
-            page2_item1Number.setText(" ( "+data.get(i+1).getCounter()+" ) ");
+            page2_item1Number.setText(" ( "+data.get(i).getCounter()+" ) ");
           //  page2_item1Number.setText("*"+data.get(i).getCounter());
-            page2_item1.setText(data.get(i).getOrdername());
+            page2_item1.setText(data.get(i).getOrdername()+"( "+data.get(i).getTrode()+" قطعه)");
 
             page2_item2Number.setText(" ( "+data.get(i+1).getCounter()+" ) ");
            // page2_item2Number.setText("*"+data.get(i+1).getCounter());
 
-            page2_item2.setText(data.get(i+1).getOrdername());
+            page2_item2.setText(data.get(i+1).getOrdername()+"( "+data.get(i+1).getTrode()+" قطعه)");
 
             child.setTag(i);
 
@@ -2063,7 +2075,8 @@ public class CreatePdfActivity extends AppCompatActivity {
             page2_item1Number=child.findViewById(R.id.page2_item1Number);
             page2_item1=child.findViewById(R.id.page2_item1);
             page2_item1Number.setText(" ( "+data.get(data.size()-1).getCounter() +" ) ");
-            page2_item1.setText(data.get(data.size()-1).getOrdername());
+            page2_item1.setText(data.get(data.size()-1).getOrdername()+"( "+data.get(data.size()-1).getTrode()+" قطعه)");
+
             page2_item2.setText("");
             page2_item2Number.setText("");
             child.setTag(data.size()-1);
@@ -2249,6 +2262,15 @@ public class CreatePdfActivity extends AppCompatActivity {
                 }
 
                 jsonBody.put("Items",Items);
+
+                JSONArray TroodCounts =  new JSONArray();
+
+                for(int i=0 ; i< data.size() ; i++)
+                {
+                    TroodCounts.put(data.get(i).getTrode());
+                }
+
+                jsonBody.put("TroodCounts",TroodCounts);
 
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonBody,
                         new Response.Listener<JSONObject>() {
@@ -2552,7 +2574,7 @@ public class CreatePdfActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    void createPdfSticker(){
+    void createPdfSticker() {
         DisplayMetrics displaymetrics = new DisplayMetrics();
         this.getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
 
@@ -2574,13 +2596,20 @@ public class CreatePdfActivity extends AppCompatActivity {
 //        document.finishPage(page1);
 
 
-        int pageNumber=2;
-        for (int i=0;i<data.size();i++) {
-            for (int j=0;j<data.get(i).getCounter();j++) {
+        int pageNumber = 2;
+        for (int i = 0; i < data.size(); i++) {
+            for (int j = 0; j < data.get(i).getCounter(); j++) {
+              for (int troodIndex = 0; troodIndex < data.get(i).getTrode(); troodIndex++) {
 
                 mPage3ContentNumber1.setText(data.get(i).getOrdername());
                 mPage3ContentNumber2.setText(data.get(i).getOrdername());
                 mPage3ContentNumber3.setText(data.get(i).getOrdername());
+
+                mPage3BillNumber1.setText(RequestId+" / "+data.get(i).getTrode());
+                mPage3BillNumber2.setText(RequestId+" / "+data.get(i).getTrode());
+                mPage3BillNumber3.setText(RequestId+" / "+data.get(i).getTrode());
+
+
                 Bitmap bitmap2;
                 PdfDocument.PageInfo pageInfo2;
                 PdfDocument.Page page2;
@@ -2595,6 +2624,7 @@ public class CreatePdfActivity extends AppCompatActivity {
                 document.finishPage(page2);
             }
         }
+    }
 
         File root = new File(Environment.getExternalStorageDirectory(), "AlAhram");
         if (!root.exists()) {

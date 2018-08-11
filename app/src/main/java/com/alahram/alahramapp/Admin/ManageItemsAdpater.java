@@ -74,7 +74,8 @@ public class ManageItemsAdpater extends RecyclerView.Adapter<ManageItemsAdpater.
     public void onBindViewHolder(final CustomViewHolder holder, final int position) {
         final AddRequestModel item = Itemlist.get(position);
         holder.ordername.setText(item.getOrdername());
-        holder.orderprice.setText(item.getOrderprice());
+        holder.orderprice.setText(item.getOrderprice()+" ريال سعودي");
+        holder.trodcount.setText(item.getTrode()+" قطعه");
 
         holder.tvCounter.setText(item.getCounter()+"");
         if (item.getCounter() > 0) {
@@ -96,6 +97,7 @@ public class ManageItemsAdpater extends RecyclerView.Adapter<ManageItemsAdpater.
                 intent.putExtra("ItemId",item.getId()+"");
                 intent.putExtra("Name",item.getOrdername()+"");
                 intent.putExtra("Price",item.getOrderprice()+"");
+                intent.putExtra("Trood",item.getTrode()+"");
                 mcontext.startActivity(intent);
 
             }
@@ -130,6 +132,7 @@ public class ManageItemsAdpater extends RecyclerView.Adapter<ManageItemsAdpater.
     public class CustomViewHolder extends RecyclerView.ViewHolder{
         protected TextView ordername, orderprice, tvCounter;
         protected ImageView add, remove;
+        protected TextView trodcount;
 
         public CustomViewHolder(View view) {
             super(view);
@@ -138,6 +141,7 @@ public class ManageItemsAdpater extends RecyclerView.Adapter<ManageItemsAdpater.
             this.add = (ImageView) view.findViewById(R.id.increase);
             this.remove = (ImageView) view.findViewById(R.id.decrease);
             this.tvCounter = (TextView) view.findViewById(R.id.tvCount);
+            this.trodcount = (TextView) view.findViewById(R.id.trodcount);
 
 
         }

@@ -40,6 +40,7 @@ import com.alahram.alahramapp.R;
 import com.alahram.alahramapp.model.AddRequestModel;
 import com.alahram.alahramapp.model.Constant;
 import com.alahram.alahramapp.model.RequestQueueSingleton;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -305,6 +306,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 error.printStackTrace();
             }
         });
+
+        jsonObjectRequest.setTag(REQ_TAG);
+        jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(10000,
+                5,
+                5f));
+
         jsonObjectRequest.setTag(REQ_TAG);
         requestQueue.add(jsonObjectRequest);
     }

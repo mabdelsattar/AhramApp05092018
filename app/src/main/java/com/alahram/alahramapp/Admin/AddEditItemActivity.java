@@ -26,9 +26,9 @@ import org.json.JSONObject;
 
 public class AddEditItemActivity extends AppCompatActivity {
 
-    EditText etprice,etname;
+    EditText etprice,etname,etTrood;
     Button btnsaveitem;
-    String Name,Prices;
+    String Name,Prices,Trood;
     RequestQueue requestQueue;
     ProgressDialog dialog;
 
@@ -42,14 +42,17 @@ public class AddEditItemActivity extends AppCompatActivity {
         btnsaveitem = (Button) findViewById(R.id.btnsaveitem);
         etprice = (EditText) findViewById(R.id.etprice);
         etname = (EditText) findViewById(R.id.etname);
+        etTrood = (EditText) findViewById(R.id.etTrood);
 
         if(getIntent().getExtras() != null) {
             ItemId = getIntent().getExtras().getString("ItemId", null);
             Name= getIntent().getExtras().getString("Name", null);
             Prices= getIntent().getExtras().getString("Price", null);
+            Trood= getIntent().getExtras().getString("Trood", null);
 
             etname.setText(Name);
             etprice.setText(Prices);
+            etTrood.setText(Trood);
 
         }
         requestQueue = RequestQueueSingleton.getInstance(AddEditItemActivity.this)
@@ -75,9 +78,11 @@ public class AddEditItemActivity extends AppCompatActivity {
 
                 Name = etname.getText().toString();
                 Prices = etprice.getText().toString();
+                Trood = etTrood.getText().toString();
 
                 if(Name == null || Name.equals("null") || Name.equals("")
-                  || Prices == null || Prices.equals("null") || Prices.equals(""))
+                  || Prices == null || Prices.equals("null") || Prices.equals("")
+                 || Trood == null || Trood.equals("null") || Trood.equals(""))
                 {
                     Toast.makeText(getApplicationContext(),"يجب ملئ كافة الحقول",Toast.LENGTH_LONG).show();
                 }else{
@@ -91,6 +96,7 @@ public class AddEditItemActivity extends AppCompatActivity {
                         jsonBody.put("Id",ItemId);
                         jsonBody.put("Name",Name);
                         jsonBody.put("Price",Prices);
+                        jsonBody.put("Trood",Trood);
 
 
                         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonBody,

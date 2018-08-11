@@ -19,6 +19,7 @@ public class AddRequestModel implements Serializable
     int Id;
     int trode;
 
+
     public int getTrode() {
         if (trode<=0)
             trode =1;
@@ -53,10 +54,11 @@ public class AddRequestModel implements Serializable
         this.orderprice = orderprice;
     }
 
-    public AddRequestModel(int id,String ordername, String orderprice) {
+    public AddRequestModel(int id,String ordername, String orderprice,int trood) {
         this.ordername = ordername;
         this.orderprice = orderprice;
         this.Id = id;
+        this.trode  =trood;
     }
 
     public int getCounter() {

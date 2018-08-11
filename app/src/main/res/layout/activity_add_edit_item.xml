@@ -35,6 +35,19 @@
             android:inputType="number"
             />
 
+
+
+        <EditText
+            android:id="@+id/etTrood"
+            android:hint="عدد القطع"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:layout_marginTop="10dp"
+            android:inputType="number"
+            />
+
+
         <Button
             android:id="@+id/btnsaveitem"
             android:layout_width="match_parent"

@@ -89,7 +89,8 @@ public class ManageItemsActivity extends AppCompatActivity {
                                 int id = jsonObject.getInt("Id");
                                 String name =  jsonObject.getString("Name");
                                 int price =  jsonObject.getInt("Price");
-                                data.add(new AddRequestModel(id,name, price+""));
+                                int trod =  jsonObject.getInt("Trood");
+                                data.add(new AddRequestModel(id,name, price+"",trod));
 
                             }
                             // .setText("String Response : "+ response.toString());
