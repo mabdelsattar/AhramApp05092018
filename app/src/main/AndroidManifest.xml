@@ -162,6 +162,11 @@
             android:layoutDirection="ltr"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".Ui.OrderPreviewActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:layoutDirection="ltr"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Admin.AddEditUserActivity"
             android:configChanges="orientation|keyboardHidden"
             android:layoutDirection="ltr"

@@ -91,20 +91,38 @@ public class AddRequestsActivity extends AppCompatActivity {
 
                 boolean isEmptry= true;
                 ArrayList<AddRequestModel> filledData=new ArrayList<>();
+                JSONArray jsonfilled = new JSONArray();
                 for (int i=0 ; i< data.size(); i++)
                 {
                     if(data.get(i).getCounter() > 0) {
                         isEmptry = false;
                         filledData.add(data.get(i));
+                        try{
+                            JSONObject  myobj = new JSONObject();
+                            myobj.put("ordername",data.get(i).getOrdername());
+                            myobj.put("orderprice",data.get(i).getOrderprice());
+                            myobj.put("counter",data.get(i).getCounter());
+                            myobj.put("Id",data.get(i).getId());
+                            myobj.put("trode",data.get(i).getTrode());
+
+                            jsonfilled.put(myobj);
+
+                        }catch(Exception ex ) {
+
+
+                        }
+
 
                     }
                }
 
                 if(isEmptry == false) {
-                    Intent intent = new Intent(AddRequestsActivity.this, NotesActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("dataList", filledData);
-                    intent.putExtras(bundle);
+                    Intent intent = new Intent(AddRequestsActivity.this, OrderPreviewActivity.class);
+                    //Bundle bundle = new Bundle();
+
+                   // bundle.putSerializable("dataList", filledData);
+                   // intent.putExtras(bundle);
+                    intent.putExtra("jsonItems", new JSONArray(filledData).toString());
                     startActivity(intent);
 
 
