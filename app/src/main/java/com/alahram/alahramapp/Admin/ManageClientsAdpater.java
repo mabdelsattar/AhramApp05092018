@@ -61,6 +61,8 @@ public class ManageClientsAdpater extends RecyclerView.Adapter<ManageClientsAdpa
         holder.ordername.setText(item.getName());
         holder.orderprice.setText(item.getPhone());
         holder.tvCounter.setVisibility(View.INVISIBLE);
+        holder.trodcount.setVisibility(View.GONE);
+
 
         holder.add.setVisibility(View.INVISIBLE);
         holder.remove.setImageResource(R.drawable.clientcontacticon);
@@ -83,8 +85,9 @@ public class ManageClientsAdpater extends RecyclerView.Adapter<ManageClientsAdpa
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder{
-        protected TextView ordername, orderprice, tvCounter;
+        protected TextView ordername, orderprice, tvCounter,trodcount;
         protected ImageView add, remove;
+
 
         public CustomViewHolder(View view) {
             super(view);
@@ -93,6 +96,7 @@ public class ManageClientsAdpater extends RecyclerView.Adapter<ManageClientsAdpa
             this.add = (ImageView) view.findViewById(R.id.increase);
             this.remove = (ImageView) view.findViewById(R.id.decrease);
             this.tvCounter = (TextView) view.findViewById(R.id.tvCount);
+            this.trodcount = (TextView) view.findViewById(R.id.trodcount);
 
         }
     }

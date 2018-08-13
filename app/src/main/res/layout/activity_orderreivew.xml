@@ -23,7 +23,7 @@
             android:background="#D3D3D3"
             android:textColor="#113353"
             android:layout_centerHorizontal="true"
-            android:text="ملخص عناصر الطلب"
+            android:text="الاجمالي:"
             android:textSize="20dp" />
 <ScrollView
     android:layout_width="match_parent"

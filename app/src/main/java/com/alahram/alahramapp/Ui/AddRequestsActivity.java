@@ -122,7 +122,7 @@ public class AddRequestsActivity extends AppCompatActivity {
 
                    // bundle.putSerializable("dataList", filledData);
                    // intent.putExtras(bundle);
-                    intent.putExtra("jsonItems", new JSONArray(filledData).toString());
+                    intent.putExtra("jsonItems", jsonfilled.toString());
                     startActivity(intent);
 
 

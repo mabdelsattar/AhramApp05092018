@@ -23,6 +23,7 @@ import android.os.Environment;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -76,6 +77,8 @@ public class CreatePdfActivity extends AppCompatActivity {
     String filerecieverName= "";
     String more="";
     int RequestId;
+    JSONArray jsonArray;
+
 
 
     /** ButterKnife Code **/
@@ -1665,9 +1668,24 @@ public class CreatePdfActivity extends AppCompatActivity {
 //                return true;
 //            }
 //        });
-        Bundle bundle = getIntent().getExtras();
+        //Bundle bundle = getIntent().getExtras();
 
-        ArrayList<AddRequestModel> allData = (ArrayList<AddRequestModel>) bundle.getSerializable("dataList");
+        ArrayList<AddRequestModel> allData = new ArrayList<>();//(ArrayList<AddRequestModel>) bundle.getSerializable("dataList");
+        String JsonStr = getIntent().getExtras().getString("jsonItems");
+        try {
+            jsonArray = new JSONArray(JsonStr);
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject tempObj = jsonArray.getJSONObject(i);
+                allData.add(new AddRequestModel(tempObj.getInt("Id"),tempObj.getString("ordername"),tempObj.getString("orderprice"),tempObj.getInt("counter"),tempObj.getInt("trode")));
+            }
+
+
+
+        } catch (Exception ex) {
+
+        }
+
         more = getIntent().getExtras().getString("more");
 
         for (int i=0 ; i< allData.size() ; i++)
@@ -1763,7 +1781,9 @@ public class CreatePdfActivity extends AppCompatActivity {
 
 
         mMobileNumber.setText(mobileNumber);
-        mNumber.setText(itemNumber);
+       // mNumber.setText(itemNumber);
+        mNumber.setVisibility(View.INVISIBLE);
+        mNumberHint.setVisibility(View.INVISIBLE);
         mDate.setText(date);
         mReceiverName.setText(receiverName);
         mSenderName.setText(senderName);
@@ -2021,6 +2041,10 @@ public class CreatePdfActivity extends AppCompatActivity {
             page2_item2=child.findViewById(R.id.page2_item2);
             page2_item1Number=child.findViewById(R.id.page2_item1Number);
             page2_item1=child.findViewById(R.id.page2_item1);
+
+          //  page2_item1.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
+          //  page2_item2.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
+
             page2_item1Number.setText(" ( "+data.get(i).getCounter()+" ) ");
           //  page2_item1Number.setText("*"+data.get(i).getCounter());
             page2_item1.setText(data.get(i).getOrdername()+"( "+data.get(i).getTrode()+" قطعه)");
@@ -2074,6 +2098,11 @@ public class CreatePdfActivity extends AppCompatActivity {
             page2_item2=child.findViewById(R.id.page2_item2);
             page2_item1Number=child.findViewById(R.id.page2_item1Number);
             page2_item1=child.findViewById(R.id.page2_item1);
+
+           // page2_item1.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
+           // page2_item2.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
+
+
             page2_item1Number.setText(" ( "+data.get(data.size()-1).getCounter() +" ) ");
             page2_item1.setText(data.get(data.size()-1).getOrdername()+"( "+data.get(data.size()-1).getTrode()+" قطعه)");
 

@@ -72,6 +72,7 @@ public class ManageEmpoyeesAdpater extends RecyclerView.Adapter<ManageEmpoyeesAd
         holder.ordername.setText(item.getFullName());
         holder.orderprice.setVisibility(View.INVISIBLE);
         holder.tvCounter.setVisibility(View.INVISIBLE);
+        holder.trodcount.setVisibility(View.GONE);
 
         holder.add.setOnClickListener(null);
         holder.remove.setOnClickListener(null);
@@ -117,7 +118,7 @@ public class ManageEmpoyeesAdpater extends RecyclerView.Adapter<ManageEmpoyeesAd
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder{
-        protected TextView ordername, orderprice, tvCounter;
+        protected TextView ordername, orderprice, tvCounter,trodcount;
         protected ImageView add, remove;
 
         public CustomViewHolder(View view) {
@@ -127,6 +128,7 @@ public class ManageEmpoyeesAdpater extends RecyclerView.Adapter<ManageEmpoyeesAd
             this.add = (ImageView) view.findViewById(R.id.increase);
             this.remove = (ImageView) view.findViewById(R.id.decrease);
             this.tvCounter = (TextView) view.findViewById(R.id.tvCount);
+            this.trodcount = (TextView) view.findViewById(R.id.trodcount);
 
         }
     }

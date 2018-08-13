@@ -4,6 +4,8 @@ import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +19,9 @@ import android.widget.Toast;
 import com.alahram.alahramapp.Ui.AddRequestsActivity;
 import com.alahram.alahramapp.model.AddRequestModel;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -27,12 +32,16 @@ public class NotesActivity extends AppCompatActivity {
     EditText tvNotes;
     String Notes = "";
     com.alahram.alahramapp.Utilitis.Preferences pref;
-    Serializable  data;
+//    Serializable  data;
+    String JsonStr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
-        data = (ArrayList<AddRequestModel>) getIntent().getExtras().getSerializable("dataList");
+
+
+         JsonStr = getIntent().getExtras().getString("jsonItems");
+
         pref = new com.alahram.alahramapp.Utilitis.Preferences(NotesActivity.this);
 
 
@@ -65,15 +74,16 @@ public class NotesActivity extends AppCompatActivity {
     private void openActivity()
     {
         Intent intent = new Intent(NotesActivity.this, CreatePdfActivity.class);
-        Bundle bundle = new Bundle();
+        //Bundle bundle = new Bundle();
         Notes = tvNotes.getText().toString();
         pref.setNotes(Notes);
 
        // MyApplication.getApplicationInstance().setNotes(Notes);
 
-        bundle.putSerializable("dataList",data);
-        intent.putExtras(bundle);
-        intent.putExtra("more",Notes);
+       // bundle.putSerializable("dataList",data);
+        //intent.putExtras(bundle);
+        JsonStr = getIntent().getExtras().getString("jsonItems");
+        intent.putExtra("jsonItems",JsonStr);
         startActivity(intent);
     }
     public static final int REQUEST_PERMISSIONS = 1;

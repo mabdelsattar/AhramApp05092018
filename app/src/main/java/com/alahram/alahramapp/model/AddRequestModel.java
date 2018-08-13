@@ -61,6 +61,14 @@ public class AddRequestModel implements Serializable
         this.trode  =trood;
     }
 
+    public AddRequestModel(int id,String ordername, String orderprice,int count, int trood) {
+        this.ordername = ordername;
+        this.orderprice = orderprice;
+        this.Id = id;
+        this.counter = count;
+        this.trode  =trood;
+    }
+
     public int getCounter() {
         if(counter <= 0)
             counter = 0;
